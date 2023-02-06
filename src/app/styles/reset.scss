@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  @include transition();
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+a {
+  display: inline-block;
+  color: currentColor;
+  cursor: pointer;
+  text-decoration: none;
+  @include transition();
+
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+.reset {
+  @include reset()
+}

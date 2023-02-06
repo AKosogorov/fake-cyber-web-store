@@ -1,0 +1,65 @@
+body {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-white);
+  background-color: var(--color-bg--dark);
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 140%;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 140%;
+}
+
+section {
+  padding: var(--m) 0;
+}
+
+#app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.router-link-exact-active {
+  color: var(--color-green);
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 50px;
+}
+
+.header,
+.footer {
+  padding: var(--m) 0;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.nav {
+  font-size: 1.4em;
+
+  a {
+    font-weight: bold;
+  }
+}
+
+.transparent {
+  color: transparent;
+}
+
+.abs-center {
+  @include absoluteCenter();
+}
+

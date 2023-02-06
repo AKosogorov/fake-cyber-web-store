@@ -1,3 +1,3 @@
-import { APPLICATION } from "@/app";
+import { application } from "@/app";
 
-APPLICATION.mount("#app");
+application.mount("#app");
