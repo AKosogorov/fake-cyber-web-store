@@ -1,2 +1,2 @@
-import VPrice from './index.vue'
+import VPrice from './VPrice.vue'
 export default VPrice

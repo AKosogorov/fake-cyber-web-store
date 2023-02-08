@@ -4,8 +4,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 125%;
-  color: var(--color-white);
-  background-color: var(--color-bg--dark);
+  color: var(--color__white);
+  background-color: var(--bg-color-body);
 }
 
 section {
@@ -20,7 +20,7 @@ section {
 }
 
 .router-link-exact-active {
-  color: var(--color-green);
+  color: var(--color__green);
 }
 
 .container {
@@ -40,7 +40,7 @@ section {
 }
 
 .nav {
-  font-size: 1.4em;
+  font-size: 24px;
 
   a {
     font-weight: bold;

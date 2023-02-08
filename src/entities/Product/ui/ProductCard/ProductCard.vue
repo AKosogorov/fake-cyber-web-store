@@ -6,11 +6,12 @@
       :alt="product.title"
     />
 
-    <div>
-      <h3 class="mb-xxs">{{ product.title }}</h3>
-      <p>{{ product.description }}</p>
-
+    <div class="column gap-xxs">
       <VPrice :price="product.price" :discount="product.discountPercentage" />
+
+      <h4>{{ product.title }}</h4>
+
+      <p>{{ product.description }}</p>
     </div>
   </article>
 </template>
