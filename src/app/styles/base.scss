@@ -1,19 +1,11 @@
 body {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Bai Jamjuree, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 125%;
   color: var(--color-white);
   background-color: var(--color-bg--dark);
-}
-
-h1 {
-  font-size: 40px;
-  line-height: 140%;
-}
-
-h2 {
-  font-size: 24px;
-  line-height: 140%;
 }
 
 section {
