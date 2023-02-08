@@ -2,12 +2,12 @@
   width: 100%;
   max-width: 290px;
   border-radius: var(--border-radius);
-  background-color: var(--bg-color__dark--light);
+  padding-bottom: var(--s);
 
   &__image-wrap {
     height: 280px;
     border-radius: var(--border-radius);
     overflow: hidden;
-    background-color: var(--color__blue--light);
+    background-color: var(--color__dark-blue);
   }
 }

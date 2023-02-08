@@ -10,8 +10,6 @@
       <VPrice :price="product.price" :discount="product.discountPercentage" />
 
       <h4>{{ product.title }}</h4>
-
-      <p>{{ product.description }}</p>
     </div>
   </article>
 </template>

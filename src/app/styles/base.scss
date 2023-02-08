@@ -4,12 +4,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 125%;
+  letter-spacing: .2em;
   color: var(--color__white);
   background-color: var(--bg-color-body);
 }
 
 section {
   padding: var(--m) 0;
+}
+
+svg {
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+  transition-property: fill, stroke, transform;
 }
 
 #app {
