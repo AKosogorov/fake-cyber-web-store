@@ -1,0 +1,13 @@
+.product-card {
+  width: 100%;
+  max-width: 290px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg--dark-light);
+
+  &__image-wrap {
+    height: 280px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--color-blue--light);
+  }
+}

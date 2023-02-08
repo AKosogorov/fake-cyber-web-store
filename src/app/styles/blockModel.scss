@@ -23,7 +23,19 @@
 .gap-xxs {
   gap: var(--xxs);
 }
+.gap-xs {
+  gap: var(--xs);
+}
+.gap-s {
+  gap: var(--s);
+}
 
+.mb-xxs {
+  margin-bottom: var(--xxs);
+}
+.mb-xs {
+  margin-bottom: var(--xs);
+}
 .mb-s {
   margin-bottom: var(--s);
 }

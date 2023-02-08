@@ -1,9 +1,11 @@
 <template>
   <div class="container">
-    <h1>Main page</h1>
+    <h1 class="mb-s">Main page</h1>
+
+    <ProductList />
   </div>
 </template>
 
-<script setup lang="ts"></script>
-
-<style lang="scss"></style>
+<script setup lang="ts">
+import { ProductList } from "@/widgets/ProductList";
+</script>

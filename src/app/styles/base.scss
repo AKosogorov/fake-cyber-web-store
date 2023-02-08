@@ -34,8 +34,8 @@ section {
 .container {
   margin: 0 auto;
   width: 100%;
-  max-width: 1920px;
-  padding: 0 50px;
+  max-width: calc(var(--m) * 2 + 1440px);
+  padding: 0 var(--m);
 }
 
 .header,
