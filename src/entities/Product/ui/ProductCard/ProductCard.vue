@@ -1,5 +1,11 @@
 <template>
   <article class="product-card column gap-s">
+    <router-link
+      class="product-card__link abs-full"
+      :to="{ name: detailsRouteName, params: { id: product.id } }"
+      draggable="false"
+    />
+
     <ProductCardImages
       class="product-card__image-wrap"
       :images="product.images"
@@ -21,6 +27,7 @@ import type { IProduct } from '../../model/interface'
 
 defineProps<{
   product: IProduct
+  detailsRouteName: string
 }>()
 </script>
 

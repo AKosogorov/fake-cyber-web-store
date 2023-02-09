@@ -1,4 +1,5 @@
 .product-card {
+  position: relative;
   width: 100%;
   max-width: 290px;
   border-radius: var(--border-radius);
@@ -9,5 +10,9 @@
     border-radius: var(--border-radius);
     overflow: hidden;
     background-color: var(--color__dark-blue);
+  }
+
+  &__link {
+    z-index: 1;
   }
 }
