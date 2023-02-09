@@ -1,7 +1,7 @@
 @mixin checkboxHover () {
   .checkbox__icon-bg {
     path {
-      fill: var(--color__dark-blue--hover)
+      fill: var(--color__dark-blue--light)
     }
   }
 }

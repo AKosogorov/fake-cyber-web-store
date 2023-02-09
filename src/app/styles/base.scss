@@ -69,5 +69,11 @@ svg {
 .label {
   @include fontChakra600;
   letter-spacing: 0.04em;
+  @include transition;
+  transition-property: color;
+}
+
+.max-w-field {
+  max-width: var(--max-w-field);
 }
 

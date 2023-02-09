@@ -5,11 +5,12 @@
   --color__green: #42B983;
   --color__yellow: #F8EF00;
   --color__red: #FF003C;
-  --color__red--hover: #2D0008;
-  --color__grey: #BBBBBB;
+  --color__red--light: #2D0008;
+  --color__grey: #bbbbbb;
+  --color__grey--light: rgba(187, 187, 187, 0.1);
   --color__blue: #00F0FF;
   --color__dark-blue: #001417;
-  --color__dark-blue--hover: #002A30;
+  --color__dark-blue--light: #002A30;
 
   --color__purple: #77308C;
 
@@ -35,4 +36,6 @@
 
   --transition-duration: .1s;
   --transition-timing-function: ease-in-out;
+
+  --max-w-field: 460px;
 }

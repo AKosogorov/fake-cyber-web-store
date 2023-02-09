@@ -1,0 +1,7 @@
+@mixin inputFocus () {
+  border-color: var(--color__white);
+}
+
+@mixin inputHover () {
+  background-color: var(--color__dark-blue--light);
+}

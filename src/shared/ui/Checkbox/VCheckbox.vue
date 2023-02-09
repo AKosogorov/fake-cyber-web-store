@@ -1,7 +1,6 @@
 <template>
   <label class="checkbox row gap-xs" :class="isDisabled && 'disabled events-none'">
     <input
-      v-model="modelValue"
       type="checkbox"
       class="checkbox__input"
       :name="name"
@@ -22,19 +21,12 @@
 <script setup lang="ts">
 import IconBg from './icons/IconBg.vue'
 import IconChecked from './icons/IconChecked.vue'
-import {ref, watch} from "vue";
 
 defineProps<{
   label: string;
-  name: string;
+  name?: string;
   isDisabled?: boolean;
 }>()
-
-const modelValue = ref(false)
-
-watch(modelValue, (a) => {
-  console.log(a)
-})
 </script>
 
 <style lang="scss">

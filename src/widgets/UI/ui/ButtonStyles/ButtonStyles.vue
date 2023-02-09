@@ -41,7 +41,3 @@ const classes = {
   4: 'active'
 }
 </script>
-
-<style lang="scss">
-@import "styles";
-</style>
