@@ -1,3 +1,5 @@
+@import "mixins";
+
 .button {
   align-self: baseline;
   padding: 12px 30px;
@@ -23,29 +25,15 @@
   }
 
   &:focus-visible {
-    .button__border-decorate {
-      color: var(--color__red);
-    }
+    @include buttonFocus(var(--color__red));
   }
 
   &:hover {
-    color: var(--color__blue);
-
-    .button__border-decorate--after {
-      transform: translate(5px, 5px);
-    }
+    @include buttonHover(var(--color__blue));
   }
 
   &:active {
-    color: var(--color__black);
-
-    .button__border-decorate {
-      color: var(--color__blue);
-
-      &--after {
-        transform: translate(0, 0);
-      }
-    }
+    @include buttonActive(var(--color__black), var(--color__blue));
   }
 
   &:disabled {
@@ -54,5 +42,19 @@
     .button__border-decorate {
       color: var(--color__grey);
     }
+  }
+}
+
+.button {
+  &.focus {
+    @include buttonFocus(var(--color__red));
+  }
+
+  &.hover {
+    @include buttonHover(var(--color__blue));
+  }
+
+  &.active {
+    @include buttonActive(var(--color__black), var(--color__blue));
   }
 }
