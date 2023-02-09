@@ -1,2 +1,2 @@
-import VInput from "./VInput.vue";
-export default VInput;
+import VInput from './VInput.vue'
+export default VInput

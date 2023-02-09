@@ -22,16 +22,16 @@
 </template>
 
 <script setup lang="ts">
-import IconBg from "./icons/IconBg.vue";
-import IconChecked from "./icons/IconChecked.vue";
+import IconBg from './icons/IconBg.vue'
+import IconChecked from './icons/IconChecked.vue'
 
 defineProps<{
-  label: string;
-  name?: string;
-  isDisabled?: boolean;
-}>();
+  label: string
+  name?: string
+  isDisabled?: boolean
+}>()
 </script>
 
 <style lang="scss">
-@import "styles";
+@import 'styles';
 </style>

@@ -1,19 +1,13 @@
-import type { AxiosPromise } from "axios";
+import type { AxiosPromise } from 'axios'
 
-import {
-  create,
-  destroy,
-  getAll,
-  getById,
-  update,
-} from "@/shared/api/requests";
+import { create, destroy, getAll, getById, update } from '@/shared/api/requests'
 
 interface IBaseApi {
-  getAll: Function;
-  getById: Function;
-  create: Function;
-  update: Function;
-  destroy: Function;
+  getAll: Function
+  getById: Function
+  create: Function
+  update: Function
+  destroy: Function
 }
 
 export function createBaseApi(url: string): IBaseApi {
@@ -28,6 +22,6 @@ export function createBaseApi(url: string): IBaseApi {
       data: object = {},
       params: object = {}
     ): AxiosPromise => update(url, id, data, params),
-    destroy: (id: number): AxiosPromise => destroy(url, id),
-  };
+    destroy: (id: number): AxiosPromise => destroy(url, id)
+  }
 }

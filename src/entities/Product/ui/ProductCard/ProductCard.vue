@@ -15,15 +15,15 @@
 </template>
 
 <script setup lang="ts">
-import ProductCardImages from "../ProductCardImages";
-import VPrice from "@/shared/ui/VPrice/index";
-import type { IProduct } from "../../model/interface";
+import ProductCardImages from '../ProductCardImages'
+import VPrice from '@/shared/ui/VPrice/index'
+import type { IProduct } from '../../model/interface'
 
 defineProps<{
-  product: IProduct;
-}>();
+  product: IProduct
+}>()
 </script>
 
 <style lang="scss">
-@import "styles.scss";
+@import 'styles.scss';
 </style>

@@ -3,24 +3,24 @@
 </template>
 
 <script setup lang="ts">
-import MainLayout from "@/shared/ui/layouts/MainLayout.vue";
-import EmptyLayout from "@/shared/ui/layouts/EmptyLayout.vue";
+import MainLayout from '@/shared/ui/layouts/MainLayout.vue'
+import EmptyLayout from '@/shared/ui/layouts/EmptyLayout.vue'
 
-import { useRoute } from "vue-router";
-import { computed } from "vue";
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
 
-const route = useRoute();
+const route = useRoute()
 
 const layout = computed(() => {
   switch (route.meta.layout) {
-    case "empty":
-      return EmptyLayout;
+    case 'empty':
+      return EmptyLayout
     default:
-      return MainLayout;
+      return MainLayout
   }
-});
+})
 </script>
 
 <style lang="scss">
-@import "./styles";
+@import './styles';
 </style>

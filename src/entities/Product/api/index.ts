@@ -1,5 +1,5 @@
-import { createBaseApi } from "@/shared/api/baseApi";
+import { createBaseApi } from '@/shared/api/baseApi'
 
-const URL = "products";
+const URL = 'products'
 
-export const api = createBaseApi(URL);
+export const api = createBaseApi(URL)

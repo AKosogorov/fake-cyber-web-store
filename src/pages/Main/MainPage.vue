@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-import { ProductList } from "@/widgets/ProductList";
+import { ProductList } from '@/widgets/ProductList'
 </script>

@@ -19,21 +19,21 @@
 </template>
 
 <script setup lang="ts">
-import BorderDecorate from "@/shared/ui/BorderDecorate";
-import { EBorderDecorateIcons } from "@/shared/ui/BorderDecorate";
+import BorderDecorate from '@/shared/ui/BorderDecorate'
+import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
 
 export interface IButton {
-  text: string;
-  borderLeftIcon?: EBorderDecorateIcons;
-  borderRightIcon?: EBorderDecorateIcons;
+  text: string
+  borderLeftIcon?: EBorderDecorateIcons
+  borderRightIcon?: EBorderDecorateIcons
 }
 
 withDefaults(defineProps<IButton>(), {
   borderLeftIcon: EBorderDecorateIcons.inner,
-  borderRightIcon: EBorderDecorateIcons.outer,
-});
+  borderRightIcon: EBorderDecorateIcons.outer
+})
 </script>
 
 <style lang="scss">
-@import "styles";
+@import 'styles';
 </style>

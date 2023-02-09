@@ -1,5 +1,5 @@
 export const mainRoute = {
-  name: "MainPage",
-  path: "/",
-  component: () => import("./MainPage.vue"),
-};
+  name: 'MainPage',
+  path: '/',
+  component: () => import('./MainPage.vue')
+}

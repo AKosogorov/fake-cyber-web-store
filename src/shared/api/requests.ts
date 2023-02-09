@@ -1,8 +1,8 @@
-import type { AxiosPromise } from "axios";
-import { apiInstance } from "@/shared/api/index";
+import type { AxiosPromise } from 'axios'
+import { apiInstance } from '@/shared/api/index'
 
 export function getAll(url: string, params: object = {}): AxiosPromise {
-  return apiInstance.get(`/${url}`, { params });
+  return apiInstance.get(`/${url}`, { params })
 }
 
 export function getById(
@@ -10,7 +10,7 @@ export function getById(
   id: number,
   params: object = {}
 ): AxiosPromise {
-  return apiInstance.get(`/${url}/${id}`, { params });
+  return apiInstance.get(`/${url}/${id}`, { params })
 }
 
 export function create(
@@ -18,7 +18,7 @@ export function create(
   data: object = {},
   params: object = {}
 ): AxiosPromise {
-  return apiInstance.post(`/${url}`, data, { params });
+  return apiInstance.post(`/${url}`, data, { params })
 }
 
 export function update(
@@ -27,9 +27,9 @@ export function update(
   data: object = {},
   params: object = {}
 ): AxiosPromise {
-  return apiInstance.put(`/${url}/${id}`, data, { params });
+  return apiInstance.put(`/${url}/${id}`, data, { params })
 }
 
 export function destroy(url: string, id: number): AxiosPromise {
-  return apiInstance.delete(`/${url}/${id}`);
+  return apiInstance.delete(`/${url}/${id}`)
 }

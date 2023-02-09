@@ -19,30 +19,30 @@
 
 <script setup lang="ts">
 const colors = [
-  "yellow",
-  "red",
-  "grey",
-  "blue",
-  "black",
-  "dark-blue",
-  "green",
-  "purple",
-].map((item) => {
-  let textColor = "black";
+  'yellow',
+  'red',
+  'grey',
+  'blue',
+  'black',
+  'dark-blue',
+  'green',
+  'purple'
+].map(item => {
+  let textColor = 'black'
 
-  const bgWithWhiteText = ["red", "black", "dark-blue"];
+  const bgWithWhiteText = ['red', 'black', 'dark-blue']
 
   if (bgWithWhiteText.includes(item)) {
-    textColor = "white";
+    textColor = 'white'
   }
 
   return {
     text: textColor,
-    bg: item,
-  };
-});
+    bg: item
+  }
+})
 </script>
 
 <style lang="scss">
-@import "styles";
+@import 'styles';
 </style>

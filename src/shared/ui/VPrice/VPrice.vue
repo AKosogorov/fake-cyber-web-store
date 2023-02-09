@@ -6,23 +6,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { formatRUB } from "@/shared/lib/utils/format/currency";
+import { computed } from 'vue'
+import { formatRUB } from '@/shared/lib/utils/format/currency'
 
 const props = defineProps<{
-  price: number;
-  discount: number;
-}>();
+  price: number
+  discount: number
+}>()
 
-const hasDiscount = computed(() => props.discount > 0);
+const hasDiscount = computed(() => props.discount > 0)
 
 const currentPrice = computed(() => {
-  if (!hasDiscount.value) return props.price;
+  if (!hasDiscount.value) return props.price
 
-  return props.price * ((100 - props.discount) / 100);
-});
+  return props.price * ((100 - props.discount) / 100)
+})
 </script>
 
 <style lang="scss">
-@import "styles";
+@import 'styles';
 </style>

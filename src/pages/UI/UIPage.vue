@@ -17,6 +17,6 @@ import {
   ColorStyles,
   ButtonStyles,
   CheckboxStyles,
-  InputStyles,
-} from "@/widgets/UI";
+  InputStyles
+} from '@/widgets/UI'
 </script>

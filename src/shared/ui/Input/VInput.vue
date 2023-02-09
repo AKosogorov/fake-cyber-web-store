@@ -21,13 +21,13 @@
 
 <script setup lang="ts">
 defineProps<{
-  label?: string;
-  name?: string;
-  isDisabled?: boolean;
-  placeholder?: string;
-}>();
+  label?: string
+  name?: string
+  isDisabled?: boolean
+  placeholder?: string
+}>()
 </script>
 
 <style lang="scss">
-@import "styles";
+@import 'styles';
 </style>

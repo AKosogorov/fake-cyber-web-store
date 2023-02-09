@@ -24,17 +24,16 @@
     </div>
   </section>
 </template>
-
 <script setup lang="ts">
-import VButton from "@/shared/ui/buttons/VButton";
-import { buttonList } from "./model";
-import useToggle from "@/shared/lib/use/useToggle";
+import VButton from '@/shared/ui/buttons/VButton'
+import { buttonList } from './model'
+import useToggle from '@/shared/lib/use/useToggle'
 
-const { isActive: isDisabled, toggle } = useToggle(true);
+const { isActive: isDisabled, toggle } = useToggle(true)
 
 const classes = {
-  1: "hover",
-  2: "focus",
-  4: "active",
-};
+  1: 'hover',
+  2: 'focus',
+  4: 'active'
+}
 </script>

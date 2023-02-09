@@ -1,8 +1,8 @@
 export const notFoundRoute = {
-  path: "/*",
-  name: "NotFoundPage",
+  path: '/*',
+  name: 'NotFoundPage',
   meta: {
-    layout: "empty",
+    layout: 'empty'
   },
-  component: () => import("./NotFoundPage.vue"),
-};
+  component: () => import('./NotFoundPage.vue')
+}

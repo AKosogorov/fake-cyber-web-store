@@ -1,2 +1,2 @@
-import InputStyles from "./InputStyles.vue";
-export default InputStyles;
+import InputStyles from './InputStyles.vue'
+export default InputStyles

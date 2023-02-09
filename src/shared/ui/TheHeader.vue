@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import HeaderNav from "@/shared/ui/navigation/HeaderNav.vue";
+import HeaderNav from '@/shared/ui/navigation/HeaderNav.vue'
 </script>
 
 <style></style>

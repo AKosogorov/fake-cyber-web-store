@@ -1,3 +1,3 @@
-import ProductCardImages from "./ProductCardImages.vue";
+import ProductCardImages from './ProductCardImages.vue'
 
-export default ProductCardImages;
+export default ProductCardImages
