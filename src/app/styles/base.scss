@@ -7,6 +7,7 @@ body {
   letter-spacing: .04em;
   color: var(--color__white);
   background-color: var(--bg-color-body);
+  @include customScroll;
 }
 
 section {
@@ -25,6 +26,12 @@ svg {
   flex-direction: column;
   min-height: 100vh;
 }
+
+
+.custom-scroll {
+  @include customScroll;
+}
+
 
 .router-link-exact-active {
   color: var(--color__green);
@@ -76,4 +83,3 @@ svg {
 .max-w-field {
   max-width: var(--max-w-field);
 }
-

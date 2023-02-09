@@ -32,3 +32,20 @@
   line-height: 130%;
   font-weight: 600;
 }
+
+@mixin customScroll () {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--color__dark-blue);
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color__blue);
+    border-radius: 20px;
+  }
+}
