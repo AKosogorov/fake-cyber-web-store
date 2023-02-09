@@ -1,10 +1,6 @@
 <template>
   <div class="product-list">
-    <ProductCard
-      v-for="item of products"
-      :key="item.id"
-      :product="item"
-    />
+    <ProductCard v-for="item of products" :key="item.id" :product="item" />
   </div>
 </template>
 

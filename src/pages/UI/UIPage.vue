@@ -13,5 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { ColorStyles, ButtonStyles, CheckboxStyles, InputStyles } from "@/widgets/UI";
+import {
+  ColorStyles,
+  ButtonStyles,
+  CheckboxStyles,
+  InputStyles,
+} from "@/widgets/UI";
 </script>

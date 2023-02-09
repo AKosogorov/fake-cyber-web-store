@@ -1,4 +1,4 @@
-import VButton from './VButton.vue'
+import VButton from "./VButton.vue";
 export type { IButton } from "./VButton.vue";
 
-export default VButton
+export default VButton;

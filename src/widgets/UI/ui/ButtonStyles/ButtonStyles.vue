@@ -6,19 +6,19 @@
 
     <div class="column gap-m">
       <div
-          v-for="(buttons, i) of buttonList"
-          :key="i"
-          class="row gap-s flex-wrap"
+        v-for="(buttons, i) of buttonList"
+        :key="i"
+        class="row gap-s flex-wrap"
       >
         <VButton
-            v-for="(button, idx) of buttons"
-            :key="idx"
-            class="events-none"
-            :class="classes[idx]"
-            :text="button.text"
-            :border-left-icon="button.borderLeftIcon"
-            :border-right-icon="button.borderRightIcon"
-            :disabled="(idx === 3) ? isDisabled : false"
+          v-for="(button, idx) of buttons"
+          :key="idx"
+          class="events-none"
+          :class="classes[idx]"
+          :text="button.text"
+          :border-left-icon="button.borderLeftIcon"
+          :border-right-icon="button.borderRightIcon"
+          :disabled="idx === 3 ? isDisabled : false"
         />
       </div>
     </div>
@@ -30,14 +30,11 @@ import VButton from "@/shared/ui/buttons/VButton";
 import { buttonList } from "./model";
 import useToggle from "@/shared/lib/use/useToggle";
 
-const {
-  isActive: isDisabled,
-  toggle
-} = useToggle(true)
+const { isActive: isDisabled, toggle } = useToggle(true);
 
 const classes = {
-  1: 'hover',
-  2: 'focus',
-  4: 'active'
-}
+  1: "hover",
+  2: "focus",
+  4: "active",
+};
 </script>

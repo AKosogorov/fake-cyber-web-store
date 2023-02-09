@@ -1,20 +1,20 @@
 <template>
   <button class="button reset" type="button">
     <BorderDecorate
-        class="button__border-decorate button__border-decorate--after"
-        :icon-left="borderLeftIcon"
-        :icon-right="borderRightIcon"
+      class="button__border-decorate button__border-decorate--after"
+      :icon-left="borderLeftIcon"
+      :icon-right="borderRightIcon"
     />
 
     <BorderDecorate
-        class="button__border-decorate"
-        :icon-left="borderLeftIcon"
-        :icon-right="borderRightIcon"
+      class="button__border-decorate"
+      :icon-left="borderLeftIcon"
+      :icon-right="borderRightIcon"
     />
 
     <span class="button__text label">{{ text }}</span>
 
-    <slot/>
+    <slot />
   </button>
 </template>
 
@@ -24,14 +24,14 @@ import { EBorderDecorateIcons } from "@/shared/ui/BorderDecorate";
 
 export interface IButton {
   text: string;
-  borderLeftIcon?: EBorderDecorateIcons
-  borderRightIcon?: EBorderDecorateIcons
+  borderLeftIcon?: EBorderDecorateIcons;
+  borderRightIcon?: EBorderDecorateIcons;
 }
 
 withDefaults(defineProps<IButton>(), {
   borderLeftIcon: EBorderDecorateIcons.inner,
-  borderRightIcon: EBorderDecorateIcons.outer
-})
+  borderRightIcon: EBorderDecorateIcons.outer,
+});
 </script>
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 const getEnvVar = (key: string) => {
-  const envVar = import.meta.env[key]
+  const envVar = import.meta.env[key];
   if (envVar === undefined) {
     throw new Error(`Env variable ${key} is required`);
   }

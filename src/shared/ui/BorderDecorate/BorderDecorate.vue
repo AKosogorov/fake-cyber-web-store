@@ -1,15 +1,15 @@
 <template>
   <span class="border-decorate">
     <component
-        class="border-decorate__icon border-decorate__icon--left"
-        :class="'border-decorate__icon--left-' + iconLeft"
-        :is="getComponentBy(iconLeft)"
+      :is="getComponentBy(iconLeft)"
+      class="border-decorate__icon border-decorate__icon--left"
+      :class="'border-decorate__icon--left-' + iconLeft"
     />
 
     <component
-        class="border-decorate__icon border-decorate__icon--right"
-        :class="'border-decorate__icon--right-' + iconRight"
-        :is="getComponentBy(iconRight)"
+      :is="getComponentBy(iconRight)"
+      class="border-decorate__icon border-decorate__icon--right"
+      :class="'border-decorate__icon--right-' + iconRight"
     />
   </span>
 </template>
@@ -19,9 +19,9 @@ import {
   IconBorderBottom,
   IconBorderInner,
   IconBorderOuter,
-  IconBorderTop
+  IconBorderTop,
 } from "@/shared/ui/icons/borders";
-import type { Component }  from "vue";
+import type { Component } from "vue";
 import { computed } from "vue";
 import type { EIconsName } from "@/shared/ui/BorderDecorate/interface";
 
@@ -32,13 +32,18 @@ defineProps<{
 
 const getComponentBy = computed(() => (name: string): Component | null => {
   switch (name) {
-    case 'inner': return IconBorderInner
-    case 'outer': return IconBorderOuter
-    case 'top': return IconBorderTop
-    case 'bottom': return IconBorderBottom
-    default: return null
+    case "inner":
+      return IconBorderInner;
+    case "outer":
+      return IconBorderOuter;
+    case "top":
+      return IconBorderTop;
+    case "bottom":
+      return IconBorderBottom;
+    default:
+      return null;
   }
-})
+});
 </script>
 
 <style lang="scss">
