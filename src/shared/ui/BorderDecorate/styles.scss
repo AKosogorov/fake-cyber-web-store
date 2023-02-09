@@ -22,21 +22,13 @@
       }
 
       &-bottom {
-        left: -14px;
+        left: -13px;
       }
     }
 
     &--right {
       right: -13px;
       transform: rotate(180deg);
-
-      &-top {
-        right: -14px;
-      }
-
-      &-bottom {
-        right: -14px;
-      }
     }
   }
 }

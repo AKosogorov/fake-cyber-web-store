@@ -2,9 +2,9 @@
   <div class="container">
     <h1>UI</h1>
 
-    <ButtonStyles />
-
     <ColorStyles />
+
+    <ButtonStyles />
   </div>
 </template>
 

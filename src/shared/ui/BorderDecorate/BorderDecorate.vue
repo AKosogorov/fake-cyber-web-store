@@ -22,11 +22,12 @@ import {
   IconBorderTop
 } from "@/shared/ui/icons/borders";
 import type { Component }  from "vue";
-import { computed} from "vue";
+import { computed } from "vue";
+import type { EIconsName } from "@/shared/ui/BorderDecorate/interface";
 
 defineProps<{
-  iconLeft: string;
-  iconRight: string;
+  iconLeft: EIconsName;
+  iconRight: EIconsName;
 }>();
 
 const getComponentBy = computed(() => (name: string): Component | null => {

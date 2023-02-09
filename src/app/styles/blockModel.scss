@@ -20,6 +20,10 @@
   justify-content: space-between;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .gap-xxs {
   gap: var(--xxs);
 }
@@ -28,6 +32,9 @@
 }
 .gap-s {
   gap: var(--s);
+}
+.gap-m {
+  gap: var(--m);
 }
 
 .mb-xxs {
@@ -38,4 +45,7 @@
 }
 .mb-s {
   margin-bottom: var(--s);
+}
+.mb-m {
+  margin-bottom: var(--m);
 }

@@ -62,3 +62,7 @@ svg {
   @include absoluteCenter();
 }
 
+.events-none {
+  pointer-events: none;
+}
+
