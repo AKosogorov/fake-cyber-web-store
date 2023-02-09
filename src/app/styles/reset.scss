@@ -17,6 +17,7 @@ ul {
 
 button {
   @include transition();
+  @include transitionProperty();
 
   &:disabled {
     pointer-events: none;
@@ -29,6 +30,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   @include transition();
+  @include transitionProperty();
 
   &:focus-visible {
     outline: 0;

@@ -12,7 +12,7 @@
         :icon-right="borderRightIcon"
     />
 
-    <span class="button__text">{{ text }}</span>
+    <span class="button__text label">{{ text }}</span>
 
     <slot/>
   </button>

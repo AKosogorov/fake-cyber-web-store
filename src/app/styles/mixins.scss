@@ -1,6 +1,9 @@
 @mixin transition () {
-  transition-timing-function: ease-in-out;
-  transition-duration: .1s;
+  transition-timing-function: var(--transition-timing-function);
+  transition-duration: var(--transition-duration);
+}
+
+@mixin transitionProperty () {
   transition-property: border-color, color, background-color, opacity, visibility, transform, box-shadow;
 }
 
@@ -22,4 +25,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin fontChakra600 () {
+  font-family: 'Chakra Petch', sans-serif;
+  line-height: 130%;
+  font-weight: 600;
 }

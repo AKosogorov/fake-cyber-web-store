@@ -4,7 +4,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 125%;
-  letter-spacing: .2em;
+  letter-spacing: .04em;
   color: var(--color__white);
   background-color: var(--bg-color-body);
 }
@@ -64,5 +64,10 @@ svg {
 
 .events-none {
   pointer-events: none;
+}
+
+.label {
+  @include fontChakra600;
+  letter-spacing: 0.04em;
 }
 
