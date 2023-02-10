@@ -9,6 +9,8 @@
     <CheckboxStyles />
 
     <ButtonStyles />
+
+    <LoaderStyles />
   </div>
 </template>
 
@@ -17,6 +19,7 @@ import {
   ColorStyles,
   ButtonStyles,
   CheckboxStyles,
-  InputStyles
+  InputStyles,
+  LoaderStyles
 } from '@/widgets/UI'
 </script>

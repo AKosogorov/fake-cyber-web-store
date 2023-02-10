@@ -36,6 +36,12 @@
 .gap-m {
   gap: var(--m);
 }
+.gap-l {
+  gap: var(--l);
+}
+.gap-xl {
+  gap: var(--xl);
+}
 
 .mb-xxs {
   margin-bottom: var(--xxs);
@@ -48,4 +54,8 @@
 }
 .mb-m {
   margin-bottom: var(--m);
+}
+
+.pd-m {
+  padding: var(--m);
 }

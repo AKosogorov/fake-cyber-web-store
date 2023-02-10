@@ -1,5 +1,5 @@
 <template>
-  <section class="ui-color-styles">
+  <section>
     <h2 class="mb-s">Checkbox</h2>
 
     <div class="column gap-s">

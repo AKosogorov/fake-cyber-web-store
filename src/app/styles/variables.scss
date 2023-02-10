@@ -1,21 +1,26 @@
 :root {
-  --color__white: #FFF;
+  --color__white: #fff;
   --color__black: #010101;
 
-  --color__green: #42B983;
-  --color__yellow: #F8EF00;
-  --color__red: #FF003C;
-  --color__red--light: #2D0008;
+  --color__green: #42b983;
+  --color__yellow: #f8ef00;
+  --color__red: #ff003c;
+  --color__red--light: #2d0008;
   --color__grey: #bbbbbb;
   --color__grey--light: rgba(187, 187, 187, 0.1);
-  --color__blue: #00F0FF;
+  --color__blue: #00f0ff;
   --color__dark-blue: #001417;
-  --color__dark-blue--light: #002A30;
+  --color__dark-blue--light: #002a30;
+  --color__purple: #77308c;
+  --gradient__prb: linear-gradient(
+    90deg,
+    var(--color__purple) 0%,
+    var(--color__red) 50%,
+    var(--color__blue) 100%
+  );
 
-  --color__purple: #77308C;
-
-  --bg-color-body: #1E1E1E;
-  --bg-color__dark: #0F0F0F;
+  --bg-color-body: #1e1e1e;
+  --bg-color__dark: #0f0f0f;
   --bg-color__dark--medium: rgba(15, 15, 15, 0.9);
   --bg-color__dark--light: rgba(15, 15, 15, 0.7);
 
@@ -34,7 +39,7 @@
   --breakpoint-l: 992px;
   --breakpoint-xl: 1200px;
 
-  --transition-duration: .1s;
+  --transition-duration: 0.1s;
   --transition-timing-function: ease-in-out;
 
   --max-w-field: 460px;

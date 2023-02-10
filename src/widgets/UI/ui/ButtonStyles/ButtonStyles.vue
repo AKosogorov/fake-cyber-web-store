@@ -1,5 +1,5 @@
 <template>
-  <section class="ui-button-styles">
+  <section>
     <h2 class="mb-s">Buttons</h2>
 
     <VButton class="mb-s" text="toggle disabled" @click="toggle" />
