@@ -4,6 +4,8 @@
 
     <VButton class="mb-s" text="toggle disabled" @click="toggle" />
 
+    <ButtonCyber class="mb-s" text="Cyber button" :disabled="isDisabled" />
+
     <div class="column gap-m">
       <div
         v-for="(buttons, i) of buttonList"
@@ -28,9 +30,9 @@
 import VButton from '@/shared/ui/buttons/VButton'
 import { buttonList } from './model'
 import useToggle from '@/shared/lib/use/useToggle'
+import ButtonCyber from '@/shared/ui/buttons/ButtonCyber'
 
 const { isActive: isDisabled, toggle } = useToggle(true)
-
 const classes = {
   1: 'hover',
   2: 'focus',
