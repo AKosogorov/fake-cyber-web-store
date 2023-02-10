@@ -1,12 +1,19 @@
 <template>
-  <div class="product-details">
-    <p v-if="isLoading">Loading...</p>
+  <SpinnerLoader v-if="isLoading" size="page" />
 
-    <h2 v-else>{{ product.brand }}</h2>
+  <div v-else class="product-details column">
+    <h2>{{ product.brand }} / {{ product.title }}</h2>
+    <div v-for="key in keys" :key="key">{{ key }}: {{ product[key] }}</div>
+
+    <RatingStars :rating="product.rating" icon-size="md" />
+    <p>{{ product.description }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
+import SpinnerLoader from '@/shared/ui/loaders/SpinnerLoader'
+import RatingStars from '@/shared/ui/RatingStars'
+
 import { computed, onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
 import type { IProduct } from '@/entities/Product'
@@ -19,6 +26,7 @@ const product = reactive<IProduct | object>({})
 const { isLoading, runWithLoading } = useLoadingWrap()
 
 const productId = computed(() => route.params.id)
+const keys = reactive([])
 
 onMounted(() => runWithLoading(loadProduct))
 
@@ -26,6 +34,7 @@ async function loadProduct() {
   const response = await ProductApi.getById(productId.value)
   for (const key in response.data) {
     product[key] = response.data[key]
+    keys.push(key)
   }
 }
 </script>

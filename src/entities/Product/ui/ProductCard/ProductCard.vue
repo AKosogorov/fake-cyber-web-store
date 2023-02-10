@@ -16,15 +16,17 @@
       <VPrice :price="product.price" :discount="product.discountPercentage" />
 
       <h4>{{ product.title }}</h4>
+
+      <RatingStars :rating="product.rating" icon-size="xs" />
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
-import ProductCardImages from '../ProductCardImages'
+import RatingStars from '@/shared/ui/RatingStars'
 import VPrice from '@/shared/ui/VPrice/index'
+import ProductCardImages from '../ProductCardImages'
 import type { IProduct } from '../../model/interface'
-
 defineProps<{
   product: IProduct
   detailsRouteName: string

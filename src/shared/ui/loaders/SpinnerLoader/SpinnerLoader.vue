@@ -8,7 +8,7 @@
 import type { appSize } from '@/shared/lib/interface/size'
 
 defineProps<{
-  size?: appSize
+  size?: appSize | 'page'
 }>()
 </script>
 
