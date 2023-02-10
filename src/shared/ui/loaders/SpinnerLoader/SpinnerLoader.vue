@@ -7,9 +7,14 @@
 <script setup lang="ts">
 import type { appSize } from '@/shared/lib/interface/size'
 
-defineProps<{
-  size?: appSize | 'page'
-}>()
+withDefaults(
+  defineProps<{
+    size?: appSize | 'page'
+  }>(),
+  {
+    size: 'page'
+  }
+)
 </script>
 
 <style lang="scss">

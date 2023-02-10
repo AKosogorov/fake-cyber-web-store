@@ -1,11 +1,15 @@
 <template>
-  <SpinnerLoader v-if="isLoading" size="page" />
+  <SpinnerLoader v-if="isLoading" />
 
   <div v-else class="product-details column">
     <h2>{{ product.brand }} / {{ product.title }}</h2>
     <div v-for="key in keys" :key="key">{{ key }}: {{ product[key] }}</div>
 
-    <RatingStars :rating="product.rating" icon-size="md" />
+    <RatingStars
+      v-if="product.rating"
+      :rating="product.rating"
+      icon-size="md"
+    />
     <p>{{ product.description }}</p>
   </div>
 </template>
