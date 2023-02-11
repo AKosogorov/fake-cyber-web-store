@@ -1,11 +1,11 @@
-@import "mixins";
+@import 'mixins';
 
 .checkbox {
   position: relative;
   cursor: pointer;
 
   &__label {
-    color: var(--color__blue)
+    color: var(--color__blue);
   }
 
   &__icon-wrap {
@@ -19,7 +19,7 @@
     color: var(--color__blue);
 
     path {
-      fill: var(--color__dark-blue)
+      fill: var(--color__dark-blue);
     }
   }
 
@@ -63,7 +63,7 @@
       color: var(--color__red);
 
       path {
-        fill: var(--color__red--light)
+        fill: var(--bg-color__error);
       }
     }
 
@@ -81,7 +81,7 @@
       color: var(--color__grey);
       opacity: 0.7;
       path {
-        fill: var(--color__dark-blue)
+        fill: var(--color__dark-blue);
       }
     }
 

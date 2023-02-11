@@ -1,0 +1,38 @@
+.alert-card {
+  width: 100%;
+  border-radius: 20px;
+  //background-color: var(--bg-color__dark);
+  cursor: pointer;
+
+  &__box {
+    border-radius: 20px;
+    padding: 30px;
+
+    &--success {
+      background: var(--color-green--light);
+    }
+    &--warning {
+      background: var(--color-yellow--light);
+    }
+    &--info {
+      background: var(--color__blue--light);
+    }
+    &--error {
+      background: var(--color__red--light);
+    }
+  }
+
+  &__status {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: var(--xxs);
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__body {
+    width: 100%;
+  }
+}

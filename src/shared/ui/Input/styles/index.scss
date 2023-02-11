@@ -1,4 +1,4 @@
-@import "mixins";
+@import 'mixins';
 
 .input {
   &__label {
@@ -14,7 +14,8 @@
     }
   }
 
-  &__field-wrap {}
+  &__field-wrap {
+  }
 
   &__field {
     width: 100%;
@@ -53,7 +54,7 @@
     .input__field {
       color: var(--color__red);
       border-color: var(--color__red);
-      background-color: var(--color__red--light);
+      background-color: var(--bg-color__error);
 
       &::placeholder {
         color: var(--color__red);

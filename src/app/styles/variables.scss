@@ -3,17 +3,20 @@
   --color__black: #010101;
 
   --color__green: #42b983;
+  --color-green--light: rgba(66, 185, 131, 0.35);
   --color__yellow: #f8ef00;
+  --color-yellow--light: rgba(248, 239, 0, 0.35);
   --color__red: #ff003c;
-  --color__red--light: #2d0008;
+  --color__red--light: rgba(255, 0, 60, 0.35);
   --color__grey: #bbbbbb;
   --color__grey--light: rgba(187, 187, 187, 0.1);
   --color__blue: #00f0ff;
+  --color__blue--light: rgba(0, 240, 255, 0.35);
   --color__dark-blue: #001417;
   --color__dark-blue--light: #002a30;
   --color__purple: #77308c;
   --gradient__prb: linear-gradient(
-    90deg,
+    120deg,
     var(--color__purple) 0%,
     var(--color__red) 50%,
     var(--color__blue) 100%
@@ -23,6 +26,9 @@
   --bg-color__dark: #0f0f0f;
   --bg-color__dark--medium: rgba(15, 15, 15, 0.9);
   --bg-color__dark--light: rgba(15, 15, 15, 0.7);
+  --bg-color__error: #2d0008;
+
+  --z-idx__alerts: 100;
 
   --xxs: 8px;
   --xs: 16px;
