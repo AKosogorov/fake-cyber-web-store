@@ -10,14 +10,8 @@ import useTimeout from '@/shared/lib/use/useTimeout'
 
 export const NAMESPACE = 'alerts'
 
-const alert: IAlert = {
-  id: 0,
-  status: EAlertStatus.error,
-  message: 'Message'
-}
-
 export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
-  const alerts = reactive<IAlert[] | never>([alert])
+  const alerts = reactive<IAlert[] | never>([])
   const isVisible = ref(false)
   const counter = ref(1)
 
@@ -25,6 +19,15 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
 
   function showError(message: string): void {
     createAndSetDestroy(EAlertStatus.error, message)
+  }
+  function showSuccess(message: string): void {
+    createAndSetDestroy(EAlertStatus.success, message)
+  }
+  function showWarning(message: string): void {
+    createAndSetDestroy(EAlertStatus.warning, message)
+  }
+  function showInfo(message: string): void {
+    createAndSetDestroy(EAlertStatus.info, message)
   }
 
   function createAndSetDestroy(status: EAlertStatus, message: string): void {
@@ -40,7 +43,7 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
     alerts.push(data)
   }
 
-  function destroy(id: number) {
+  function destroy(id: number): void {
     spliceBy(id, alerts)
   }
 
@@ -54,7 +57,6 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
     if (isVisible.value && length) return
 
     clearTimeoutId()
-    console.log(1)
 
     if (!length) {
       setTimeoutId()
@@ -62,13 +64,6 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
       visible()
     }
   })
-
-  watch(
-    () => isVisible.value,
-    val => {
-      console.log(val)
-    }
-  )
 
   function hidden() {
     isVisible.value = false
@@ -79,7 +74,11 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
 
   return {
     alerts,
+    isVisible,
     showError,
-    isVisible
+    showSuccess,
+    showWarning,
+    showInfo,
+    destroy
   }
 })

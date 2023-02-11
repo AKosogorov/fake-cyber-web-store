@@ -13,8 +13,14 @@ export interface IAlert {
   message: string
 }
 
+type TShow = (message: string) => void
+
 export interface IAlertsStore {
   alerts: IAlert[] | never
   isVisible: Ref<boolean>
-  showError: Function
+  showError: TShow
+  showSuccess: TShow
+  showWarning: TShow
+  showInfo: TShow
+  destroy: (id: number) => void
 }

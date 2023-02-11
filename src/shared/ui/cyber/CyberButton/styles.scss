@@ -1,4 +1,4 @@
-.button-cyber {
+.cyber-button {
   --primary: var(--color__red);
   --secondary: var(--color__blue);
   --border: 4px;
@@ -162,7 +162,7 @@
 
   &:focus-visible,
   &:hover {
-    .button-cyber__glitch {
+    .cyber-button__glitch {
       opacity: 1;
       visibility: visible;
     }

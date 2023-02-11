@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import MainLayout from '@/shared/ui/layouts/MainLayout.vue'
 import EmptyLayout from '@/shared/ui/layouts/EmptyLayout.vue'
-import TheAlerts from '@/shared/ui/TheAlerts/ui/TheAlerts.vue'
+import { TheAlerts } from '@/shared/ui/TheAlerts'
 
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'

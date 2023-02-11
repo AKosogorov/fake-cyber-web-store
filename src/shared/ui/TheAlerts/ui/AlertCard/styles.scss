@@ -1,33 +1,43 @@
 .alert-card {
+  position: relative;
   width: 100%;
-  //background-color: var(--bg-color__dark);
   cursor: pointer;
+  padding: 30px;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    clip-path: var(--clip);
+  &.success .cyber-card {
+    &::before {
+      background-color: var(--color__green);
+    }
+    &::after {
+      background-color: var(--color__green--dark);
+    }
   }
 
-  &__box {
-    padding: 30px;
+  &.warning .cyber-card {
+    &::before {
+      background-color: var(--color__yellow);
+    }
+    &::after {
+      background-color: var(--color__yellow--dark);
+    }
+  }
 
-    &--success {
-      background: var(--color-green--light);
+  &.info .cyber-card {
+    &::before {
+      background-color: var(--color__blue);
     }
-    &--warning {
-      background: var(--color-yellow--light);
+    &::after {
+      background-color: var(--color__blue--dark);
     }
-    &--info {
-      background: var(--color__blue--light);
+  }
+
+  &.error .cyber-card {
+    &::before {
+      background-color: var(--color__red);
     }
-    //&--error {
-    //  background: var(--color__red--light);
-    //}
+    &::after {
+      background-color: var(--color__red--dark);
+    }
   }
 
   &__status {

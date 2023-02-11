@@ -5,7 +5,12 @@
     class="alerts column gap-s"
     name="alerts"
   >
-    <AlertCard v-for="item of store.alerts" :key="item.id" :alert="item" />
+    <AlertCard
+      v-for="item of store.alerts"
+      :key="item.id"
+      :alert="item"
+      @click="store.destroy(item.id)"
+    />
   </transition-group>
 </template>
 

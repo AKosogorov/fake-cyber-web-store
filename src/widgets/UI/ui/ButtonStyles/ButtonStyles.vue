@@ -4,7 +4,7 @@
 
     <VButton class="mb-s" text="toggle disabled" @click="toggle" />
 
-    <ButtonCyber class="mb-s" text="Cyber button" :disabled="isDisabled" />
+    <CyberButton class="mb-s" text="Cyber button" :disabled="isDisabled" />
 
     <div class="column gap-m">
       <div
@@ -30,7 +30,7 @@
 import VButton from '@/shared/ui/buttons/VButton'
 import { buttonList } from './model'
 import useToggle from '@/shared/lib/use/useToggle'
-import ButtonCyber from '@/shared/ui/buttons/ButtonCyber'
+import { CyberButton } from '@/shared/ui'
 
 const { isActive: isDisabled, toggle } = useToggle(true)
 const classes = {
