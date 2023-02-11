@@ -1,7 +1,7 @@
 <template>
   <transition-group
-    tag="div"
     v-show="store.isVisible"
+    tag="div"
     class="alerts column gap-s"
     name="alerts"
   >

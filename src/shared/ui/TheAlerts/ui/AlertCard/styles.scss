@@ -1,11 +1,19 @@
 .alert-card {
   width: 100%;
-  border-radius: 20px;
   //background-color: var(--bg-color__dark);
   cursor: pointer;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    clip-path: var(--clip);
+  }
+
   &__box {
-    border-radius: 20px;
     padding: 30px;
 
     &--success {
@@ -17,9 +25,9 @@
     &--info {
       background: var(--color__blue--light);
     }
-    &--error {
-      background: var(--color__red--light);
-    }
+    //&--error {
+    //  background: var(--color__red--light);
+    //}
   }
 
   &__status {
