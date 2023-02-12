@@ -8,7 +8,7 @@
     <RatingStars
       v-if="product.rating"
       :rating="product.rating"
-      icon-size="md"
+      :size="EAppPixelSize.md"
     />
     <p>{{ product.description }}</p>
   </div>
@@ -23,6 +23,7 @@ import { ProductApi } from '@/entities/Product'
 import type { IProduct } from '@/entities/Product'
 import { useRoute } from 'vue-router'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
+import { EAppPixelSize } from '@/shared/lib/interface/size'
 
 const route = useRoute()
 const product = reactive<IProduct | object>({})

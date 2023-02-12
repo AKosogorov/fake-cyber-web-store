@@ -14,21 +14,19 @@
 <script setup lang="ts">
 import { IconStar } from '@/shared/ui/icons'
 import { starSystem } from './model'
-import type { appSize } from '@/shared/lib/interface/size'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
     rating: number
-    iconSize?: appSize
+    size?: EAppPixelSize
   }>(),
   {
-    iconSize: 'sm'
+    size: EAppPixelSize.sm
   }
 )
 
-const size = computed(() => EAppPixelSize[props.iconSize])
 const formatRating = computed(() => Math.round(props.rating))
 </script>
 

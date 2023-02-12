@@ -17,7 +17,7 @@
 
       <h4>{{ product.title }}</h4>
 
-      <RatingStars :rating="product.rating" icon-size="xs" />
+      <RatingStars :rating="product.rating" :size="EAppPixelSize.xs" />
     </div>
   </article>
 </template>
@@ -27,6 +27,7 @@ import RatingStars from '@/shared/ui/RatingStars'
 import VPrice from '@/shared/ui/VPrice/index'
 import ProductCardImages from '../ProductCardImages'
 import type { IProduct } from '../../model/interface'
+import { EAppPixelSize } from '@/shared/lib/interface/size'
 defineProps<{
   product: IProduct
   detailsRouteName: string

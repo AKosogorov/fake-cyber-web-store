@@ -17,5 +17,3 @@ export enum EAppPixelSize {
   xl = '48px',
   xxl = '56px'
 }
-
-export type appSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'

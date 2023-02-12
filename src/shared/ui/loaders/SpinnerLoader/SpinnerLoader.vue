@@ -5,11 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import type { appSize } from '@/shared/lib/interface/size'
-
 withDefaults(
   defineProps<{
-    size?: appSize | 'page'
+    size?: 'lg' | 'md' | 'sm' | 'page'
   }>(),
   {
     size: 'page'
