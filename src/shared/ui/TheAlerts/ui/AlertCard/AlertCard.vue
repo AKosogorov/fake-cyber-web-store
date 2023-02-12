@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import type { IAlert } from '@/shared/ui/TheAlerts/model/interface'
-import { CyberCard } from '@/shared/ui'
+import { CyberCard } from '@/shared/ui/cyber'
 defineProps<{
   alert: IAlert
 }>()

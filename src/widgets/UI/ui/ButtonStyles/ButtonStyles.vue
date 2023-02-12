@@ -28,9 +28,9 @@
 </template>
 <script setup lang="ts">
 import VButton from '@/shared/ui/buttons/VButton'
+import { CyberButton } from '@/shared/ui/cyber'
 import { buttonList } from './model'
 import useToggle from '@/shared/lib/use/useToggle'
-import { CyberButton } from '@/shared/ui'
 
 const { isActive: isDisabled, toggle } = useToggle(true)
 const classes = {

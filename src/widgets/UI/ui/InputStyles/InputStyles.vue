@@ -20,6 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import VInput from '@/shared/ui/Input'
+import { VInput } from '@/shared/ui/form-fields'
 import { inputList } from './model'
 </script>
