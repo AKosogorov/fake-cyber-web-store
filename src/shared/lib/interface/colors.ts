@@ -1,4 +1,4 @@
-enum EAppColors {
+export enum EAppColor {
   white = 'white',
   black = 'black',
   yellow = 'yellow',
@@ -9,4 +9,3 @@ enum EAppColors {
   darkBlue = 'dark-blue',
   purple = 'purple'
 }
-export type appColors = EAppColors
