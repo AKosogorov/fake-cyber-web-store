@@ -1,7 +1,7 @@
 <template>
   <div class="price row gap-xs">
     <span>{{ formatRUB(currentPrice) }}</span>
-    <del v-if="hasDiscount">{{ formatRUB(price) }}</del>
+    <del v-if="hasDiscount" class="price__old">{{ formatRUB(price) }}</del>
   </div>
 </template>
 
