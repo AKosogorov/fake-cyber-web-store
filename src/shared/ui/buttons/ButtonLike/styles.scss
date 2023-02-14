@@ -1,0 +1,15 @@
+.button-like {
+  align-self: baseline;
+
+  &__icon-wrap {
+    color: var(--color__grey);
+
+    &--fill {
+      color: var(--color__red);
+
+      path {
+        fill: var(--color__red);
+      }
+    }
+  }
+}

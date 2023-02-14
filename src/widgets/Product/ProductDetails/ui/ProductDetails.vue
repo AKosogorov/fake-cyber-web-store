@@ -4,11 +4,25 @@
   <div v-else class="product-details column">
     <h2>{{ product.brand }} / {{ product.title }}</h2>
 
+    <div class="column gap-s mb-m max-w-field">
+      <div class="between">
+        <VPrice
+          v-if="product.price"
+          :price="product.price"
+          :discount="product.discountPercentage"
+        />
+
+        <ButtonLike :is-like="false" />
+      </div>
+
+      <CyberButton text="ADD TO CART" />
+    </div>
+
     <div class="column gap-xs mb-s">
       <div v-for="key in keys" :key="key">{{ key }}: {{ product[key] }}</div>
     </div>
 
-    <VSwiper class="product-details__swiper" :images="productImages" />
+    <VSwiper class="product-details__swiper mb-m" :images="productImages" />
 
     <RatingStars
       v-if="product.rating"
@@ -23,6 +37,8 @@
 import { SpinnerLoader } from '@/shared/ui/loaders'
 import RatingStars from '@/shared/ui/RatingStars'
 import VSwiper from '@/shared/ui/Swiper/VSwiper.vue'
+import VPrice from '@/shared/ui/VPrice'
+import { CyberButton } from '@/shared/ui/cyber'
 
 import { computed, onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
@@ -31,6 +47,8 @@ import { useRoute } from 'vue-router'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 import type { IImage } from '@/shared/lib/interface/image'
+import VButton from '@/shared/ui/buttons/VButton'
+import ButtonLike from '@/shared/ui/buttons/ButtonLike'
 
 const route = useRoute()
 const product = reactive<IProduct | object>({})

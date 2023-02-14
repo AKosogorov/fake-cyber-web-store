@@ -4,7 +4,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 125%;
-  letter-spacing: .04em;
+  letter-spacing: 0.04em;
   color: var(--color__white);
   background-color: var(--bg-color-body);
   @include customScroll;
@@ -27,11 +27,9 @@ svg {
   min-height: 100vh;
 }
 
-
 .custom-scroll {
   @include customScroll;
 }
-
 
 .router-link-exact-active {
   color: var(--color__green);
@@ -90,4 +88,9 @@ svg {
 
 .max-w-field {
   max-width: var(--max-w-field);
+}
+
+.shadow {
+  box-shadow: 0 20px 12px -16px rgb(0 30 85 / 10%),
+    0 8px 24px 18px rgb(0 30 85 / 5%);
 }

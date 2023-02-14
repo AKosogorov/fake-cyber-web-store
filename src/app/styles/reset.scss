@@ -10,7 +10,9 @@
   pointer-events: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -49,5 +51,9 @@ input {
 }
 
 .reset {
-  @include reset()
+  @include reset();
+}
+
+.zero-line-h {
+  line-height: 0;
 }

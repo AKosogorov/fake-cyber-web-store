@@ -22,7 +22,7 @@
 import BorderDecorate from '@/shared/ui/BorderDecorate'
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
 
-export interface IButton {
+interface IButton {
   text: string
   borderLeftIcon?: EBorderDecorateIcons
   borderRightIcon?: EBorderDecorateIcons

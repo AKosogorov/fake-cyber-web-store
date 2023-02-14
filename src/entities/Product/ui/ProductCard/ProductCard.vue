@@ -15,7 +15,7 @@
     <div class="column gap-xxs">
       <VPrice :price="product.price" :discount="product.discountPercentage" />
 
-      <h4>{{ product.title }}</h4>
+      <h4>{{ product.title }} - {{ product.stock }}</h4>
 
       <RatingStars :rating="product.rating" :size="EAppPixelSize.xs" />
     </div>
