@@ -1,5 +1,5 @@
-import { createBaseApi } from '@/shared/api/baseApi'
+import { createBaseReadApi } from '@/shared/api'
 
 const URL = 'products'
 
-export const api = createBaseApi(URL)
+export const api = createBaseReadApi(URL)

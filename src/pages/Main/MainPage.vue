@@ -2,11 +2,13 @@
   <div class="container">
     <h1 class="mb-s">Main page</h1>
 
-    <ProductList :details-route-name="catalogPagesModel.details" />
+    <ProductList :details-route-name="productPage" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ProductList } from '@/widgets/Product'
-import { catalogPagesModel } from '@/pages/Catalog'
+import { AppPages } from '@/pages'
+
+const productPage = AppPages.catalog.product
 </script>

@@ -3,7 +3,7 @@ import type { Ref } from 'vue'
 
 interface IUseToggle {
   isActive: Ref<boolean>
-  toggle: Function
+  toggle: () => void
 }
 
 export default function useToggle(bool: boolean = false): IUseToggle {

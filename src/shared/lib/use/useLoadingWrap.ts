@@ -3,7 +3,7 @@ import type { Ref } from 'vue'
 
 interface IUseLoadingWrap {
   isLoading: Ref<boolean>
-  runWithLoading: Function
+  runWithLoading: (handler: Function) => Promise<void>
 }
 
 export default function useLoadingWrap(): IUseLoadingWrap {

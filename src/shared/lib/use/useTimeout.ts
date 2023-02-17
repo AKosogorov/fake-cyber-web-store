@@ -1,6 +1,6 @@
 interface IUseTimeout {
-  setTimeoutId: Function
-  clearTimeoutId: Function
+  setTimeoutId: () => void
+  clearTimeoutId: () => void
 }
 
 export default function useTimeout(
@@ -9,11 +9,11 @@ export default function useTimeout(
 ): IUseTimeout {
   let timeoutId: number
 
-  function setTimeoutId() {
+  function setTimeoutId(): void {
     timeoutId = setTimeout(handler, timeout)
   }
 
-  function clearTimeoutId() {
+  function clearTimeoutId(): void {
     clearTimeout(timeoutId)
   }
 

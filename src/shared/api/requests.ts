@@ -1,22 +1,23 @@
 import type { AxiosPromise } from 'axios'
-import { apiInstance } from '@/shared/api/index'
+import type { TRequestParams } from './types'
+import { apiInstance } from './instance'
 
-export function getAll(url: string, params: object = {}): AxiosPromise {
+export function getAll(url: string, params?: TRequestParams): AxiosPromise {
   return apiInstance.get(`/${url}`, { params })
 }
 
 export function getById(
   url: string,
   id: number,
-  params: object = {}
+  params?: TRequestParams
 ): AxiosPromise {
   return apiInstance.get(`/${url}/${id}`, { params })
 }
 
 export function create(
   url: string,
-  data: object = {},
-  params: object = {}
+  data: object,
+  params?: TRequestParams
 ): AxiosPromise {
   return apiInstance.post(`/${url}`, data, { params })
 }
@@ -24,8 +25,8 @@ export function create(
 export function update(
   url: string,
   id: number,
-  data: object = {},
-  params: object = {}
+  data: object,
+  params?: TRequestParams
 ): AxiosPromise {
   return apiInstance.put(`/${url}/${id}`, data, { params })
 }

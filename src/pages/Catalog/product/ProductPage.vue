@@ -1,13 +1,13 @@
 <template>
-  <div class="product-details-page container">
+  <div class="product-page container">
     <h1>PRODUCT PAGE</h1>
 
-    <ProductDetails />
+    <ProductInfo />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ProductDetails } from '@/widgets/Product'
+import { ProductInfo } from '@/widgets/Product'
 </script>
 
 <style lang="scss"></style>
