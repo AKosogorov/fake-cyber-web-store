@@ -1,12 +1,12 @@
 <template>
   <SpinnerLoader v-if="isLoading" />
 
-  <ProductDetails v-else :product="product" />
+  <ProductDetails v-else-if="product" :product="product" />
 </template>
 
 <script setup lang="ts">
 import { SpinnerLoader } from '@/shared/ui/loaders'
-import { ProductDetails } from '@/entities/Product'
+import { mapProduct, ProductDetails } from '@/entities/Product'
 
 import { computed, onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
@@ -16,32 +16,18 @@ import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
 import type { IImage } from '@/shared/lib/interface/image'
 
 const route = useRoute()
-const product = reactive<IProduct>({} as IProduct)
+let product: IProduct
 
 const { isLoading, runWithLoading } = useLoadingWrap()
 
-const productId = computed(() => route.params.id)
+const productId = computed(() => +route.params.id)
 
-const productImages = reactive<IImage[] | never>([])
+onMounted(() => runWithLoading(fetchProduct))
 
-onMounted(() => runWithLoading(loadProduct))
-
-async function loadProduct() {
+async function fetchProduct() {
   const response = await ProductApi.getById(productId.value)
-  for (const key in response.data) {
-    product[key] = response.data[key]
-  }
 
-  setImages(response.data.images, response.data.title)
-}
-
-function setImages(images: string[], alt: string) {
-  images.forEach(src => {
-    productImages.push({
-      src,
-      alt
-    })
-  })
+  product = mapProduct(response.data)
 }
 </script>
 

@@ -12,7 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { ProductCard } from '@/entities/Product'
+import { mapProduct, ProductCard } from '@/entities/Product'
+import type { IProduct } from '@/entities/Product'
 import { onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
@@ -22,13 +23,17 @@ defineProps<{
   detailsRouteName: string
 }>()
 
-const products = reactive([])
 const { isLoading, runWithLoading } = useLoadingWrap()
-onMounted(async () => runWithLoading(loadProducts))
 
-async function loadProducts() {
+onMounted(async () => runWithLoading(fetchProducts))
+
+const products = reactive<IProduct[] | never>([])
+
+async function fetchProducts() {
   const response = await ProductApi.getAll()
-  products.push(...response.data.products)
+
+  const mapped = response.data.products.map(mapProduct)
+  products.push(...mapped)
 }
 </script>
 

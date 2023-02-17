@@ -18,7 +18,11 @@
       <CyberButton text="ADD TO CART" />
     </div>
 
-    <VSwiper class="product-details__swiper mb-m" :images="product.images" />
+    <VSwiper
+      v-if="product.images"
+      class="product-details__swiper mb-m"
+      :images="product.images"
+    />
 
     <RatingStars
       v-if="product.rating"

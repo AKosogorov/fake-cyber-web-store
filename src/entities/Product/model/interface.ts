@@ -14,6 +14,8 @@ export interface IProductResponse {
   title: string
 }
 
+export type IProductAllResponse = { products: IProductResponse[] }
+
 export interface IProduct {
   brand: string
   category: string

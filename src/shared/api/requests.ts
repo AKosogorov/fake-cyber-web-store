@@ -2,15 +2,18 @@ import type { AxiosPromise } from 'axios'
 import type { TRequestParams } from './types'
 import { apiInstance } from './instance'
 
-export function getAll(url: string, params?: TRequestParams): AxiosPromise {
+export function getAll<T>(
+  url: string,
+  params?: TRequestParams
+): AxiosPromise<T> {
   return apiInstance.get(`/${url}`, { params })
 }
 
-export function getById(
+export function getById<T>(
   url: string,
   id: number,
   params?: TRequestParams
-): AxiosPromise {
+): AxiosPromise<T> {
   return apiInstance.get(`/${url}/${id}`, { params })
 }
 
