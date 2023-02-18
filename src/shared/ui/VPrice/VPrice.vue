@@ -1,13 +1,13 @@
 <template>
   <div class="price row gap-xs">
-    <span class="price__current">{{ formatRUB(currentPrice) }}</span>
-    <del v-if="hasDiscount" class="price__old">{{ formatRUB(price) }}</del>
+    <span class="price__current">{{ formatUSD(currentPrice) }}</span>
+    <del v-if="hasDiscount" class="price__old">{{ formatUSD(price) }}</del>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { formatRUB } from '@/shared/lib/utils/format/currency'
+import { formatUSD } from '@/shared/lib/utils/format/currency'
 
 const props = defineProps<{
   price: number

@@ -11,8 +11,6 @@
         />
 
         <ButtonLike :is-like="false" />
-
-        <VButton text="Добавить в корзину" />
       </div>
 
       <CyberButton text="ADD TO CART" />
