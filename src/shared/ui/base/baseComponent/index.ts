@@ -1,2 +1,1 @@
-import BaseComponent from './BaseComponent.vue'
-export default BaseComponent
+export { default as BaseComponent } from './BaseComponent.vue'

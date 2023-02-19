@@ -8,7 +8,7 @@
       <RatingStars
         v-if="product.rating"
         :rating="product.rating"
-        :size="EAppPixelSize.md"
+        :size="EAppPixelSize.sm"
       />
     </div>
 
@@ -19,9 +19,15 @@
         :images="product.images"
       />
 
-      <div class="column gap-xxs">
-        <h5>Description</h5>
-        <p>{{ product.description }}</p>
+      <div class="column gap-xs">
+        <div class="column gap-xxs">
+          <InfoShort label="Category" :text="product.category" />
+        </div>
+
+        <div class="column gap-xxs">
+          <h5>Description</h5>
+          <p>{{ product.description }}</p>
+        </div>
       </div>
 
       <div
@@ -47,6 +53,7 @@
 import RatingStars from '@/shared/ui/RatingStars'
 import { ImagesSwiper } from '@/shared/ui/swipers'
 import VPrice from '@/shared/ui/VPrice'
+import { InfoShort } from '@/shared/ui/text'
 
 import type { IProduct } from '@/entities/Product'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
