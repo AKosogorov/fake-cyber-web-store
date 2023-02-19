@@ -1,5 +1,5 @@
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
-import type { IButton } from '@/shared/ui/buttons/VButton'
+import type { IButton } from '@/shared/ui/buttons'
 
 const texts: string[] = ['BUTTON', 'HOVER', 'FOCUS', 'DISABLED', 'ACTIVE']
 

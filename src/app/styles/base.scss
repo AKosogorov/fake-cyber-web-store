@@ -90,7 +90,12 @@ svg {
   max-width: var(--max-w-field);
 }
 
-.shadow {
-  box-shadow: 0 20px 12px -16px rgb(0 30 85 / 10%),
-    0 8px 24px 18px rgb(0 30 85 / 5%);
+svg {
+  @include transition;
+  transition-property: color, stroke, fill;
+}
+
+rect,
+path {
+  transition: inherit;
 }

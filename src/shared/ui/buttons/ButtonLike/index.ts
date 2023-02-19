@@ -1,2 +1,1 @@
-import ButtonLike from './ButtonLike.vue'
-export default ButtonLike
+export { default as ButtonLike } from './ButtonLike.vue'

@@ -27,7 +27,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import VButton from '@/shared/ui/buttons/VButton'
+import { VButton } from '@/shared/ui/buttons'
 import { CyberButton } from '@/shared/ui/cyber'
 import { buttonList } from './model'
 import useToggle from '@/shared/lib/use/useToggle'

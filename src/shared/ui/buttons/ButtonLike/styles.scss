@@ -3,6 +3,9 @@
 
   &__icon-wrap {
     color: var(--color__grey);
+    transition-property: transform, color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 
     &--fill {
       color: var(--color__red);
@@ -11,5 +14,24 @@
         fill: var(--color__red);
       }
     }
+  }
+
+  &:focus-visible,
+  &:hover {
+    .button-like__icon-wrap {
+      color: var(--color__red);
+
+      &--fill {
+        color: var(--color__grey);
+
+        path {
+          fill: transparent;
+        }
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }

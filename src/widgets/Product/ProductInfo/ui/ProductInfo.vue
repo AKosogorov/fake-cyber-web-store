@@ -1,12 +1,22 @@
 <template>
   <SpinnerLoader v-if="isLoading" />
 
-  <ProductDetails v-else-if="product" :product="product" />
+  <ProductDetails v-else-if="product" :product="product">
+    <template v-slot:button-like>
+      <ButtonLike :is-like="false" />
+    </template>
+
+    <template v-slot:button-add-to-cart>
+      <CyberButton class="w-100" text="ADD TO CART" />
+    </template>
+  </ProductDetails>
 </template>
 
 <script setup lang="ts">
 import { SpinnerLoader } from '@/shared/ui/loaders'
 import { mapProductResponse, ProductDetails } from '@/entities/Product'
+import { CyberButton } from '@/shared/ui/cyber'
+import { ButtonLike } from '@/shared/ui/buttons'
 
 import { computed, onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
