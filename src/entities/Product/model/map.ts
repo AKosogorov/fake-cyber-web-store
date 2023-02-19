@@ -1,6 +1,6 @@
-import type { IProduct, IProductResponse } from '@/entities/Product'
+import type { IProduct, IProductResponse } from './interface'
 
-export function mapProduct(item: IProductResponse): IProduct {
+export function mapProductResponse(item: IProductResponse): IProduct {
   return {
     ...item,
     images: item.images.map(src => ({

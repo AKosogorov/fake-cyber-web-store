@@ -1,6 +1,11 @@
 <template>
   <div class="image-preview">
-    <img class="image-preview__img" :src="image.src" :alt="image.alt" />
+    <img
+      class="image-preview__img"
+      :src="image.src"
+      :alt="image.alt"
+      loading="lazy"
+    />
     <slot />
   </div>
 </template>
@@ -14,5 +19,5 @@ defineProps<{
 </script>
 
 <style lang="scss">
-@import 'styles.scss';
+@import 'styles';
 </style>

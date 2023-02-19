@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { mapProduct, ProductCard } from '@/entities/Product'
+import { mapProductResponse, ProductCard } from '@/entities/Product'
 import type { IProduct } from '@/entities/Product'
 import { onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
@@ -25,18 +25,18 @@ defineProps<{
 
 const { isLoading, runWithLoading } = useLoadingWrap()
 
-onMounted(async () => runWithLoading(fetchProducts))
+onMounted(() => runWithLoading(fetchProducts))
 
 const products = reactive<IProduct[] | never>([])
 
 async function fetchProducts() {
-  const response = await ProductApi.getAll()
+  const response = await ProductApi.getAll({ limit: 10 })
 
-  const mapped = response.data.products.map(mapProduct)
+  const mapped = response.data.products.map(mapProductResponse)
   products.push(...mapped)
 }
 </script>
 
-<style>
-@import 'styles.scss';
+<style lang="scss">
+@import 'styles';
 </style>

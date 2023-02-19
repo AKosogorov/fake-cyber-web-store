@@ -2,19 +2,11 @@
   --bullets-height: 15px;
 
   position: relative;
+  margin-left: initial;
+  margin-right: initial;
+  width: 100%;
+  padding-bottom: var(--bullets-height);
   overflow: hidden;
-
-  &__wrapper {
-    border-radius: var(--border-radius);
-    height: calc(100% - var(--bullets-height));
-    cursor: pointer;
-  }
-
-  .swiper-slide--image {
-    border-radius: var(--border-radius);
-    background-color: var(--color__dark-blue);
-    overflow: hidden;
-  }
 
   &__pagination {
     &.swiper-pagination {
@@ -40,6 +32,8 @@
         width: 100%;
         height: 5px;
         background-color: var(--color__purple--transparent);
+        transition: background-color var(--transition-timing-function)
+          var(--transition-duration);
       }
 
       &-active {
@@ -71,5 +65,10 @@
         transform: rotate(-135deg);
       }
     }
+  }
+
+  .swiper-lazy-preloader {
+    border-color: var(--color__purple);
+    border-top-color: transparent;
   }
 }

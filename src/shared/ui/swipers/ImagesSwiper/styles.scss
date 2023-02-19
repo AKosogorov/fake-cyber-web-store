@@ -1,0 +1,16 @@
+.images-swiper {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: var(--bullets-height);
+    left: 0;
+    border-radius: var(--border-radius);
+    background-color: var(--color__dark-blue);
+  }
+
+  &__slide {
+    cursor: grab;
+  }
+}

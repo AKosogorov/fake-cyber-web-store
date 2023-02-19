@@ -16,7 +16,7 @@
       <CyberButton text="ADD TO CART" />
     </div>
 
-    <VSwiper
+    <ImagesSwiper
       v-if="product.images"
       class="product-details__swiper mb-m"
       :images="product.images"
@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import RatingStars from '@/shared/ui/RatingStars'
-import VSwiper from '@/shared/ui/Swiper/VSwiper.vue'
+import { ImagesSwiper } from '@/shared/ui/swipers'
 import VPrice from '@/shared/ui/VPrice'
 import { CyberButton } from '@/shared/ui/cyber'
 import VButton from '@/shared/ui/buttons/VButton'

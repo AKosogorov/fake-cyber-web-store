@@ -5,11 +5,9 @@
   border-radius: var(--border-radius);
   padding-bottom: var(--s);
 
-  &__image-wrap {
+  &__swiper {
     height: 280px;
     border-radius: var(--border-radius);
-    overflow: hidden;
-    background-color: var(--color__dark-blue);
   }
 
   &__link {

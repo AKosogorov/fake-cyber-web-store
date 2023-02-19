@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { SpinnerLoader } from '@/shared/ui/loaders'
-import { mapProduct, ProductDetails } from '@/entities/Product'
+import { mapProductResponse, ProductDetails } from '@/entities/Product'
 
 import { computed, onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
@@ -27,7 +27,7 @@ onMounted(() => runWithLoading(fetchProduct))
 async function fetchProduct() {
   const response = await ProductApi.getById(productId.value)
 
-  product = mapProduct(response.data)
+  product = mapProductResponse(response.data)
 }
 </script>
 

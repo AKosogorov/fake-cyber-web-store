@@ -6,10 +6,10 @@
       draggable="false"
     />
 
-    <ProductCardImages
-      class="product-card__image-wrap"
+    <ImagesSwiper
+      v-if="product.images"
+      class="product-card__swiper mb-m"
       :images="product.images"
-      :alt="product.title"
     />
 
     <div class="column gap-xxs">
@@ -23,9 +23,9 @@
 </template>
 
 <script setup lang="ts">
+import { ImagesSwiper } from '@/shared/ui/swipers'
+import VPrice from '@/shared/ui/VPrice'
 import RatingStars from '@/shared/ui/RatingStars'
-import VPrice from '@/shared/ui/VPrice/index'
-import ProductCardImages from '../ProductCardImages'
 import type { IProduct } from '../../model/interface'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 defineProps<{
