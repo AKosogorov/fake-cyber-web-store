@@ -1,0 +1,17 @@
+.info-short {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__label {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      border-bottom: 1px dotted var(--color__grey--transparent);
+    }
+  }
+}

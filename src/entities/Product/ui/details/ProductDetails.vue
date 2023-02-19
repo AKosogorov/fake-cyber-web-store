@@ -1,8 +1,6 @@
 <template>
   <div class="product-details column">
-    <h2 class="mb-xs">
-      {{ product.category }} / {{ product.brand }} / {{ product.title }}
-    </h2>
+    <h1 class="mb-xs">{{ product.title }}</h1>
 
     <div class="row gap-xs mb-s">
       <RatingStars
@@ -22,12 +20,10 @@
       <div class="column gap-xs">
         <div class="column gap-xxs">
           <InfoShort label="Category" :text="product.category" />
+          <InfoShort label="Brand" :text="product.brand" />
         </div>
 
-        <div class="column gap-xxs">
-          <h5>Description</h5>
-          <p>{{ product.description }}</p>
-        </div>
+        <InfoHeaded heading="Description" :text="product.description" />
       </div>
 
       <div
@@ -57,6 +53,7 @@ import { InfoShort } from '@/shared/ui/text'
 
 import type { IProduct } from '@/entities/Product'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
+import InfoHeaded from '@/shared/ui/text/InfoHeaded/InfoHeaded.vue'
 
 defineProps<{
   product: IProduct

@@ -1,7 +1,5 @@
 <template>
   <div class="product-page container">
-    <h1>PRODUCT PAGE</h1>
-
     <ProductInfo />
   </div>
 </template>

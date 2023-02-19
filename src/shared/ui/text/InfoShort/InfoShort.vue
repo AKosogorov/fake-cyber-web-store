@@ -10,7 +10,7 @@
 <script setup lang="ts">
 defineProps<{
   label: string
-  text: string | number
+  text?: string | number
 }>()
 </script>
 
