@@ -1,13 +1,14 @@
-@mixin transition () {
+@mixin transition() {
   transition-timing-function: var(--transition-timing-function);
   transition-duration: var(--transition-duration);
 }
 
-@mixin transitionProperty () {
-  transition-property: border-color, color, background-color, opacity, visibility, transform, box-shadow;
+@mixin transitionProperty() {
+  transition-property: border-color, color, background-color, opacity,
+    visibility, transform, box-shadow;
 }
 
-@mixin reset () {
+@mixin reset() {
   position: relative;
   display: flex;
   align-items: center;
@@ -15,25 +16,33 @@
   outline: none;
   border: none;
   padding: 0;
-  letter-spacing: .2em;
+  letter-spacing: 0.2em;
   background-color: transparent;
   cursor: pointer;
 }
 
-@mixin absoluteCenter () {
+@mixin absoluteFull() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin absoluteCenter() {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@mixin fontChakra600 () {
+@mixin fontChakra600() {
   font-family: 'Chakra Petch', sans-serif;
   line-height: 130%;
   font-weight: 600;
 }
 
-@mixin customScroll () {
+@mixin customScroll() {
   &::-webkit-scrollbar {
     width: 8px;
     height: 8px;

@@ -1,6 +1,6 @@
 <template>
+  <div class="app-bg" />
   <component :is="layout" />
-
   <TheAlerts />
 </template>
 

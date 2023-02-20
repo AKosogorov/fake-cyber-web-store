@@ -27,6 +27,13 @@ svg {
   min-height: 100vh;
 }
 
+.app-bg {
+  @include absoluteFull;
+  z-index: -1;
+  background-image: url('@/shared/assets/image/bg-main.png');
+  opacity: 0.05;
+}
+
 .custom-scroll {
   @include customScroll;
 }
