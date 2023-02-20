@@ -52,6 +52,22 @@ module.exports = {
         ],
         alphabetical: false
       }
+    ],
+    'vue/block-tag-newline': [
+      'error',
+      {
+        singleline: 'ignore',
+        multiline: 'always',
+        maxEmptyLines: 1
+      }
+    ],
+    'vue/html-button-has-type': [
+      'error',
+      {
+        button: true,
+        submit: true,
+        reset: true
+      }
     ]
   }
 }
