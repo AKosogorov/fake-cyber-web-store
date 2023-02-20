@@ -1,7 +1,7 @@
 import type { AxiosPromise } from 'axios'
 import type { TRequestParams } from './types'
 
-import { create, destroy, getAll, getById, update } from './requests'
+import { getAll, getById } from './requests'
 
 export interface IBaseReadApi<All, One> {
   getAll: (params?: TRequestParams) => AxiosPromise<All>

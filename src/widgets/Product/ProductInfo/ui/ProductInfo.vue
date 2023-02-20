@@ -18,12 +18,11 @@ import { mapProductResponse, ProductDetails } from '@/entities/Product'
 import { CyberButton } from '@/shared/ui/cyber'
 import { ButtonLike } from '@/shared/ui/buttons'
 
-import { computed, onMounted, reactive } from 'vue'
+import { computed, onMounted } from 'vue'
 import { ProductApi } from '@/entities/Product'
 import type { IProduct } from '@/entities/Product'
 import { useRoute } from 'vue-router'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
-import type { IImage } from '@/shared/lib/interface/image'
 
 const route = useRoute()
 let product: IProduct
