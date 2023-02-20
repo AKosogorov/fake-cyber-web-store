@@ -1,0 +1,19 @@
+.link-to-cart {
+  position: relative;
+
+  &__icon {
+    width: var(--s);
+    height: var(--s);
+  }
+
+  &__counter {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    border-radius: 100%;
+    padding: 2px 3px;
+    font-size: 10px;
+    line-height: 12px;
+    background-color: var(--color__red);
+  }
+}

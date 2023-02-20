@@ -1,11 +1,7 @@
 <template>
-  <TheHeader />
-
+  <slot name="header" />
   <main>
     <router-view />
   </main>
+  <slot name="footer" />
 </template>
-
-<script setup lang="ts">
-import TheHeader from '@/shared/ui/app/TheHeader.vue'
-</script>

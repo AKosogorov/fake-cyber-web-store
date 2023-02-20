@@ -1,12 +1,23 @@
 <template>
   <div class="app-bg" />
-  <component :is="layout" />
+  <EmptyLayout v-if="isEmptyLayout" />
+
+  <MainLayout v-else>
+    <template v-slot:header>
+      <TheHeader />
+    </template>
+    <template v-slot:footer>
+      <baseFooter />
+    </template>
+  </MainLayout>
+
   <TheAlerts />
 </template>
 
 <script setup lang="ts">
-import MainLayout from '@/shared/ui/layouts/MainLayout.vue'
-import EmptyLayout from '@/shared/ui/layouts/EmptyLayout.vue'
+import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
+import { baseFooter } from '@/shared/ui/base'
+import { TheHeader } from '@/widgets/TheHeader'
 import { TheAlerts } from '@/shared/ui/TheAlerts'
 
 import { useRoute } from 'vue-router'
@@ -14,14 +25,7 @@ import { computed } from 'vue'
 
 const route = useRoute()
 
-const layout = computed(() => {
-  switch (route.meta.layout) {
-    case 'empty':
-      return EmptyLayout
-    default:
-      return MainLayout
-  }
-})
+const isEmptyLayout = computed(() => route.meta.layout === 'empty')
 </script>
 
 <style lang="scss">

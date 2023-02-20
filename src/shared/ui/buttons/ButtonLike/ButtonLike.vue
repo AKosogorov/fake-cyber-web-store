@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import IconHeart from '@/shared/ui/icons/IconHeart.vue'
+import { IconHeart } from '@/shared/ui/icons'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 
 interface IButtonLike {
