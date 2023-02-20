@@ -1,19 +1,12 @@
 <template>
   <router-link class="link-to-cart link" to="/cart">
-    <IconCart class="link-to-cart__icon" /><span
-      class="link-to-cart__counter counter"
-      >99</span
-    >
+    <IconCart class="link-to-cart__icon" />
+    <span class="link-to-cart__counter counter">1</span>
   </router-link>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import IconCart from '@/shared/ui/icons/IconCart.vue'
-
-export default defineComponent({
-  components: { IconCart }
-})
 </script>
 
 <style lang="scss">
