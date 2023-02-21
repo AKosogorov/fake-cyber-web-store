@@ -51,12 +51,12 @@ import { ImagesSwiper } from '@/shared/ui/swipers'
 import VPrice from '@/shared/ui/VPrice'
 import { InfoShort } from '@/shared/ui/text'
 
-import type { IProduct } from '@/entities/Product'
+import { ProductModel } from '@/entities/Product'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 import InfoHeaded from '@/shared/ui/text/InfoHeaded/InfoHeaded.vue'
 
 defineProps<{
-  product: IProduct
+  product: ProductModel.IProduct
 }>()
 </script>
 

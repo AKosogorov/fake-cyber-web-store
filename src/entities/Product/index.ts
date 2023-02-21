@@ -1,3 +1,3 @@
 export { api as ProductApi } from './api'
-export * from './model'
+export * as ProductModel from './model'
 export * from './ui'
