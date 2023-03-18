@@ -5,12 +5,25 @@
   border-radius: var(--border-radius);
   padding-bottom: var(--s);
 
+  &__link {
+    z-index: 1;
+  }
+
   &__swiper {
+    position: relative;
+    z-index: 2;
     height: 280px;
     border-radius: var(--border-radius);
   }
 
-  &__link {
-    z-index: 1;
+  &__actions {
+    position: relative;
+    z-index: 3;
+
+    &--top {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
   }
 }

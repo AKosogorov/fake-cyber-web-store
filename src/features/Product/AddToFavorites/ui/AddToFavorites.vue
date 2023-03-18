@@ -18,7 +18,7 @@ const { isLike, toggleIsLike } = useIsLike(checkInFavoritesBy(props.id))
 
 function onClick() {
   if (isLike.value) {
-    return remove(props.id)
+    remove(props.id)
   } else {
     add(props.id)
   }

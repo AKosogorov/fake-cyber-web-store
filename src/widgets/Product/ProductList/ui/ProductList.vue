@@ -7,12 +7,17 @@
       :key="item.id"
       :product="item"
       :details-route-name="detailsRouteName"
-    />
+    >
+      <template v-slot:button-like>
+        <AddToFavorites :id="item.id" />
+      </template>
+    </ProductCard>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ProductCard } from '@/entities/Product'
+import { AddToFavorites } from '@/features/Product'
 import { ProductModel } from '@/entities/Product'
 import { onMounted, reactive } from 'vue'
 import { ProductApi } from '@/entities/Product'
