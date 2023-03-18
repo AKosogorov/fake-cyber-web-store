@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { useIsBoolean } from '@/shared/lib/use/base/useIsBoolean'
 
 interface IUseIsLoading {
   isLoading: Ref<boolean>
@@ -8,15 +9,11 @@ interface IUseIsLoading {
 }
 
 export function useIsLoading(): IUseIsLoading {
-  const isLoading = ref(false)
-
-  function startLoading(): void {
-    isLoading.value = true
-  }
-
-  function finishLoading(): void {
-    isLoading.value = false
-  }
+  const {
+    isBoolean: isLoading,
+    setTrue: startLoading,
+    setFalse: finishLoading
+  } = useIsBoolean()
 
   return {
     isLoading,

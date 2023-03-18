@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
 import { useLocalStorage } from '@/shared/lib/browser'
-import { NAMESPACE } from './index'
 import { findSimpleBy, spliceSimpleBy } from '@/shared/lib/utils/array'
 
 interface IFavoritesStore {
@@ -11,7 +10,7 @@ interface IFavoritesStore {
   remove: (id: number) => void
 }
 
-const NAMESPACE_FAVORITES = `${NAMESPACE}-favorites`
+const NAMESPACE_FAVORITES = 'product-favorites'
 
 export const useFavoritesStore = defineStore(
   NAMESPACE_FAVORITES,
@@ -29,7 +28,6 @@ export const useFavoritesStore = defineStore(
     }
 
     function remove(id: number) {
-      favorites.push(id)
       spliceSimpleBy(id, favorites)
       setLSValue(favorites)
     }

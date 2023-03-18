@@ -3,7 +3,7 @@
 
   <ProductDetails v-else-if="product" :product="product">
     <template v-slot:button-like>
-      <AddToFavorites />
+      <AddToFavorites :id="product.id" />
     </template>
 
     <template v-slot:button-add-to-cart>
