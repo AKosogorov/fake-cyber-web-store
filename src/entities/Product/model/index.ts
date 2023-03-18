@@ -1,3 +1,3 @@
 export * from './interface'
 export * from './map'
-export * from './stores'
+export * as stores from './stores'

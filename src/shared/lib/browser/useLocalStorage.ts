@@ -2,7 +2,7 @@ const PREFIX = 'FAKE_CYBER_WEB_STORE'
 
 interface IUseLocalStorage<T> {
   value: T
-  setValue: (value: T) => void
+  setLSValue: (value: T) => void
 }
 
 export function useLocalStorage<T>(
@@ -14,9 +14,9 @@ export function useLocalStorage<T>(
   const valueLS = window.localStorage.getItem(keyLS)
   const value: T = valueLS ? JSON.parse(valueLS) : initialValue
 
-  function setValue(value: T): void {
+  function setLSValue(value: T): void {
     window.localStorage.setItem(keyLS, JSON.stringify(value))
   }
 
-  return { value, setValue }
+  return { value, setLSValue }
 }

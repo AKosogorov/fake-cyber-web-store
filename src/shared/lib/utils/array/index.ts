@@ -1,10 +1,30 @@
-type tId = number | string
+type TValue = number | string
 interface IObject {
-  id: tId
+  id: TValue
 }
 
-export function spliceBy(id: tId, arr: IObject[]): void {
-  const idx = arr.findIndex(item => item.id === id)
+export function spliceBy(id: TValue, array: IObject[]): void {
+  const idx = array.findIndex(item => item.id === id)
+  splice(idx, array)
+}
+
+export function spliceSimpleBy(value: TValue, array: TValue[]) {
+  const idx = array.findIndex(item => item === value)
+  splice(idx, array)
+}
+
+function splice<T>(idx: number, array: T[]) {
   if (idx === -1) return
-  arr.splice(idx, 1)
+  array.splice(idx, 1)
+}
+
+export function findBy(id: TValue, array: IObject[]): IObject | undefined {
+  return array.find(item => item.id === id)
+}
+
+export function findSimpleBy(
+  value: TValue,
+  array: TValue[]
+): TValue | undefined {
+  return array.find(item => item === value)
 }

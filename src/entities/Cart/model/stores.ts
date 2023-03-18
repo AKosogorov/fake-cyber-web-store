@@ -6,7 +6,7 @@ import { useLocalStorage } from '@/shared/lib/browser'
 export const NAMESPACE = 'cart'
 
 export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
-  const { value, setValue: setLocalStorageInCart } = useLocalStorage(
+  const { value, setLSValue: setLocalStorageInCart } = useLocalStorage(
     `${NAMESPACE}-product-count`,
     0
   )
