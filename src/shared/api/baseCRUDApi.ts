@@ -4,6 +4,7 @@ import type { IBaseReadApi } from './baseReadApi'
 import { createBaseReadApi } from './baseReadApi'
 import { create, destroy, update } from './requests'
 
+// @ts-ignore
 interface IBaseCRUDApi extends IBaseReadApi {
   create: (data: object, params: TRequestParams) => AxiosPromise
   update: (id: number, data: object, params: TRequestParams) => AxiosPromise

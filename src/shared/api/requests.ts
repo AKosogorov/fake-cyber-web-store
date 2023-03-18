@@ -25,15 +25,15 @@ export function create(
   return apiInstance.post(`/${url}`, data, { params })
 }
 
-export function update(
+export function update<T>(
   url: string,
   id: number,
   data: object,
   params?: TRequestParams
-): AxiosPromise {
+): AxiosPromise<T> {
   return apiInstance.put(`/${url}/${id}`, data, { params })
 }
 
-export function destroy(url: string, id: number): AxiosPromise {
+export function destroy<T>(url: string, id: number): AxiosPromise<T> {
   return apiInstance.delete(`/${url}/${id}`)
 }

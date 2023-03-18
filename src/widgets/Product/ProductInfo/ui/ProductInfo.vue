@@ -7,7 +7,7 @@
     </template>
 
     <template v-slot:button-add-to-cart>
-      <CyberButton class="w-100" text="ADD TO CART" />
+      <AddToCart class="w-100" :id="product.id" />
     </template>
   </ProductDetails>
 </template>
@@ -15,9 +15,7 @@
 <script setup lang="ts">
 import { SpinnerLoader } from '@/shared/ui/loaders'
 import { ProductDetails, ProductModel } from '@/entities/Product'
-import { CyberButton } from '@/shared/ui/cyber'
-import { AddToFavorites } from '@/features/Product'
-
+import { AddToCart, AddToFavorites } from '@/features/Product'
 import { computed, onMounted } from 'vue'
 import { ProductApi } from '@/entities/Product'
 import { useRoute } from 'vue-router'

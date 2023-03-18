@@ -7,7 +7,7 @@ type TValue = number | string
 interface IUseReactiveArray<T> {
   array: T[]
   add: (item: T) => void
-  remove: (value: TValue, key: string) => void
+  remove: (value: TValue, key?: string) => void
 }
 
 // TODO доделать типизацию

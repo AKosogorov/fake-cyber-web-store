@@ -18,7 +18,10 @@ function splice<T>(idx: number, array: T[]) {
   array.splice(idx, 1)
 }
 
-export function findBy(id: TValue, array: IObject[]): IObject | undefined {
+export function findBy<T extends IObject>(
+  id: TValue,
+  array: T[]
+): T | undefined {
   return array.find(item => item.id === id)
 }
 
