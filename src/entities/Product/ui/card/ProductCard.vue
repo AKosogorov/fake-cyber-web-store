@@ -12,16 +12,16 @@
       :images="product.images"
     />
 
+    <div class="product-card__actions product-card__actions--top">
+      <slot name="button-like" />
+    </div>
+
     <div class="column gap-xxs">
       <VPrice :price="product.price" :discount="product.discountPercentage" />
 
       <h4>{{ product.title }} - {{ product.stock }}</h4>
 
       <RatingStars :rating="product.rating" :size="EAppPixelSize.xs" />
-    </div>
-
-    <div class="product-card__actions product-card__actions--top">
-      <slot name="button-like" />
     </div>
   </article>
 </template>
