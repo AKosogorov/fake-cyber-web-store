@@ -22,8 +22,7 @@ interface ICartStore {
   inCart: ComputedRef<number>
   addToCart: (id: number) => Promise<void>
   removeFromCart: (id: number) => Promise<void>
-  incrementInCart: (id: number) => Promise<void>
-  decrementInCart: (id: number) => Promise<void>
+  updateProductQuantity: (id: number, quantity: number) => Promise<void>
 }
 
 interface ILSCart {
@@ -80,30 +79,45 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
   function cartHasProduct(id: number) {
     return !!findInCart(id)
   }
+
   async function addToCart(id: number) {
     const product = { id, quantity: 1 }
-    const { data } = await api.update([product])
-    add(data.products[0])
+    const { data } = await api.update([...cartProducts, product])
+
+    setCart(data)
+
+    const item = data.products.pop()
+    if (!item) return updateLS()
+
+    add(item)
+    updateLS()
   }
 
   async function removeFromCart(id: number) {
     remove(id)
-  }
-  async function incrementInCart(id: number) {}
-  async function decrementInCart(id: number) {}
-
-  function incrementCart(data: ICartResponse) {
-    incrementTotal(data.total)
-    incrementTotalQuantity(data.totalQuantity)
-    incrementTotalProducts(data.totalProducts)
-    incrementDiscountedTotal(data.discountedTotal)
+    await updateCart()
   }
 
-  function decrementCart(data: ICartResponse) {
-    decrementTotal(data.total)
-    decrementTotalQuantity(data.totalQuantity)
-    decrementTotalProducts(data.totalProducts)
-    decrementDiscountedTotal(data.discountedTotal)
+  async function updateCart() {
+    const { data } = await api.update(cartProducts)
+
+    setCart(data)
+    updateLS()
+  }
+
+  async function updateProductQuantity(id: number, quantity: number) {
+    const product = findInCart(id)
+    if (!product) return
+
+    product.quantity = quantity
+    await updateCart()
+  }
+
+  function setCart(data: ICartResponse) {
+    total.value = data.total
+    totalQuantity.value = data.totalQuantity
+    totalProducts.value = data.totalProducts
+    discountedTotal.value = data.discountedTotal
   }
 
   function updateLS() {
@@ -138,7 +152,6 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     cartHasProduct,
     addToCart,
     removeFromCart,
-    incrementInCart,
-    decrementInCart
+    updateProductQuantity
   }
 })
