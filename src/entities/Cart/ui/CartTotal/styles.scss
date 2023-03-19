@@ -1,0 +1,14 @@
+.cart-total {
+  &__price {
+    font-size: 24px;
+    font-weight: 600;
+
+    .price {
+      font-size: 24px;
+
+      &__old {
+        font-size: 20px;
+      }
+    }
+  }
+}

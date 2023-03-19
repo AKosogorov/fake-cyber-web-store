@@ -11,15 +11,20 @@ import { formatUSD } from '@/shared/lib/utils/format/currency'
 
 const props = defineProps<{
   price: number
-  discount: number
+  discount?: number
+  priceDiscount?: number
 }>()
 
-const hasDiscount = computed(() => props.discount > 0)
+const hasDiscount = computed(() => props.discount || props.priceDiscount)
 
 const currentPrice = computed(() => {
-  if (!hasDiscount.value) return props.price
+  if (props.discount) {
+    return props.price * ((100 - props.discount) / 100)
+  }
 
-  return props.price * ((100 - props.discount) / 100)
+  if (props.priceDiscount) return props.priceDiscount
+
+  return props.price
 })
 </script>
 
