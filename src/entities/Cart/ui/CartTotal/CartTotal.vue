@@ -11,10 +11,7 @@
 <script setup lang="ts">
 import VPrice from '@/shared/ui/VPrice'
 import { useCartStore } from '../../model'
-import { computed } from 'vue'
-import { formatRUB } from '@/shared/lib/utils/format/currency'
 const store = useCartStore()
-const sum = computed(() => formatRUB(store.total))
 </script>
 
 <style lang="scss">

@@ -9,7 +9,7 @@ export interface ICartResponse {
   totalProducts: number
   totalQuantity: number
   isDeleted?: boolean
-  deletedOn: string
+  deletedOn?: string
 }
 
 export interface ICartProduct extends ICartProductBase {
