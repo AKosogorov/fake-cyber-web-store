@@ -15,12 +15,12 @@
 <script setup lang="ts">
 import { SpinnerLoader } from '@/shared/ui/loaders'
 import { ProductDetails, ProductModel } from '@/entities/Product'
-import { AddToCart, AddToFavorites } from '@/features/Product'
+import { AddToFavorites } from '@/features/Product'
+import { AddToCart } from '@/features/Cart'
 import { computed, onMounted } from 'vue'
 import { ProductApi } from '@/entities/Product'
 import { useRoute } from 'vue-router'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
-
 const route = useRoute()
 let product: ProductModel.IProduct
 

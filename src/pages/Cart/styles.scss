@@ -5,7 +5,8 @@
     gap: var(--l);
   }
 
-  &__aside {
+  .cart-total {
     position: sticky;
+    top: 0;
   }
 }
