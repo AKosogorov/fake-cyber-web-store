@@ -14,12 +14,6 @@ section {
   padding: var(--m) 0;
 }
 
-svg {
-  transition-duration: var(--transition-duration);
-  transition-timing-function: var(--transition-timing-function);
-  transition-property: fill, stroke, transform;
-}
-
 #app {
   position: relative;
   display: flex;
@@ -95,14 +89,4 @@ svg {
 
 .max-w-field {
   max-width: var(--max-w-field);
-}
-
-svg {
-  @include transition;
-  transition-property: color, stroke, fill;
-}
-
-rect,
-path {
-  transition: inherit;
 }
