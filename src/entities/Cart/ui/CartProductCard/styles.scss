@@ -1,2 +1,24 @@
 .cart-product-card {
+  display: grid;
+  grid-template-columns: var(--l) 1fr max-content 150px;
+  gap: var(--m);
+  border: 2px solid var(--color__purple--transparent);
+  border-radius: var(--border-radius);
+  padding: var(--s);
+
+  &__icon-wrap {
+  }
+
+  &__icon {
+    width: var(--l);
+    height: var(--l);
+    color: var(--color__purple);
+  }
+
+  &__link {
+  }
+
+  &__end {
+    align-items: flex-end;
+  }
 }

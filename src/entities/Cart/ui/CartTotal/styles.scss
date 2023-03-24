@@ -1,4 +1,7 @@
 .cart-total {
+  border: 2px solid var(--color__blue);
+  padding: var(--s);
+
   &__price {
     font-size: 24px;
     font-weight: 600;

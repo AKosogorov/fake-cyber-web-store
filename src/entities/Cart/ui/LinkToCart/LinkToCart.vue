@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import IconCart from '@/shared/ui/icons/IconCart.vue'
+import { IconCart } from '@/shared/ui/icons'
 import { useCartStore } from '../../model'
 
 const store = useCartStore()

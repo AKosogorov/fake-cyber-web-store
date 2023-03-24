@@ -32,6 +32,7 @@ import VPrice from '@/shared/ui/VPrice'
 import RatingStars from '@/shared/ui/RatingStars'
 import type { IProduct } from '../../model'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
+
 defineProps<{
   product: IProduct
   detailsRouteName: string
@@ -39,5 +40,5 @@ defineProps<{
 </script>
 
 <style lang="scss">
-@import 'styles.scss';
+@import 'styles';
 </style>
