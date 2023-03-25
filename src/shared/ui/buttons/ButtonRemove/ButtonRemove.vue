@@ -1,22 +1,21 @@
 <template>
-  <ButtonSm class="button-like" :class="isLike && 'liked'">
+  <ButtonSm class="button-remove">
     <template v-slot:icon>
-      <IconHeart :width="iconSize" :height="iconSize" />
+      <IconTrash :width="iconSize" :height="iconSize" />
     </template>
   </ButtonSm>
 </template>
 
 <script setup lang="ts">
 import { ButtonSm } from '@/shared/ui/buttons'
-import { IconHeart } from '@/shared/ui/icons'
+import { IconTrash } from '@/shared/ui/icons'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 
-interface IButtonLike {
-  isLike: boolean
+interface IButtonRemove {
   iconSize?: EAppPixelSize
 }
 
-withDefaults(defineProps<IButtonLike>(), {
+withDefaults(defineProps<IButtonRemove>(), {
   iconSize: EAppPixelSize.sm
 })
 </script>

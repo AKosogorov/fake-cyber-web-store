@@ -1,11 +1,4 @@
 .button-like {
-  .button-sm__icon-wrap {
-    color: var(--color__grey);
-    transition-property: transform, color;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function);
-  }
-
   &.liked {
     .button-sm__icon-wrap {
       color: var(--color__red);
@@ -18,10 +11,6 @@
 
   &:focus-visible,
   &:hover {
-    .button-sm__icon-wrap {
-      color: var(--color__red);
-    }
-
     &.liked {
       .button-sm__icon-wrap {
         color: var(--color__grey);
@@ -31,9 +20,5 @@
         }
       }
     }
-  }
-
-  &:active {
-    transform: scale(0.9);
   }
 }

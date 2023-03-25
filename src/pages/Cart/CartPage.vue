@@ -13,7 +13,9 @@
             <AddToFavorites :id="item.id" />
           </template>
 
-          <template v-slot:button-remove></template>
+          <template v-slot:button-remove>
+            <ButtonRemove />
+          </template>
         </CartProductCard>
       </div>
 
@@ -30,6 +32,7 @@
 import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
 import { AddToFavorites } from '@/features/Product'
 import { AppPages } from '@/pages'
+import { ButtonRemove } from '@/shared/ui/buttons'
 
 const store = CartModel.useCartStore()
 </script>
