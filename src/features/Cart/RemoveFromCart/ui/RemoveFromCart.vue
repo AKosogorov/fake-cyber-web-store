@@ -1,19 +1,19 @@
 <template>
-  <CyberButton text="ADD TO CART" @click="onClick" />
+  <ButtonRemove @click="onClick" />
 </template>
 
 <script setup lang="ts">
-import { CyberButton } from '@/shared/ui/cyber'
+import { ButtonRemove } from '@/shared/ui/buttons'
 import { CartModel } from '@/entities/Cart'
 
 const props = defineProps<{
   id: number
 }>()
 
-const { addToCart } = CartModel.useCartStore()
+const { removeFromCart } = CartModel.useCartStore()
 
 function onClick() {
-  addToCart(props.id)
+  removeFromCart(props.id)
 }
 </script>
 

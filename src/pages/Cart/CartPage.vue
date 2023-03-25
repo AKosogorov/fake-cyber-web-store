@@ -14,7 +14,7 @@
           </template>
 
           <template v-slot:button-remove>
-            <ButtonRemove />
+            <RemoveFromCart :id="item.id" />
           </template>
         </CartProductCard>
       </div>
@@ -33,6 +33,7 @@ import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
 import { AddToFavorites } from '@/features/Product'
 import { AppPages } from '@/pages'
 import { ButtonRemove } from '@/shared/ui/buttons'
+import { RemoveFromCart } from '@/features/Cart'
 
 const store = CartModel.useCartStore()
 </script>

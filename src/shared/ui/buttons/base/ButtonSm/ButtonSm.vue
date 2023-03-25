@@ -14,7 +14,10 @@
 import type { IBaseButton } from '../interface'
 
 interface IButtonSm extends IBaseButton {}
-defineProps<IButtonSm>()
+
+withDefaults(defineProps<IButtonSm>(), {
+  text: ''
+})
 </script>
 
 <style lang="scss">
