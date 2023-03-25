@@ -1,13 +1,13 @@
 .button-like {
-  align-self: baseline;
-
-  &__icon-wrap {
+  .button-sm__icon-wrap {
     color: var(--color__grey);
     transition-property: transform, color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
+  }
 
-    &--fill {
+  &.liked {
+    .button-sm__icon-wrap {
       color: var(--color__red);
 
       path {
@@ -18,10 +18,12 @@
 
   &:focus-visible,
   &:hover {
-    .button-like__icon-wrap {
+    .button-sm__icon-wrap {
       color: var(--color__red);
+    }
 
-      &--fill {
+    &.liked {
+      .button-sm__icon-wrap {
         color: var(--color__grey);
 
         path {

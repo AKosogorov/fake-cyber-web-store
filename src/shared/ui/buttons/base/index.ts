@@ -1,2 +1,2 @@
 export * from './VButton'
-export * from './ButtonIcon'
+export * from './ButtonSm'

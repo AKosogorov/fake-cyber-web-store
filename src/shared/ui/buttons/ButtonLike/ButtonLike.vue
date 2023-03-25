@@ -1,28 +1,22 @@
 <template>
-  <button class="button-like row gap-xxs reset" type="button">
-    <span
-      class="button-like__icon-wrap zero-line-h"
-      :class="isLike && 'button-like__icon-wrap--fill'"
-    >
+  <ButtonSm class="button-like" :class="isLike && 'liked'">
+    <template v-slot:icon>
       <IconHeart :width="iconSize" :height="iconSize" />
-    </span>
-
-    <span v-if="text">{{ text }}</span>
-  </button>
+    </template>
+  </ButtonSm>
 </template>
 
 <script setup lang="ts">
 import { IconHeart } from '@/shared/ui/icons'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { ButtonSm } from '@/shared/ui/buttons'
 
 interface IButtonLike {
-  text?: string
   isLike: boolean
   iconSize?: EAppPixelSize
 }
 
 withDefaults(defineProps<IButtonLike>(), {
-  text: '',
   iconSize: EAppPixelSize.sm
 })
 </script>
