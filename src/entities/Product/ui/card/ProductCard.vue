@@ -23,6 +23,10 @@
 
       <RatingStars :rating="product.rating" :size="EAppPixelSize.xs" />
     </div>
+
+    <div class="product-card__actions product-card__actions--bottom">
+      <slot name="button-add-to-cart" />
+    </div>
   </article>
 </template>
 

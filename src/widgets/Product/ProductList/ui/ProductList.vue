@@ -11,18 +11,24 @@
       <template v-slot:button-like>
         <AddToFavorites :id="item.id" />
       </template>
+
+      <template v-slot:button-add-to-cart>
+        <AddToCart :id="item.id" />
+      </template>
     </ProductCard>
   </div>
 </template>
 
 <script setup lang="ts">
+import SpinnerLoader from '@/shared/ui/loaders/SpinnerLoader'
 import { ProductCard } from '@/entities/Product'
 import { AddToFavorites } from '@/features/Product'
-import { ProductModel } from '@/entities/Product'
+import { AddToCart } from '@/features/Cart'
+
 import { onMounted, reactive } from 'vue'
+import { ProductModel } from '@/entities/Product'
 import { ProductApi } from '@/entities/Product'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
-import SpinnerLoader from '@/shared/ui/loaders/SpinnerLoader'
 
 defineProps<{
   detailsRouteName: string
