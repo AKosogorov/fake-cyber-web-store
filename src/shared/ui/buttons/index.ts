@@ -1,2 +1,2 @@
-export * from './VButton'
+export * from './base'
 export * from './ButtonLike'

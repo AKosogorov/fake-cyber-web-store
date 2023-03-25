@@ -21,9 +21,9 @@
 <script setup lang="ts">
 import BorderDecorate from '@/shared/ui/BorderDecorate'
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
+import type { IBaseButton } from '../interface'
 
-interface IButton {
-  text: string
+interface IButton extends IBaseButton {
   borderLeftIcon?: EBorderDecorateIcons
   borderRightIcon?: EBorderDecorateIcons
 }

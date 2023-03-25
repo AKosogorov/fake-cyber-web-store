@@ -1,3 +1,3 @@
 export interface IBaseButton {
-  text: string
+  text?: string
 }
