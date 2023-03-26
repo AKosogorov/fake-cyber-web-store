@@ -17,20 +17,23 @@
         :placeholder="placeholder"
         :disabled="isDisabled"
         @input="onInput"
+        @blur="emit('blur')"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['update:modelValue'])
+import type { HTMLElementEvent } from '@/shared/lib/types'
+
+const emit = defineEmits(['update:modelValue', 'blur'])
 
 interface IVInput {
   modelValue?: string | number
   label?: string
   name?: string
   isDisabled?: boolean
-  placeholder?: string
+  placeholder?: string | number
   inputType?: string
 }
 
@@ -38,8 +41,10 @@ withDefaults(defineProps<IVInput>(), {
   inputType: 'text'
 })
 
-function onInput(event) {
-  console.log('ON INPUT', event.target.value)
+function onInput(event: HTMLElementEvent<HTMLInputElement>) {
+  const value = event.target.value.trim()
+
+  emit('update:modelValue', value)
 }
 </script>
 

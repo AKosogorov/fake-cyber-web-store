@@ -2,7 +2,13 @@
   <section>
     <h2 class="mb-s">Input</h2>
 
-    <InputQuantity v-model="quantity" class="mb-s" />
+    <InputQuantity
+      v-model="quantity"
+      label="QUANTITY LABEL"
+      :min-value="1"
+      :max-value="10"
+      class="mb-s"
+    />
 
     <div class="column gap-s max-w-field">
       <VInput label="LABEL" name="input" placeholder="placeholder" />

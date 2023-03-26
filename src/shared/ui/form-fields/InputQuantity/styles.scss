@@ -1,2 +1,48 @@
 .input-quantity {
+  position: relative;
+
+  &__button {
+    width: var(--l);
+    height: var(--l);
+    border: 2px solid var(--color__blue);
+    color: var(--color__blue);
+
+    &::before,
+    &::after {
+      left: 5px;
+      right: 5px;
+      width: initial;
+    }
+
+    &:focus-visible,
+    &:hover {
+      border-color: var(--color__yellow);
+      color: var(--color__yellow);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      border-color: var(--color__grey);
+      color: var(--color__grey);
+    }
+  }
+
+  .input {
+    width: 85px;
+  }
+
+  &.labeled {
+    padding-top: 28px;
+
+    .input {
+      &__label {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
 }
