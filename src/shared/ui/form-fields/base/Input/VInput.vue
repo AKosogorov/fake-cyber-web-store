@@ -10,22 +10,37 @@
     <div class="input__field-wrap">
       <input
         ref="input"
+        :value="modelValue"
         class="input__field"
+        :type="inputType"
         :name="name"
         :placeholder="placeholder"
         :disabled="isDisabled"
+        @input="onInput"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const emit = defineEmits(['update:modelValue'])
+
+interface IVInput {
+  modelValue?: string | number
   label?: string
   name?: string
   isDisabled?: boolean
   placeholder?: string
-}>()
+  inputType?: string
+}
+
+withDefaults(defineProps<IVInput>(), {
+  inputType: 'text'
+})
+
+function onInput(event) {
+  console.log('ON INPUT', event.target.value)
+}
 </script>
 
 <style lang="scss">
