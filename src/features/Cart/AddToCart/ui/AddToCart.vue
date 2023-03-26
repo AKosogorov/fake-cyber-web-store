@@ -1,5 +1,5 @@
 <template>
-  <CyberButton text="ADD TO CART" @click="onClick" />
+  <CyberButton txt="ADD TO CART" @click="onClick" />
 </template>
 
 <script setup lang="ts">

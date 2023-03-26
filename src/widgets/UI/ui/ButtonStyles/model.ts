@@ -1,5 +1,4 @@
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
-import type { IButton } from '@/shared/ui/buttons'
 
 const texts: string[] = ['BUTTON', 'HOVER', 'FOCUS', 'DISABLED', 'ACTIVE']
 
@@ -25,9 +24,15 @@ const borders: IBorders[] = [
 
 export const buttonList = borders.map(mapper)
 
-function mapper(item: IBorders): IButton[] {
-  return texts.map(text => ({
-    text,
+interface IButtonItem {
+  txt: string
+  borderLeftIcon: EBorderDecorateIcons
+  borderRightIcon: EBorderDecorateIcons
+}
+
+function mapper(item: IBorders): IButtonItem[] {
+  return texts.map(txt => ({
+    txt,
     borderLeftIcon: item.bL,
     borderRightIcon: item.bR || item.bL
   }))

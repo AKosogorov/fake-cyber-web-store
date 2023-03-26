@@ -2,6 +2,8 @@
   <section>
     <h2 class="mb-s">Input</h2>
 
+    <InputQuantity class="mb-s" />
+
     <div class="column gap-s max-w-field">
       <VInput label="LABEL" name="input" placeholder="placeholder" />
 
@@ -20,6 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import { VInput } from '@/shared/ui/form-fields'
+import { InputQuantity, VInput } from '@/shared/ui/form-fields'
 import { inputList } from './model'
 </script>

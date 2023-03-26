@@ -2,9 +2,9 @@
   <section>
     <h2 class="mb-s">Buttons</h2>
 
-    <VButton class="mb-s" text="toggle disabled" @click="toggle" />
+    <VButton class="mb-s" txt="toggle disabled" @click="toggle" />
 
-    <CyberButton class="mb-s" text="Cyber button" :disabled="isDisabled" />
+    <CyberButton class="mb-s" txt="Cyber button" :disabled="isDisabled" />
 
     <div class="column gap-m">
       <div
@@ -17,7 +17,7 @@
           :key="idx"
           class="events-none"
           :class="classes[idx]"
-          :text="button.text"
+          :txt="button.txt"
           :border-left-icon="button.borderLeftIcon"
           :border-right-icon="button.borderRightIcon"
           :disabled="idx === 3 ? isDisabled : false"

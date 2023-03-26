@@ -12,7 +12,7 @@
       :icon-right="borderRightIcon"
     />
 
-    <span class="button__text label">{{ text }}</span>
+    <span class="button__text label">{{ txt }}</span>
 
     <slot />
   </button>
@@ -21,9 +21,9 @@
 <script setup lang="ts">
 import BorderDecorate from '@/shared/ui/BorderDecorate'
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
-import type { IBaseButton } from '../interface'
 
-interface IButton extends IBaseButton {
+interface IButton {
+  txt: string
   borderLeftIcon?: EBorderDecorateIcons
   borderRightIcon?: EBorderDecorateIcons
 }

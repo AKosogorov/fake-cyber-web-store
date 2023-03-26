@@ -5,19 +5,17 @@
     </span>
 
     <slot>
-      <span v-if="text" class="button-sm__text">{{ text }}</span>
+      <span v-if="txt" class="button-sm__text">{{ txt }}</span>
     </slot>
   </button>
 </template>
 
 <script setup lang="ts">
-import type { IBaseButton } from '../interface'
+interface IButtonSm {
+  txt?: string
+}
 
-interface IButtonSm extends IBaseButton {}
-
-withDefaults(defineProps<IButtonSm>(), {
-  text: ''
-})
+defineProps<IButtonSm>()
 </script>
 
 <style lang="scss">
