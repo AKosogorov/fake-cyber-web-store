@@ -19,7 +19,7 @@
 
     <div class="cart-product-card__end column gap-xs">
       <VPrice
-        :price="cartProduct.price"
+        :price="cartProduct.total"
         :price-discount="cartProduct.discountedPrice"
       />
 

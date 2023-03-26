@@ -3,7 +3,7 @@
     <button
       class="input-quantity__button pseudo-minus reset"
       type="button"
-      :disabled="isDisabledButtonMinus"
+      :disabled="isDisabled || isDisabledButtonMinus"
       @click="onMinus"
     />
 
@@ -13,13 +13,14 @@
       :label="label"
       :placeholder="minValue"
       input-type="number"
+      :is-disabled="isDisabled"
       @update:model-value="onInput"
     />
 
     <button
       class="input-quantity__button pseudo-plus reset"
       type="button"
-      :disabled="isDisabledButtonPlus"
+      :disabled="isDisabled || isDisabledButtonPlus"
       @click="onPlus"
     />
   </div>
@@ -36,6 +37,7 @@ interface IInputQuantity {
   minValue?: number
   maxValue?: number
   label?: string
+  isDisabled?: boolean
 }
 
 const props = withDefaults(defineProps<IInputQuantity>(), {

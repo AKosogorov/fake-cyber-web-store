@@ -9,6 +9,10 @@
           :cart-product="item"
           :details-route-name="AppPages.catalog.product"
         >
+          <template v-slot:input-quantity>
+            <ChangeQuantity :id="item.id" :quantity="item.quantity" />
+          </template>
+
           <template v-slot:button-like>
             <AddToFavorites :id="item.id" />
           </template>
@@ -32,8 +36,7 @@
 import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
 import { AddToFavorites } from '@/features/Product'
 import { AppPages } from '@/pages'
-import { ButtonRemove } from '@/shared/ui/buttons'
-import { RemoveFromCart } from '@/features/Cart'
+import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
 
 const store = CartModel.useCartStore()
 </script>

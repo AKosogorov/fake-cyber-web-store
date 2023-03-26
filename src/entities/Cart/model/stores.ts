@@ -103,6 +103,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
     setCart(data)
     updateLS()
+    return data
   }
 
   async function updateProductQuantity(id: number, quantity: number) {
@@ -110,7 +111,16 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     if (!product) return
 
     product.quantity = quantity
-    await updateCart()
+
+    const { products } = await updateCart()
+
+    const productUpdated = findBy(id, products)
+    if (!productUpdated) return
+
+    product.total = productUpdated.total
+    product.discountedPrice = productUpdated.discountedPrice
+
+    updateLSCartProducts()
   }
 
   function setCart(data: ICartResponse) {
