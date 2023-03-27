@@ -6,7 +6,7 @@
 
     <div class="cart-product-card__info">
       <router-link
-        class="cart-product-card__link"
+        class="cart-product-card__link link"
         :to="{ name: detailsRouteName, params: { id: cartProduct.id } }"
       >
         <h4>{{ cartProduct.title }}</h4>

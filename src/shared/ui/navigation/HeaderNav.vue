@@ -2,13 +2,15 @@
   <nav class="nav">
     <ul class="nav__list row gap-xxs">
       <li>
-        <router-link to="/">Main</router-link>
+        <router-link class="link" to="/">Main</router-link>
       </li>
       <li>
-        <router-link to="/ui">UI</router-link>
+        <router-link class="link" to="/ui">UI</router-link>
       </li>
       <li>
-        <router-link :to="{ name: 'NotFoundPage' }">Empty</router-link>
+        <router-link class="link" :to="{ name: 'NotFoundPage' }">
+          Empty
+        </router-link>
       </li>
     </ul>
   </nav>
@@ -16,9 +18,4 @@
 
 <script setup lang="ts"></script>
 
-<style lang="scss">
-.nav {
-  &__list {
-  }
-}
-</style>
+<style lang="scss"></style>

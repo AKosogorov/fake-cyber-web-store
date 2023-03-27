@@ -32,10 +32,6 @@ section {
   @include customScroll;
 }
 
-.router-link-exact-active {
-  color: var(--color__green);
-}
-
 .container {
   margin: 0 auto;
   width: 100%;
@@ -89,4 +85,19 @@ section {
 
 .max-w-field {
   max-width: var(--max-w-field);
+}
+
+.router-link-exact-active {
+  color: var(--color__green);
+}
+
+.link {
+  &:focus-visible,
+  &:hover {
+    color: var(--color__yellow);
+  }
+
+  &:active {
+    color: var(--color__yellow--dark);
+  }
 }
