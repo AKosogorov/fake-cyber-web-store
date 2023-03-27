@@ -1,3 +1,3 @@
 - pagination
 - categories
-- logo
+- favorites

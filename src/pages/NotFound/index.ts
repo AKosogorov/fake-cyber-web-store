@@ -1,5 +1,5 @@
 export const notFoundRoute = {
-  path: '/*',
+  path: '/:pathMatch(.*)*',
   name: 'NotFoundPage',
   meta: {
     layout: 'empty'
