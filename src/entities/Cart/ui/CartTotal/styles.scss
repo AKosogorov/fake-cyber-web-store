@@ -1,6 +1,7 @@
 .cart-total {
-  border: 2px solid var(--color__blue);
+  position: relative;
   padding: var(--s);
+  color: var(--color__blue);
 
   &__price {
     font-size: 24px;
@@ -12,6 +13,16 @@
       &__old {
         font-size: 20px;
       }
+    }
+  }
+
+  .cyber-card {
+    &::before {
+      background-color: var(--color__blue);
+    }
+
+    &::after {
+      background-color: var(--color__black);
     }
   }
 }

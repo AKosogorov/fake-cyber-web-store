@@ -8,7 +8,7 @@ import { letters } from './model'
 
 const i = generateNumber(0, letters.length - 1)
 const letter = letters[i]
-const number = generateNumber()
+const number = generateNumber(10)
 </script>
 
 <style lang="scss">
