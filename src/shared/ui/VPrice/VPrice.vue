@@ -1,13 +1,29 @@
 <template>
   <div class="price row gap-xs">
-    <span class="price__current">{{ formatUSD(currentPrice) }}</span>
-    <del v-if="hasDiscount" class="price__old">{{ formatUSD(price) }}</del>
+    <CountUp
+      :end-val="currentPrice"
+      :duration="COUNT_UP_DURATION"
+      :options="PRICE_COUNT_UP_OPTIONS"
+    />
+
+    <del v-if="hasDiscount" class="price__old">
+      <CountUp
+        :end-val="price"
+        :duration="COUNT_UP_DURATION"
+        :options="PRICE_COUNT_UP_OPTIONS"
+      />
+    </del>
   </div>
 </template>
 
 <script setup lang="ts">
+import CountUp from 'vue-countup-v3'
 import { computed } from 'vue'
-import { formatUSD } from '@/shared/lib/utils/format/currency'
+
+import {
+  COUNT_UP_DURATION,
+  PRICE_COUNT_UP_OPTIONS
+} from '@/shared/ui/VPrice/const'
 
 const props = defineProps<{
   price: number
