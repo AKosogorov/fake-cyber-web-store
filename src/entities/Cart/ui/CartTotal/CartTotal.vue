@@ -13,8 +13,8 @@
 <script setup lang="ts">
 import VPrice from '@/shared/ui/VPrice'
 import { CyberCard } from '@/shared/ui/cyber'
-
 import { useCartStore } from '../../model'
+
 const store = useCartStore()
 </script>
 

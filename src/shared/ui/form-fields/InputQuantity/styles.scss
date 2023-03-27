@@ -16,8 +16,7 @@
 
     &:focus-visible,
     &:hover {
-      border-color: var(--color__yellow);
-      color: var(--color__yellow);
+      background-color: var(--color__dark-blue--light);
     }
 
     &:active {

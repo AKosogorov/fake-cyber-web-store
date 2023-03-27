@@ -1,5 +1,7 @@
 <template>
   <div class="cart-product-card">
+    <CyberCard />
+
     <div class="cart-product-card__icon-wrap">
       <IconDiscount class="cart-product-card__icon" />
     </div>
@@ -33,6 +35,7 @@
 
 <script setup lang="ts">
 import VPrice from '@/shared/ui/VPrice'
+import { CyberCard } from '@/shared/ui/cyber'
 import type { ICartProduct } from '../../model'
 import { IconDiscount } from '@/shared/ui/icons'
 
