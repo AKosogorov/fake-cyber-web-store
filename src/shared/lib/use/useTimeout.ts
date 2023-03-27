@@ -4,7 +4,7 @@ interface IUseTimeout {
 }
 
 export default function useTimeout(
-  handler: Function,
+  handler: () => void,
   timeout: number
 ): IUseTimeout {
   let timeoutId: number
