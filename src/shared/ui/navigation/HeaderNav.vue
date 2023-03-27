@@ -2,9 +2,6 @@
   <nav class="nav">
     <ul class="nav__list row gap-xxs">
       <li>
-        <router-link class="link" to="/">Main</router-link>
-      </li>
-      <li>
         <router-link class="link" to="/ui">UI</router-link>
       </li>
       <li>

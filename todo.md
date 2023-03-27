@@ -1,0 +1,3 @@
+- pagination
+- categories
+- logo
