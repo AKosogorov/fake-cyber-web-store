@@ -14,7 +14,15 @@ export interface IProductResponse {
   title: string
 }
 
-export type IProductAllResponse = { products: IProductResponse[] }
+export type IProductAllResponse = {
+  products: IProductResponse[]
+  total: number
+  skip: number
+  limit: number
+}
+
+export type TProductCategory = string
+export type TProductCategoriesResponse = TProductCategory[]
 
 export interface IProduct {
   brand: string

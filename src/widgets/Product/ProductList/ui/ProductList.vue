@@ -46,6 +46,19 @@ async function fetchProducts() {
   const mapped = response.data.products.map(ProductModel.mapProductResponse)
   products.push(...mapped)
 }
+// fetchCategories()
+async function fetchCategories() {
+  const response = await ProductApi.getCategories()
+
+  await Promise.all(
+    response.data.map(category => fetchProductsOfCategory(category))
+  )
+}
+
+async function fetchProductsOfCategory(category: string) {
+  const response = await ProductApi.getProductsOf(category)
+  console.log(response.data)
+}
 </script>
 
 <style lang="scss">

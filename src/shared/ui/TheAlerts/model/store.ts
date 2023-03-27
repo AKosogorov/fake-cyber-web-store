@@ -17,26 +17,30 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
 
   const count = computed(() => alerts.length)
 
-  function showError(message: string): void {
-    createAndSetDestroy(EAlertStatus.error, message)
+  function showError(message: string, timeout?: number): void {
+    createAndSetDestroy(EAlertStatus.error, message, timeout)
   }
-  function showSuccess(message: string): void {
-    createAndSetDestroy(EAlertStatus.success, message)
+  function showSuccess(message: string, timeout?: number): void {
+    createAndSetDestroy(EAlertStatus.success, message, timeout)
   }
-  function showWarning(message: string): void {
-    createAndSetDestroy(EAlertStatus.warning, message)
+  function showWarning(message: string, timeout?: number): void {
+    createAndSetDestroy(EAlertStatus.warning, message, timeout)
   }
-  function showInfo(message: string): void {
-    createAndSetDestroy(EAlertStatus.info, message)
+  function showInfo(message: string, timeout?: number): void {
+    createAndSetDestroy(EAlertStatus.info, message, timeout)
   }
 
-  function createAndSetDestroy(status: EAlertStatus, message: string): void {
+  function createAndSetDestroy(
+    status: EAlertStatus,
+    message: string,
+    timeout: number = 3000
+  ): void {
     const id = counter.value
     increment()
 
     add({ id, status, message })
 
-    setTimeout(() => destroy(id), 3000)
+    setTimeout(() => destroy(id), timeout)
   }
 
   function add(data: IAlert): void {

@@ -31,3 +31,8 @@ export function findSimpleBy(
 ): TValue | undefined {
   return array.find(item => item === value)
 }
+
+export function refreshArray<T>(arr: T[], newArr: T[]): void {
+  arr.length = 0
+  arr.push(...newArr)
+}
