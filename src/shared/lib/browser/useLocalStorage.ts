@@ -1,4 +1,4 @@
-const PREFIX = 'FAKE_CYBER_WEB_STORE'
+import { APP_NAME } from '@/shared/config'
 
 interface IUseLocalStorage<T> {
   value: T
@@ -9,7 +9,7 @@ export function useLocalStorage<T>(
   key: string,
   initialValue: T
 ): IUseLocalStorage<T> {
-  const keyLS = `${PREFIX}:${key}`
+  const keyLS = `${APP_NAME}:${key}`
 
   const valueLS = window.localStorage.getItem(keyLS)
   const value: T = valueLS ? JSON.parse(valueLS) : initialValue
