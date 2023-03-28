@@ -2,12 +2,13 @@
   <header class="header">
     <div class="container between gap-l">
       <div class="header__left row gap-xs">
+        <slot name="left" />
         <CyberLogo />
         <HeaderNav />
       </div>
 
       <div class="row gap-xxs">
-        <slot />
+        <slot name="right" />
       </div>
     </div>
   </header>

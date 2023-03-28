@@ -1,2 +1,2 @@
-export { default as baseFooter } from './baseFooter.vue'
-export { default as baseHeader } from './baseHeader.vue'
+export { default as BaseFooter } from './BaseFooter.vue'
+export { default as BaseHeader } from './BaseHeader.vue'

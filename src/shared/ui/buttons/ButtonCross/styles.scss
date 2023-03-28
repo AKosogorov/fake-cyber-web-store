@@ -1,0 +1,22 @@
+.button-cross {
+  &::before,
+  &::after {
+    background: var(--color__grey);
+  }
+
+  &:focus-visible::before,
+  &:focus-visible::after,
+  &:hover::before,
+  &:hover::after {
+    background: var(--color__red);
+  }
+
+  &:active {
+    transform: scale(0.9);
+
+    &::before,
+    &::after {
+      background: var(--color__red--dark);
+    }
+  }
+}

@@ -8,7 +8,7 @@ import { EAlertStatus } from '@/shared/ui/TheAlerts/model/interface'
 import { spliceBy } from '@/shared/lib/utils/array'
 import useTimeout from '@/shared/lib/use/useTimeout'
 
-export const NAMESPACE = 'alerts'
+const NAMESPACE = 'alerts'
 
 export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
   const alerts = reactive<IAlert[] | never>([])

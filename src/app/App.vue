@@ -7,18 +7,20 @@
       <TheHeader />
     </template>
     <template v-slot:footer>
-      <baseFooter />
+      <BaseFooter />
     </template>
   </MainLayout>
 
+  <TheBurgerMenu />
   <TheAlerts />
 </template>
 
 <script setup lang="ts">
 import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
-import { baseFooter } from '@/shared/ui/base'
+import { BaseFooter } from '@/shared/ui/base'
 import { TheHeader } from '@/widgets/TheHeader'
 import { TheAlerts } from '@/shared/ui/TheAlerts'
+import { TheBurgerMenu } from '@/shared/ui/TheBurgerMenu'
 
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
