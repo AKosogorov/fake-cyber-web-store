@@ -10,8 +10,14 @@ import { getAll } from '@/shared/api/requests'
 const URL = 'products'
 const CATEGORIES_URL = `${URL}/categories`
 
+// TODO createBaseErrors
+const errors = {
+  getAll: 'Не удалось получить список товаров',
+  getById: 'Не удалось загрузить товар'
+}
+
 export const Api = {
-  ...createBaseReadApi<IProductAllResponse, IProductResponse>(URL),
+  ...createBaseReadApi<IProductAllResponse, IProductResponse>(URL, errors),
 
   getCategories: async () => {
     try {

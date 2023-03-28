@@ -1,3 +1,4 @@
 - pagination
 - categories
 - favorites
+- createBaseErrors

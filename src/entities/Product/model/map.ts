@@ -9,3 +9,7 @@ export function mapProductResponse(item: IProductResponse): IProduct {
     }))
   }
 }
+
+export function getMapped(products: IProductResponse[]) {
+  return products.map(mapProductResponse)
+}

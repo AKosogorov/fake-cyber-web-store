@@ -1,8 +1,8 @@
-import type { TRequestParams } from '@/shared/api/types'
+import type { IBaseQuery, TRequestParams } from '@/shared/api/types'
 import type { AxiosPromise } from 'axios'
 
 export interface IBaseReadApi<All, One> {
-  getAll: (params?: TRequestParams) => AxiosPromise<All>
+  getAll: (params?: IBaseQuery) => AxiosPromise<All>
   getById: (id: number, params?: TRequestParams) => AxiosPromise<One>
 }
 

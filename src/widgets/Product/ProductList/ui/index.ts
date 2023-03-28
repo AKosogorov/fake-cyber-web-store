@@ -1,3 +1,1 @@
-import ProductList from './ProductList.vue'
-
-export { ProductList }
+export { default as ProductList } from './ProductList.vue'

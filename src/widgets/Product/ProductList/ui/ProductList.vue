@@ -25,39 +25,39 @@ import { ProductCard } from '@/entities/Product'
 import { AddToFavorites } from '@/features/Product'
 import { AddToCart } from '@/features/Cart'
 
-import { onMounted, reactive } from 'vue'
+import { onBeforeMount, reactive } from 'vue'
 import { ProductModel } from '@/entities/Product'
-import { ProductApi } from '@/entities/Product'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
+import type { IProductListModel } from '../model'
+import type { IBaseQuery } from '@/shared/api/types'
+import { refreshArray } from '@/shared/lib/utils/array'
+import { useAlertsStore } from '@/shared/ui/TheAlerts'
 
-defineProps<{
+const props = defineProps<{
   detailsRouteName: string
+  model: IProductListModel
+  query?: IBaseQuery
 }>()
+
+const products = reactive<ProductModel.IProduct[]>([])
+
+const { showError } = useAlertsStore()
 
 const { isLoading, runWithLoading } = useLoadingWrap()
 
-onMounted(() => runWithLoading(fetchProducts))
+onBeforeMount(loadProducts)
 
-const products = reactive<ProductModel.IProduct[] | never>([])
-
-async function fetchProducts() {
-  const response = await ProductApi.getAll({ limit: 10 })
-
-  const mapped = response.data.products.map(ProductModel.mapProductResponse)
-  products.push(...mapped)
-}
-// fetchCategories()
-async function fetchCategories() {
-  const response = await ProductApi.getCategories()
-
-  await Promise.all(
-    response.data.map(category => fetchProductsOfCategory(category))
-  )
+function loadProducts() {
+  runWithLoading(fetchAndRefresh)
 }
 
-async function fetchProductsOfCategory(category: string) {
-  const response = await ProductApi.getProductsOf(category)
-  console.log(response.data)
+async function fetchAndRefresh() {
+  try {
+    const data = await props.model.fetchProducts(props.query)
+    refreshArray(products, data)
+  } catch (e: any) {
+    showError(e.message)
+  }
 }
 </script>
 
