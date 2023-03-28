@@ -4,7 +4,7 @@
     class="burger-menu"
     @click.self="store.closeBurgerMenu"
   >
-    <div class="burger-menu__content">
+    <div class="burger-menu__content custom-scroll">
       <ButtonCross
         class="burger-menu__button-close"
         @click="store.closeBurgerMenu"

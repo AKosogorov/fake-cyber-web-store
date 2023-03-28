@@ -15,7 +15,7 @@ interface IButtonCross {
 }
 
 const props = withDefaults(defineProps<IButtonCross>(), {
-  size: EAppPixelSize.sm
+  size: EAppPixelSize.xs
 })
 
 const styles = computed(() => ({

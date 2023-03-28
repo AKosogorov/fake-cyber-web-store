@@ -2,15 +2,16 @@
   <nav class="product-categories column gap-s">
     <h4>Categories</h4>
 
-    <ul v-if="store.categories.length" class="product-categories__list">
+    <ul v-if="store.categories.length" class="column gap-xs">
       <li
         v-for="category of store.categories"
         :key="category"
         class="product-categories__item"
       >
         <router-link
-          class="link"
+          class="product-categories__link link"
           :to="{ name: routeName, params: { category } }"
+          @click="onLink"
         >
           {{ category }}
         </router-link>
@@ -28,6 +29,12 @@ import { onBeforeMount } from 'vue'
 import { useIsLoading } from '@/shared/lib/use/useIsLoading'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { BarsLoader } from '@/shared/ui/loaders'
+
+const emit = defineEmits(['on-link'])
+
+function onLink() {
+  emit('on-link')
+}
 
 defineProps<{
   routeName: string

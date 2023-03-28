@@ -11,7 +11,13 @@
     </template>
   </MainLayout>
 
-  <TheBurgerMenu />
+  <TheBurgerMenu>
+    <ProductCategories
+      :route-name="AppPages.catalog.category"
+      @on-link="closeBurgerMenu"
+    />
+  </TheBurgerMenu>
+
   <TheAlerts />
 </template>
 
@@ -20,14 +26,18 @@ import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
 import { BaseFooter } from '@/shared/ui/base'
 import { TheHeader } from '@/widgets/TheHeader'
 import { TheAlerts } from '@/shared/ui/TheAlerts'
-import { TheBurgerMenu } from '@/shared/ui/TheBurgerMenu'
+import { TheBurgerMenu, TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
+import { ProductCategories } from '@/entities/Product'
 
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+import { AppPages } from '@/pages'
 
 const route = useRoute()
 
 const isEmptyLayout = computed(() => route.meta.layout === 'empty')
+
+const { closeBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
 
 <style lang="scss">

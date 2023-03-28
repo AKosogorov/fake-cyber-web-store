@@ -13,10 +13,5 @@
 
   &:active {
     transform: scale(0.9);
-
-    &::before,
-    &::after {
-      background: var(--color__red--dark);
-    }
   }
 }

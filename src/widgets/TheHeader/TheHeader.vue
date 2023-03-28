@@ -1,7 +1,7 @@
 <template>
   <BaseHeader>
     <template v-slot:left>
-      <CyberButton txt="TOGGLE" @click="toggleBurgerMenu" />
+      <CyberButton txt="CATALOG" @click="openBurgerMenu" />
     </template>
 
     <template v-slot:right>
@@ -16,7 +16,7 @@ import { LinkToCart } from '@/entities/Cart'
 import CyberButton from '@/shared/ui/cyber/CyberButton/CyberButton.vue'
 import { TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
 
-const { toggleBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
+const { openBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
 
 <style lang="scss">
