@@ -1,14 +1,15 @@
-@import "mixins";
+@import 'mixins';
 
 .button {
   align-self: baseline;
-  padding: var(--button-padding);
+  padding: var(--button-padding) !important;
   color: var(--color__white);
 
   &__text {
     z-index: 1;
     color: inherit;
-    transition: var(--transition-duration) color var(--transition-timing-function);
+    transition: var(--transition-duration) color
+      var(--transition-timing-function);
   }
 
   &__border-decorate {

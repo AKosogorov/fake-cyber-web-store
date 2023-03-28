@@ -1,4 +1,5 @@
 export * from './base'
+export * from './ButtonBurger'
 export * from './ButtonLike'
 export * from './ButtonRemove'
 export * from './ButtonCross'

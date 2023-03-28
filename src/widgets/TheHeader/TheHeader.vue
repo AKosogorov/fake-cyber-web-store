@@ -1,7 +1,10 @@
 <template>
   <BaseHeader>
     <template v-slot:left>
-      <CyberButton txt="CATALOG" @click="openBurgerMenu" />
+      <ButtonBurger
+        :is-active="burgerStore.isActive"
+        @click="burgerStore.openBurgerMenu"
+      />
     </template>
 
     <template v-slot:right>
@@ -13,10 +16,10 @@
 <script setup lang="ts">
 import { BaseHeader } from '@/shared/ui/base'
 import { LinkToCart } from '@/entities/Cart'
-import CyberButton from '@/shared/ui/cyber/CyberButton/CyberButton.vue'
+import { ButtonBurger } from '@/shared/ui/buttons'
 import { TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
 
-const { openBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
+const burgerStore = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
 
 <style lang="scss">
