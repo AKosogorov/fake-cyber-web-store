@@ -22,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+import './styles/index.scss'
 import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
 import { BaseFooter } from '@/shared/ui/base'
 import { TheHeader } from '@/widgets/TheHeader'
@@ -39,7 +40,3 @@ const isEmptyLayout = computed(() => route.meta.layout === 'empty')
 
 const { closeBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
-
-<style lang="scss">
-@import './styles';
-</style>

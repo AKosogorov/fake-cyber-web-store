@@ -94,8 +94,7 @@
   );
 
   align-self: baseline;
-  // TODO почему то стили этой кнопки имеют приоритет ниже чем стили класса .reset
-  padding: var(--button-padding) !important;
+  padding: var(--button-padding);
   color: var(--color__white);
 
   &:after,

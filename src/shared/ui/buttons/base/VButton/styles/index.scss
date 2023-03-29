@@ -2,7 +2,7 @@
 
 .button {
   align-self: baseline;
-  padding: var(--button-padding) !important;
+  padding: var(--button-padding);
   color: var(--color__white);
 
   &__text {

@@ -4,7 +4,7 @@
 
     <VButton class="mb-s" txt="toggle disabled" @click="toggle" />
 
-    <CyberButton class="mb-s" txt="Cyber button" :disabled="isDisabled" />
+    <CyberButton class="mb-s" txt="Cyber button" :disabled="!isDisabled" />
 
     <div class="column gap-m">
       <div
