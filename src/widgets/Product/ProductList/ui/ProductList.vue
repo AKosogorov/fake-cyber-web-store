@@ -25,40 +25,13 @@ import { ProductCard } from '@/entities/Product'
 import { AddToFavorites } from '@/features/Product'
 import { AddToCart } from '@/features/Cart'
 
-import { onBeforeMount, reactive } from 'vue'
 import { ProductModel } from '@/entities/Product'
-import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
-import type { IProductListModel } from '../model'
-import type { IBaseQuery } from '@/shared/api/types'
-import { refreshArray } from '@/shared/lib/utils/array'
-import { useAlertsStore } from '@/shared/ui/TheAlerts'
 
 const props = defineProps<{
   detailsRouteName: string
-  model: IProductListModel
-  query?: IBaseQuery
+  isLoading: boolean
+  products: ProductModel.IProduct[]
 }>()
-
-const products = reactive<ProductModel.IProduct[]>([])
-
-const { showError } = useAlertsStore()
-
-const { isLoading, runWithLoading } = useLoadingWrap()
-
-onBeforeMount(loadProducts)
-
-function loadProducts() {
-  runWithLoading(fetchAndRefresh)
-}
-
-async function fetchAndRefresh() {
-  try {
-    const data = await props.model.fetchProducts(props.query)
-    refreshArray(products, data)
-  } catch (e: any) {
-    showError(e.message)
-  }
-}
 </script>
 
 <style lang="scss">

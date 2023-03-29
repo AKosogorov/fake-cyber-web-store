@@ -1,20 +1,37 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
-import { useRoute } from 'vue-router'
+import type { IBaseQuery } from '@/shared/api/types'
+import { useBaseListModel } from '@/shared/lib/use/model'
 
-export const categoryModel: IProductListModel = {
-  async fetchProducts(params = { limit: 10 }) {
-    const route = useRoute()
-    const category = route.params.category
+interface IQuery extends IBaseQuery {
+  category: string
+}
 
-    if (typeof category !== 'string') {
-      throw new Error(
-        'Не удалось определить категорию для получения списка товаров'
-      )
+export function useCategoryModel(): IProductListModel<IQuery> {
+  const {
+    list: products,
+    loadList: loadProducts,
+    isLoading
+  } = useBaseListModel<
+    ProductModel.IProduct,
+    ProductModel.IProductAllResponse,
+    IQuery
+  >({
+    apiHandler: fetchProducts,
+    mapper: ProductModel.getMapped
+  })
+
+  async function fetchProducts(params?: IQuery) {
+    if (!params?.category) {
+      throw new Error('Unable to determine category to load list')
     }
 
-    const { data } = await ProductApi.getProductsOf(category, params)
+    return ProductApi.getProductsOf(params.category, params)
+  }
 
-    return ProductModel.getMapped(data.products)
+  return {
+    products,
+    loadProducts,
+    isLoading
   }
 }

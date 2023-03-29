@@ -12,8 +12,8 @@ const CATEGORIES_URL = `${URL}/categories`
 
 // TODO createBaseErrors
 const errors = {
-  getAll: 'Не удалось получить список товаров',
-  getById: 'Не удалось загрузить товар'
+  getAll: 'Failed to get product list',
+  getById: 'Failed to load product'
 }
 
 export const Api = {
@@ -23,7 +23,7 @@ export const Api = {
     try {
       return await getAll<TProductCategoriesResponse>(CATEGORIES_URL)
     } catch (e: any) {
-      throw new Error('Не удалось получить список категорий')
+      throw new Error('Failed to get list of categories')
     }
   },
 
@@ -38,7 +38,7 @@ export const Api = {
       )
     } catch (e: any) {
       throw new Error(
-        'Не удалось получить список товаров из категории ' + category
+        `Unable to get list of products from category "${category}"`
       )
     }
   }

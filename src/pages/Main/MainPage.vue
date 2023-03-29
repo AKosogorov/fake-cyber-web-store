@@ -3,8 +3,9 @@
     <h1 class="mb-s">Main page</h1>
 
     <ProductList
+      :products="products"
       :details-route-name="catalogPages.product"
-      :model="ProductListModel.generalModel"
+      :is-loading="isLoading"
     />
   </div>
 </template>
@@ -12,6 +13,10 @@
 <script setup lang="ts">
 import { ProductList, ProductListModel } from '@/widgets/Product'
 import { AppPages } from '@/pages'
+import { onBeforeMount } from 'vue'
 
 const catalogPages = AppPages.catalog
+const { products, loadProducts, isLoading } = ProductListModel.useGeneralModel()
+
+onBeforeMount(loadProducts)
 </script>

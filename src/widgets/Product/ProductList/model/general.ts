@@ -1,10 +1,22 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
+import { useBaseListModel } from '@/shared/lib/use/model'
 
-export const generalModel: IProductListModel = {
-  async fetchProducts(params = { limit: 10 }) {
-    const { data } = await ProductApi.getAll(params)
+export function useGeneralModel(): IProductListModel {
+  const {
+    list: products,
+    loadList: loadProducts,
+    isLoading
+  } = useBaseListModel<ProductModel.IProduct, ProductModel.IProductAllResponse>(
+    {
+      apiHandler: ProductApi.getAll,
+      mapper: ProductModel.getMapped
+    }
+  )
 
-    return ProductModel.getMapped(data.products)
+  return {
+    products,
+    loadProducts,
+    isLoading
   }
 }
