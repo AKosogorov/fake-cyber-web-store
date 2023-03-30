@@ -1,0 +1,62 @@
+.pagination {
+  &__button {
+    border: 1.5px solid var(--color__black);
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
+    font-weight: 600;
+    color: var(--color__white);
+    background-color: var(--color__black);
+
+    &--arrow {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        width: 40%;
+        height: 40%;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        transform: translate(-100%, -50%) rotate(-45deg);
+      }
+    }
+
+    &--arrow-prev {
+      &::before {
+        transform: translate(-50%, -50%) rotate(135deg);
+      }
+
+      &::after {
+        transform: translate(0, -50%) rotate(135deg);
+      }
+    }
+
+    &:focus-visible,
+    &:hover {
+      border-color: var(--color__blue);
+      color: var(--color__blue);
+    }
+
+    &:active {
+      border-color: var(--color__red--dark);
+      color: var(--color__red--dark);
+    }
+
+    &:disabled {
+      border-color: var(--color__grey--transparent);
+      color: var(--color__grey--transparent);
+    }
+
+    &.active {
+      border-color: var(--color__red);
+      color: var(--color__red);
+    }
+  }
+}

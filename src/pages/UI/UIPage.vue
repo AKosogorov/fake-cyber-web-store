@@ -2,6 +2,8 @@
   <div class="container">
     <h1>UI</h1>
 
+    <PaginationStyles />
+
     <ColorStyles />
 
     <InputStyles />
@@ -20,6 +22,7 @@ import {
   ButtonStyles,
   CheckboxStyles,
   InputStyles,
-  LoaderStyles
+  LoaderStyles,
+  PaginationStyles
 } from '@/widgets/UI'
 </script>
