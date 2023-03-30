@@ -1,23 +1,23 @@
 import type { AxiosPromise } from 'axios'
-import type { IBaseQuery, TRequestParams } from '../types'
+import type { IBaseGetResponse, IBaseQuery, TRequestParams } from '../types'
 import { getAll, getById } from '../requests'
 import type { IBaseReadApi, IBaseReadApiErrors } from './types'
 
-export function createBaseReadApi<All, One>(
+export function createBaseReadApi<A extends IBaseGetResponse, S>(
   url: string,
   errors: IBaseReadApiErrors
-): IBaseReadApi<All, One> {
+): IBaseReadApi<A, S> {
   return {
-    getAll: async (params?: IBaseQuery): AxiosPromise<All> => {
+    getAll: async (params?: IBaseQuery): AxiosPromise => {
       try {
-        return await getAll<All>(url, params)
+        return await getAll(url, params)
       } catch (e: any) {
         throw new Error(errors.getAll)
       }
     },
-    getById: async (id: number, params?: TRequestParams): AxiosPromise<One> => {
+    getById: async (id: number, params?: TRequestParams): AxiosPromise => {
       try {
-        return await getById<One>(url, id, params)
+        return await getById(url, id, params)
       } catch (e: any) {
         throw new Error(errors.getById)
       }

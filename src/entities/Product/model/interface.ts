@@ -1,4 +1,5 @@
 import type { IImage } from '@/shared/lib/interface/image'
+import type { IBaseGetResponse } from '@/shared/api'
 
 export interface IProductResponse {
   brand: string
@@ -14,11 +15,8 @@ export interface IProductResponse {
   title: string
 }
 
-export type IProductAllResponse = {
+export interface IProductGetResponse extends IBaseGetResponse {
   products: IProductResponse[]
-  total: number
-  skip: number
-  limit: number
 }
 
 export type TProductCategory = string

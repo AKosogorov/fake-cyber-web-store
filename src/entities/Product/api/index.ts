@@ -1,6 +1,6 @@
 import { createBaseReadApi } from '@/shared/api'
 import type {
-  IProductAllResponse,
+  IProductGetResponse,
   IProductResponse,
   TProductCategoriesResponse
 } from '../model'
@@ -17,7 +17,7 @@ const errors = {
 }
 
 export const Api = {
-  ...createBaseReadApi<IProductAllResponse, IProductResponse>(URL, errors),
+  ...createBaseReadApi<IProductGetResponse, IProductResponse>(URL, errors),
 
   getCategories: async () => {
     try {
@@ -32,7 +32,7 @@ export const Api = {
     params: TRequestParams = { limit: 100 }
   ) => {
     try {
-      return await getAll<IProductAllResponse>(
+      return await getAll<IProductGetResponse>(
         `${URL}/category/${category}`,
         params
       )

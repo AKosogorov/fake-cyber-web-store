@@ -14,7 +14,7 @@ export function useCategoryModel(): IProductListModel<IQuery> {
     isLoading
   } = useBaseListModel<
     ProductModel.IProduct,
-    ProductModel.IProductAllResponse,
+    ProductModel.IProductGetResponse,
     IQuery
   >({
     apiHandler: fetchProducts,

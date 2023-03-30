@@ -1,28 +1,17 @@
-import type { AxiosPromise } from 'axios'
-import type { IBaseQuery } from '@/shared/api/types'
-import type { Ref } from 'vue'
+import type { IBaseGetResponse, IBaseQuery } from '@/shared/api/types'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { useIsLoading } from '@/shared/lib/use/useIsLoading'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
+import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
+import type { IUseBaseListSettings, IUseBaseListModel } from './types'
 
-export interface IBaseSettings<T, R, Q> {
-  apiHandler: (params?: Q) => AxiosPromise<R>
-  mapper: (responseData: R) => T[]
-  initialList?: T[]
-}
-
-export interface IUseBaseListModel<T, Q> {
-  list: T[]
-  loadList: (params?: Q) => Promise<void>
-  isLoading: Ref<boolean>
-  refresh: (data: T[]) => void
-}
-
-export function useBaseListModel<T, R, Q = IBaseQuery>(
-  settings: IBaseSettings<T, R, Q>
+export function useBaseListModel<T, R extends IBaseGetResponse, Q = IBaseQuery>(
+  settings: IUseBaseListSettings<T, R, Q>
 ): IUseBaseListModel<T, Q> {
   const { showError } = useAlertsStore()
   const { startLoading, finishLoading, isLoading } = useIsLoading()
+
+  const { value: total, setValue: setTotal } = useRefNumber(0)
 
   const { array: list, refresh } = useReactiveArray(settings.initialList)
 
@@ -31,6 +20,8 @@ export function useBaseListModel<T, R, Q = IBaseQuery>(
       startLoading()
 
       const { data } = await settings.apiHandler(params)
+
+      setTotal(data.total)
 
       const mapped = settings.mapper(data)
 
@@ -46,6 +37,8 @@ export function useBaseListModel<T, R, Q = IBaseQuery>(
     list,
     loadList,
     isLoading,
-    refresh
+    refresh,
+    total,
+    setTotal
   }
 }

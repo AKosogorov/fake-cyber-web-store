@@ -1,24 +1,27 @@
-import type { IBaseQuery, TRequestParams } from '@/shared/api/types'
+import type { IBaseGetResponse, IBaseQuery, TRequestParams } from '../types'
 import type { AxiosPromise } from 'axios'
 
-export interface IBaseReadApi<All, One> {
-  getAll: (params?: IBaseQuery) => AxiosPromise<All>
-  getById: (id: number, params?: TRequestParams) => AxiosPromise<One>
+export interface IBaseReadApi<A extends IBaseGetResponse, S> {
+  getAll: (params?: IBaseQuery) => AxiosPromise<A>
+  getById: (id: number, params?: TRequestParams) => AxiosPromise<S>
 }
 
-export interface IBaseCRUDApi<All, One> extends IBaseReadApi<All, One> {
+export interface IBaseCRUDApi<A extends IBaseGetResponse, S>
+  extends IBaseReadApi<A, S> {
   create: (data: object, params: TRequestParams) => AxiosPromise
   update: (id: number, data: object, params: TRequestParams) => AxiosPromise
   destroy: (id: number) => AxiosPromise
 }
 
+type TErrorMessage = string
+
 export interface IBaseReadApiErrors {
-  getAll: string
-  getById: string
+  getAll: TErrorMessage
+  getById: TErrorMessage
 }
 
 export interface IBaseCRUDApiErrors extends IBaseReadApiErrors {
-  create: string
-  update: string
-  destroy: string
+  create: TErrorMessage
+  update: TErrorMessage
+  destroy: TErrorMessage
 }

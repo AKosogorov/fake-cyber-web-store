@@ -1,6 +1,6 @@
 import type {
   IProduct,
-  IProductAllResponse,
+  IProductGetResponse,
   IProductResponse
 } from './interface'
 
@@ -14,6 +14,6 @@ export function mapProductResponse(item: IProductResponse): IProduct {
   }
 }
 
-export function getMapped(data: IProductAllResponse) {
+export function getMapped(data: IProductGetResponse) {
   return data.products.map(mapProductResponse)
 }
