@@ -7,16 +7,16 @@
       <TheHeader />
     </template>
     <template v-slot:footer>
-      <BaseFooter />
+      <TheFooter />
     </template>
-  </MainLayout>
 
-  <TheBurgerMenu>
-    <ProductCategories
-      :route-name="AppPages.catalog.category"
-      @on-link="closeBurgerMenu"
-    />
-  </TheBurgerMenu>
+    <TheBurgerMenu>
+      <ProductCategories
+        :route-name="AppPages.catalog.category"
+        @on-link="closeBurgerMenu"
+      />
+    </TheBurgerMenu>
+  </MainLayout>
 
   <TheAlerts />
 </template>
@@ -24,12 +24,12 @@
 <script setup lang="ts">
 import './styles/index.scss'
 import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
-import { BaseFooter } from '@/shared/ui/base'
 import { TheHeader } from '@/widgets/TheHeader'
 import { TheAlerts } from '@/shared/ui/TheAlerts'
-import { TheBurgerMenu, TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
-import { ProductCategories } from '@/entities/Product'
+import { TheFooter } from '@/widgets/TheFooter'
 
+import { ProductCategories } from '@/entities/Product'
+import { TheBurgerMenu, TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import { AppPages } from '@/pages'

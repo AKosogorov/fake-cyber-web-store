@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <ul class="nav__list row gap-xxs">
+    <ul class="nav__list row gap-s">
       <li>
         <router-link class="link" to="/ui">UI</router-link>
       </li>
@@ -12,7 +12,3 @@
     </ul>
   </nav>
 </template>
-
-<script setup lang="ts"></script>
-
-<style lang="scss"></style>
