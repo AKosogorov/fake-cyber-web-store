@@ -21,6 +21,7 @@ interface IUseQueryListSettings<
 interface IUseQueryListModel<T, Q extends IBaseQuery>
   extends IUseBaseListModel<T, Q> {
   loadListWithQuery: (params?: Q) => Promise<void>
+  loadPage: (num: number) => Promise<void>
   page: Ref<number>
   countPages: ComputedRef<number>
   setPage: (num: number) => void
@@ -42,6 +43,11 @@ export function useQueryListModel<
     setPage: setPageValue,
     countPages
   } = usePaginationQuery({ total, limit, initPage: settings?.initQuery?.page })
+
+  async function loadPage(num: number) {
+    setPage(num)
+    await loadListWithQuery()
+  }
 
   async function loadListWithQuery(params?: Q) {
     const query = {
@@ -72,6 +78,7 @@ export function useQueryListModel<
     list,
     loadList,
     loadListWithQuery,
+    loadPage,
     isLoading,
     refresh,
     total,

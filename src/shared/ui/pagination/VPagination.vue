@@ -35,7 +35,7 @@
       <span v-if="count > 7 && modelValue < count - 3">...</span>
 
       <button
-        v-if="count !== 1"
+        v-if="count > 1"
         v-text="count"
         class="pagination__button reset"
         :class="{ active: count === modelValue }"

@@ -1,22 +1,34 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
-import { useBaseListModel } from '@/shared/api'
+import { QUERY_DEFAULT, useQueryListModel } from '@/shared/api'
 
 export function useGeneralModel(): IProductListModel {
   const {
     list: products,
     loadList: loadProducts,
+    loadListWithQuery: loadProductsWithQuery,
+    loadPage,
+    setPage,
+    page,
+    countPages,
     isLoading
-  } = useBaseListModel<ProductModel.IProduct, ProductModel.IProductGetResponse>(
-    {
-      apiHandler: ProductApi.getAll,
-      mapper: ProductModel.getMapped
-    }
-  )
+  } = useQueryListModel<
+    ProductModel.IProduct,
+    ProductModel.IProductGetResponse
+  >({
+    apiHandler: ProductApi.getAll,
+    mapper: ProductModel.getMapped,
+    initQuery: QUERY_DEFAULT
+  })
 
   return {
     products,
     loadProducts,
-    isLoading
+    loadProductsWithQuery,
+    loadPage,
+    isLoading,
+    setPage,
+    page,
+    countPages
   }
 }
