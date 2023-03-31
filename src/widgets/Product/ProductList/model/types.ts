@@ -11,4 +11,5 @@ export interface IProductListModel<Q extends object = IBaseQuery> {
   page: Ref<number>
   countPages: ComputedRef<number>
   setPage: (num: number) => void
+  changeLimit: (num: number) => void
 }

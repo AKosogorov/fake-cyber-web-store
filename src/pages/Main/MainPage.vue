@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="mb-s">Main page</h1>
+    <h1 class="mb-m">Fake Cyber - the best web store</h1>
 
     <div class="column gap-l mb-l">
       <ProductList

@@ -11,7 +11,8 @@ export function useGeneralModel(): IProductListModel {
     setPage,
     page,
     countPages,
-    isLoading
+    isLoading,
+    changeLimit
   } = useQueryListModel<
     ProductModel.IProduct,
     ProductModel.IProductGetResponse
@@ -29,6 +30,7 @@ export function useGeneralModel(): IProductListModel {
     isLoading,
     setPage,
     page,
-    countPages
+    countPages,
+    changeLimit
   }
 }
