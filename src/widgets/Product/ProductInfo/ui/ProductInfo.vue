@@ -17,10 +17,12 @@ import { SpinnerLoader } from '@/shared/ui/loaders'
 import { ProductDetails, ProductModel } from '@/entities/Product'
 import { AddToFavorites } from '@/features/Product'
 import { AddToCart } from '@/features/Cart'
-import { computed, onMounted } from 'vue'
-import { ProductApi } from '@/entities/Product'
+
+import { computed, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
+import { ProductApi } from '@/entities/Product'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
+
 const route = useRoute()
 let product: ProductModel.IProduct
 
@@ -28,7 +30,7 @@ const { isLoading, runWithLoading } = useLoadingWrap()
 
 const productId = computed(() => +route.params.id)
 
-onMounted(() => runWithLoading(fetchProduct))
+onBeforeMount(() => runWithLoading(fetchProduct))
 
 async function fetchProduct() {
   const response = await ProductApi.getById(productId.value)

@@ -9,7 +9,7 @@
     <div class="cart-product-card__info">
       <router-link
         class="cart-product-card__link link"
-        :to="{ name: detailsRouteName, params: { id: cartProduct.id } }"
+        :to="appRoutes.getProduct(cartProduct.id)"
       >
         <h4>{{ cartProduct.title }}</h4>
       </router-link>
@@ -38,11 +38,16 @@ import VPrice from '@/shared/ui/VPrice'
 import { CyberCard } from '@/shared/ui/cyber'
 import type { ICartProduct } from '../../model'
 import { IconDiscount } from '@/shared/ui/icons'
+import { inject } from 'vue'
+import { EAppProviders } from '@/app/providers'
+import { throwInjectError } from '@/shared/lib/utils/errors'
+import { useAppRoutes } from '@/app/providers/useAppRoutes'
 
 defineProps<{
   cartProduct: ICartProduct
-  detailsRouteName: string
 }>()
+
+const appRoutes = useAppRoutes()
 </script>
 
 <style lang="scss">

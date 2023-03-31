@@ -3,11 +3,7 @@
     <h1 class="capitalize mb-m">{{ currentCategory }}</h1>
 
     <div class="column gap-l mb-l">
-      <ProductList
-        :products="products"
-        :details-route-name="AppPages.catalog.product"
-        :is-loading="isLoading"
-      />
+      <ProductList :products="products" :is-loading="isLoading" />
 
       <VPagination
         :model-value="page"
@@ -23,7 +19,6 @@
 import { VPagination } from '@/shared/ui/pagination'
 import { useRoute } from 'vue-router'
 import { computed, onBeforeMount, watch } from 'vue'
-import { AppPages } from '@/pages'
 import { ProductList, ProductListModel } from '@/widgets/Product'
 
 const route = useRoute()

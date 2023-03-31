@@ -3,11 +3,7 @@
     <h1 class="mb-m">Fake Cyber - the best web store</h1>
 
     <div class="column gap-l mb-l">
-      <ProductList
-        :products="products"
-        :details-route-name="catalogPages.product"
-        :is-loading="isLoading"
-      />
+      <ProductList :products="products" :is-loading="isLoading" />
 
       <VPagination
         :model-value="page"
@@ -23,10 +19,8 @@
 import { ProductList, ProductListModel } from '@/widgets/Product'
 import { VPagination } from '@/shared/ui/pagination'
 
-import { AppPages } from '@/pages'
 import { onBeforeMount } from 'vue'
 
-const catalogPages = AppPages.catalog
 const {
   products,
   loadProductsWithQuery,

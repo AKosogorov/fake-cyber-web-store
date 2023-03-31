@@ -6,15 +6,13 @@
     <template v-slot:header>
       <TheHeader />
     </template>
+
     <template v-slot:footer>
       <TheFooter />
     </template>
 
     <TheBurgerMenu>
-      <ProductCategories
-        :route-name="AppPages.catalog.category"
-        @on-link="closeBurgerMenu"
-      />
+      <ProductCategories />
     </TheBurgerMenu>
   </MainLayout>
 
@@ -23,20 +21,21 @@
 
 <script setup lang="ts">
 import './styles/index.scss'
-import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
-import { TheHeader } from '@/widgets/TheHeader'
-import { TheAlerts } from '@/shared/ui/TheAlerts'
-import { TheFooter } from '@/widgets/TheFooter'
 
-import { ProductCategories } from '@/entities/Product'
-import { TheBurgerMenu, TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
+import { TheHeader } from '@/widgets/TheHeader'
+import { TheFooter } from '@/widgets/TheFooter'
+import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
+import { TheBurgerMenu } from '@/shared/ui/TheBurgerMenu'
+import { TheAlerts } from '@/shared/ui/TheAlerts'
+
+import { computed, provide } from 'vue'
 import { useRoute } from 'vue-router'
-import { computed } from 'vue'
-import { AppPages } from '@/pages'
+import { EAppProviders, AppRoutes } from './providers'
+import { ProductCategories } from '@/entities/Product'
+
+provide(EAppProviders.AppRoutes, AppRoutes)
 
 const route = useRoute()
 
 const isEmptyLayout = computed(() => route.meta.layout === 'empty')
-
-const { closeBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>

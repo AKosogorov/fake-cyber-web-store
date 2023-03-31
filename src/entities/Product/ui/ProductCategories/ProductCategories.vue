@@ -10,8 +10,8 @@
       >
         <router-link
           class="product-categories__link link"
-          :to="{ name: routeName, params: { category } }"
-          @click="onLink"
+          :to="appRoutes.getCatalogCategory(category)"
+          @click="closeBurgerMenu"
         >
           {{ category }}
         </router-link>
@@ -29,16 +29,10 @@ import { onBeforeMount } from 'vue'
 import { useIsLoading } from '@/shared/lib/use/useIsLoading'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { BarsLoader } from '@/shared/ui/loaders'
+import { TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
+import { useAppRoutes } from '@/app/providers'
 
-const emit = defineEmits(['on-link'])
-
-function onLink() {
-  emit('on-link')
-}
-
-defineProps<{
-  routeName: string
-}>()
+const appRoutes = useAppRoutes()
 
 const store = stores.useProductCategoriesStore()
 const { isLoading, startLoading, finishLoading } = useIsLoading()
@@ -61,6 +55,8 @@ async function fetchCategories() {
     finishLoading()
   }
 }
+
+const { closeBurgerMenu } = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
 
 <style lang="scss">

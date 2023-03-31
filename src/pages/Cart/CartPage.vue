@@ -7,7 +7,6 @@
         <CartProductCard
           v-for="item of store.cartProducts"
           :cart-product="item"
-          :details-route-name="AppPages.catalog.product"
         >
           <template v-slot:input-quantity>
             <ChangeQuantity :id="item.id" :quantity="item.quantity" />
@@ -35,7 +34,6 @@
 <script setup lang="ts">
 import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
 import { AddToFavorites } from '@/features/Product'
-import { AppPages } from '@/pages'
 import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
 
 const store = CartModel.useCartStore()

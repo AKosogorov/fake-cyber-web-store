@@ -19,7 +19,15 @@
 
       <div class="column gap-xs">
         <div class="column gap-xxs">
-          <InfoShort label="Category" :text="product.category" />
+          <InfoShort label="Category">
+            <router-link
+              class="link"
+              :to="appRoutes.getCatalogCategory(product.category)"
+            >
+              {{ product.category }}
+            </router-link>
+          </InfoShort>
+
           <InfoShort label="Brand" :text="product.brand" />
         </div>
 
@@ -54,10 +62,13 @@ import { InfoShort } from '@/shared/ui/text'
 import { ProductModel } from '@/entities/Product'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 import InfoHeaded from '@/shared/ui/text/InfoHeaded/InfoHeaded.vue'
+import { useAppRoutes } from '@/app/providers'
 
-defineProps<{
+const props = defineProps<{
   product: ProductModel.IProduct
 }>()
+
+const appRoutes = useAppRoutes()
 </script>
 
 <style lang="scss">

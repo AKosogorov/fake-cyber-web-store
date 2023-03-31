@@ -2,7 +2,7 @@
   <article class="product-card column gap-s">
     <router-link
       class="product-card__link abs-full"
-      :to="{ name: detailsRouteName, params: { id: product.id } }"
+      :to="appRoutes.getProduct(product.id)"
       draggable="false"
     />
 
@@ -36,11 +36,13 @@ import VPrice from '@/shared/ui/VPrice'
 import RatingStars from '@/shared/ui/RatingStars'
 import type { IProduct } from '../../model'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { useAppRoutes } from '@/app/providers'
 
 defineProps<{
   product: IProduct
-  detailsRouteName: string
 }>()
+
+const appRoutes = useAppRoutes()
 </script>
 
 <style lang="scss">

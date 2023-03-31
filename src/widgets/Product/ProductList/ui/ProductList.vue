@@ -2,12 +2,7 @@
   <SpinnerLoader v-if="isLoading" />
 
   <div v-else class="product-list">
-    <ProductCard
-      v-for="item of products"
-      :key="item.id"
-      :product="item"
-      :details-route-name="detailsRouteName"
-    >
+    <ProductCard v-for="item of products" :key="item.id" :product="item">
       <template v-slot:button-like>
         <AddToFavorites :id="item.id" />
       </template>
@@ -28,7 +23,6 @@ import { AddToCart } from '@/features/Cart'
 import { ProductModel } from '@/entities/Product'
 
 const props = defineProps<{
-  detailsRouteName: string
   isLoading: boolean
   products: ProductModel.IProduct[]
 }>()
