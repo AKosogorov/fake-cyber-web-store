@@ -1,13 +1,21 @@
-import type { IBaseGetResponse, IBaseQuery } from '@/shared/api/types'
+import type {
+  IBaseGetResponse,
+  IBaseQuery,
+  TExtraQuery
+} from '@/shared/api/types'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { useIsLoading } from '@/shared/lib/use/useIsLoading'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
 import type { IUseBaseListSettings, IUseBaseListModel } from './types'
 
-export function useBaseListModel<T, R extends IBaseGetResponse, Q = IBaseQuery>(
-  settings: IUseBaseListSettings<T, R, Q>
-): IUseBaseListModel<T, Q> {
+export function useBaseListModel<
+  T,
+  R extends IBaseGetResponse,
+  Q extends object = IBaseQuery
+>(
+  settings: IUseBaseListSettings<T, R, TExtraQuery<Q>>
+): IUseBaseListModel<T, TExtraQuery<Q>> {
   const { showError } = useAlertsStore()
   const { startLoading, finishLoading, isLoading } = useIsLoading()
 

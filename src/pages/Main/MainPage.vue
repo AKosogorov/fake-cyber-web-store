@@ -18,5 +18,5 @@ import { onBeforeMount } from 'vue'
 const catalogPages = AppPages.catalog
 const { products, loadProducts, isLoading } = ProductListModel.useGeneralModel()
 
-onBeforeMount(loadProducts)
+onBeforeMount(() => loadProducts({ limit: 10 }))
 </script>

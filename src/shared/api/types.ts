@@ -5,6 +5,8 @@ export interface IBaseQuery extends TRequestParams {
   skip?: number
 }
 
+export type TExtraQuery<T extends object> = IBaseQuery & T
+
 export interface IBaseGetResponse {
   total: number
   skip: number

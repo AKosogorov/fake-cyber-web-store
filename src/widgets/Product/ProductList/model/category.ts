@@ -1,7 +1,7 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
 import type { IBaseQuery } from '@/shared/api/types'
-import { useBaseListModel } from '@/shared/lib/use/model'
+import { useBaseListModel } from '@/shared/api'
 
 interface IQuery extends IBaseQuery {
   category: string
