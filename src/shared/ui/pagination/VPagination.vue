@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination column gap-xs">
+  <div v-if="count > 0" class="pagination column gap-xs">
     <div class="pagination__info">Page {{ modelValue }} of {{ count }}</div>
 
     <div class="pagination__pages row gap-xxs">
@@ -15,7 +15,7 @@
         :class="{ active: modelValue === 1 }"
         v-text="1"
         type="button"
-        :disabled="isDisabled"
+        :disabled="isDisabled || isFirstPage"
         @click="updateModelValue(1)"
       />
 

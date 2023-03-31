@@ -1,7 +1,7 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
 import type { IBaseQuery } from '@/shared/api/types'
-import { useBaseListModel } from '@/shared/api'
+import { QUERY_DEFAULT, useQueryListModel } from '@/shared/api'
 
 interface IQuery extends IBaseQuery {
   category: string
@@ -11,14 +11,21 @@ export function useCategoryModel(): IProductListModel<IQuery> {
   const {
     list: products,
     loadList: loadProducts,
-    isLoading
-  } = useBaseListModel<
+    loadListWithQuery: loadProductsWithQuery,
+    loadPage,
+    setPage,
+    page,
+    countPages,
+    isLoading,
+    changeLimit
+  } = useQueryListModel<
     ProductModel.IProduct,
     ProductModel.IProductGetResponse,
     IQuery
   >({
     apiHandler: fetchProducts,
-    mapper: ProductModel.getMapped
+    mapper: ProductModel.getMapped,
+    initQuery: QUERY_DEFAULT
   })
 
   async function fetchProducts(params?: IQuery) {
@@ -32,6 +39,12 @@ export function useCategoryModel(): IProductListModel<IQuery> {
   return {
     products,
     loadProducts,
-    isLoading
+    loadProductsWithQuery,
+    loadPage,
+    setPage,
+    page,
+    countPages,
+    isLoading,
+    changeLimit
   }
 }

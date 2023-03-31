@@ -2,15 +2,25 @@
   <div class="category-page container">
     <h1 class="capitalize mb-m">{{ currentCategory }}</h1>
 
-    <ProductList
-      :products="products"
-      :details-route-name="AppPages.catalog.product"
-      :is-loading="isLoading"
-    />
+    <div class="column gap-l mb-l">
+      <ProductList
+        :products="products"
+        :details-route-name="AppPages.catalog.product"
+        :is-loading="isLoading"
+      />
+
+      <VPagination
+        :model-value="page"
+        :count="countPages"
+        :is-disabled="isLoading"
+        @update:model-value="loadPageOfCategory"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { VPagination } from '@/shared/ui/pagination'
 import { useRoute } from 'vue-router'
 import { computed, onBeforeMount, watch } from 'vue'
 import { AppPages } from '@/pages'
@@ -20,15 +30,26 @@ const route = useRoute()
 
 const currentCategory = computed(() => route.params.category as string)
 
-const { products, loadProducts, isLoading } =
-  ProductListModel.useCategoryModel()
+const {
+  products,
+  loadProductsWithQuery,
+  isLoading,
+  page,
+  countPages,
+  setPage
+} = ProductListModel.useCategoryModel()
 
 onBeforeMount(loadProductsOfCategory)
 
 watch(currentCategory, loadProductsOfCategory)
 
+function loadPageOfCategory(num: number) {
+  setPage(num)
+  loadProductsWithQuery({ category: currentCategory.value })
+}
+
 function loadProductsOfCategory() {
-  loadProducts({ category: currentCategory.value })
+  loadProductsWithQuery({ category: currentCategory.value })
 }
 </script>
 

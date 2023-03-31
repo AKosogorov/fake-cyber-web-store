@@ -1,4 +1,5 @@
 - categories
+- go to categories from details
 - favorites
 - ? skeleton
 - recommendations
