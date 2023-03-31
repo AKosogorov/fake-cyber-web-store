@@ -1,13 +1,13 @@
 <template>
-  <div class="pagination column gap-s">
-    <div class="pagination__info">Страница {{ modelValue }} из {{ count }}</div>
+  <div class="pagination column gap-xs">
+    <div class="pagination__info">Page {{ modelValue }} of {{ count }}</div>
 
     <div class="pagination__pages row gap-xxs">
       <button
         class="pagination__button pagination__button--arrow pagination__button--arrow-prev reset"
         type="button"
         :disabled="isDisabled || isFirstPage"
-        @click="changePage(modelValue - 1)"
+        @click="updateModelValue(modelValue - 1)"
       />
 
       <button
@@ -16,7 +16,7 @@
         v-text="1"
         type="button"
         :disabled="isDisabled"
-        @click="changePage(1)"
+        @click="updateModelValue(1)"
       />
 
       <span v-if="modelValue > 4 && count > 7">...</span>
@@ -29,7 +29,7 @@
         :class="{ active: page === modelValue }"
         type="button"
         :disabled="page === modelValue || isDisabled"
-        @click="changePage(page)"
+        @click="updateModelValue(page)"
       />
 
       <span v-if="count > 7 && modelValue < count - 3">...</span>
@@ -41,14 +41,14 @@
         :class="{ active: count === modelValue }"
         :disabled="count === modelValue || isDisabled"
         type="button"
-        @click="changePage(count)"
+        @click="updateModelValue(count)"
       />
 
       <button
         class="pagination__button pagination__button--arrow reset"
         type="button"
         :disabled="isDisabled || isLastPage"
-        @click="changePage(modelValue + 1)"
+        @click="updateModelValue(modelValue + 1)"
       />
     </div>
   </div>
@@ -84,7 +84,7 @@ const pages = computed(() => {
   return getMiddlePages()
 })
 
-function changePage(num: number) {
+function updateModelValue(num: number) {
   emit('update:modelValue', num)
 }
 

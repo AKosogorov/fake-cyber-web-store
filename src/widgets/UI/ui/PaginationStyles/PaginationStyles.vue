@@ -5,7 +5,7 @@
     <VPagination
       :model-value="page"
       :count="count"
-      @update:model-value="logger"
+      @update:model-value="setPage"
     />
   </section>
 </template>
@@ -15,10 +15,9 @@ import { VPagination } from '@/shared/ui/pagination'
 import { ref } from 'vue'
 
 const page = ref(1)
-const count = ref(10)
+const count = ref(15)
 
-function logger(value: number) {
-  console.log(value)
+function setPage(value: number) {
   page.value = value
 }
 </script>
