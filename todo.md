@@ -17,3 +17,7 @@
 - favorites by user id
 - cart by user id
 - rating
+- 404 page
+- form
+  - validation
+- modal
