@@ -15,8 +15,13 @@ export class AppRoutes {
   static getProduct(id: number) {
     return getRoute(AppPages.catalog.product, { id })
   }
+
+  static getCart() {
+    return getRoute(AppPages.cart, {})
+  }
 }
 
+// TODO необязательный 2й параметр
 function getRoute<T extends object = {}>(name: string, params: T): IRoute<T> {
   return {
     name,

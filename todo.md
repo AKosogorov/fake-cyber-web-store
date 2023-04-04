@@ -16,5 +16,4 @@
 - auth
 - favorites by user id
 - cart by user id
-- Button "in cart" if cart has goods
 - rating
