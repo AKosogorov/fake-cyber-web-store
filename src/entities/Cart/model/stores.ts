@@ -45,29 +45,13 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     }
   )
 
-  const {
-    value: total,
-    increment: incrementTotal,
-    decrement: decrementTotal
-  } = useRefNumber(LSCart.total)
+  const { value: total } = useRefNumber(LSCart.total)
 
-  const {
-    value: totalQuantity,
-    increment: incrementTotalQuantity,
-    decrement: decrementTotalQuantity
-  } = useRefNumber(LSCart.totalQuantity)
+  const { value: totalQuantity } = useRefNumber(LSCart.totalQuantity)
 
-  const {
-    value: totalProducts,
-    increment: incrementTotalProducts,
-    decrement: decrementTotalProducts
-  } = useRefNumber(LSCart.totalProducts)
+  const { value: totalProducts } = useRefNumber(LSCart.totalProducts)
 
-  const {
-    value: discountedTotal,
-    increment: incrementDiscountedTotal,
-    decrement: decrementDiscountedTotal
-  } = useRefNumber(LSCart.discountedTotal)
+  const { value: discountedTotal } = useRefNumber(LSCart.discountedTotal)
 
   const { value: LSCartProducts, setLSValue: setLSCartProducts } =
     useLocalStorage<ICartProduct[]>(`${NAMESPACE}-products`, [])
@@ -77,7 +61,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
   const inCart = computed(() => cartProducts.length)
 
   function cartHasProduct(id: number) {
-    return !!findInCart(id)
+    return Boolean(findInCart(id))
   }
 
   async function addToCart(id: number) {
