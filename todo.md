@@ -1,7 +1,20 @@
-- categories
-- go to categories from details
-- favorites
 - ? skeleton
-- recommendations
+- ? recommendations
+- ? viewed
 - createBaseErrors
 - useMeta
+- personal area
+  - favorites
+  - statistic
+  - delivery
+  - purchased
+  - balance
+    - changelog
+- comments
+- scroll after router go
+- map
+- auth
+- favorites by user id
+- cart by user id
+- Button "in cart" if cart has goods
+- rating
