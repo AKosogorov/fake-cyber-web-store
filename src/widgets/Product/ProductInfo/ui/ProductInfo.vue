@@ -6,8 +6,9 @@
       <AddToFavorites :id="product.id" />
     </template>
 
-    <template v-slot:button-add-to-cart>
-      <AddToCart class="w-100" :id="product.id" />
+    <template v-slot:to-cart>
+      {{ isInCart }}
+      <AddToCart v-if="!isInCart" class="w-100" :id="product.id" />
     </template>
   </ProductDetails>
 </template>
@@ -21,6 +22,7 @@ import { AddToCart } from '@/features/Cart'
 import { computed, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import { ProductApi } from '@/entities/Product'
+import { CartModel } from '@/entities/Cart'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
 
 const route = useRoute()
@@ -29,6 +31,10 @@ let product: ProductModel.IProduct
 const { isLoading, runWithLoading } = useLoadingWrap()
 
 const productId = computed(() => +route.params.id)
+
+const { cartHasProduct } = CartModel.useCartStore()
+
+const isInCart = computed(() => cartHasProduct(productId.value))
 
 onBeforeMount(() => runWithLoading(fetchProduct))
 

@@ -47,7 +47,7 @@
           <slot name="button-like" />
         </div>
 
-        <slot name="button-add-to-cart" />
+        <slot name="to-cart" />
       </div>
     </div>
   </div>
