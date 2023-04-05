@@ -1,4 +1,4 @@
-import { createBaseReadApi } from '@/shared/api'
+import { createBaseReadApi, createBaseReadApiErrors } from '@/shared/api'
 import type {
   IProductGetResponse,
   IProductResponse,
@@ -10,11 +10,7 @@ import { getAll } from '@/shared/api/requests'
 const URL = 'products'
 const CATEGORIES_URL = `${URL}/categories`
 
-// TODO createBaseErrors
-const errors = {
-  getAll: 'Failed to get product list',
-  getById: 'Failed to load product'
-}
+const errors = createBaseReadApiErrors('product')
 
 export const Api = {
   ...createBaseReadApi<IProductGetResponse, IProductResponse>(URL, errors),
