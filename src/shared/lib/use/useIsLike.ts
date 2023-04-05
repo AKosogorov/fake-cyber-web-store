@@ -1,5 +1,4 @@
 import type { Ref } from 'vue'
-import { ref } from 'vue'
 import { useIsBoolean } from '@/shared/lib/use/base/useIsBoolean'
 
 interface IUseIsLike {

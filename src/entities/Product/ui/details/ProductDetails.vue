@@ -64,7 +64,7 @@ import { EAppPixelSize } from '@/shared/lib/interface/size'
 import InfoHeaded from '@/shared/ui/text/InfoHeaded/InfoHeaded.vue'
 import { useAppRoutes } from '@/app/providers'
 
-const props = defineProps<{
+defineProps<{
   product: ProductModel.IProduct
 }>()
 

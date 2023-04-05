@@ -1,5 +1,4 @@
 import { reactive } from 'vue'
-import type { UnwrapNestedRefs } from '@vue/reactivity'
 import {
   refreshArray,
   spliceBy,
@@ -25,9 +24,11 @@ export function useReactiveArray<T>(init: T[] = []): IUseReactiveArray<T> {
 
   function remove(value: TValue, key: string = 'id') {
     if (key === 'id') {
+      // @ts-ignore
       return spliceBy(value, array)
     }
     if (!key) {
+      // @ts-ignore
       return spliceSimpleBy(value, array)
     }
   }

@@ -14,7 +14,11 @@ interface IUsePaginationQuery {
   countPages: ComputedRef<number>
 }
 
-export function usePaginationQuery({ total, limit, initPage }: IParams) {
+export function usePaginationQuery({
+  total,
+  limit,
+  initPage
+}: IParams): IUsePaginationQuery {
   const { value: page, setValue: setPage } = useRefNumber(initPage || 1)
 
   const countPages = computed(() => Math.ceil(total.value / limit.value))

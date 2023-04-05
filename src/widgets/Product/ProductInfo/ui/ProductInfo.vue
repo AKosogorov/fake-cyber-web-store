@@ -7,7 +7,7 @@
     </template>
 
     <template v-slot:to-cart>
-      <AddToCart class="w-100" :id="product.id" />
+      <AddToCart :id="product.id" class="w-100" />
     </template>
   </ProductDetails>
 </template>

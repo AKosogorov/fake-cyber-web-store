@@ -53,7 +53,7 @@ module.exports = {
         alphabetical: false
       }
     ],
-    "vue/html-quotes": [ "error", "double", { "avoidEscape": false } ],
+    'vue/html-quotes': ['error', 'double', { avoidEscape: false }],
     'vue/order-in-components': [
       'error',
       {
@@ -93,7 +93,6 @@ module.exports = {
           'renderError'
         ]
       }
-
     ],
     'vue/block-tag-newline': [
       'error',
