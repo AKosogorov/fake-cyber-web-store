@@ -14,7 +14,7 @@
         class="input__field"
         :type="inputType"
         :name="name"
-        :placeholder="placeholder"
+        :placeholder="String(placeholder)"
         :disabled="isDisabled"
         @input="onInput"
         @blur="emit('blur')"
@@ -24,8 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import type { HTMLElementEvent } from '@/shared/lib/types'
-
 const emit = defineEmits(['update:modelValue', 'blur'])
 
 interface IVInput {
@@ -41,8 +39,9 @@ withDefaults(defineProps<IVInput>(), {
   inputType: 'text'
 })
 
-function onInput(event: HTMLElementEvent<HTMLInputElement>) {
-  const value = event.target.value.trim()
+function onInput(event: Event) {
+  const target = event.target as HTMLInputElement
+  const value = target.value.trim()
 
   emit('update:modelValue', value)
 }

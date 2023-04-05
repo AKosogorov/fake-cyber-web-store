@@ -20,7 +20,7 @@ import { ProductCard } from '@/entities/Product'
 import { AddToFavorites } from '@/features/Product'
 import { AddToCart } from '@/features/Cart'
 
-import { ProductModel } from '@/entities/Product'
+import type { ProductModel } from '@/entities/Product'
 
 defineProps<{
   isLoading: boolean
