@@ -1,0 +1,80 @@
+.cyber-logo {
+  --shimmy-distance: 1;
+  --secondary: var(--color__blue);
+
+  position: relative;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color__yellow);
+
+  &.router-link-exact-active {
+    color: var(--color__yellow);
+  }
+
+  &__glitch {
+    color: inherit;
+    text-shadow: 1px 1px var(--secondary), -1px -1px var(--bg-color__error);
+    opacity: 0;
+    visibility: hidden;
+    animation: glitch 1.5s infinite;
+  }
+
+  &:focus-visible,
+  &:hover {
+    .cyber-logo__glitch {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:active {
+    .cyber-logo__glitch {
+      animation: initial;
+    }
+  }
+
+  @keyframes logoGlitch {
+    8% {
+      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+    }
+    6% {
+      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+    }
+    9% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+    }
+    13% {
+      transform: translate(0, 0);
+    }
+    14%,
+    21% {
+      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+    }
+    25% {
+      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+    }
+    30% {
+      transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+    }
+    35%,
+    45% {
+      transform: translate(calc(var(--shimmy-distance) * -1%));
+    }
+    40% {
+      transform: translate(calc(var(--shimmy-distance) * 1%));
+    }
+    50% {
+      transform: translate(0, 0);
+    }
+    55% {
+      transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+    }
+    60% {
+      transform: translate(0, 0);
+    }
+  }
+}

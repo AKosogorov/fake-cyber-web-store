@@ -1,0 +1,60 @@
+@import 'mixins';
+
+.button {
+  align-self: baseline;
+  padding: var(--button-padding);
+  color: var(--color__white);
+
+  &__text {
+    z-index: 1;
+    color: inherit;
+    transition: var(--transition-duration) color
+      var(--transition-timing-function);
+  }
+
+  &__border-decorate {
+    color: var(--color__black);
+
+    &--after {
+      top: 1px;
+      right: 11px;
+      bottom: 1px;
+      left: 11px;
+      color: var(--color__blue);
+    }
+  }
+
+  &:focus-visible {
+    @include buttonFocus(var(--color__red));
+  }
+
+  &:hover {
+    @include buttonHover(var(--color__blue));
+  }
+
+  &:active {
+    @include buttonActive(var(--color__black), var(--color__blue));
+  }
+
+  &:disabled {
+    color: var(--color__black);
+
+    .button__border-decorate {
+      color: var(--color__grey);
+    }
+  }
+}
+
+.button {
+  &.focus {
+    @include buttonFocus(var(--color__red));
+  }
+
+  &.hover {
+    @include buttonHover(var(--color__blue));
+  }
+
+  &.active {
+    @include buttonActive(var(--color__black), var(--color__blue));
+  }
+}

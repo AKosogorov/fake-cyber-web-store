@@ -1,0 +1,20 @@
+.alerts {
+  position: fixed;
+  top: 70px;
+  right: 5%;
+  z-index: var(--z-idx__alerts);
+  width: 100%;
+  max-width: 560px;
+}
+
+.alerts-enter-active,
+.alerts-leave-active {
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+.alerts-enter-from,
+.alerts-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

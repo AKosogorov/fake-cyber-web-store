@@ -1,0 +1,28 @@
+.cart-total {
+  position: relative;
+  padding: var(--s);
+  color: var(--color__blue);
+
+  &__price {
+    font-size: 24px;
+    font-weight: 600;
+
+    .price {
+      font-size: 24px;
+
+      &__old {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .cyber-card {
+    &::before {
+      background-color: var(--color__blue);
+    }
+
+    &::after {
+      background-color: var(--color__black);
+    }
+  }
+}

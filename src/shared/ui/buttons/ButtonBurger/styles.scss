@@ -1,0 +1,57 @@
+.button-burger {
+  --color: var(--color__red);
+
+  border: 2px solid var(--color);
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    width: calc(100% - 12px);
+    height: 3px;
+    background-color: var(--color);
+    transition: inherit;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: inherit;
+      background-color: inherit;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      bottom: -8px;
+    }
+  }
+
+  &.is-active {
+    .button-burger__line {
+      width: calc(100% - 18px);
+
+      &::before {
+        width: calc(100% + 6px);
+      }
+
+      &::after {
+        width: calc(100% - 6px);
+      }
+    }
+  }
+
+  &:focus-visible,
+  &:hover {
+    --color: var(--color__blue);
+  }
+
+  &:active {
+    --color: var(--color__blue--dark);
+  }
+}

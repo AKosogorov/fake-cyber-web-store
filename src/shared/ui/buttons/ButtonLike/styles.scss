@@ -1,0 +1,24 @@
+.button-like {
+  &.liked {
+    .button-sm__icon-wrap {
+      color: var(--color__red);
+
+      path {
+        fill: var(--color__red);
+      }
+    }
+  }
+
+  &:focus-visible,
+  &:hover {
+    &.liked {
+      .button-sm__icon-wrap {
+        color: var(--color__grey);
+
+        path {
+          fill: transparent;
+        }
+      }
+    }
+  }
+}

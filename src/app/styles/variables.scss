@@ -1,0 +1,68 @@
+:root {
+  --color__white: #fff;
+  --color__black: #010101;
+  --color__black--transparent: rgba(1, 1, 1, 0.5);
+
+  --color__green: #42b983;
+  --color__green--dark: #17412e;
+  --color__green--light-transparent: #42b98359;
+
+  --color__yellow: #f8ef00;
+  --color__yellow--transparent: rgba(248, 239, 0, 0.35);
+  --color__yellow--dark: #575300;
+
+  --color__red: #ff003c;
+  --color__red--transparent: rgba(255, 0, 60, 0.35);
+  --color__red--dark: #590015;
+
+  --color__grey: #bbbbbb;
+  --color__grey--transparent: rgba(187, 187, 187, 0.1);
+
+  --color__blue: #00f0ff;
+  --color__blue--dark: #005459;
+  --color__blue--transparent: rgba(0, 240, 255, 0.35);
+
+  --color__dark-blue: #001417;
+  --color__dark-blue--light: #002a30;
+
+  --color__purple: #77308c;
+  --color__purple--transparent: rgba(119, 48, 140, 0.35);
+
+  --gradient__prb: linear-gradient(
+    120deg,
+    var(--color__purple) 0%,
+    var(--color__red) 50%,
+    var(--color__blue) 100%
+  );
+
+  --bg-color-body: #1e1e1e;
+  --bg-color__dark: #0f0f0f;
+  --bg-color__dark--medium: rgba(15, 15, 15, 0.9);
+  --bg-color__dark--light: rgba(15, 15, 15, 0.7);
+  --bg-color__error: #2d0008;
+
+  --z-idx__modals: 90;
+  --z-idx__alerts: 100;
+
+  --xxs: 8px;
+  --xs: 16px;
+  --s: 24px;
+  --m: 32px;
+  --l: 40px;
+  --xl: 48px;
+  --xxl: 56px;
+
+  --border-radius: 8px;
+
+  --breakpoint-s: 576px;
+  --breakpoint-m: 768px;
+  --breakpoint-l: 992px;
+  --breakpoint-xl: 1200px;
+
+  --transition-duration: 0.1s;
+  --transition-timing-function: ease;
+
+  --max-w-field: 460px;
+
+  --button-padding: 12px 30px;
+}

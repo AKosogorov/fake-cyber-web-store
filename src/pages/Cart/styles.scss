@@ -1,0 +1,12 @@
+.cart-page {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--l);
+  }
+
+  .cart-total {
+    position: sticky;
+    top: 0;
+  }
+}

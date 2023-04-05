@@ -1,0 +1,56 @@
+.alert-card {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  padding: 30px;
+
+  &.success .cyber-card {
+    &::before {
+      background-color: var(--color__green);
+    }
+    &::after {
+      background-color: var(--color__green--dark);
+    }
+  }
+
+  &.warning .cyber-card {
+    &::before {
+      background-color: var(--color__yellow);
+    }
+    &::after {
+      background-color: var(--color__yellow--dark);
+    }
+  }
+
+  &.info .cyber-card {
+    &::before {
+      background-color: var(--color__blue);
+    }
+    &::after {
+      background-color: var(--color__blue--dark);
+    }
+  }
+
+  &.error .cyber-card {
+    &::before {
+      background-color: var(--color__red);
+    }
+    &::after {
+      background-color: var(--color__red--dark);
+    }
+  }
+
+  &__status {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: var(--xxs);
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__body {
+    width: 100%;
+  }
+}

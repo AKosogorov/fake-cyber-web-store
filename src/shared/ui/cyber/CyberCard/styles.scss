@@ -1,0 +1,56 @@
+.cyber-card {
+  --cyber-card-clip-path: polygon(
+    5% 0,
+    100% 0,
+    100% 100%,
+    95% 100%,
+    95% calc(100% - 10px),
+    calc(95% - 25px) calc(100% - 10px),
+    calc(95% - 25px) 100%,
+    0 100%,
+    0 25%
+  );
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  &::before {
+    clip-path: var(--cyber-card-clip-path);
+  }
+
+  &::after {
+    clip-path: polygon(
+      calc(5% + 1px) 2px,
+      calc(100% - 2px) 2px,
+      calc(100% - 2px) calc(100% - 2px),
+      calc(95% + 2px) calc(100% - 2px),
+      calc(95% + 2px) calc(100% - 12px),
+      calc(95% - 27px) calc(100% - 12px),
+      calc(95% - 27px) calc(100% - 2px),
+      2px calc(100% - 2px),
+      2px calc(25% + 1px)
+    );
+  }
+
+  &__tag {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    font-size: 9px;
+  }
+}

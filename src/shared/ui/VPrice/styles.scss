@@ -1,0 +1,10 @@
+.price {
+  font-size: 18px;
+  font-weight: 700;
+
+  &__old {
+    font-size: 16px;
+    color: var(--color__grey);
+    opacity: 0.5;
+  }
+}

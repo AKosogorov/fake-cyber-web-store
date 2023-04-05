@@ -1,0 +1,26 @@
+.swiper-button {
+  padding: var(--xxs);
+  color: var(--color__black);
+  border-radius: 100%;
+  background-color: var(--color__grey--transparent);
+  opacity: 0.3;
+
+  &:focus-visible,
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: 0.1;
+    color: var(--color__grey);
+  }
+
+  svg {
+    width: var(--xs);
+    height: var(--xs);
+  }
+}
