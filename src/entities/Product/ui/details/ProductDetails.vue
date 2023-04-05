@@ -60,7 +60,7 @@ import VPrice from '@/shared/ui/VPrice'
 import { InfoShort } from '@/shared/ui/text'
 
 import type { ProductModel } from '@/entities/Product'
-import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { EAppPixelSize } from '@/shared/lib/types/app'
 import InfoHeaded from '@/shared/ui/text/InfoHeaded/InfoHeaded.vue'
 import { useAppRoutes } from '@/app/providers'
 

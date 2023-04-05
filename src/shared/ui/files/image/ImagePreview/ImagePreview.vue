@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IImage } from '@/shared/lib/interface/image'
+import type { IImage } from '@/shared/lib/types/dom'
 
 defineProps<{
   image: IImage

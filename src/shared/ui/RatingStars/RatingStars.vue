@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { IconStar } from '@/shared/ui/icons'
 import { starSystem } from './model'
-import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { EAppPixelSize } from '@/shared/lib/types/app'
 import { computed } from 'vue'
 
 const props = withDefaults(
