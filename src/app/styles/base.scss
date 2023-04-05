@@ -104,4 +104,9 @@ section {
   &:active {
     color: var(--color__yellow--dark);
   }
+
+  &__icon {
+    width: var(--s);
+    height: var(--s);
+  }
 }

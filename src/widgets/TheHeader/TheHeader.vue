@@ -10,7 +10,15 @@
         <CyberLogo />
       </div>
 
-      <div class="row gap-xxs">
+      <div class="row gap-m">
+        <router-link class="link" to="/">
+          <IconDelivery class="link__icon" />
+        </router-link>
+
+        <router-link class="link-to-cart link" to="/">
+          <IconUser class="link__icon" />
+        </router-link>
+
         <LinkToCart />
       </div>
     </div>
@@ -22,6 +30,7 @@ import { CyberLogo } from '@/shared/ui/cyber'
 import { LinkToCart } from '@/entities/Cart'
 import { ButtonBurger } from '@/shared/ui/buttons'
 import { TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
+import { IconUser, IconDelivery } from '@/shared/ui/icons'
 
 const burgerStore = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
