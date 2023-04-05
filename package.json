@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only --base=/fake-cyber-web-store/",
+    "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "build-only": "vite build",
+    "build-only": "vite build --base=/fake-cyber-web-store/",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "deploy": "node scripts/gh-pages-deploy.js"
