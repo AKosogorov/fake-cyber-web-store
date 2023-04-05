@@ -38,9 +38,6 @@ import VPrice from '@/shared/ui/VPrice'
 import { CyberCard } from '@/shared/ui/cyber'
 import type { ICartProduct } from '../../model'
 import { IconDiscount } from '@/shared/ui/icons'
-import { inject } from 'vue'
-import { EAppProviders } from '@/app/providers'
-import { throwInjectError } from '@/shared/lib/utils/errors'
 import { useAppRoutes } from '@/app/providers/useAppRoutes'
 
 defineProps<{

@@ -22,7 +22,7 @@ import { AddToCart } from '@/features/Cart'
 
 import { ProductModel } from '@/entities/Product'
 
-const props = defineProps<{
+defineProps<{
   isLoading: boolean
   products: ProductModel.IProduct[]
 }>()

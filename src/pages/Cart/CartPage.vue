@@ -6,6 +6,7 @@
       <div v-if="store.cartProducts.length" class="column gap-s">
         <CartProductCard
           v-for="item of store.cartProducts"
+          :key="item.id"
           :cart-product="item"
         >
           <template v-slot:input-quantity>

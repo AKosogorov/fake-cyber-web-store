@@ -1,6 +1,7 @@
 {
-  "name": "market",
-  "version": "0.0.0",
+  "name": "fake-cyber-web-store",
+  "version": "0.1.0",
+  "author": "Kosogorov Anton kosogorov.anton@gmail.com",
   "private": true,
   "scripts": {
     "dev": "vite",

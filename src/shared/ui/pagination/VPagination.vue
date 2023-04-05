@@ -13,10 +13,10 @@
       <button
         class="pagination__button reset"
         :class="{ active: modelValue === 1 }"
-        v-text="1"
         type="button"
         :disabled="isDisabled || isFirstPage"
         @click="updateModelValue(1)"
+        v-text="1"
       />
 
       <span v-if="modelValue > 4 && count > 7">...</span>
@@ -24,24 +24,24 @@
       <button
         v-for="page in pages"
         :key="page"
-        v-text="page"
         class="pagination__button reset"
         :class="{ active: page === modelValue }"
         type="button"
         :disabled="page === modelValue || isDisabled"
         @click="updateModelValue(page)"
+        v-text="page"
       />
 
       <span v-if="count > 7 && modelValue < count - 3">...</span>
 
       <button
         v-if="count > 1"
-        v-text="count"
         class="pagination__button reset"
         :class="{ active: count === modelValue }"
         :disabled="count === modelValue || isDisabled"
         type="button"
         @click="updateModelValue(count)"
+        v-text="count"
       />
 
       <button
