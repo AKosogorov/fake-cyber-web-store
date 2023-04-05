@@ -33,9 +33,5 @@ import { buttonList } from './model'
 import useToggle from '@/shared/lib/use/useToggle'
 
 const { isActive: isDisabled, toggle } = useToggle(true)
-const classes = {
-  1: 'hover',
-  2: 'focus',
-  4: 'active'
-}
+const classes = ['', 'hover', 'focus', '', 'active']
 </script>

@@ -59,7 +59,7 @@ import { ImagesSwiper } from '@/shared/ui/swipers'
 import VPrice from '@/shared/ui/VPrice'
 import { InfoShort } from '@/shared/ui/text'
 
-import { ProductModel } from '@/entities/Product'
+import type { ProductModel } from '@/entities/Product'
 import { EAppPixelSize } from '@/shared/lib/interface/size'
 import InfoHeaded from '@/shared/ui/text/InfoHeaded/InfoHeaded.vue'
 import { useAppRoutes } from '@/app/providers'
