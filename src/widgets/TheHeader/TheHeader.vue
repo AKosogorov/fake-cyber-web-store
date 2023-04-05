@@ -1,16 +1,16 @@
 <template>
   <header class="header">
-    <div class="container between gap-l">
+    <div class="header__container container between gap-l">
       <div class="header__left row gap-xs">
         <ButtonBurger
           :is-active="burgerStore.isActive"
           @click="burgerStore.openBurgerMenu"
         />
 
-        <CyberLogo />
+        <CyberLogo class="header__logo" />
       </div>
 
-      <div class="row gap-m">
+      <div class="header__right row gap-m">
         <router-link class="link" to="/">
           <IconDelivery class="link__icon" />
         </router-link>

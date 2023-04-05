@@ -110,3 +110,9 @@ section {
     height: var(--s);
   }
 }
+
+@media (max-width: $breakpoint-s) {
+  .container {
+    padding: 0 var(--s);
+  }
+}

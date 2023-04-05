@@ -1,0 +1,17 @@
+.header {
+  position: relative;
+}
+
+@media (max-width: $breakpoint-s) {
+  .header {
+    padding-top: var(--xxl);
+
+    &__logo {
+      position: absolute;
+      top: var(--s);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+  }
+}
