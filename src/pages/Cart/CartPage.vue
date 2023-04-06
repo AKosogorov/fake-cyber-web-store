@@ -3,7 +3,10 @@
     <h1 class="mb-s">Shopping basket</h1>
 
     <div class="cart-page__grid">
-      <div v-if="store.cartProducts.length" class="column gap-s">
+      <div
+        v-if="store.cartProducts.length"
+        class="cart-page__products column gap-s"
+      >
         <CartProductCard
           v-for="item of store.cartProducts"
           :key="item.id"
