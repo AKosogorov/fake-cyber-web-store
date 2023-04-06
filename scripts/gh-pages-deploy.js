@@ -2,10 +2,6 @@
   try {
     const { execa } = await import('execa')
 
-    console.log('checkout master...')
-    await execa('git', ['checkout', 'master'])
-    console.log('pull origin master...')
-    await execa('git', ['pull', 'origin', 'master'])
     await execa('git', ['checkout', '--orphan', 'gh-pages'])
     console.log('Building...')
     await execa('npm', ['run', 'build'])
