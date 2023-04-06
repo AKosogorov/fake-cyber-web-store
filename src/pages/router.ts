@@ -5,6 +5,7 @@ import { routes as catalogRoutes } from './Catalog'
 import { route as cartRoute } from './Cart'
 import { route as loginRoute } from './Login'
 import { route as signUpRoute } from './SignUp'
+import { route as deliveryRoute } from './Delivery'
 
 export const routes = [
   mainRoute,
@@ -12,6 +13,7 @@ export const routes = [
   cartRoute,
   loginRoute,
   signUpRoute,
+  deliveryRoute,
   UIRoute,
   notFoundRoute
 ]
