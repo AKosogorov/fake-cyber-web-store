@@ -8,7 +8,7 @@
 
     <ImagesSwiper
       v-if="product.images"
-      class="product-card__swiper mb-m"
+      class="product-card__swiper"
       :images="product.images"
     />
 
@@ -35,7 +35,7 @@ import { ImagesSwiper } from '@/shared/ui/swipers'
 import VPrice from '@/shared/ui/VPrice'
 import RatingStars from '@/shared/ui/RatingStars'
 import type { IProduct } from '../../model'
-import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { EAppPixelSize } from '@/shared/lib/types/app'
 import { useAppRoutes } from '@/app/providers'
 
 defineProps<{

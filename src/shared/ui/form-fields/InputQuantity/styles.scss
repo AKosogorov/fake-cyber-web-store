@@ -31,6 +31,10 @@
 
   .input {
     width: 85px;
+
+    &__field {
+      padding: 9px;
+    }
   }
 
   &.labeled {

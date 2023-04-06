@@ -1,12 +1,19 @@
-import { mainRoute } from '@/pages/Main'
-import { UIRoute } from '@/pages/UI'
-import { notFoundRoute } from '@/pages/NotFound'
-import { routes as catalogRoutes } from '@/pages/Catalog'
+import { mainRoute } from './Main'
+import { UIRoute } from './UI'
+import { notFoundRoute } from './NotFound'
+import { routes as catalogRoutes } from './Catalog'
 import { route as cartRoute } from './Cart'
+import { route as loginRoute } from './Login'
+import { route as signUpRoute } from './SignUp'
+import { route as deliveryRoute } from './Delivery'
+
 export const routes = [
   mainRoute,
   ...catalogRoutes,
   cartRoute,
+  loginRoute,
+  signUpRoute,
+  deliveryRoute,
   UIRoute,
   notFoundRoute
 ]

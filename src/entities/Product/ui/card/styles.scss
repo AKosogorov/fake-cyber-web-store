@@ -4,7 +4,6 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 290px;
   border-radius: var(--border-radius);
   padding-bottom: var(--s);
 
@@ -67,6 +66,27 @@
       button {
         width: 100%;
       }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .product-card {
+    padding-bottom: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      z-index: 1;
+    }
+
+    &__actions--bottom {
+      position: initial;
+      opacity: 1;
+      visibility: visible;
+      margin-top: auto;
     }
   }
 }

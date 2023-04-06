@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { VSwiper } from '../VSwiper'
 
-import type { IImage } from '@/shared/lib/interface/image'
+import type { IImage } from '@/shared/lib/types/dom'
 defineProps<{
   images: IImage[]
 }>()

@@ -26,3 +26,12 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-s) {
+  .cart-total {
+    &__price {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

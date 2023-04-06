@@ -2,16 +2,23 @@
   &__grid {
     display: grid;
     grid-template-columns: 400px 1fr 300px;
+    grid-template-areas: 'swiper info offer';
     gap: var(--l);
   }
 
   &__swiper {
+    grid-area: swiper;
     width: 100%;
     height: 400px;
     max-width: 400px;
   }
 
+  &__info {
+    grid-area: info;
+  }
+
   &__offer {
+    grid-area: offer;
     height: max-content;
     padding: var(--s);
 
@@ -21,6 +28,41 @@
       &__old {
         font-size: 20px;
       }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .product-details {
+    &__grid {
+      grid-template-columns: 400px 1fr;
+      grid-template-areas:
+        'swiper info'
+        'swiper offer';
+    }
+  }
+}
+
+@media (max-width: $breakpoint-l) {
+  .product-details {
+    &__grid {
+      grid-template-columns: 350px 1fr;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-m) {
+  .product-details {
+    &__grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'swiper'
+        'info'
+        'offer';
+    }
+
+    &__swiper {
+      max-width: initial;
     }
   }
 }

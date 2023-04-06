@@ -1,11 +1,6 @@
 .link-to-cart {
   position: relative;
 
-  &__icon {
-    width: var(--s);
-    height: var(--s);
-  }
-
   &__counter {
     position: absolute;
     top: -8px;

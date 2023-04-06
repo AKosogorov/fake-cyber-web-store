@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { ButtonSm } from '@/shared/ui/buttons'
 import { IconHeart } from '@/shared/ui/icons'
-import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { EAppPixelSize } from '@/shared/lib/types/app'
 
 interface IButtonLike {
   isLike: boolean

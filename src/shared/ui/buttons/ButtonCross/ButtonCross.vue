@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { EAppPixelSize } from '@/shared/lib/interface/size'
+import { EAppPixelSize } from '@/shared/lib/types/app'
 import { computed } from 'vue'
 
 interface IButtonCross {

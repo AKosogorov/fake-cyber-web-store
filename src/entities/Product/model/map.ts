@@ -1,8 +1,4 @@
-import type {
-  IProduct,
-  IProductGetResponse,
-  IProductResponse
-} from './interface'
+import type { IProduct, IProductGetResponse, IProductResponse } from './types'
 
 export function mapProductResponse(item: IProductResponse): IProduct {
   return {

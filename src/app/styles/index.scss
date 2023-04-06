@@ -1,3 +1,4 @@
+@forward 'breakpoint';
 @import 'normalize.css';
 @import 'fonts';
 @import 'variables';
@@ -5,7 +6,7 @@
 @import 'mixins';
 @import 'reset';
 @import 'colors';
-@import 'blockModel';
+@import 'block-model';
 @import 'headings';
 @import 'pseudo';
 @import 'base';

@@ -1,4 +1,4 @@
-import type { IImage } from '@/shared/lib/interface/image'
+import type { IImage } from '@/shared/lib/types/dom'
 import type { IBaseGetResponse } from '@/shared/api'
 
 export interface IProductResponse {

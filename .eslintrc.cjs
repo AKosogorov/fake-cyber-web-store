@@ -109,6 +109,7 @@ module.exports = {
         submit: true,
         reset: true
       }
-    ]
+    ],
+    'prefer-rest-params': 1
   }
 }

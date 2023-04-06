@@ -2,11 +2,32 @@
   &__grid {
     display: grid;
     grid-template-columns: 1fr 350px;
+    grid-template-areas: 'products aside';
     gap: var(--l);
+  }
+
+  &__products {
+    grid-area: products;
+  }
+
+  &__aside {
+    grid-area: aside;
   }
 
   .cart-total {
     position: sticky;
     top: 0;
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .cart-page {
+    &__grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'products'
+        'aside';
+      grid-template-rows: auto auto;
+    }
   }
 }
