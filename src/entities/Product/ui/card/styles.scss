@@ -69,3 +69,24 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-xl) {
+  .product-card {
+    padding-bottom: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      z-index: 1;
+    }
+
+    &__actions--bottom {
+      position: initial;
+      opacity: 1;
+      visibility: visible;
+      margin-top: auto;
+    }
+  }
+}

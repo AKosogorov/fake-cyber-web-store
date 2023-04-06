@@ -1,5 +1,5 @@
 export const QUERY_DEFAULT = {
   skip: 0,
-  limit: 1,
+  limit: 10,
   page: 1
 }

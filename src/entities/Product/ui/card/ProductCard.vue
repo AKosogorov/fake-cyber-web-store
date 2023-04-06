@@ -8,7 +8,7 @@
 
     <ImagesSwiper
       v-if="product.images"
-      class="product-card__swiper mb-m"
+      class="product-card__swiper"
       :images="product.images"
     />
 
