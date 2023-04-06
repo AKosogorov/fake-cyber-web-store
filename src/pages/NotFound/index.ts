@@ -1,4 +1,6 @@
-export const notFoundRoute = {
+import type { RouteRecordRaw } from 'vue-router'
+
+export const notFoundRoute: RouteRecordRaw = {
   path: '/:pathMatch(.*)*',
   name: 'NotFoundPage',
   meta: {
