@@ -17,7 +17,7 @@
         :images="product.images"
       />
 
-      <div class="column gap-xs">
+      <div class="product-details__info column gap-xs">
         <div class="column gap-xxs">
           <InfoShort label="Category">
             <router-link
