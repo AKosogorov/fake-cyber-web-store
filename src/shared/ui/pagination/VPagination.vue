@@ -1,8 +1,6 @@
 <template>
   <div v-if="count > 0" class="pagination column gap-xs">
-    <div class="pagination__info">
-      Page {{ modelValue }} of {{ count }} ++ {{ appStore.screenWidth }}
-    </div>
+    <div class="pagination__info">Page {{ modelValue }} of {{ count }}</div>
 
     <div class="pagination__pages row gap-xxs">
       <button
@@ -21,7 +19,7 @@
         v-text="1"
       />
 
-      <span v-if="modelValue > 4 && count > 7">...</span>
+      <span v-if="visibleDotsLeft">...</span>
 
       <button
         v-for="page in pages"
@@ -34,7 +32,7 @@
         v-text="page"
       />
 
-      <span v-if="count > 7 && modelValue < count - 3">...</span>
+      <span v-if="visibleDotsRight">...</span>
 
       <button
         v-if="count > 1"
@@ -74,11 +72,34 @@ const props = withDefaults(defineProps<IVPagination>(), {
 
 const appStore = useAppStore()
 
+const isMobile = computed(() => appStore.screenWidth <= 400)
+
 const isFirstPage = computed(() => props.modelValue === 1)
 const isLastPage = computed(() => props.modelValue === props.count)
 
+const visibleDots = computed(() => {
+  if (isMobile.value) {
+    return props.count > 6
+  }
+  return props.count > 7
+})
+
+const pageForVisibleDotsLeft = computed(() => (isMobile.value ? 3 : 4))
+const visibleDotsLeft = computed(
+  () => visibleDots.value && props.modelValue > pageForVisibleDotsLeft.value
+)
+
+const pageForVisibleDotsRight = computed(() => (isMobile.value ? 2 : 3))
+const visibleDotsRight = computed(
+  () =>
+    visibleDots.value &&
+    props.modelValue < props.count - pageForVisibleDotsRight.value
+)
+
+const pageForStartPages = computed(() => (isMobile.value ? 4 : 5))
+
 const pages = computed(() => {
-  if (props.modelValue < 5) {
+  if (props.modelValue < pageForStartPages.value) {
     return getStartPages()
   }
 
@@ -93,15 +114,21 @@ function updateModelValue(num: number) {
   emit('update:modelValue', num)
 }
 
-function between(page: number) {
-  return page > 1 && page < props.count
-}
-
 function getStartPages() {
-  return [2, 3, 4, 5, 6].filter(between)
+  return getStartPagesList().filter(between)
+}
+function getStartPagesList() {
+  if (isMobile.value) {
+    return [2, 3, 4]
+  }
+  return [2, 3, 4, 5, 6]
 }
 
 function getMiddlePages() {
+  if (isMobile.value) {
+    return [props.modelValue - 1, props.modelValue, props.modelValue + 1]
+  }
+
   return [
     props.modelValue - 2,
     props.modelValue - 1,
@@ -112,6 +139,19 @@ function getMiddlePages() {
 }
 
 function getEndPages() {
+  if (isMobile.value) {
+    return [
+      props.modelValue - 3,
+      props.modelValue - 2,
+      props.modelValue - 1,
+      props.modelValue,
+      props.modelValue + 1,
+      props.modelValue + 2
+    ]
+      .filter(between)
+      .slice(-3)
+  }
+
   return [
     props.modelValue - 5,
     props.modelValue - 4,
@@ -124,6 +164,10 @@ function getEndPages() {
   ]
     .filter(between)
     .slice(-5)
+}
+
+function between(page: number) {
+  return page > 1 && page < props.count
 }
 </script>
 
