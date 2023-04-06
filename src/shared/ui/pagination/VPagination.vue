@@ -1,6 +1,8 @@
 <template>
   <div v-if="count > 0" class="pagination column gap-xs">
-    <div class="pagination__info">Page {{ modelValue }} of {{ count }}</div>
+    <div class="pagination__info">
+      Page {{ modelValue }} of {{ count }} ++ {{ appStore.screenWidth }}
+    </div>
 
     <div class="pagination__pages row gap-xxs">
       <button
@@ -56,6 +58,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useAppStore } from '@/app/providers'
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -68,6 +71,8 @@ interface IVPagination {
 const props = withDefaults(defineProps<IVPagination>(), {
   isDisabled: false
 })
+
+const appStore = useAppStore()
 
 const isFirstPage = computed(() => props.modelValue === 1)
 const isLastPage = computed(() => props.modelValue === props.count)

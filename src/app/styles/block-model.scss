@@ -28,6 +28,9 @@
   flex-wrap: wrap;
 }
 
+.gap-min {
+  gap: var(--min);
+}
 .gap-xxs {
   gap: var(--xxs);
 }

@@ -30,10 +30,12 @@ import { TheAlerts } from '@/shared/ui/TheAlerts'
 
 import { computed, provide } from 'vue'
 import { useRoute } from 'vue-router'
-import { EAppProviders, AppRoutes } from './providers'
+import { EAppProviders, AppRoutes, useAppStore } from './providers'
 import { ProductCategories } from '@/entities/Product'
 
 provide(EAppProviders.AppRoutes, AppRoutes)
+
+useAppStore()
 
 const route = useRoute()
 

@@ -60,3 +60,32 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-s) {
+  .pagination {
+    &__pages {
+      gap: var(--min-gap);
+    }
+
+    &__button {
+      min-width: 30px;
+      min-height: 30px;
+      padding: 4px;
+      font-size: 14px;
+    }
+    span {
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .pagination {
+    &__button {
+      min-width: 30px;
+      min-height: 30px;
+      padding: 4px;
+      font-size: 14px;
+    }
+  }
+}
