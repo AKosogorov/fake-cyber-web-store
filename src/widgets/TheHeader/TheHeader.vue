@@ -11,11 +11,11 @@
       </div>
 
       <div class="header__right row gap-m">
-        <router-link class="link" to="/">
+        <router-link class="link" :to="appRoutes.getDelivery()">
           <IconDelivery class="link__icon" />
         </router-link>
 
-        <router-link class="link-to-cart link" to="/">
+        <router-link class="link-to-cart link" :to="appRoutes.getLogin()">
           <IconUser class="link__icon" />
         </router-link>
 
@@ -31,7 +31,9 @@ import { LinkToCart } from '@/entities/Cart'
 import { ButtonBurger } from '@/shared/ui/buttons'
 import { TheBurgerMenuModel } from '@/shared/ui/TheBurgerMenu'
 import { IconUser, IconDelivery } from '@/shared/ui/icons'
+import { useAppRoutes } from '@/app/providers'
 
+const appRoutes = useAppRoutes()
 const burgerStore = TheBurgerMenuModel.useTheBurgerMenuStore()
 </script>
 

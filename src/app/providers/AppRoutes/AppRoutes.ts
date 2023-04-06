@@ -19,6 +19,18 @@ export class AppRoutes {
   static getCart() {
     return getRoute(AppPages.cart, {})
   }
+
+  static getLogin() {
+    return getRoute(AppPages.login, {})
+  }
+
+  static getSignUp() {
+    return getRoute(AppPages.signUp, {})
+  }
+
+  static getDelivery() {
+    return getRoute(AppPages.delivery, {})
+  }
 }
 
 // TODO необязательный 2й параметр
