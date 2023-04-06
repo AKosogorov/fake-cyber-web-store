@@ -36,7 +36,8 @@ interface IVInput {
 }
 
 withDefaults(defineProps<IVInput>(), {
-  inputType: 'text'
+  inputType: 'text',
+  placeholder: ''
 })
 
 function onInput(event: Event) {

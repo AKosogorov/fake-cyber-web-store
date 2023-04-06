@@ -19,6 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { VCheckbox } from '@/shared/ui/form-fields'
+import { VCheckbox } from '@/shared/ui/form'
 import { checkboxList } from './model'
 </script>

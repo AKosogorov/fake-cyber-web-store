@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { VInput } from '@/shared/ui/form-fields'
+import { VInput } from '@/shared/ui/form'
 import { computed } from 'vue'
 
 const emit = defineEmits(['update:modelValue'])
