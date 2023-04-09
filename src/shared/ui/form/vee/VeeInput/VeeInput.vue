@@ -6,7 +6,7 @@
     :placeholder="placeholder"
     :input-type="inputType"
     :is-disabled="isDisabled"
-    :error="errorMessage"
+    :error="error"
     @update:model-value="handleChange"
     @blur="handleBlur"
   />
@@ -15,6 +15,7 @@
 <script setup lang="ts">
 import { VInput } from '../../base'
 import { useField } from 'vee-validate'
+import { computed } from 'vue'
 
 interface IVeeInput {
   label?: string
@@ -35,6 +36,12 @@ const {
   value: inputValue,
   errorMessage,
   handleBlur,
-  handleChange
+  handleChange,
+  meta
 } = useField<string | number>(() => props.name)
+
+const error = computed(() => {
+  if (meta.touched) return errorMessage.value
+  return ''
+})
 </script>
