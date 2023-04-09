@@ -13,6 +13,7 @@
         :name="name"
         :placeholder="placeholder"
         :disabled="isDisabled"
+        autocomplete="false"
         @input="onInput"
         @blur="onBlur"
         @change="onChange"

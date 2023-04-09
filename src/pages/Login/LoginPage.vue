@@ -1,51 +1,25 @@
 <template>
-  <div class="container">
-    <h1 class="mb-s">Login</h1>
+  <div class="login-page container">
+    <h1 class="mb-m">Login</h1>
 
-    <form class="column gap-l" @submit="onSubmit">
-      <div class="column gap-m">
-        <VeeInput label="Username" name="username" />
+    <LoginForm
+      class="login-page__form login-page__box shadow-black border-radius"
+    />
 
-        <VeeInput label="Password" name="password" input-type="password" />
-
-        <VeeInput
-          label="Confirm the password"
-          name="confirm"
-          input-type="password"
-        />
-      </div>
-
-      <div>
-        <ButtonSubmit txt="Login" :is-submitting="isSubmitting" />
-      </div>
-    </form>
+    <div class="login-page__box column gap-xxs shadow-black border-radius">
+      New to Fake Cyber Web Store?
+      <router-link class="link blue" :to="appRoutes.getSignUp()">
+        Create an account
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { VButton, ButtonSubmit } from '@/shared/ui/buttons'
-import { VeeInput } from '@/shared/ui/form'
+import { LoginForm } from '@/features/LoginForm'
+import { useAppRoutes } from '@/app/providers'
 
-import { useForm } from 'vee-validate'
-import { object, string, ref as refYup } from 'yup'
-import { mockRequest } from '@/shared/lib/mock/mockRequest'
-
-const schema = object({
-  username: string().required().min(3),
-  password: string().required('please enter your password').min(4),
-  confirm: string()
-    .required('please repeat your password')
-    .oneOf([refYup('password')], 'your passwords do not match')
-})
-
-const { handleSubmit, isSubmitting } = useForm({
-  validationSchema: schema
-})
-
-const onSubmit = handleSubmit(async values => {
-  console.log('values', values)
-  await mockRequest()
-})
+const appRoutes = useAppRoutes()
 </script>
 
 <style lang="scss">
