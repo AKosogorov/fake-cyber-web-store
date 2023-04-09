@@ -1,0 +1,8 @@
+.radio {
+  position: relative;
+
+  &__error {
+    position: absolute;
+    bottom: -20px;
+  }
+}

@@ -36,7 +36,7 @@ interface IVInput {
   name?: string
   isDisabled?: boolean
   placeholder?: string
-  inputType?: string
+  inputType?: 'text' | 'password'
   error?: string
 }
 

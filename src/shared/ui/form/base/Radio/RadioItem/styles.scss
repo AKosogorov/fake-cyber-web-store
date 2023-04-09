@@ -1,0 +1,103 @@
+.radio-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--xs);
+  width: max-content;
+  cursor: pointer;
+
+  &__icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color__blue);
+    border-radius: 100%;
+    width: var(--m);
+    height: var(--m);
+    background-color: var(--color__dark-blue);
+    transition-property: background-color, border;
+    transition-timing-function: var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-radius: inherit;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      visibility: hidden;
+      background-color: var(--color__white);
+      transition-property: opacity, visibility;
+      transition-timing-function: var(--transition-timing-function);
+      transition-duration: var(--transition-duration);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    width: 0.01px;
+    height: 0.01px;
+
+    &:checked + .radio-item__icon {
+      border-color: var(--color__blue);
+
+      &::before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:focus-visible + .radio-item__icon {
+      border-color: var(--color__white);
+      border: 2px solid var(--color__white);
+    }
+
+    &:hover + .radio-item__icon {
+      background-color: var(--color__dark-blue--light);
+    }
+
+    &:active + .radio-item__icon {
+      animation: ease infinite keyframes-scale09 0.5s;
+    }
+  }
+
+  &__label {
+    color: var(--color__blue);
+  }
+
+  &.error {
+    .radio-item__label {
+      color: var(--color__red);
+    }
+
+    .radio-item__icon {
+      color: var(--color__red);
+      border-color: var(--color__red);
+      background-color: var(--bg-color__error);
+
+      &::placeholder {
+        color: var(--color__red);
+      }
+    }
+  }
+
+  &.disabled {
+    .radio-item__label {
+      color: var(--color__grey);
+    }
+  }
+}
+
+@keyframes keyframes-scale09 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
