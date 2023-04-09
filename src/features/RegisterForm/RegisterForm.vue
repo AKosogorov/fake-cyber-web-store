@@ -9,6 +9,12 @@
 
       <VeeInput label="Last Name" name="lastName" />
 
+      <VeeRadio
+        label="Gender"
+        name="gender"
+        :options="UserModel.USER_GENDER_OPTIONS"
+      />
+
       <VeeInput label="Username" name="username" />
 
       <VeeInput label="Password" name="password" input-type="password" />
@@ -23,15 +29,17 @@
 </template>
 
 <script setup lang="ts">
-import { VeeInput, VForm } from '@/shared/ui/form'
+import { VeeInput, VForm, VeeRadio } from '@/shared/ui/form'
 
 import { useForm } from 'vee-validate'
 import { object, string, ref as refYup } from 'yup'
+import { UserModel } from '@/entities/User'
 import { mockRequest } from '@/shared/lib/mock/mockRequest'
 
 const schema = object({
   firstName: string().required().min(3).label('first name'),
   lastName: string().required().min(3).label('last name'),
+  gender: object().required(),
   username: string().required().min(3),
   password: string().required('please enter your password').min(4),
   confirm: string()

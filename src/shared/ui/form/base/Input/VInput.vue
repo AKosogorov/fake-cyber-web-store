@@ -27,6 +27,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRefValue } from '@/shared/lib/use/base/useRefValue'
+import type { TInputType } from './types'
 
 const emit = defineEmits(['update:modelValue', 'blur', 'change'])
 
@@ -36,7 +37,7 @@ interface IVInput {
   name?: string
   isDisabled?: boolean
   placeholder?: string
-  inputType?: 'text' | 'password'
+  inputType?: TInputType
   error?: string
 }
 

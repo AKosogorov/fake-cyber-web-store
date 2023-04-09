@@ -5,4 +5,16 @@
     position: absolute;
     bottom: -20px;
   }
+
+  &.error {
+    .radio__label {
+      color: var(--color__red);
+    }
+  }
+
+  &.disabled {
+    .radio__label {
+      color: var(--color__grey);
+    }
+  }
 }

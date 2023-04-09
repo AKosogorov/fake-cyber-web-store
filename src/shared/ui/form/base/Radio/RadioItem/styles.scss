@@ -87,6 +87,14 @@
     .radio-item__label {
       color: var(--color__grey);
     }
+    .radio-item__icon {
+      border-color: var(--color__grey);
+      background-color: var(--color__grey--transparent);
+
+      &::before {
+        background-color: var(--color__grey);
+      }
+    }
   }
 }
 

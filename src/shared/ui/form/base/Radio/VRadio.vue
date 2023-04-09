@@ -1,5 +1,5 @@
 <template>
-  <div class="radio">
+  <div class="radio" :class="classes">
     <div v-if="label" class="radio__label label mb-xxs">{{ label }}</div>
 
     <div class="radio__list column gap-xxs">
@@ -10,6 +10,7 @@
         :name="name"
         :is-checked="item.value === (modelValue && modelValue.value)"
         :is-error="Boolean(error)"
+        :is-disabled="isDisabled"
         @change="onChange"
       />
     </div>
@@ -20,6 +21,7 @@
 <script setup lang="ts">
 import { RadioItem } from './RadioItem'
 import type { IRadioItem } from '@/shared/ui/form/base/Radio/types'
+import { computed } from 'vue'
 
 const emit = defineEmits(['update:modelValue', 'change'])
 
@@ -33,6 +35,11 @@ interface IVRadio {
 }
 
 const props = defineProps<IVRadio>()
+
+const classes = computed(() => ({
+  'disabled  events-none': props.isDisabled,
+  error: props.error
+}))
 
 function onChange(item: IRadioItem) {
   emit('update:modelValue', item)

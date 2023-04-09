@@ -1,40 +1,36 @@
 <template>
-  <VInput
+  <VRadio
     :model-value="inputValue"
     :label="label"
+    :options="options"
     :name="name"
-    :placeholder="placeholder"
-    :input-type="inputType"
     :is-disabled="isDisabled"
     :error="error"
     @update:model-value="handleChange"
-    @blur="handleBlur"
   />
 </template>
 
 <script setup lang="ts">
-import { VInput } from '../../base'
-import { useField } from 'vee-validate'
+import { VRadio } from '../../base'
 import { computed } from 'vue'
-import type { TInputType } from '../../base'
+import { useField } from 'vee-validate'
+import type { IRadioItem } from '../../base'
 
-interface IVeeInput {
+interface IVeeRadio {
+  options: IRadioItem[]
   label?: string
   name: string
   isDisabled?: boolean
-  placeholder?: string
-  inputType?: TInputType
 }
 
-const props = defineProps<IVeeInput>()
+const props = defineProps<IVeeRadio>()
 
 const {
   value: inputValue,
   errorMessage,
-  handleBlur,
   handleChange,
   meta
-} = useField<string | number>(() => props.name)
+} = useField<IRadioItem>(() => props.name)
 
 const error = computed(() => {
   if (meta.touched) return errorMessage.value
