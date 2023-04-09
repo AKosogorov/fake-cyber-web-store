@@ -1,3 +1,5 @@
+import type { RouteRecordRaw } from 'vue-router'
+
 import { mainRoute } from './Main'
 import { UIRoute } from './UI'
 import { notFoundRoute } from './NotFound'
@@ -7,7 +9,7 @@ import { route as loginRoute } from './Login'
 import { route as signUpRoute } from './SignUp'
 import { route as deliveryRoute } from './Delivery'
 
-export const routes = [
+export const routes: RouteRecordRaw[] = [
   mainRoute,
   ...catalogRoutes,
   cartRoute,

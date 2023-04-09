@@ -23,7 +23,7 @@ import {
 } from '@/shared/ui/icons/borders'
 import type { Component } from 'vue'
 import { computed } from 'vue'
-import type { EIconsName } from '@/shared/ui/BorderDecorate/interface'
+import type { EIconsName } from './types'
 
 defineProps<{
   iconLeft: EIconsName

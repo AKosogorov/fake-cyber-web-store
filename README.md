@@ -1,4 +1,4 @@
-# FAKE CYBER WEB STORE
+# FAKE CYBER WEB STORE [`DEMO`](https://akosogorov.github.io/fake-cyber-web-store/)
 This project was created to study the architecture [Feature-Sliced Design (FSD)](https://feature-sliced.design/)
 
 ## Technology stack

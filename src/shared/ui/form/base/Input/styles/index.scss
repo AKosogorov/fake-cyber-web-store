@@ -1,6 +1,8 @@
 @import 'mixins';
 
 .input {
+  position: relative;
+
   &__label {
     position: relative;
     width: max-content;
@@ -12,9 +14,6 @@
       right: -10px;
       font-size: 20px;
     }
-  }
-
-  &__field-wrap {
   }
 
   &__field {
@@ -44,6 +43,11 @@
       border-color: var(--color__grey);
       background-color: var(--color__grey--transparent);
     }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -20px;
   }
 
   &.error {

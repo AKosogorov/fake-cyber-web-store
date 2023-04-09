@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { InputQuantity, VInput } from '@/shared/ui/form-fields'
+import { InputQuantity, VInput } from '@/shared/ui/form'
 import { inputList } from './model'
 import { ref } from 'vue'
 

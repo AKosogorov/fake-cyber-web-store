@@ -8,6 +8,8 @@
 
     <CheckboxStyles />
 
+    <RadioStyles />
+
     <ButtonStyles />
 
     <PaginationStyles />
@@ -23,6 +25,7 @@ import {
   CheckboxStyles,
   InputStyles,
   LoaderStyles,
-  PaginationStyles
+  PaginationStyles,
+  RadioStyles
 } from '@/widgets/UI'
 </script>

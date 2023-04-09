@@ -1,0 +1,12 @@
+.login-page {
+  &__box {
+    margin: 0 auto auto;
+    align-items: center;
+    max-width: 440px;
+    padding: var(--m);
+  }
+
+  &__form {
+    margin: 0 auto var(--s);
+  }
+}

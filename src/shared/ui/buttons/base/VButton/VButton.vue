@@ -19,8 +19,10 @@
 </template>
 
 <script setup lang="ts">
-import BorderDecorate from '@/shared/ui/BorderDecorate'
-import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
+import {
+  BorderDecorate,
+  EBorderDecorateIcons
+} from '@/shared/ui/BorderDecorate'
 
 interface IButton {
   txt: string

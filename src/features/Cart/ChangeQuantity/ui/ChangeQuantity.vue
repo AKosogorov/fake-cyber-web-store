@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { CartModel } from '@/entities/Cart'
-import { InputQuantity } from '@/shared/ui/form-fields'
+import { InputQuantity } from '@/shared/ui/form'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
 import { onBeforeMount, watch } from 'vue'
 import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
