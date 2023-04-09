@@ -16,16 +16,14 @@
       </div>
 
       <div>
-        <VButton type="submit" txt="Login" />
+        <ButtonSubmit txt="Login" :is-submitting="isSubmitting" />
       </div>
     </form>
-
-    <div v-if="isSubmitting">isSubmitting</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { VButton } from '@/shared/ui/buttons'
+import { VButton, ButtonSubmit } from '@/shared/ui/buttons'
 import { VeeInput } from '@/shared/ui/form'
 
 import { useForm } from 'vee-validate'

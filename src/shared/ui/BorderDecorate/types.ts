@@ -4,8 +4,3 @@ export const enum EIconsName {
   top = 'top',
   bottom = 'bottom'
 }
-
-export interface IBorderDecorate {
-  iconLeft: EIconsName
-  iconRight: EIconsName
-}

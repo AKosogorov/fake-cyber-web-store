@@ -1,3 +1,2 @@
-import BorderDecorate from './BorderDecorate.vue'
-export { EIconsName as EBorderDecorateIcons } from './interface'
-export default BorderDecorate
+export { EIconsName as EBorderDecorateIcons } from './types'
+export { default as BorderDecorate } from './BorderDecorate.vue'
