@@ -6,8 +6,11 @@
       class="login-page__form login-page__box shadow-black border-radius"
     />
 
-    <div class="login-page__box column gap-xxs shadow-black border-radius">
+    <div
+      class="login-page__box column gap-xxs bg-dark-blue shadow-black border-radius"
+    >
       New to Fake Cyber Web Store?
+
       <router-link class="link blue" :to="appRoutes.getSignUp()">
         Create an account
       </router-link>

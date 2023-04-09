@@ -5,6 +5,10 @@
     :handler-submit="onSubmit"
   >
     <div class="column gap-m w-100">
+      <VeeInput label="First Name" name="firstName" />
+
+      <VeeInput label="Last Name" name="lastName" />
+
       <VeeInput label="Username" name="username" />
 
       <VeeInput label="Password" name="password" input-type="password" />
@@ -26,6 +30,8 @@ import { object, string, ref as refYup } from 'yup'
 import { mockRequest } from '@/shared/lib/mock/mockRequest'
 
 const schema = object({
+  firstName: string().required().min(3).label('first name'),
+  lastName: string().required().min(3).label('last name'),
   username: string().required().min(3),
   password: string().required('please enter your password').min(4),
   confirm: string()
