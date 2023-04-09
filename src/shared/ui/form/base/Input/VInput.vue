@@ -1,9 +1,6 @@
 <template>
-  <div
-    class="input column gap-xxs"
-    :class="isDisabled && 'disabled events-none'"
-  >
-    <label v-if="label" class="input__label label">
+  <div class="input column gap-xxs" :class="classes">
+    <label v-if="label" class="input__label label" :for="name">
       {{ label }}
     </label>
 
@@ -14,37 +11,65 @@
         class="input__field"
         :type="inputType"
         :name="name"
-        :placeholder="String(placeholder)"
+        :placeholder="placeholder"
         :disabled="isDisabled"
         @input="onInput"
-        @blur="emit('blur')"
+        @blur="onBlur"
+        @change="onChange"
       />
     </div>
+
+    <small v-if="error" class="input__error red">{{ error }}</small>
   </div>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['update:modelValue', 'blur'])
+import { computed } from 'vue'
+import { useRefValue } from '@/shared/lib/use/base/useRefValue'
+
+const emit = defineEmits(['update:modelValue', 'blur', 'change'])
 
 interface IVInput {
   modelValue?: string | number
   label?: string
   name?: string
   isDisabled?: boolean
-  placeholder?: string | number
+  placeholder?: string
   inputType?: string
+  error?: string
 }
 
-withDefaults(defineProps<IVInput>(), {
+const props = withDefaults(defineProps<IVInput>(), {
+  modelValue: '',
   inputType: 'text',
   placeholder: ''
 })
 
+const classes = computed(() => ({
+  'disabled events-none': props.isDisabled,
+  error: props.error
+}))
+
+const { value: inputValue, setValue } = useRefValue(props.modelValue)
+
 function onInput(event: Event) {
-  const target = event.target as HTMLInputElement
-  const value = target.value.trim()
+  const value = getValue(event)
+  setValue(value)
 
   emit('update:modelValue', value)
+}
+
+function onBlur() {
+  emit('blur', inputValue.value)
+}
+
+function onChange() {
+  emit('change', inputValue.value)
+}
+
+function getValue(event: Event) {
+  const target = event.target as HTMLInputElement
+  return target.value.trim()
 }
 </script>
 

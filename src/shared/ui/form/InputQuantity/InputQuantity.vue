@@ -11,7 +11,7 @@
       class="input-quantity__input"
       :model-value="modelValue"
       :label="label"
-      :placeholder="minValue"
+      :placeholder="String(minValue)"
       input-type="number"
       :is-disabled="isDisabled"
       @update:model-value="onInput"

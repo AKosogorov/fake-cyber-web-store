@@ -2,11 +2,13 @@
   <div class="container">
     <h1 class="mb-s">Login</h1>
 
-    <form class="column gap-m" @submit.prevent="send">
-      <div class="column gap-s">
-        <VInput label="Username" />
+    <div v-if="isSubmitting">isSubmitting</div>
 
-        <VInput label="Password" />
+    <form class="column gap-l" @submit.prevent="onSubmit">
+      <div class="column gap-m">
+        <VeeInput label="Username" name="username" />
+
+        <VeeInput label="Password" name="password" />
       </div>
 
       <div>
@@ -18,11 +20,25 @@
 
 <script setup lang="ts">
 import { VButton } from '@/shared/ui/buttons'
-import { VInput } from '@/shared/ui/form'
+import { VeeInput } from '@/shared/ui/form'
 
-function send(e: Event) {
-  console.log(e)
-}
+import { useForm } from 'vee-validate'
+import * as Yup from 'yup'
+import { mockRequest } from '@/shared/lib/mock/mockRequest'
+
+const schema = Yup.object({
+  username: Yup.string().required().min(3),
+  password: Yup.string().required().min(4)
+})
+
+const { handleSubmit, isSubmitting } = useForm({
+  validationSchema: schema
+})
+
+const onSubmit = handleSubmit(async values => {
+  console.log('values', values)
+  await mockRequest()
+})
 </script>
 
 <style lang="scss">
