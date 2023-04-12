@@ -5,16 +5,15 @@
     :handler-submit="onSubmit"
   >
     <div class="column gap-m w-100">
-      <VeeInput label="Email" name="email" />
+      <VeeInputEmail />
 
-      <VeeInput label="Password" name="password" input-type="password" />
+      <VeeInputPassword />
     </div>
   </VForm>
 </template>
 
 <script setup lang="ts">
-import { VeeInput, VForm } from '@/shared/ui/form'
-
+import { VeeInputEmail, VeeInputPassword, VForm } from '@/shared/ui/form'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import { object, string } from 'yup'

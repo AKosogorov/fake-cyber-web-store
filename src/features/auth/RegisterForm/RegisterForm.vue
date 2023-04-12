@@ -5,34 +5,36 @@
     :handler-submit="onSubmit"
   >
     <div class="column gap-m w-100">
-      <VeeInput label="Username" name="username" />
+      <VeeInputUsername />
 
-      <VeeRadio
-        label="Gender"
-        name="gender"
-        :options="UserModel.USER_GENDER_OPTIONS"
-      />
+      <VeeRadioGender />
 
-      <VeeInput label="Email" name="email" />
+      <VeeInputEmail />
 
-      <VeeInput label="Password" name="password" input-type="password" />
+      <VeeInputPassword />
 
-      <VeeInput
-        label="Confirm the password"
-        name="confirm"
-        input-type="password"
-      />
+      <VeeInputPasswordConfirm />
     </div>
   </VForm>
 </template>
 
 <script setup lang="ts">
-import { VeeInput, VForm, VeeRadio } from '@/shared/ui/form'
+import {
+  VeeInputEmail,
+  VeeInputPassword,
+  VeeInputPasswordConfirm,
+  VForm
+} from '@/shared/ui/form'
 
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import { object, string, ref as refYup } from 'yup'
-import { UserModel, UserApi } from '@/entities/User'
+import {
+  UserModel,
+  UserApi,
+  VeeRadioGender,
+  VeeInputUsername
+} from '@/entities/User'
 import { SessionApi, SessionModel } from '@/entities/Session'
 import type { IRadioItem } from '@/shared/ui/form'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'

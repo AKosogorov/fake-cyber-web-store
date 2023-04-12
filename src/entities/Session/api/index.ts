@@ -23,7 +23,6 @@ interface IAuthResponse {
 
 async function singUp(data: IAuthData): AxiosPromise<IAuthResponse> {
   try {
-    console.log(data)
     return await FirebaseApi.accountInstance.post(
       ':signUp',
       withReturnToken(data)
