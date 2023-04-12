@@ -1,16 +1,13 @@
-export interface IUserResponse {
-  id: number
-}
-
 export enum EGender {
   male = 'male',
   female = 'female'
 }
 
-export interface IUser {
-  id: number
+export interface IUserFB {
   username: string
-  firstName: string
-  lastName: string
   gender: EGender
+}
+
+export interface IUser extends IUserFB {
+  id: string
 }

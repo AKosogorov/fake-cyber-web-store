@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { LoginForm } from '@/features/LoginForm'
+import { LoginForm } from '@/features/auth'
 import { useAppRoutes } from '@/app/providers'
 
 const appRoutes = useAppRoutes()
