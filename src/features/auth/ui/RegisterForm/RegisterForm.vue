@@ -72,7 +72,7 @@ const onSubmit = handleSubmit(async values => {
     }
 
     const { data } = await SessionApi.singUp(signUpData)
-    session.setToken(data.idToken)
+    session.setTokens(data)
 
     const gender = (values.gender as IRadioItem).value as UserModel.EGender
 
@@ -81,13 +81,13 @@ const onSubmit = handleSubmit(async values => {
       gender
     }
 
-    await createUser(data.localId, userData)
+    await createAndSetUser(data.localId, userData)
   } catch (e: any) {
     showError(e.message)
   }
 })
 
-async function createUser(id: string, data: UserModel.IUserFB) {
+async function createAndSetUser(id: string, data: UserModel.IUserFB) {
   const response = await UserApi.createById(id, data)
 
   session.setUser({ ...response.data, id })

@@ -4,7 +4,9 @@ import { getErrorMessageBy } from './errors'
 
 export const api = {
   singUp,
-  singIn
+  singIn,
+  getUserBy,
+  getToken
 }
 
 interface IAuthData {
@@ -47,5 +49,33 @@ function withReturnToken(data: IAuthData) {
   return {
     ...data,
     returnSecureToken: true
+  }
+}
+
+interface ITokenResponse {
+  expires_in: string
+  token_type: string
+  refresh_token: string
+  id_token: string
+  user_id: string
+  project_id: string
+}
+
+async function getToken(refreshToken: string): AxiosPromise<ITokenResponse> {
+  try {
+    return await FirebaseApi.secureTokenInstance.post('/token', {
+      grant_type: 'refresh_token',
+      refresh_token: refreshToken
+    })
+  } catch (e: any) {
+    throw new Error(getErrorMessageBy(e.response.data.error.message))
+  }
+}
+
+async function getUserBy(idToken: string) {
+  try {
+    return await FirebaseApi.accountInstance.post(':lookup', { idToken })
+  } catch (e: any) {
+    throw new Error(getErrorMessageBy(e.response.data.error.message))
   }
 }

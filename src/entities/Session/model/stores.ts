@@ -1,30 +1,82 @@
 import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@/shared/lib/browser'
-import { TOKEN_KEY } from '@/shared/config'
-import { UserModel } from '@/entities/User'
+import { REFRESH_TOKEN_KEY, TOKEN_EXPIRES_IN, TOKEN_KEY } from '@/shared/config'
+import type { UserModel } from '@/entities/User'
+import { api } from '../api'
+import { useAlertsStore } from '@/shared/ui/TheAlerts'
+import useTimeout from '@/shared/lib/use/useTimeout'
 
 const namespaced = 'session'
 
-export const useSessionStore = defineStore(namespaced, () => {
-  const { value, setLSValue } = useLocalStorage(TOKEN_KEY, '')
+interface ITokens {
+  idToken: string
+  refreshToken: string
+}
 
-  const token = ref(value)
+const defaultUserName = 'Anonymous'
+const defaultUserGender = 'male' as UserModel.EGender
+
+export const useSessionStore = defineStore(namespaced, () => {
+  const { showError } = useAlertsStore()
+
+  const { value: tokenValue, setLSValue: setLSToken } = useLocalStorage(
+    TOKEN_KEY,
+    ''
+  )
+
+  const token = ref(tokenValue)
 
   function setToken(value: string) {
     token.value = value
-    setLSValue(value)
+    setLSToken(value)
   }
 
   function removeToken() {
-    token.value = ''
-    setLSValue('')
+    setToken('')
+  }
+
+  const { value: refreshTokenValue, setLSValue: setLSRefreshToken } =
+    useLocalStorage(REFRESH_TOKEN_KEY, '')
+
+  const refreshToken = ref(refreshTokenValue)
+
+  function setRefreshToken(value: string) {
+    refreshToken.value = value
+    setLSRefreshToken(value)
+  }
+
+  function removeRefreshToken() {
+    setRefreshToken('')
+  }
+
+  const {
+    setTimeoutId: setTimeoutGetToken,
+    clearTimeoutId: clearTimeoutGetToken
+  } = useTimeout(getToken, TOKEN_EXPIRES_IN)
+
+  async function getToken() {
+    try {
+      const { data } = await api.getToken(refreshToken.value)
+      setToken(data.id_token)
+      setRefreshToken(data.refresh_token)
+      setTimeoutGetToken()
+    } catch (e: any) {
+      showError(e.message)
+    }
+  }
+
+  function setTokens(data: ITokens) {
+    clearTimeoutGetToken()
+    setToken(data.idToken)
+    setRefreshToken(data.refreshToken)
+    setTimeoutGetToken()
   }
 
   const user = reactive<UserModel.IUser>({
     id: '',
-    username: 'Anonymous',
-    gender: UserModel.EGender.male
+    username: defaultUserName,
+    gender: defaultUserGender
   })
 
   function setUser(data: UserModel.IUser) {
@@ -33,11 +85,24 @@ export const useSessionStore = defineStore(namespaced, () => {
     user.gender = data.gender
   }
 
+  function logout() {
+    clearTimeoutGetToken()
+    removeToken()
+    removeRefreshToken()
+
+    setUser({
+      id: '',
+      username: defaultUserName,
+      gender: defaultUserGender
+    })
+  }
+
   return {
     token,
-    setToken,
-    removeToken,
+    setTokens,
+    refreshToken,
     user,
-    setUser
+    setUser,
+    logout
   }
 })

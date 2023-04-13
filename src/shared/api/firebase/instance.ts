@@ -5,6 +5,7 @@ import {
   APP_NAME,
   TOKEN_KEY,
   FB_ACCOUNTS_API_URL,
+  FB_SECURE_TOKEN_API_URL,
   FB_API_KEY
 } from '@/shared/config'
 
@@ -19,6 +20,12 @@ export const accountInstance = axios.create({
 })
 
 accountInstance.interceptors.request.use(addAPIKey, reject)
+
+export const secureTokenInstance = axios.create({
+  baseURL: FB_SECURE_TOKEN_API_URL
+})
+
+secureTokenInstance.interceptors.request.use(addAPIKey, reject)
 
 function addToken(config: InternalAxiosRequestConfig) {
   config.headers.authorization = localStorage.getItem(

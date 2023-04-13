@@ -19,10 +19,11 @@ import { toTypedSchema } from '@vee-validate/yup'
 import { object, string } from 'yup'
 import { SessionApi, SessionModel } from '@/entities/Session'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
-import { UserApi } from '@/entities/User'
+import { useAuth } from '../../model'
 
 const { showError } = useAlertsStore()
 const session = SessionModel.useSessionStore()
+const auth = useAuth()
 
 const validationSchema = toTypedSchema(
   object({
@@ -36,11 +37,9 @@ const { handleSubmit, isSubmitting } = useForm({ validationSchema })
 const onSubmit = handleSubmit(async values => {
   try {
     const { data } = await SessionApi.singIn(values)
-    const id = data.localId
-    session.setToken(id)
 
-    const response = await UserApi.getById(id)
-    session.setUser({ ...response.data, id })
+    session.setTokens(data)
+    await auth.loadSessionUser(data.localId)
   } catch (e: any) {
     showError(e.message)
   }

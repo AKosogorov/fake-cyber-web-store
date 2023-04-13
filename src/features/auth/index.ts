@@ -1,2 +1,2 @@
-export * from './LoginForm'
-export * from './RegisterForm'
+export * from './ui'
+export * as AuthModel from './model'
