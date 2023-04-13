@@ -19,7 +19,7 @@ export const api = {
   createById
 }
 
-async function getById(id: string) {
+async function getById(id: FirebaseApi.TId) {
   try {
     return await FirebaseApi.getById<IUserFB>(USER_URL, id)
   } catch (e) {
@@ -27,7 +27,7 @@ async function getById(id: string) {
   }
 }
 
-async function createById(id: string, data: IUserFB) {
+async function createById(id: FirebaseApi.TId, data: IUserFB) {
   try {
     return await FirebaseApi.update<IUserFB>(USER_URL, id, data)
   } catch (e) {

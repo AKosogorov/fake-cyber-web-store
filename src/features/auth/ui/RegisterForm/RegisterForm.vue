@@ -37,6 +37,7 @@ import {
 } from '@/entities/User'
 import { SessionApi, SessionModel } from '@/entities/Session'
 import type { IRadioItem } from '@/shared/ui/form'
+import type { FirebaseApi } from '@/shared/api'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { emailRegexp } from '@/shared/lib/regexp'
 
@@ -82,7 +83,7 @@ const onSubmit = handleSubmit(async values => {
   }
 })
 
-async function createAndSetUser(id: string, data: UserModel.IUserFB) {
+async function createAndSetUser(id: FirebaseApi.TId, data: UserModel.IUserFB) {
   const response = await UserApi.createById(id, data)
 
   session.setUser({ ...response.data, id })
