@@ -72,6 +72,7 @@ const onSubmit = handleSubmit(async values => {
     const userData: UserModel.IUserFB = {
       username: values.username,
       email: values.email,
+      balance: 0,
       gender: (values.gender as IRadioItem).value as UserModel.EGender
     }
 
