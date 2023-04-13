@@ -38,6 +38,7 @@ import {
 import { SessionApi, SessionModel } from '@/entities/Session'
 import type { IRadioItem } from '@/shared/ui/form'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
+import { emailRegexp } from '@/shared/lib/regexp'
 
 const session = SessionModel.useSessionStore()
 const { showError } = useAlertsStore()
@@ -46,7 +47,9 @@ const validationSchema = toTypedSchema(
   object({
     username: string().required().min(3).max(50),
     gender: object().required(),
-    email: string().required().email(),
+    email: string()
+      .required()
+      .matches(emailRegexp, 'this field must be a valid email'),
     password: string().required('please enter your password').min(6),
     confirm: string()
       .required('please repeat your password')
@@ -54,15 +57,7 @@ const validationSchema = toTypedSchema(
   })
 )
 
-const { handleSubmit, isSubmitting } = useForm({
-  validationSchema,
-  initialValues: {
-    username: 'qwerty',
-    email: '123@gmail.com',
-    password: 'qweqwe',
-    confirm: 'qweqwe'
-  }
-})
+const { handleSubmit, isSubmitting } = useForm({ validationSchema })
 
 const onSubmit = handleSubmit(async values => {
   try {
@@ -74,11 +69,10 @@ const onSubmit = handleSubmit(async values => {
     const { data } = await SessionApi.singUp(signUpData)
     session.setTokens(data)
 
-    const gender = (values.gender as IRadioItem).value as UserModel.EGender
-
-    const userData = {
+    const userData: UserModel.IUserFB = {
       username: values.username,
-      gender
+      email: values.email,
+      gender: (values.gender as IRadioItem).value as UserModel.EGender
     }
 
     await createAndSetUser(data.localId, userData)

@@ -6,6 +6,9 @@ export enum EGender {
 export interface IUserFB {
   username: string
   gender: EGender
+  email: string
+  phone?: string
+  avatar?: string
 }
 
 export interface IUser extends IUserFB {
