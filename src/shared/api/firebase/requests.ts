@@ -1,11 +1,33 @@
-import type { AxiosPromise } from 'axios'
 import { instance } from './instance'
-import type { TId } from './types'
+import type { AxiosPromise } from 'axios'
+import type { TId, IBaseItem } from './types'
+import type { IStringIdx } from '@/shared/lib/types/object'
+import { setCreatedAtTo, setUpdatedAtTo } from '@/shared/lib/utils/date'
 
-export function getById<T>(url: string, id: TId): AxiosPromise<T> {
+type TResponse<T> = AxiosPromise<T & IBaseItem>
+
+export function getById<T>(url: string, id: TId): TResponse<T> {
   return instance.get(`/${url}/${id}.json`)
 }
 
-export function update<T>(url: string, id: TId, data: object): AxiosPromise<T> {
+export function create<T extends IStringIdx<any>>(
+  url: string,
+  data: T
+): TResponse<T> {
+  setCreatedAtTo(data)
+  setUpdatedAtTo(data)
+  return instance.put(`/${url}.json`, data)
+}
+
+interface IUpdateData extends IStringIdx<any> {
+  createdAt: number
+}
+
+export function update<T extends IUpdateData>(
+  url: string,
+  id: TId,
+  data: T
+): TResponse<T> {
+  setUpdatedAtTo(data)
   return instance.put(`/${url}/${id}.json`, data)
 }
