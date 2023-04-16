@@ -76,13 +76,15 @@ export const useSessionStore = defineStore(namespaced, () => {
   const user = reactive<UserModel.IUser>({
     id: '',
     username: defaultUserName,
-    gender: defaultUserGender
+    gender: defaultUserGender,
+    email: ''
   })
 
   function setUser(data: UserModel.IUser) {
     user.id = data.id
     user.username = data.username
     user.gender = data.gender
+    user.email = data.email
   }
 
   function logout() {
@@ -93,7 +95,8 @@ export const useSessionStore = defineStore(namespaced, () => {
     setUser({
       id: '',
       username: defaultUserName,
-      gender: defaultUserGender
+      gender: defaultUserGender,
+      email: ''
     })
   }
 

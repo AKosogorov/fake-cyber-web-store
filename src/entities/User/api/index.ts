@@ -3,7 +3,8 @@ import {
   createApiErrorCreate,
   FirebaseApi
 } from '@/shared/api'
-import type { IUserFB } from '@/entities/User/model'
+import type { UserModel } from '@/entities/User'
+import { setCreatedAtTo } from '@/shared/lib/utils/date'
 
 const USER_URL = 'users'
 
@@ -21,15 +22,19 @@ export const api = {
 
 async function getById(id: FirebaseApi.TId) {
   try {
-    return await FirebaseApi.getById<IUserFB>(USER_URL, id)
+    return await FirebaseApi.getById<UserModel.IUserFB>(USER_URL, id)
   } catch (e) {
     throw new Error(errors.getById)
   }
 }
 
-async function createById(id: FirebaseApi.TId, data: IUserFB) {
+type TCreateData = UserModel.IUserFB & { createdAt: number }
+
+async function createById(id: FirebaseApi.TId, data: UserModel.IUserFB) {
   try {
-    return await FirebaseApi.update<IUserFB>(USER_URL, id, data)
+    setCreatedAtTo(data)
+
+    return await FirebaseApi.update(USER_URL, id, data as TCreateData)
   } catch (e) {
     throw new Error(errors.createById)
   }
