@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    <h1 class="mb-s">Delivery</h1>
-  </div>
+  <div class="container"></div>
 </template>
 
 <script setup lang="ts"></script>

@@ -96,6 +96,10 @@ section {
 }
 
 .link {
+  &.is-active {
+    color: var(--color__green);
+  }
+
   &:focus-visible,
   &:hover {
     color: var(--color__yellow);

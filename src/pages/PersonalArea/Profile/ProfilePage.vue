@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="mb-s">Favorites</h1>
+    <h1 class="mb-s">Profile</h1>
   </div>
 </template>
 

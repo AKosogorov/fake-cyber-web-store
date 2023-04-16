@@ -31,11 +31,13 @@ import { TheAlerts, useAlertsStore } from '@/shared/ui/TheAlerts'
 import { computed, onBeforeMount, provide } from 'vue'
 import { useRoute } from 'vue-router'
 import { EAppProviders, AppRoutes, useAppStore } from './providers'
+import { AppPages } from '@/pages'
+import { AuthModel } from '@/features/auth'
 import { SessionModel, SessionApi } from '@/entities/Session'
 import { ProductCategories } from '@/entities/Product'
-import { AuthModel } from '@/features/auth'
 
 provide(EAppProviders.AppRoutes, AppRoutes)
+provide(EAppProviders.AppPages, AppPages)
 
 useAppStore()
 

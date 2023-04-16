@@ -44,6 +44,9 @@ export class AppRoutes {
   static getArchive() {
     return getRoute(AppPages.archive, {})
   }
+  static getProfile() {
+    return getRoute(AppPages.profile, {})
+  }
   static getWallet() {
     return getRoute(AppPages.wallet, {})
   }
