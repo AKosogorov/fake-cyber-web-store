@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="mb-s">Delivery</h1>
+    <h1 class="mb-s">Wallet</h1>
   </div>
 </template>
 
