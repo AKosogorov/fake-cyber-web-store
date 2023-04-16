@@ -1,3 +1,4 @@
+export * from './auth'
 export * from './shopping'
 export * from './finance'
 export * from './basic'
