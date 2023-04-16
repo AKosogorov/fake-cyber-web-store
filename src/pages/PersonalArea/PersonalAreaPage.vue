@@ -6,12 +6,27 @@
     />
 
     <h1 v-if="isMainPage" class="mb-s">Personal area</h1>
+
+    <div v-if="isMainPage" class="column gap-s">
+      <CardLink :to="appRoutes.getProfile()">User name</CardLink>
+
+      <CardLink :to="appRoutes.getDelivery()">Delivery</CardLink>
+
+      <CardLink :to="appRoutes.getFavorites()">Favorites</CardLink>
+
+      <div class="row gap-xxs">
+        <CardLink :to="appRoutes.getArchive()">Purchases</CardLink>
+
+        <CardLink :to="appRoutes.getWallet()">Wallet</CardLink>
+      </div>
+    </div>
   </div>
   <router-view />
 </template>
 
 <script setup lang="ts">
 import { VNavigation } from '@/shared/ui/navigation'
+import { CardLink } from '@/shared/ui/cards'
 
 import { computed, reactive, markRaw } from 'vue'
 import { useRoute } from 'vue-router'
