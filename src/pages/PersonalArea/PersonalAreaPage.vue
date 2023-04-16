@@ -8,7 +8,11 @@
     <h1 v-if="isMainPage" class="mb-s">Personal area</h1>
 
     <div v-if="isMainPage" class="column gap-s">
-      <CardLink :to="appRoutes.getProfile()">User name</CardLink>
+      <CardLink class="column gap-s" :to="appRoutes.getProfile()">
+        <span>User name</span>
+
+        <LogoutButton class="personal-area-page__logout" />
+      </CardLink>
 
       <CardLink :to="appRoutes.getDelivery()">Delivery</CardLink>
 
@@ -25,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import { LogoutButton } from '@/features/auth'
 import { VNavigation } from '@/shared/ui/navigation'
 import { CardLink } from '@/shared/ui/cards'
 
