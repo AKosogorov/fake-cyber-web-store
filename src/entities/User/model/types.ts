@@ -11,6 +11,7 @@ export interface IUserFB {
   email: string
   phone?: string
   avatar?: string
+  walletId?: FirebaseApi.TId
   favoriteId?: FirebaseApi.TId
   cartId?: FirebaseApi.TId
   orderIds?: FirebaseApi.TId[]

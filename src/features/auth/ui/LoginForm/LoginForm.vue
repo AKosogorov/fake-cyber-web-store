@@ -45,7 +45,3 @@ const onSubmit = handleSubmit(async values => {
   }
 })
 </script>
-
-<style lang="scss">
-@import 'styles';
-</style>

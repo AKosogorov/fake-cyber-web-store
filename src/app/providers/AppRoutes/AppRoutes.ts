@@ -28,6 +28,10 @@ export class AppRoutes {
     return getRoute(AppPages.signUp, {})
   }
 
+  static getPersonalArea() {
+    return getRoute(AppPages.personalArea, {})
+  }
+
   static getDelivery() {
     return getRoute(AppPages.delivery, {})
   }

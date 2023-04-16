@@ -26,9 +26,11 @@ import {
   VForm
 } from '@/shared/ui/form'
 
+import { useRouter } from 'vue-router'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import { object, string, ref as refYup } from 'yup'
+import { useAppRoutes } from '@/app/providers'
 import {
   UserModel,
   UserApi,
@@ -41,6 +43,8 @@ import type { FirebaseApi } from '@/shared/api'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { emailRegexp } from '@/shared/lib/regexp'
 
+const router = useRouter()
+const appRoutes = useAppRoutes()
 const session = SessionModel.useSessionStore()
 const { showError } = useAlertsStore()
 
@@ -73,11 +77,12 @@ const onSubmit = handleSubmit(async values => {
     const userData: UserModel.IUserFB = {
       username: values.username,
       email: values.email,
-      balance: 0,
       gender: (values.gender as IRadioItem).value as UserModel.EGender
     }
 
     await createAndSetUser(data.localId, userData)
+
+    goToPersonalArea()
   } catch (e: any) {
     showError(e.message)
   }
@@ -88,8 +93,8 @@ async function createAndSetUser(id: FirebaseApi.TId, data: UserModel.IUserFB) {
 
   session.setUser({ ...response.data, id })
 }
-</script>
 
-<style lang="scss">
-@import 'styles';
-</style>
+function goToPersonalArea() {
+  router.push(appRoutes.getPersonalArea())
+}
+</script>

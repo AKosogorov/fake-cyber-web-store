@@ -17,6 +17,11 @@ interface ITokens {
 const defaultUserName = 'Anonymous'
 const defaultUserGender = 'male' as UserModel.EGender
 
+interface ISessionUser extends UserModel.IUser {
+  createdAt?: number
+  updatedAt?: number
+}
+
 export const useSessionStore = defineStore(namespaced, () => {
   const { showError } = useAlertsStore()
 
@@ -73,14 +78,14 @@ export const useSessionStore = defineStore(namespaced, () => {
     setTimeoutGetToken()
   }
 
-  const user = reactive<UserModel.IUser>({
+  const user = reactive<ISessionUser>({
     id: '',
     username: defaultUserName,
     gender: defaultUserGender,
     email: ''
   })
 
-  function setUser(data: UserModel.IUser) {
+  function setUser(data: ISessionUser) {
     user.id = data.id
     user.username = data.username
     user.gender = data.gender
