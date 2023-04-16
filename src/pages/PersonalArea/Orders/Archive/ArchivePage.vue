@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="mb-s">Personal Area</h1>
+    <h1 class="mb-s">Delivery</h1>
   </div>
 </template>
 

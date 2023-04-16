@@ -32,8 +32,20 @@ export class AppRoutes {
     return getRoute(AppPages.personalArea, {})
   }
 
+  static getFavorites() {
+    return getRoute(AppPages.favorites, {})
+  }
+  static getOrders() {
+    return getRoute(AppPages.orders, {})
+  }
   static getDelivery() {
     return getRoute(AppPages.delivery, {})
+  }
+  static getArchive() {
+    return getRoute(AppPages.archive, {})
+  }
+  static getWallet() {
+    return getRoute(AppPages.wallet, {})
   }
 }
 

@@ -4,6 +4,6 @@ export const routeName: string = 'DeliveryPage'
 
 export const route: RouteRecordRaw = {
   name: routeName,
-  path: '/delivery',
+  path: 'delivery',
   component: () => import('./DeliveryPage.vue')
 }

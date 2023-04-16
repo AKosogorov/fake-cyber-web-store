@@ -8,7 +8,6 @@ import { route as cartRoute } from './Cart'
 import { route as personalAreaRoute } from './PersonalArea'
 import { route as loginRoute } from './Login'
 import { route as signUpRoute } from './SignUp'
-import { route as deliveryRoute } from './Delivery'
 
 export const routes: RouteRecordRaw[] = [
   mainRoute,
@@ -17,7 +16,6 @@ export const routes: RouteRecordRaw[] = [
   cartRoute,
   loginRoute,
   signUpRoute,
-  deliveryRoute,
   UIRoute,
   notFoundRoute
 ]
