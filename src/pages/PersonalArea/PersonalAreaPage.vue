@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { VNavigation } from '@/shared/ui/navigation'
 
-import { computed, reactive } from 'vue'
+import { computed, reactive, markRaw } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppPages, useAppRoutes } from '@/app/providers'
 import type { INavItem } from '@/shared/ui/navigation'
@@ -39,28 +39,28 @@ const personalAreaNavList = reactive<INavItem[]>([
   {
     to: appRoutes.getPersonalArea(),
     label: 'Main',
-    icon: IconHome
+    icon: markRaw(IconHome)
   },
   {
     to: appRoutes.getFavorites(),
     label: 'Favorites',
-    icon: IconHeart
+    icon: markRaw(IconHeart)
   },
   {
     to: appRoutes.getOrders(),
     label: 'Orders',
-    icon: IconBag,
+    icon: markRaw(IconBag),
     isActive: isOrdersPage
   },
   {
     to: appRoutes.getWallet(),
     label: 'Wallet',
-    icon: IconWallet
+    icon: markRaw(IconWallet)
   },
   {
     to: appRoutes.getProfile(),
     label: 'Profile',
-    icon: IconUser
+    icon: markRaw(IconUser)
   }
 ])
 </script>
