@@ -11,14 +11,12 @@
 
       <div class="row gap-s">
         <VInfo label="Email" :txt="session.user.email" />
-
-        <ButtonEdit />
       </div>
 
       <div class="row gap-s">
         <VInfo label="Gender" :txt="session.user.gender" />
 
-        <ButtonEdit />
+        <ButtonEdit @click="openModal(modals.gender)" />
       </div>
     </div>
   </div>
@@ -28,6 +26,12 @@
     :username="session.user.username"
     @close="closeModal"
   />
+
+  <ChangeGender
+    v-if="isModal === modals.gender"
+    :gender="session.user.gender"
+    @close="closeModal"
+  />
 </template>
 
 <script setup lang="ts">
@@ -35,6 +39,7 @@ import { UserBadge } from '@/entities/User'
 import { VInfo } from '@/shared/ui/text'
 import { ButtonEdit } from '@/shared/ui/buttons'
 import { ChangeUsername } from '@/features/User'
+import { ChangeGender } from '@/features/User'
 
 import { useSessionStore } from '@/entities/Session/model'
 import { useMultipleModal } from '@/shared/lib/use/modal/useMultipleModal'
@@ -44,6 +49,7 @@ const session = useSessionStore()
 const { isModal, openModal, closeModal } = useMultipleModal()
 
 const modals = {
-  username: 'username'
+  username: 'username',
+  gender: 'gender'
 }
 </script>
