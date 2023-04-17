@@ -1,6 +1,7 @@
 import {
   createApiErrorGetById,
   createApiErrorCreate,
+  createApiErrorUpdate,
   FirebaseApi
 } from '@/shared/api'
 import type { UserModel } from '@/entities/User'
@@ -12,12 +13,14 @@ const name = 'user'
 
 const errors = {
   getById: createApiErrorGetById(name),
-  createById: createApiErrorCreate(name)
+  createById: createApiErrorCreate(name),
+  patchUsername: createApiErrorUpdate('username')
 } as const
 
 export const api = {
   getById,
-  createById
+  createById,
+  patchUsername
 }
 
 async function getById(id: FirebaseApi.TId) {
@@ -37,5 +40,13 @@ async function createById(id: FirebaseApi.TId, data: UserModel.IUserFB) {
     return await FirebaseApi.update(USER_URL, id, data as TCreateData)
   } catch (e) {
     throw new Error(errors.createById)
+  }
+}
+
+async function patchUsername(id: FirebaseApi.TId, data: { username: string }) {
+  try {
+    return await FirebaseApi.patch(USER_URL, id, data)
+  } catch (e) {
+    throw new Error(errors.patchUsername)
   }
 }
