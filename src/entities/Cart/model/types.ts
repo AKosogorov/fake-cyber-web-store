@@ -1,4 +1,17 @@
-export interface ICart {}
+import type { FirebaseApi } from '@/shared/api'
+
+export interface ICart extends ICartFB {
+  id: FirebaseApi.TId
+}
+
+export interface ICartFB {
+  products: ICartProduct[]
+  total: number
+  discountedTotal: number
+  userId: FirebaseApi.TId
+  totalProducts: number
+  totalQuantity: number
+}
 
 export interface ICartResponse {
   id: number

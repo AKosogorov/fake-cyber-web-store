@@ -1,15 +1,11 @@
 import { defineStore } from 'pinia'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
 import type { ComputedRef } from 'vue'
-import type {
-  ICartProduct,
-  ICartResponse
-} from '@/entities/Cart/model/interface'
+import type { ICartProduct, ICartResponse } from './types'
 import { api } from '../api'
 import { useLocalStorage } from '@/shared/lib/browser'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
-import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
 import { findBy } from '@/shared/lib/utils/array'
 
 interface ICartStore {
@@ -45,18 +41,20 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     }
   )
 
-  const { value: total } = useRefNumber(LSCart.total)
-
-  const { value: totalQuantity } = useRefNumber(LSCart.totalQuantity)
-
-  const { value: totalProducts } = useRefNumber(LSCart.totalProducts)
-
-  const { value: discountedTotal } = useRefNumber(LSCart.discountedTotal)
+  const total = ref(LSCart.total)
+  const totalQuantity = ref(LSCart.totalQuantity)
+  const totalProducts = ref(LSCart.totalProducts)
+  const discountedTotal = ref(LSCart.discountedTotal)
 
   const { value: LSCartProducts, setLSValue: setLSCartProducts } =
     useLocalStorage<ICartProduct[]>(`${NAMESPACE}-products`, [])
 
-  const { array: cartProducts, add, remove } = useReactiveArray(LSCartProducts)
+  const {
+    array: cartProducts,
+    add,
+    remove,
+    refresh
+  } = useReactiveArray(LSCartProducts)
 
   const inCart = computed(() => cartProducts.length)
 
@@ -66,7 +64,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
   async function addToCart(id: number) {
     const product = { id, quantity: 1 }
-    const { data } = await api.update([...cartProducts, product])
+    const { data } = await api.calculate([...cartProducts, product])
 
     setCart(data)
 
@@ -83,7 +81,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
   }
 
   async function updateCart() {
-    const { data } = await api.update(cartProducts)
+    const { data } = await api.calculate(cartProducts)
 
     setCart(data)
     updateLS()
