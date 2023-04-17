@@ -65,18 +65,6 @@ section {
   text-transform: capitalize;
 }
 
-.abs-center {
-  @include absoluteCenter();
-}
-
-.abs-full {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .events-none {
   pointer-events: none;
 }
@@ -86,10 +74,6 @@ section {
   letter-spacing: 0.04em;
   @include transition;
   transition-property: color;
-}
-
-.max-w-field {
-  max-width: var(--max-w-field);
 }
 
 .router-link-exact-active {

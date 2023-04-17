@@ -6,13 +6,13 @@
       <div class="flex gap-s">
         <UserBadge :user="session.user" />
 
-        <ButtonEdit />
+        <ButtonEdit @click="openModal(modals.username)" />
       </div>
 
       <div class="row gap-s">
         <VInfo label="Email" :txt="session.user.email" />
 
-        <ButtonEdit @click="toggle" />
+        <ButtonEdit />
       </div>
 
       <div class="row gap-s">
@@ -23,21 +23,27 @@
     </div>
   </div>
 
-  <BaseModal v-if="isActive" @close="toggle">
-    <VInfo label="Email" :txt="session.user.email" />
-  </BaseModal>
+  <ChangeUsername
+    v-if="isModal === modals.username"
+    :username="session.user.username"
+    @close="closeModal"
+  />
 </template>
 
 <script setup lang="ts">
 import { UserBadge } from '@/entities/User'
 import { VInfo } from '@/shared/ui/text'
 import { ButtonEdit } from '@/shared/ui/buttons'
-import { BaseModal } from '@/shared/ui/modal'
+import { ChangeUsername } from '@/features/User'
 
 import { useSessionStore } from '@/entities/Session/model'
-import useToggle from '@/shared/lib/use/useToggle'
+import { useMultipleModal } from '@/shared/lib/use/modal/useMultipleModal'
 
 const session = useSessionStore()
 
-const { isActive, toggle } = useToggle()
+const { isModal, openModal, closeModal } = useMultipleModal()
+
+const modals = {
+  username: 'username'
+}
 </script>

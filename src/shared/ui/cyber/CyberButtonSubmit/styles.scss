@@ -1,0 +1,17 @@
+.cyber-button-submit {
+  &__loader {
+    position: absolute;
+    width: 60px;
+    color: var(--color__blue);
+  }
+
+  &.submitting {
+    --primary: var(--color__red);
+    --secondary: var(--color__blue);
+
+    .cyber-button__text {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

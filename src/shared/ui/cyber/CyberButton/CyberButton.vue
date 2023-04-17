@@ -6,6 +6,8 @@
 
     <span class="cyber-button__glitch" aria-hidden="true">{{ txt }}_</span>
 
+    <slot />
+
     <CyberTag class="cyber-button__tag" />
   </button>
 </template>

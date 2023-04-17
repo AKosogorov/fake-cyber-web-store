@@ -74,6 +74,10 @@
   width: 100%;
 }
 
+.max-w-field {
+  max-width: var(--max-w-field);
+}
+
 .border-radius {
   border-radius: var(--border-radius);
 }

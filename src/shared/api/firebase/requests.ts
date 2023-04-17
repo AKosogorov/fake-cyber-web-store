@@ -36,7 +36,7 @@ export function patch<T extends IStringIdx>(
   url: string,
   id: TId,
   data: T
-): TResponse<T> {
+): AxiosPromise<T & { updatedAt: number }> {
   setUpdatedAtTo(data)
   return instance.patch(`/${url}/${id}.json`, data)
 }
