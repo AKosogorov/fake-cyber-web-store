@@ -8,8 +8,12 @@
     <h1 v-if="isMainPage" class="mb-s">Personal area</h1>
 
     <div v-if="isMainPage" class="column gap-s">
-      <CardLink class="column gap-s" :to="appRoutes.getProfile()">
+      <CardLink class="column gap-xs" :to="appRoutes.getProfile()">
         <UserBadge :user="session.user" />
+
+        <VInfo label="Email" :txt="session.user.email" />
+
+        <VInfo label="Gender" :txt="session.user.gender" />
 
         <LogoutButton class="personal-area-page__logout" />
       </CardLink>
@@ -33,10 +37,12 @@ import { LogoutButton } from '@/features/auth'
 import { UserBadge } from '@/entities/User'
 import { VNavigation } from '@/shared/ui/navigation'
 import { CardLink } from '@/shared/ui/cards'
+import { VInfo } from '@/shared/ui/text'
 
 import { computed, reactive, markRaw } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppPages, useAppRoutes } from '@/app/providers'
+import { useSessionStore } from '@/entities/Session/model'
 import type { INavItem } from '@/shared/ui/navigation'
 import {
   IconHome,
@@ -45,7 +51,6 @@ import {
   IconWallet,
   IconUser
 } from '@/shared/ui/icons'
-import { useSessionStore } from '@/entities/Session/model'
 
 const route = useRoute()
 const appRoutes = useAppRoutes()
