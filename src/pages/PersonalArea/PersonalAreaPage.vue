@@ -9,7 +9,7 @@
 
     <div v-if="isMainPage" class="column gap-s">
       <CardLink class="column gap-s" :to="appRoutes.getProfile()">
-        <span>User name</span>
+        <UserBadge :user="session.user" />
 
         <LogoutButton class="personal-area-page__logout" />
       </CardLink>
@@ -30,6 +30,7 @@
 
 <script setup lang="ts">
 import { LogoutButton } from '@/features/auth'
+import { UserBadge } from '@/entities/User'
 import { VNavigation } from '@/shared/ui/navigation'
 import { CardLink } from '@/shared/ui/cards'
 
@@ -44,6 +45,7 @@ import {
   IconWallet,
   IconUser
 } from '@/shared/ui/icons'
+import { useSessionStore } from '@/entities/Session/model'
 
 const route = useRoute()
 const appRoutes = useAppRoutes()
@@ -83,6 +85,8 @@ const personalAreaNavList = reactive<INavItem[]>([
     icon: markRaw(IconUser)
   }
 ])
+
+const session = useSessionStore()
 </script>
 
 <style lang="scss">

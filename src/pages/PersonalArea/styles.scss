@@ -19,7 +19,20 @@
     }
   }
 
+  .user-badge {
+    &__name {
+      padding-right: 130px;
+    }
+    .avatar {
+      width: var(--xxl);
+      height: var(--xxl);
+    }
+  }
+
   &__logout {
+    position: absolute;
+    top: var(--s);
+    right: var(--s);
     z-index: 2;
   }
 }
@@ -28,6 +41,30 @@
   .personal-area-page {
     &__nav {
       display: none;
+    }
+    .user-badge {
+      &__name {
+        padding-right: initial;
+      }
+      .avatar {
+        width: var(--xxl);
+        height: var(--xxl);
+      }
+    }
+
+    &__logout {
+      position: initial;
+      margin-left: auto;
+    }
+  }
+}
+@media (max-width: $breakpoint-s) {
+  .personal-area-page {
+    .user-badge {
+      .avatar {
+        width: var(--l);
+        height: var(--l);
+      }
     }
   }
 }
