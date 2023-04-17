@@ -10,7 +10,7 @@ export function getById<T>(url: string, id: TId): TResponse<T> {
   return instance.get(`/${url}/${id}.json`)
 }
 
-export function create<T extends IStringIdx<any>>(
+export function create<T extends IStringIdx>(
   url: string,
   data: T
 ): TResponse<T> {
@@ -19,7 +19,7 @@ export function create<T extends IStringIdx<any>>(
   return instance.put(`/${url}.json`, data)
 }
 
-interface IUpdateData extends IStringIdx<any> {
+interface IUpdateData extends IStringIdx {
   createdAt: number
 }
 
@@ -30,4 +30,13 @@ export function update<T extends IUpdateData>(
 ): TResponse<T> {
   setUpdatedAtTo(data)
   return instance.put(`/${url}/${id}.json`, data)
+}
+
+export function patch<T extends IStringIdx>(
+  url: string,
+  id: TId,
+  data: T
+): TResponse<T> {
+  setUpdatedAtTo(data)
+  return instance.patch(`/${url}/${id}.json`, data)
 }

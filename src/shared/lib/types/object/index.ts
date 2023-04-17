@@ -1,3 +1,3 @@
-export interface IStringIdx<T> {
+export interface IStringIdx<T = any> {
   [key: string]: T
 }
