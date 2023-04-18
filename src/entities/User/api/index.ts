@@ -15,15 +15,17 @@ const errors = {
   getById: createApiErrorGetById(name),
   createById: createApiErrorCreate(name),
   patchUsername: createApiErrorUpdate('username'),
-  patchGender: createApiErrorUpdate('gender')
+  patchGender: createApiErrorUpdate('gender'),
+  patchCartId: createApiErrorUpdate('basket id')
 } as const
 
 export const api = {
   getById,
   createById,
   patchUsername,
-  patchGender
-}
+  patchGender,
+  patchCartId
+} as const
 
 async function getById(id: FirebaseApi.TId) {
   try {
@@ -33,7 +35,7 @@ async function getById(id: FirebaseApi.TId) {
   }
 }
 
-type TCreateData = IUserFB & { createdAt: number }
+type TCreateData = IUserFB & FirebaseApi.ICreatedAt
 
 async function createById(id: FirebaseApi.TId, data: IUserFB) {
   try {
@@ -58,5 +60,16 @@ async function patchGender(id: FirebaseApi.TId, data: { gender: EGender }) {
     return await FirebaseApi.patch(USER_URL, id, data)
   } catch (e) {
     throw new Error(errors.patchGender)
+  }
+}
+
+async function patchCartId(
+  id: FirebaseApi.TId,
+  data: { cartId: FirebaseApi.TId }
+) {
+  try {
+    return await FirebaseApi.patch(USER_URL, id, data)
+  } catch (e) {
+    throw new Error(errors.patchCartId)
   }
 }

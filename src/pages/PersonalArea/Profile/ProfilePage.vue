@@ -11,6 +11,8 @@
 
       <div class="row gap-s">
         <VInfo label="Email" :txt="session.user.email" />
+
+        <ButtonEdit @click="createCart" />
       </div>
 
       <div class="row gap-s">
@@ -35,21 +37,42 @@
 </template>
 
 <script setup lang="ts">
-import { UserBadge } from '@/entities/User'
+import { UserBadge, UserApi } from '@/entities/User'
 import { VInfo } from '@/shared/ui/text'
 import { ButtonEdit } from '@/shared/ui/buttons'
 import { ChangeUsername } from '@/features/User'
 import { ChangeGender } from '@/features/User'
 
-import { useSessionStore } from '@/entities/Session/model'
+import { SessionModel } from '@/entities/Session'
+import { CartModel, CartApi } from '@/entities/Cart'
 import { useMultipleModal } from '@/shared/lib/use/modal/useMultipleModal'
 
-const session = useSessionStore()
+const session = SessionModel.useSessionStore()
 
 const { isModal, openModal, closeModal } = useMultipleModal()
 
 const modals = {
   username: 'username',
   gender: 'gender'
+}
+
+const store = CartModel.useCartStore()
+
+async function createCart() {
+  const { data } = await CartApi.create({
+    userId: session.user.id,
+    products: store.cartProducts,
+    total: store.total,
+    discountedTotal: store.discountedTotal,
+    totalProducts: store.totalProducts,
+    totalQuantity: store.totalQuantity
+  })
+
+  await UserApi.patchCartId(session.user.id, {
+    cartId: data.name
+  })
+
+  const response2 = await CartApi.getById(data.name)
+  console.dir(response2.data)
 }
 </script>
