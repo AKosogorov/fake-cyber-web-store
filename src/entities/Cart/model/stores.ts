@@ -7,8 +7,11 @@ import { api } from '../api'
 import { useLocalStorage } from '@/shared/lib/browser'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { findBy } from '@/shared/lib/utils/array'
+import { useRefString } from '@/shared/lib/use/base/useRefString'
 
 interface ICartStore {
+  cartId: Ref<string>
+  setCartId: (val: string) => void
   total: Ref<number>
   totalQuantity: Ref<number>
   totalProducts: Ref<number>
@@ -19,6 +22,7 @@ interface ICartStore {
   addToCart: (id: number) => Promise<void>
   removeFromCart: (id: number) => Promise<void>
   updateProductQuantity: (id: number, quantity: number) => Promise<void>
+  resetLS: () => void
 }
 
 interface ILSCart {
@@ -31,6 +35,8 @@ interface ILSCart {
 const NAMESPACE = 'cart'
 
 export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
+  const { value: cartId, setValue: setCartId } = useRefString('')
+
   const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ILSCart>(
     NAMESPACE,
     {
@@ -134,7 +140,19 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     return findBy(id, cartProducts)
   }
 
+  function resetLS() {
+    setLSCart({
+      total: 0,
+      totalQuantity: 0,
+      totalProducts: 0,
+      discountedTotal: 0
+    })
+    setLSCartProducts([])
+  }
+
   return {
+    cartId,
+    setCartId,
     total,
     totalQuantity,
     totalProducts,
@@ -144,6 +162,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     cartHasProduct,
     addToCart,
     removeFromCart,
-    updateProductQuantity
+    updateProductQuantity,
+    resetLS
   }
 })

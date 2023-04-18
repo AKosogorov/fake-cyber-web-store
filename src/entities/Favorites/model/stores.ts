@@ -1,31 +1,51 @@
 import type { FirebaseApi } from '@/shared/api'
-import type { IStore } from './types'
 import { defineStore } from 'pinia'
-import { api } from '../../api'
+import { api } from '../api'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { useRefString } from '@/shared/lib/use/base/useRefString'
 import { findSimpleBy } from '@/shared/lib/utils/array'
+import { useLocalStorage } from '@/shared/lib/browser'
 
-interface IStoreApi extends IStore {
+interface IStore {
+  productIds: number[]
+  refreshProductIds: (data: number[]) => void
+  add: (id: number) => void
+  remove: (id: number) => void
+  checkInFavoritesBy: (id: number) => boolean
   setFavoritesId: (id: FirebaseApi.TId) => void
   loadFavorites: () => Promise<void>
-  refreshProductIds: (data: number[]) => void
+  reset: () => void
+  resetLS: () => void
 }
 
 const namespace = 'favorites'
 
-export const useStoreApi = defineStore(namespace, (): IStoreApi => {
+export const useFavoritesStore = defineStore(namespace, (): IStore => {
   const { value: favoritesId, setValue: setFavoritesId } = useRefString('')
+
+  const { value, setLSValue } = useLocalStorage<number[]>(namespace, [])
 
   const {
     array: productIds,
-    add,
+    add: addId,
     remove: removeId,
     refresh: refreshProductIds
-  } = useReactiveArray<number>()
+  } = useReactiveArray<number>(value)
+
+  function add(id: number) {
+    addId(id)
+
+    if (!favoritesId.value) {
+      syncLS()
+    }
+  }
 
   function remove(id: number) {
     removeId(id, '')
+
+    if (!favoritesId.value) {
+      syncLS()
+    }
   }
 
   function checkInFavoritesBy(id: number) {
@@ -38,9 +58,17 @@ export const useStoreApi = defineStore(namespace, (): IStoreApi => {
     refreshProductIds(data.productIds)
   }
 
+  function syncLS() {
+    setLSValue(productIds)
+  }
+
   function reset() {
     setFavoritesId('')
     refreshProductIds([])
+  }
+
+  function resetLS() {
+    setLSValue([])
   }
 
   return {
@@ -51,6 +79,7 @@ export const useStoreApi = defineStore(namespace, (): IStoreApi => {
     refreshProductIds,
     checkInFavoritesBy,
     loadFavorites,
-    reset
+    reset,
+    resetLS
   }
 })

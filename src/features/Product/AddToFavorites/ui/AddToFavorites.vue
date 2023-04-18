@@ -4,15 +4,14 @@
 
 <script setup lang="ts">
 import { ButtonLike } from '@/shared/ui/buttons'
-import { ProductModel } from '@/entities/Product'
+import { FavoritesModel } from '@/entities/Favorites'
 import { useIsLike } from '@/shared/lib/use/useIsLike'
 
 const props = defineProps<{
   id: number
 }>()
 
-const { add, remove, checkInFavoritesBy } =
-  ProductModel.stores.useFavoritesStore()
+const { add, remove, checkInFavoritesBy } = FavoritesModel.useFavoritesStore()
 
 const { isLike, toggleIsLike } = useIsLike(checkInFavoritesBy(props.id))
 

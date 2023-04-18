@@ -1,15 +1,21 @@
 import type { FirebaseApi } from '@/shared/api'
 import { WalletApi, WalletModel } from '@/entities/Wallet'
 import { FavoritesApi, FavoritesModel } from '@/entities/Favorites'
+import { CartApi, CartModel } from '@/entities/Cart'
 import { UserApi } from '@/entities/User'
-// import { CartApi, CartModel } from '@/entities/Cart'
+import { useFavoritesStore } from '@/entities/Favorites/model'
 
 export function useSignUp() {
   const walletHandler = getWalletHandler()
   const favoritesHandler = getFavoritesHandler()
+  const cartHandler = getCartHandler()
 
   async function createEntities(userId: FirebaseApi.TId) {
-    await Promise.all([walletHandler(userId), favoritesHandler(userId)])
+    await Promise.all([
+      walletHandler(userId),
+      favoritesHandler(userId),
+      cartHandler(userId)
+    ])
   }
 
   return {
@@ -34,20 +40,40 @@ function getWalletHandler() {
 }
 
 function getFavoritesHandler() {
-  const { productIds, reset } = FavoritesModel.useStoreLS()
-  const { setFavoritesId, refreshProductIds } = FavoritesModel.useStoreApi()
+  const store = FavoritesModel.useFavoritesStore()
 
   return createAndSetFavorites
 
   async function createAndSetFavorites(userId: FirebaseApi.TId) {
     const { data } = await FavoritesApi.create({
       userId,
-      productIds
+      productIds: store.productIds
     })
     await UserApi.patchFavoritesId(userId, { favoritesId: data.name })
 
-    setFavoritesId(data.name)
-    refreshProductIds(productIds)
-    reset()
+    store.setFavoritesId(data.name)
+    store.resetLS()
+  }
+}
+
+function getCartHandler() {
+  const store = CartModel.useCartStore()
+
+  return createAndSetCart
+
+  async function createAndSetCart(userId: FirebaseApi.TId) {
+    const { data } = await CartApi.create({
+      userId,
+      products: store.cartProducts,
+      total: store.total,
+      discountedTotal: store.discountedTotal,
+      totalProducts: store.totalProducts,
+      totalQuantity: store.totalQuantity
+    })
+
+    await UserApi.patchCartId(userId, { cartId: data.name })
+
+    store.setCartId(data.name)
+    store.resetLS()
   }
 }
