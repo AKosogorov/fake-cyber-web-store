@@ -6,7 +6,7 @@ export function useAppRoutes() {
   const appRoutes = inject(EAppProviders.AppRoutes)
 
   if (!appRoutes) {
-    throwInjectError('GetRoute')
+    throwInjectError('AppRoutes')
   }
 
   return appRoutes

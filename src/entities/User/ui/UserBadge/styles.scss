@@ -1,0 +1,20 @@
+.user-badge {
+  &__name {
+    font-size: 20px;
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: var(--xxl);
+  height: var(--xxl);
+  border: 1.5px solid var(--color__black);
+  background-color: var(--color__yellow);
+}
+
+@media (max-width: $breakpoint-s) {
+  .avatar {
+    width: var(--l);
+    height: var(--l);
+  }
+}

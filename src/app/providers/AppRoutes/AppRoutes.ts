@@ -28,8 +28,27 @@ export class AppRoutes {
     return getRoute(AppPages.signUp, {})
   }
 
+  static getPersonalArea() {
+    return getRoute(AppPages.personalArea, {})
+  }
+
+  static getFavorites() {
+    return getRoute(AppPages.favorites, {})
+  }
+  static getOrders() {
+    return getRoute(AppPages.orders, {})
+  }
   static getDelivery() {
     return getRoute(AppPages.delivery, {})
+  }
+  static getArchive() {
+    return getRoute(AppPages.archive, {})
+  }
+  static getProfile() {
+    return getRoute(AppPages.profile, {})
+  }
+  static getWallet() {
+    return getRoute(AppPages.wallet, {})
   }
 }
 

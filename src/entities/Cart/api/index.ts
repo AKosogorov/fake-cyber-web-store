@@ -1,24 +1,65 @@
-import type { ICartProductBase, ICartResponse } from '../model/interface'
-import type { AxiosPromise } from 'axios'
-import { destroy, getById, update } from '@/shared/api/requests'
+import type {
+  ICartFB,
+  ICartProductBase,
+  ICartDummyJsonResponse
+} from '../model/types'
+import {
+  createApiErrorGetById,
+  createApiErrorCreate,
+  createApiErrorUpdate,
+  FirebaseApi,
+  DummyJsonApi
+} from '@/shared/api'
 
-interface IApi {
-  get: () => AxiosPromise<ICartResponse>
-  update: (products: ICartProductBase[]) => AxiosPromise<ICartResponse>
-  destroy: () => AxiosPromise<ICartResponse>
+export const api = {
+  getById,
+  calculate,
+  create,
+  update
+} as const
+
+const name = 'basket'
+
+const errors = {
+  getById: createApiErrorGetById(name),
+  create: createApiErrorCreate(name),
+  update: createApiErrorUpdate(name),
+  calculate: `Failed calculating the sum of the cost of the ${name}`
+} as const
+
+const CARTS_URL = 'carts'
+
+async function getById(id: FirebaseApi.TId) {
+  try {
+    return await FirebaseApi.getById<ICartFB>(CARTS_URL, id)
+  } catch (e) {
+    throw new Error(errors.getById)
+  }
 }
 
-const URL = 'carts'
+async function create(data: ICartFB) {
+  try {
+    return await FirebaseApi.create(CARTS_URL, data)
+  } catch (e) {
+    throw new Error(errors.create)
+  }
+}
 
-export const api: IApi = {
-  get: () => getById<ICartResponse>(URL, 1),
+async function update(id: FirebaseApi.TId, data: Omit<ICartFB, 'userId'>) {
+  try {
+    return await FirebaseApi.patch(CARTS_URL, id, data)
+  } catch (e) {
+    throw new Error(errors.update)
+  }
+}
 
-  update: products => {
-    return update<ICartResponse>(URL, 1, {
+async function calculate(products: ICartProductBase[]) {
+  try {
+    return await DummyJsonApi.update<ICartDummyJsonResponse>(CARTS_URL, 1, {
       merge: false,
       products
     })
-  },
-
-  destroy: () => destroy<ICartResponse>(URL, 1)
+  } catch (e) {
+    throw new Error(errors.calculate)
+  }
 }

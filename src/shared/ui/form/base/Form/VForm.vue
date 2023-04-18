@@ -1,8 +1,8 @@
 <template>
-  <form class="form column gap-l" @submit="handlerSubmit">
+  <form class="form column gap-l" novalidate @submit="handlerSubmit">
     <slot />
 
-    <div class="form__buttons">
+    <div class="form__buttons row">
       <slot name="button-submit">
         <ButtonSubmit :txt="buttonSubmitTxt" :is-submitting="isSubmitting" />
       </slot>

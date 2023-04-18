@@ -1,2 +1,1 @@
-import CyberButton from './CyberButton.vue'
-export default CyberButton
+export { default as CyberButton } from './CyberButton.vue'

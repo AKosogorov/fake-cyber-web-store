@@ -19,7 +19,3 @@ withDefaults(defineProps<IButtonRemove>(), {
   iconSize: EAppPixelSize.sm
 })
 </script>
-
-<style lang="scss">
-@import 'styles';
-</style>

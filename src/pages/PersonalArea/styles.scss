@@ -1,0 +1,52 @@
+.personal-area-page {
+  &__nav {
+    .navigation {
+      &__list {
+        gap: var(--m);
+        justify-content: space-between;
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__sub-nav {
+    .navigation {
+      &__list {
+        gap: var(--m);
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .user-badge {
+    &__name {
+      padding-right: 130px;
+    }
+  }
+
+  &__logout {
+    position: absolute;
+    top: var(--s);
+    right: var(--s);
+    z-index: 2;
+  }
+}
+
+@media (max-width: $breakpoint-m) {
+  .personal-area-page {
+    &__nav {
+      display: none;
+    }
+    .user-badge {
+      &__name {
+        padding-right: initial;
+      }
+    }
+
+    &__logout {
+      position: initial;
+      margin-left: auto;
+    }
+  }
+}

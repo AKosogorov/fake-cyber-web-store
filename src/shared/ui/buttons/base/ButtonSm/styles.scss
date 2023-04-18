@@ -1,18 +1,23 @@
 .button-sm {
   align-self: baseline;
+  color: var(--color__grey);
 
   &__icon-wrap {
-    color: var(--color__grey);
-    transition-property: transform, color;
+    color: inherit;
+    transition-property: transform;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+  }
+
+  &__text {
+    transition-property: color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
   }
 
   &:focus-visible,
   &:hover {
-    .button-sm__icon-wrap {
-      color: var(--color__red);
-    }
+    color: var(--color__red);
   }
 
   &:active {

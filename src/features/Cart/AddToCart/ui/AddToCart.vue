@@ -17,6 +17,7 @@ import { CartModel } from '@/entities/Cart'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
 import { useAppRoutes } from '@/app/providers'
 import { computed } from 'vue'
+import { useAddToCart } from '@/features/Cart/AddToCart/model'
 
 const props = defineProps<{
   id: number
@@ -25,7 +26,8 @@ const props = defineProps<{
 const appRoutes = useAppRoutes()
 const { isLoading, runWithLoading } = useLoadingWrap()
 
-const { addToCart, cartHasProduct } = CartModel.useCartStore()
+const { cartHasProduct } = CartModel.useCartStore()
+const { addToCart } = useAddToCart()
 
 const isInCart = computed(() => cartHasProduct(props.id))
 
