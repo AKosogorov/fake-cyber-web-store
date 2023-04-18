@@ -1,5 +1,5 @@
 import type { IImage } from '@/shared/lib/types/dom'
-import type { IBaseGetResponse } from '@/shared/api'
+import type { DummyJsonApi } from '@/shared/api'
 
 export interface IProductResponse {
   brand: string
@@ -15,7 +15,7 @@ export interface IProductResponse {
   title: string
 }
 
-export interface IProductGetResponse extends IBaseGetResponse {
+export interface IProductGetResponse extends DummyJsonApi.IBaseGetResponse {
   products: IProductResponse[]
 }
 

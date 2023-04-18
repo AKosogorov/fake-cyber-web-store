@@ -1,4 +1,4 @@
-import type { IBaseQuery } from '@/shared/api/types'
+import type { IBaseQuery } from '../../api'
 import type { Ref } from 'vue'
 import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
 

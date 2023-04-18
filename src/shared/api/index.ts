@@ -1,5 +1,3 @@
-export * from './instance'
 export * from './base'
-export * from './types'
-export * from './model'
+export * from './dummy-json'
 export * as FirebaseApi from './firebase'

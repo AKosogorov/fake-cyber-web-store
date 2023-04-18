@@ -1,9 +1,9 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
-import type { IBaseQuery } from '@/shared/api/types'
-import { QUERY_DEFAULT, useQueryListModel } from '@/shared/api'
+import type { DummyJsonApi } from '@/shared/api'
+import { DummyJsonModel } from '@/shared/api'
 
-interface IQuery extends IBaseQuery {
+interface IQuery extends DummyJsonApi.IBaseQuery {
   category: string
 }
 
@@ -18,14 +18,14 @@ export function useCategoryModel(): IProductListModel<IQuery> {
     countPages,
     isLoading,
     changeLimit
-  } = useQueryListModel<
+  } = DummyJsonModel.useQueryListModel<
     ProductModel.IProduct,
     ProductModel.IProductGetResponse,
     IQuery
   >({
     apiHandler: fetchProducts,
     mapper: ProductModel.getMapped,
-    initQuery: QUERY_DEFAULT
+    initQuery: DummyJsonModel.QUERY_DEFAULT
   })
 
   async function fetchProducts(params?: IQuery) {

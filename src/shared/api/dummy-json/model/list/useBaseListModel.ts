@@ -1,13 +1,9 @@
-import type {
-  IBaseGetResponse,
-  IBaseQuery,
-  TExtraQuery
-} from '@/shared/api/types'
+import type { IBaseGetResponse, IBaseQuery, TExtraQuery } from '../../api'
+import type { IUseBaseListSettings, IUseBaseListModel } from './types'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { useIsLoading } from '@/shared/lib/use/useIsLoading'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
-import type { IUseBaseListSettings, IUseBaseListModel } from './types'
 
 export function useBaseListModel<
   T,

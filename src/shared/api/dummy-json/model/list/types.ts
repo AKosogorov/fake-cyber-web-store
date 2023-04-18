@@ -1,4 +1,4 @@
-import type { IBaseGetResponse, IBaseQuery } from '@/shared/api'
+import type { IBaseGetResponse, IBaseQuery } from '../../api'
 import type { AxiosPromise } from 'axios'
 import type { Ref } from 'vue'
 

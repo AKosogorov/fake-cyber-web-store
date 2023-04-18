@@ -1,6 +1,6 @@
 import type { IProductListModel } from './types'
 import { ProductApi, ProductModel } from '@/entities/Product'
-import { QUERY_DEFAULT, useQueryListModel } from '@/shared/api'
+import { DummyJsonModel } from '@/shared/api'
 
 export function useGeneralModel(): IProductListModel {
   const {
@@ -13,13 +13,13 @@ export function useGeneralModel(): IProductListModel {
     countPages,
     isLoading,
     changeLimit
-  } = useQueryListModel<
+  } = DummyJsonModel.useQueryListModel<
     ProductModel.IProduct,
     ProductModel.IProductGetResponse
   >({
     apiHandler: ProductApi.getAll,
     mapper: ProductModel.getMapped,
-    initQuery: QUERY_DEFAULT
+    initQuery: DummyJsonModel.QUERY_DEFAULT
   })
 
   return {

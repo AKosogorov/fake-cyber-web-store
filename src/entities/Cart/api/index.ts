@@ -3,9 +3,9 @@ import {
   createApiErrorGetById,
   createApiErrorCreate,
   createApiErrorUpdate,
-  FirebaseApi
+  FirebaseApi,
+  DummyJsonApi
 } from '@/shared/api'
-import { update as put } from '@/shared/api/requests'
 
 export const api = {
   getById,
@@ -51,7 +51,7 @@ async function update(id: FirebaseApi.TId, data: Omit<ICartFB, 'userId'>) {
 
 async function calculate(products: ICartProductBase[]) {
   try {
-    return await put<ICartResponse>(CARTS_URL, 1, {
+    return await DummyJsonApi.update<ICartResponse>(CARTS_URL, 1, {
       merge: false,
       products
     })

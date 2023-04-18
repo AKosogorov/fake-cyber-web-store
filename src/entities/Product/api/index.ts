@@ -1,11 +1,9 @@
-import { createBaseReadApi, createBaseReadApiErrors } from '@/shared/api'
+import { DummyJsonApi, createBaseReadApiErrors } from '@/shared/api'
 import type {
   IProductGetResponse,
   IProductResponse,
   TProductCategoriesResponse
 } from '../model'
-import type { TRequestParams } from '@/shared/api/types'
-import { getAll } from '@/shared/api/requests'
 
 const URL = 'products'
 const CATEGORIES_URL = `${URL}/categories`
@@ -13,11 +11,16 @@ const CATEGORIES_URL = `${URL}/categories`
 const errors = createBaseReadApiErrors('product')
 
 export const Api = {
-  ...createBaseReadApi<IProductGetResponse, IProductResponse>(URL, errors),
+  ...DummyJsonApi.useReadApi<IProductGetResponse, IProductResponse>(
+    URL,
+    errors
+  ),
 
   getCategories: async () => {
     try {
-      return await getAll<TProductCategoriesResponse>(CATEGORIES_URL)
+      return await DummyJsonApi.getAll<TProductCategoriesResponse>(
+        CATEGORIES_URL
+      )
     } catch (e: any) {
       throw new Error('Failed to get list of categories')
     }
@@ -25,10 +28,10 @@ export const Api = {
 
   getProductsOf: async (
     category: string,
-    params: TRequestParams = { limit: 100 }
+    params: DummyJsonApi.TRequestParams = { limit: 100 }
   ) => {
     try {
-      return await getAll<IProductGetResponse>(
+      return await DummyJsonApi.getAll<IProductGetResponse>(
         `${URL}/category/${category}`,
         params
       )

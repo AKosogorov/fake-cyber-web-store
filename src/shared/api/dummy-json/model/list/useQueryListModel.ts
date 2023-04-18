@@ -1,10 +1,9 @@
+import type { ComputedRef, Ref } from 'vue'
 import type { IUseBaseListSettings, IUseBaseListModel } from './types'
-import type { IBaseGetResponse } from '@/shared/api'
-import type { IBaseQuery } from '@/shared/api'
+import type { IBaseGetResponse, IBaseQuery } from '../../api'
 import { useBaseListModel } from './useBaseListModel'
 import { useBaseQuery } from '../query'
 import { usePaginationQuery } from '../query'
-import type { ComputedRef, Ref } from 'vue'
 
 interface IQueryInit extends IBaseQuery {
   page?: number
