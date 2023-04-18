@@ -5,5 +5,5 @@ export interface INavItem {
   to: RouteLocationRaw
   label: string
   icon?: Component
-  isActive?: ComputedRef<boolean>
+  isActive?: ComputedRef<boolean> | boolean
 }

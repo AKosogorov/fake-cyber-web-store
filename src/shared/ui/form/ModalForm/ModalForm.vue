@@ -28,7 +28,9 @@ interface IProps {
   buttonSubmitTxt?: string
 }
 
-defineProps<IProps>()
+withDefaults(defineProps<IProps>(), {
+  isSubmitting: false
+})
 
 function close() {
   emit('close')

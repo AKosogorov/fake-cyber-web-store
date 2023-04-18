@@ -11,4 +11,4 @@ export const USER_GENDER_OPTIONS = [
     value: EGender.female,
     label: 'Female'
   }
-] as const
+]
