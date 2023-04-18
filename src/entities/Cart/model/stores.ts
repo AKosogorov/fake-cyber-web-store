@@ -21,12 +21,11 @@ interface ICartStore {
   setCart: (data: ICartTotal) => void
 
   cartProducts: ICartProduct[]
+  findInCart: (id: number) => ICartProduct | undefined
   cartHasProduct: (id: number) => boolean
   inCart: ComputedRef<number>
   add: (item: ICartProduct) => void
   remove: (id: number) => void
-
-  updateProductQuantity: (id: number, quantity: number) => Promise<void>
 
   updateLS: () => void
 
@@ -75,31 +74,6 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
   function cartHasProduct(id: number) {
     return Boolean(findInCart(id))
-  }
-
-  async function updateCart() {
-    const { data } = await api.calculate(cartProducts)
-
-    setCart(data)
-    updateLS()
-    return data
-  }
-
-  async function updateProductQuantity(id: number, quantity: number) {
-    const product = findInCart(id)
-    if (!product) return
-
-    product.quantity = quantity
-
-    const { products } = await updateCart()
-
-    const productUpdated = findBy(id, products)
-    if (!productUpdated) return
-
-    product.total = productUpdated.total
-    product.discountedPrice = productUpdated.discountedPrice
-
-    updateLSCartProducts()
   }
 
   function setCart(data: ICartTotal) {
@@ -165,11 +139,10 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
     cartProducts,
     inCart,
+    findInCart,
     cartHasProduct,
     add,
     remove,
-
-    updateProductQuantity,
 
     updateLS,
 
