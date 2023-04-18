@@ -1,7 +1,7 @@
 <template>
   <nav class="navigation">
     <ul class="navigation__list flex">
-      <li class="navigation__item" v-for="(item, idx) of navList" :key="idx">
+      <li v-for="(item, idx) of navList" :key="idx" class="navigation__item">
         <router-link
           class="navigation__link link row gap-xxs"
           :class="item.isActive && 'is-active'"
@@ -9,8 +9,8 @@
         >
           <component
             v-if="item.icon"
-            class="navigation__icon"
             :is="item.icon"
+            class="navigation__icon"
           />
           {{ item.label }}
         </router-link>
