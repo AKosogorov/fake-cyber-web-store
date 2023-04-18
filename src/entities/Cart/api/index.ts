@@ -1,4 +1,8 @@
-import type { ICartFB, ICartProductBase, ICartResponse } from '../model/types'
+import type {
+  ICartFB,
+  ICartProductBase,
+  ICartDummyJsonResponse
+} from '../model/types'
 import {
   createApiErrorGetById,
   createApiErrorCreate,
@@ -51,7 +55,7 @@ async function update(id: FirebaseApi.TId, data: Omit<ICartFB, 'userId'>) {
 
 async function calculate(products: ICartProductBase[]) {
   try {
-    return await DummyJsonApi.update<ICartResponse>(CARTS_URL, 1, {
+    return await DummyJsonApi.update<ICartDummyJsonResponse>(CARTS_URL, 1, {
       merge: false,
       products
     })

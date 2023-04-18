@@ -3,7 +3,6 @@ import { WalletApi, WalletModel } from '@/entities/Wallet'
 import { FavoritesApi, FavoritesModel } from '@/entities/Favorites'
 import { CartApi, CartModel } from '@/entities/Cart'
 import { UserApi } from '@/entities/User'
-import { useFavoritesStore } from '@/entities/Favorites/model'
 
 export function useSignUp() {
   const walletHandler = getWalletHandler()

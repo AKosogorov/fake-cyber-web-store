@@ -4,25 +4,24 @@ export interface ICart extends ICartFB {
   id: FirebaseApi.TId
 }
 
-export interface ICartFB {
+export interface ICartFB extends ICartTotal {
   products: ICartProduct[]
-  total: number
-  discountedTotal: number
   userId: FirebaseApi.TId
-  totalProducts: number
-  totalQuantity: number
 }
 
-export interface ICartResponse {
+export interface ICartDummyJsonResponse extends ICartTotal {
   id: number
   products: ICartProduct[]
-  total: number
-  discountedTotal: number
   userId: number
-  totalProducts: number
-  totalQuantity: number
   isDeleted?: boolean
   deletedOn?: string
+}
+
+export interface ICartTotal {
+  total: number
+  discountedTotal: number
+  totalProducts: number
+  totalQuantity: number
 }
 
 export interface ICartProduct extends ICartProductBase {

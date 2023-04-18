@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
 import type { ComputedRef } from 'vue'
-import type { ICartProduct, ICartResponse } from './types'
+import type { ICartProduct, ICartTotal } from './types'
 import { api } from '../api'
 import { useLocalStorage } from '@/shared/lib/browser'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
@@ -17,19 +17,14 @@ interface ICartStore {
   totalProducts: Ref<number>
   discountedTotal: Ref<number>
   cartProducts: ICartProduct[]
+  loadCartById: () => Promise<void>
   cartHasProduct: (id: number) => boolean
   inCart: ComputedRef<number>
   addToCart: (id: number) => Promise<void>
   removeFromCart: (id: number) => Promise<void>
   updateProductQuantity: (id: number, quantity: number) => Promise<void>
+  reset: () => void
   resetLS: () => void
-}
-
-interface ILSCart {
-  total: number
-  discountedTotal: number
-  totalProducts: number
-  totalQuantity: number
 }
 
 const NAMESPACE = 'cart'
@@ -37,7 +32,7 @@ const NAMESPACE = 'cart'
 export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
   const { value: cartId, setValue: setCartId } = useRefString('')
 
-  const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ILSCart>(
+  const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ICartTotal>(
     NAMESPACE,
     {
       total: 0,
@@ -66,6 +61,13 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
   function cartHasProduct(id: number) {
     return Boolean(findInCart(id))
+  }
+
+  async function loadCartById() {
+    const { data } = await api.getById(cartId.value)
+
+    setCart(data)
+    refresh(data.products)
   }
 
   async function addToCart(id: number) {
@@ -111,7 +113,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     updateLSCartProducts()
   }
 
-  function setCart(data: ICartResponse) {
+  function setCart(data: ICartTotal) {
     total.value = data.total
     totalQuantity.value = data.totalQuantity
     totalProducts.value = data.totalProducts
@@ -140,6 +142,17 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     return findBy(id, cartProducts)
   }
 
+  function reset() {
+    setCartId('')
+    setCart({
+      total: 0,
+      totalProducts: 0,
+      discountedTotal: 0,
+      totalQuantity: 0
+    })
+    refresh([])
+  }
+
   function resetLS() {
     setLSCart({
       total: 0,
@@ -159,10 +172,12 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     discountedTotal,
     cartProducts,
     inCart,
+    loadCartById,
     cartHasProduct,
     addToCart,
     removeFromCart,
     updateProductQuantity,
+    reset,
     resetLS
   }
 })

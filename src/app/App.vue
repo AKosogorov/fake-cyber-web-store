@@ -64,6 +64,7 @@ async function login() {
     })
 
     await auth.loadSessionUser(data.user_id)
+    await auth.loadStoresData()
   } catch (e: any) {
     showError(e.message)
   }

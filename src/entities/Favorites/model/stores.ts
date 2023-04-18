@@ -13,7 +13,7 @@ interface IStore {
   remove: (id: number) => void
   checkInFavoritesBy: (id: number) => boolean
   setFavoritesId: (id: FirebaseApi.TId) => void
-  loadFavorites: () => Promise<void>
+  loadFavoritesById: () => Promise<void>
   reset: () => void
   resetLS: () => void
 }
@@ -52,7 +52,7 @@ export const useFavoritesStore = defineStore(namespace, (): IStore => {
     return !!findSimpleBy(id, productIds)
   }
 
-  async function loadFavorites() {
+  async function loadFavoritesById() {
     const { data } = await api.getById(favoritesId.value)
 
     refreshProductIds(data.productIds)
@@ -78,7 +78,7 @@ export const useFavoritesStore = defineStore(namespace, (): IStore => {
     remove,
     refreshProductIds,
     checkInFavoritesBy,
-    loadFavorites,
+    loadFavoritesById,
     reset,
     resetLS
   }

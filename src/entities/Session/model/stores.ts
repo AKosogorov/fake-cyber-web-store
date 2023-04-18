@@ -90,6 +90,9 @@ export const useSessionStore = defineStore(namespaced, () => {
     user.username = data.username
     user.gender = data.gender
     user.email = data.email
+    user.cartId = data.cartId
+    user.favoritesId = data.favoritesId
+    user.walletId = data.walletId
   }
 
   function logout() {

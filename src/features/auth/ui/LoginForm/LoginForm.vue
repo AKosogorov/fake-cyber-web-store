@@ -40,6 +40,7 @@ const onSubmit = handleSubmit(async values => {
 
     session.setTokens(data)
     await auth.loadSessionUser(data.localId)
+    await auth.loadStoresData()
   } catch (e: any) {
     showError(e.message)
   }

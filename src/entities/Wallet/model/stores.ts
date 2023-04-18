@@ -11,7 +11,7 @@ import { useRefString } from '@/shared/lib/use/base/useRefString'
 interface IWalletStore {
   setWalletId: (id: FirebaseApi.TId) => void
   setBalance: (sum: number) => void
-  loadWallet: () => Promise<void>
+  loadWalletById: () => Promise<void>
   balance: Ref<number>
   changelog: IChangelogItem[]
   refill: (income: number) => Promise<void>
@@ -68,7 +68,7 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
     add(item)
   }
 
-  async function loadWallet() {
+  async function loadWalletById() {
     const { data } = await api.getById(walletId.value)
     setBalance(data.balance)
 
@@ -86,7 +86,7 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
   return {
     setWalletId,
     setBalance,
-    loadWallet,
+    loadWalletById,
     balance,
     changelog,
     refill,
