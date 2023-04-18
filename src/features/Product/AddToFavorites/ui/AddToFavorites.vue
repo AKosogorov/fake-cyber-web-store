@@ -6,12 +6,15 @@
 import { ButtonLike } from '@/shared/ui/buttons'
 import { FavoritesModel } from '@/entities/Favorites'
 import { useIsLike } from '@/shared/lib/use/useIsLike'
+import { useAddToFavorites } from '@/features/Product/AddToFavorites/model'
 
 const props = defineProps<{
   id: number
 }>()
 
-const { add, remove, checkInFavoritesBy } = FavoritesModel.useFavoritesStore()
+const { checkInFavoritesBy } = FavoritesModel.useFavoritesStore()
+
+const { add, remove } = useAddToFavorites()
 
 const { isLike, toggleIsLike } = useIsLike(checkInFavoritesBy(props.id))
 

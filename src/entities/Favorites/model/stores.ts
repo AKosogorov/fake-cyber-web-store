@@ -5,8 +5,10 @@ import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { useRefString } from '@/shared/lib/use/base/useRefString'
 import { findSimpleBy } from '@/shared/lib/utils/array'
 import { useLocalStorage } from '@/shared/lib/browser'
+import type { Ref } from 'vue'
 
 interface IStore {
+  favoritesId: Ref<FirebaseApi.TId>
   productIds: number[]
   refreshProductIds: (data: number[]) => void
   add: (id: number) => void
@@ -72,6 +74,7 @@ export const useFavoritesStore = defineStore(namespace, (): IStore => {
   }
 
   return {
+    favoritesId,
     setFavoritesId,
     productIds,
     add,
