@@ -13,11 +13,11 @@ export interface IWalletFB {
 export interface IChangelogItem {
   balance: number
   date: number
-  income: number
+  sum: number
   operationTypeId: EOperationTypes
 }
 
 export enum EOperationTypes {
   refill = 1,
-  writeOff
+  writeOff = 2
 }
