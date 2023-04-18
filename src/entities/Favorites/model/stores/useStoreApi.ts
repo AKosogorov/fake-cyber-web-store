@@ -9,6 +9,7 @@ import { findSimpleBy } from '@/shared/lib/utils/array'
 interface IStoreApi extends IStore {
   setFavoritesId: (id: FirebaseApi.TId) => void
   loadFavorites: () => Promise<void>
+  refreshProductIds: (data: number[]) => void
 }
 
 const namespace = 'favorites'
@@ -20,7 +21,7 @@ export const useStoreApi = defineStore(namespace, (): IStoreApi => {
     array: productIds,
     add,
     remove: removeId,
-    refresh
+    refresh: refreshProductIds
   } = useReactiveArray<number>()
 
   function remove(id: number) {
@@ -34,21 +35,22 @@ export const useStoreApi = defineStore(namespace, (): IStoreApi => {
   async function loadFavorites() {
     const { data } = await api.getById(favoritesId.value)
 
-    refresh(data.productIds)
+    refreshProductIds(data.productIds)
   }
 
   function reset() {
     setFavoritesId('')
-    refresh([])
+    refreshProductIds([])
   }
 
   return {
     setFavoritesId,
+    productIds,
     add,
     remove,
+    refreshProductIds,
     checkInFavoritesBy,
     loadFavorites,
-    productIds,
     reset
   }
 })

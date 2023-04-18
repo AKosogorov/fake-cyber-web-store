@@ -42,10 +42,13 @@ import type { IRadioItem } from '@/shared/ui/form'
 import type { FirebaseApi } from '@/shared/api'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { emailRegexp } from '@/shared/lib/regexp'
+import { useSignUp } from '../../model'
 
 const router = useRouter()
 const appRoutes = useAppRoutes()
 const session = SessionModel.useSessionStore()
+
+const { createEntities } = useSignUp()
 const { showError } = useAlertsStore()
 
 const validationSchema = toTypedSchema(
@@ -81,6 +84,7 @@ const onSubmit = handleSubmit(async values => {
     }
 
     await createAndSetUser(data.localId, userData)
+    await createEntities(data.localId)
 
     goToPersonalArea()
   } catch (e: any) {

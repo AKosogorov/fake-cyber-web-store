@@ -12,7 +12,7 @@ export interface IUserFB {
   phone?: string
   avatar?: string
   walletId?: FirebaseApi.TId
-  favoriteId?: FirebaseApi.TId
+  favoritesId?: FirebaseApi.TId
   cartId?: FirebaseApi.TId
   orderIds?: FirebaseApi.TId[]
   commentIds?: FirebaseApi.TId[]
