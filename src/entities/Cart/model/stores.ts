@@ -12,17 +12,24 @@ import { useRefString } from '@/shared/lib/use/base/useRefString'
 interface ICartStore {
   cartId: Ref<string>
   setCartId: (val: string) => void
+  loadCartById: () => Promise<void>
+
   total: Ref<number>
   totalQuantity: Ref<number>
   totalProducts: Ref<number>
   discountedTotal: Ref<number>
+  setCart: (data: ICartTotal) => void
+
   cartProducts: ICartProduct[]
-  loadCartById: () => Promise<void>
   cartHasProduct: (id: number) => boolean
   inCart: ComputedRef<number>
-  addToCart: (id: number) => Promise<void>
-  removeFromCart: (id: number) => Promise<void>
+  add: (item: ICartProduct) => void
+  remove: (id: number) => void
+
   updateProductQuantity: (id: number, quantity: number) => Promise<void>
+
+  updateLS: () => void
+
   reset: () => void
   resetLS: () => void
 }
@@ -31,6 +38,13 @@ const NAMESPACE = 'cart'
 
 export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
   const { value: cartId, setValue: setCartId } = useRefString('')
+
+  async function loadCartById() {
+    const { data } = await api.getById(cartId.value)
+
+    setCart(data)
+    refresh(data.products)
+  }
 
   const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ICartTotal>(
     NAMESPACE,
@@ -61,31 +75,6 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
   function cartHasProduct(id: number) {
     return Boolean(findInCart(id))
-  }
-
-  async function loadCartById() {
-    const { data } = await api.getById(cartId.value)
-
-    setCart(data)
-    refresh(data.products)
-  }
-
-  async function addToCart(id: number) {
-    const product = { id, quantity: 1 }
-    const { data } = await api.calculate([...cartProducts, product])
-
-    setCart(data)
-
-    const item = data.products.pop()
-    if (!item) return updateLS()
-
-    add(item)
-    updateLS()
-  }
-
-  async function removeFromCart(id: number) {
-    remove(id)
-    await updateCart()
   }
 
   async function updateCart() {
@@ -166,17 +155,24 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
   return {
     cartId,
     setCartId,
+    loadCartById,
+
     total,
     totalQuantity,
     totalProducts,
     discountedTotal,
+    setCart,
+
     cartProducts,
     inCart,
-    loadCartById,
     cartHasProduct,
-    addToCart,
-    removeFromCart,
+    add,
+    remove,
+
     updateProductQuantity,
+
+    updateLS,
+
     reset,
     resetLS
   }

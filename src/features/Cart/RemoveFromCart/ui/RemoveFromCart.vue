@@ -4,13 +4,13 @@
 
 <script setup lang="ts">
 import { ButtonRemove } from '@/shared/ui/buttons'
-import { CartModel } from '@/entities/Cart'
+import { useRemoveFromCart } from '../model'
 
 const props = defineProps<{
   id: number
 }>()
 
-const { removeFromCart } = CartModel.useCartStore()
+const { removeFromCart } = useRemoveFromCart()
 
 function onClick() {
   removeFromCart(props.id)
