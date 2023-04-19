@@ -7,9 +7,12 @@ import { CartModel } from '@/entities/Cart'
 
 export function useAuth() {
   const session = SessionModel.useSessionStore()
+
   const { setCartId, loadCartById } = CartModel.useCartStore()
+
   const { setFavoritesId, loadFavoritesById } =
     FavoritesModel.useFavoritesStore()
+
   const { setWalletId, loadWalletById } = WalletModel.useWalletStore()
 
   async function loadSessionUser(id: FirebaseApi.TId) {
