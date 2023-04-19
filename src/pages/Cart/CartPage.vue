@@ -30,13 +30,9 @@
 
       <aside class="cart-page__aside">
         <CartTotal>
-          <template v-slot:order>
+          <template v-if="store.cartProducts.length" v-slot:order>
             <div class="relative">
-              <CyberButtonSubmit
-                class="w-100"
-                txt="ORDER"
-                :is-submitting="false"
-              />
+              <CreateOrderForm />
 
               <router-link
                 v-if="!session.isAuth"
@@ -52,12 +48,12 @@
 </template>
 
 <script setup lang="ts">
+import { useAppRoutes } from '@/app/providers'
+import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
+import { AddToFavorites } from '@/features/Product'
+import { CreateOrderForm } from '@/features/Order/create-order'
 import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
 import { SessionModel } from '@/entities/Session'
-import { AddToFavorites } from '@/features/Product'
-import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
-import { CyberButtonSubmit } from '@/shared/ui/cyber'
-import { useAppRoutes } from '@/app/providers'
 
 const store = CartModel.useCartStore()
 const session = SessionModel.useSessionStore()

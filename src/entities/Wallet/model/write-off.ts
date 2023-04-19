@@ -1,7 +1,9 @@
-import { WalletModel } from '@/entities/Wallet'
+import type { IChangelogItem } from './types'
+import { useWalletStore } from './stores'
+import { EOperationTypes } from './types'
 
-export function useWriteOffWallet() {
-  const store = WalletModel.useWalletStore()
+export function useWriteOff() {
+  const store = useWalletStore()
 
   async function writeOff(sum: number) {
     if (sum > store.balance) {
@@ -10,11 +12,11 @@ export function useWriteOffWallet() {
 
     const balanceUpdated = store.balance - sum
 
-    const changelogItem: WalletModel.IChangelogItem = {
+    const changelogItem: IChangelogItem = {
       balance: balanceUpdated,
       date: Date.now(),
       sum,
-      operationTypeId: WalletModel.EOperationTypes.writeOff
+      operationTypeId: EOperationTypes.writeOff
     }
 
     await store.updateAndSync(balanceUpdated, changelogItem)

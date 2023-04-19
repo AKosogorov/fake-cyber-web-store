@@ -1,5 +1,5 @@
 <template>
-  <form class="form column gap-l" novalidate @submit="handlerSubmit">
+  <form class="form column gap-m" novalidate @submit="handlerSubmit">
     <slot />
 
     <div class="form__buttons row">

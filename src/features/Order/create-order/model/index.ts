@@ -6,17 +6,23 @@ import { UserApi } from '@/entities/User'
 import { SessionModel } from '@/entities/Session'
 
 import { MINUTE } from '@/shared/lib/utils/date/const'
+import { WalletModel } from '@/entities/Wallet'
 
 export function useCreateOrder() {
   const session = SessionModel.useSessionStore()
   const cart = CartModel.useCartStore()
   const { updateCart } = CartModel.useCartUpdate()
+  const { writeOff } = WalletModel.useWriteOff()
 
   interface IPayload {
     isPrepaid: boolean
   }
 
   async function createOrder(payload: IPayload) {
+    if (payload.isPrepaid) {
+      await writeOff(cart.discountedTotal)
+    }
+
     const orderData = {
       userId: session.user.id,
       dateShipment: Date.now() + MINUTE,
