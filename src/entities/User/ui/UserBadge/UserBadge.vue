@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import type { IUser } from '../../model'
 import { computed } from 'vue'
+import { BASE_URL } from '@/shared/config'
 
 interface IProps {
   user: IUser
@@ -22,7 +23,7 @@ const avatarSrc = computed(() => {
     return props.user.avatar
   }
 
-  return `/image/${props.user.gender}.png`
+  return `${BASE_URL}/image/${props.user.gender}.png`
 })
 </script>
 
