@@ -18,7 +18,8 @@ const errors = {
   patchGender: createApiErrorUpdate('gender'),
   patchCartId: createApiErrorUpdate('basket id'),
   patchWalletId: createApiErrorUpdate('wallet id'),
-  patchFavoritesId: createApiErrorUpdate('favorite id')
+  patchFavoritesId: createApiErrorUpdate('favorite id'),
+  patchOrderIds: createApiErrorUpdate('order id')
 } as const
 
 export const api = {
@@ -28,7 +29,8 @@ export const api = {
   patchGender,
   patchCartId,
   patchWalletId,
-  patchFavoritesId
+  patchFavoritesId,
+  patchOrderIds
 } as const
 
 async function getById(id: FirebaseApi.TId) {
@@ -97,5 +99,16 @@ async function patchFavoritesId(
     return await FirebaseApi.patch(USER_URL, id, data)
   } catch (e) {
     throw new Error(errors.patchFavoritesId)
+  }
+}
+
+async function patchOrderIds(
+  id: FirebaseApi.TId,
+  data: { orderIds: FirebaseApi.TId[] }
+) {
+  try {
+    return await FirebaseApi.patch(USER_URL, id, data)
+  } catch (e) {
+    throw new Error(errors.patchOrderIds)
   }
 }

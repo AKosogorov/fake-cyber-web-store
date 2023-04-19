@@ -1,9 +1,8 @@
 import { CartApi, CartModel } from '@/entities/Cart'
-import { useCartUpdate } from '../../model'
 
 export function useAddToCart() {
   const store = CartModel.useCartStore()
-  const { updateCart } = useCartUpdate()
+  const { updateCart } = CartModel.useCartUpdate()
 
   async function addToCart(id: number) {
     const product = { id, quantity: 1 }

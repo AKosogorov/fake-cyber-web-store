@@ -30,6 +30,7 @@ interface ICartStore {
   updateLS: () => void
 
   reset: () => void
+  clearCart: () => void
   resetLS: () => void
 }
 
@@ -107,6 +108,10 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
 
   function reset() {
     setCartId('')
+    clearCart()
+  }
+
+  function clearCart() {
     setCart({
       total: 0,
       totalProducts: 0,
@@ -147,6 +152,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     updateLS,
 
     reset,
+    clearCart,
     resetLS
   }
 })
