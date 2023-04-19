@@ -25,7 +25,9 @@
       <div class="row gap-xxs">
         <CardLink :to="appRoutes.getArchive()">Purchases</CardLink>
 
-        <CardLink :to="appRoutes.getWallet()">Wallet</CardLink>
+        <CardLink :to="appRoutes.getWallet()">
+          <WalletBalance />
+        </CardLink>
       </div>
     </div>
   </div>
@@ -35,6 +37,7 @@
 <script setup lang="ts">
 import { LogoutButton } from '@/features/auth'
 import { UserBadge } from '@/entities/User'
+import { WalletBalance } from '@/entities/Wallet'
 import { VNavigation } from '@/shared/ui/navigation'
 import { CardLink } from '@/shared/ui/cards'
 import { VInfo } from '@/shared/ui/text'

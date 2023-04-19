@@ -6,8 +6,8 @@
       {{ date }}
     </div>
 
-    <div class="row between gap-m">
-      <div class="row gap-s blue">
+    <div class="wallet-changelog-card__grid row between gap-m">
+      <div class="wallet-changelog-card__operation row gap-s blue">
         <div
           class="wallet-changelog-card__circle"
           :class="[classColor, isRefill ? 'pseudo-plus' : 'pseudo-minus']"
@@ -16,10 +16,12 @@
         {{ operation }}
       </div>
 
-      <div class="column ai-fe gap-xxs">
-        <span :class="classColor">{{ sum }}</span>
+      <div class="wallet-changelog-card__sum" :class="classColor">
+        {{ sum }}
+      </div>
 
-        <span class="blue">Balance: {{ balance }}</span>
+      <div class="wallet-changelog-card__balance blue">
+        Balance: {{ balance }}
       </div>
     </div>
   </div>

@@ -56,6 +56,14 @@
   }
 }
 
+@media (max-width: $breakpoint-s) {
+  .modal {
+    &__content {
+      max-width: calc(100% - (var(--xs) * 2));
+    }
+  }
+}
+
 @keyframes modalContent {
   from {
     transform: scale(0.5);
