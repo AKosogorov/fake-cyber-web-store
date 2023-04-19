@@ -8,7 +8,11 @@
       </div>
 
       <div class="wallet-page__aside">
-        <WalletBalance />
+        <WalletBalance>
+          <template v-slot:refill>
+            <RefillWallet />
+          </template>
+        </WalletBalance>
       </div>
     </div>
   </div>
@@ -16,6 +20,7 @@
 
 <script setup lang="ts">
 import { WalletBalance, WalletChangelog } from '@/entities/Wallet'
+import { RefillWallet } from '@/features/Wallet/refill-wallet'
 </script>
 
 <style lang="scss">

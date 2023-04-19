@@ -14,8 +14,8 @@ interface IWalletStore {
   loadWalletById: () => Promise<void>
   balance: Ref<number>
   changelog: IChangelogItem[]
-  refill: (income: number) => Promise<void>
   writeOff: (income: number) => Promise<void>
+  updateAndSync: (balance: number, item: IChangelogItem) => Promise<void>
   reset: () => void
 }
 
@@ -31,19 +31,6 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
     add,
     refresh: refreshChangelog
   } = useReactiveArray<IChangelogItem>()
-
-  async function refill(sum: number) {
-    const balanceUpdated = balance.value + sum
-
-    const changelogItem: IChangelogItem = {
-      balance: balanceUpdated,
-      date: Date.now(),
-      sum,
-      operationTypeId: EOperationTypes.refill
-    }
-
-    await updateAndSync(balanceUpdated, changelogItem)
-  }
 
   async function writeOff(sum: number) {
     const balanceUpdated = balance.value - sum
@@ -89,8 +76,8 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
     loadWalletById,
     balance,
     changelog,
-    refill,
     writeOff,
+    updateAndSync,
     reset
   }
 })
