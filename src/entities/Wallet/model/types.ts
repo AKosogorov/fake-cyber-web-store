@@ -19,5 +19,7 @@ export interface IChangelogItem {
 
 export enum EOperationTypes {
   refill = 1,
-  writeOff = 2
+  payment = 2,
+  refund = 3,
+  withdrawal = 4
 }

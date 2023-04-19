@@ -16,7 +16,7 @@ export function useWriteOff() {
       balance: balanceUpdated,
       date: Date.now(),
       sum,
-      operationTypeId: EOperationTypes.writeOff
+      operationTypeId: EOperationTypes.payment
     }
 
     await store.updateAndSync(balanceUpdated, changelogItem)

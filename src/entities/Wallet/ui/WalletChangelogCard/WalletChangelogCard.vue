@@ -10,7 +10,7 @@
       <div class="wallet-changelog-card__operation row gap-s blue">
         <div
           class="wallet-changelog-card__circle"
-          :class="[classColor, isRefill ? 'pseudo-plus' : 'pseudo-minus']"
+          :class="[classColor, isPositive ? 'pseudo-plus' : 'pseudo-minus']"
         />
 
         {{ operation }}
@@ -43,32 +43,26 @@ const props = defineProps<IProps>()
 
 const date = computed(() => formatDateTime(props.item.date))
 
-const operation = computed(() => {
-  switch (props.item.operationTypeId) {
-    case EOperationTypes.refill:
-      return WALLET_OPERATION_TYPES[0].name
-    default:
-      return WALLET_OPERATION_TYPES[1].name
-  }
-})
-
-const classColor = computed(() => {
-  switch (props.item.operationTypeId) {
-    case EOperationTypes.refill:
-      return 'green'
-    default:
-      return 'red'
-  }
-})
-
-const isRefill = computed(
-  () => props.item.operationTypeId === EOperationTypes.refill
+const operation = computed(
+  () => WALLET_OPERATION_TYPES[props.item.operationTypeId - 1].name
 )
+
+const isPositive = computed(() => {
+  switch (props.item.operationTypeId) {
+    case EOperationTypes.refill:
+    case EOperationTypes.refund:
+      return true
+    default:
+      return false
+  }
+})
+
+const classColor = computed(() => (isPositive.value ? 'green' : 'red'))
 
 const sumFormatted = computed(() => formatUSD(props.item.sum))
 
 const sum = computed(() => {
-  const operator = isRefill.value ? '+' : '-'
+  const operator = isPositive.value ? '+' : '-'
   return `${operator}${sumFormatted.value}`
 })
 
