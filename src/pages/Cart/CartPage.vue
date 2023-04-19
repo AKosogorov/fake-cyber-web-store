@@ -29,7 +29,23 @@
       <h3 v-else>Your basket is empty</h3>
 
       <aside class="cart-page__aside">
-        <CartTotal />
+        <CartTotal>
+          <template v-slot:order>
+            <div class="relative">
+              <CyberButtonSubmit
+                class="w-100"
+                txt="ORDER"
+                :is-submitting="false"
+              />
+
+              <router-link
+                v-if="!session.isAuth"
+                class="abs-full"
+                :to="appRoutes.getLogin()"
+              />
+            </div>
+          </template>
+        </CartTotal>
       </aside>
     </div>
   </div>
@@ -37,10 +53,15 @@
 
 <script setup lang="ts">
 import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
+import { SessionModel } from '@/entities/Session'
 import { AddToFavorites } from '@/features/Product'
 import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
+import { CyberButtonSubmit } from '@/shared/ui/cyber'
+import { useAppRoutes } from '@/app/providers'
 
 const store = CartModel.useCartStore()
+const session = SessionModel.useSessionStore()
+const appRoutes = useAppRoutes()
 </script>
 
 <style lang="scss">

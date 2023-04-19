@@ -7,6 +7,8 @@
       Total
       <VPrice :price="store.total" :price-discount="store.discountedTotal" />
     </div>
+
+    <slot name="order" />
   </div>
 </template>
 

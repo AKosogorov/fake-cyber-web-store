@@ -2,7 +2,7 @@ import type {
   ICartFB,
   ICartProductBase,
   ICartDummyJsonResponse
-} from '../model/types'
+} from '../model'
 import {
   createApiErrorGetById,
   createApiErrorCreate,

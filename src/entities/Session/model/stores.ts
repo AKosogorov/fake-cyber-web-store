@@ -1,4 +1,4 @@
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@/shared/lib/browser'
 import { REFRESH_TOKEN_KEY, TOKEN_EXPIRES_IN, TOKEN_KEY } from '@/shared/config'
@@ -85,6 +85,8 @@ export const useSessionStore = defineStore(namespaced, () => {
     email: ''
   })
 
+  const isAuth = computed(() => Boolean(user.id))
+
   function setUser(data: ISessionUser) {
     user.id = data.id
     user.username = data.username
@@ -114,6 +116,7 @@ export const useSessionStore = defineStore(namespaced, () => {
     refreshToken,
     user,
     setUser,
+    isAuth,
     logout
   }
 })
