@@ -1,0 +1,44 @@
+.wallet-changelog-card {
+  position: relative;
+  padding: var(--s);
+
+  &__date {
+    position: relative;
+
+    &::before {
+      right: 0;
+      width: 120px;
+      height: 2px;
+    }
+  }
+
+  &__circle {
+    position: relative;
+    width: var(--s);
+    height: var(--s);
+  }
+
+  .cyber-card {
+    &::before {
+      background-color: var(--color__blue);
+    }
+
+    &::after {
+      background-color: var(--color__black);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .wallet-changelog-card {
+    &__date {
+      &::before {
+        width: 60px;
+      }
+    }
+
+    &__circle {
+      display: none;
+    }
+  }
+}

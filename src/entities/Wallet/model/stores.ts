@@ -14,7 +14,6 @@ interface IWalletStore {
   loadWalletById: () => Promise<void>
   balance: Ref<number>
   changelog: IChangelogItem[]
-  writeOff: (income: number) => Promise<void>
   updateAndSync: (balance: number, item: IChangelogItem) => Promise<void>
   reset: () => void
 }
@@ -31,19 +30,6 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
     add,
     refresh: refreshChangelog
   } = useReactiveArray<IChangelogItem>()
-
-  async function writeOff(sum: number) {
-    const balanceUpdated = balance.value - sum
-
-    const changelogItem: IChangelogItem = {
-      balance: balanceUpdated,
-      date: Date.now(),
-      sum,
-      operationTypeId: EOperationTypes.writeOff
-    }
-
-    await updateAndSync(balanceUpdated, changelogItem)
-  }
 
   async function updateAndSync(balance: number, item: IChangelogItem) {
     await api.update(walletId.value, {
@@ -76,7 +62,6 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
     loadWalletById,
     balance,
     changelog,
-    writeOff,
     updateAndSync,
     reset
   }

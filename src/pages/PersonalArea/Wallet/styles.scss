@@ -1,7 +1,7 @@
 .wallet-page {
   &__grid {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 200px 1fr;
     grid-template-areas: 'aside changelog';
     gap: var(--l);
   }
