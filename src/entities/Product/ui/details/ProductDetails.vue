@@ -56,7 +56,7 @@
 <script setup lang="ts">
 import RatingStars from '@/shared/ui/RatingStars'
 import { ImagesSwiper } from '@/shared/ui/swipers'
-import VPrice from '@/shared/ui/VPrice'
+import { VPrice } from '@/shared/ui/VPrice'
 import { InfoShort } from '@/shared/ui/text'
 
 import type { ProductModel } from '@/entities/Product'

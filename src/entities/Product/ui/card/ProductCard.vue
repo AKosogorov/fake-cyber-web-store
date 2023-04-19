@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { ImagesSwiper } from '@/shared/ui/swipers'
-import VPrice from '@/shared/ui/VPrice'
+import { VPrice } from '@/shared/ui/VPrice'
 import RatingStars from '@/shared/ui/RatingStars'
 import type { IProduct } from '../../model'
 import { EAppPixelSize } from '@/shared/lib/types/app'

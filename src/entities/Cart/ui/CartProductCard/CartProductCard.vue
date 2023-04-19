@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import VPrice from '@/shared/ui/VPrice'
+import { VPrice } from '@/shared/ui/VPrice'
 import { CyberCard } from '@/shared/ui/cyber'
 import type { ICartProduct } from '../../model'
 import { IconDiscount } from '@/shared/ui/icons'

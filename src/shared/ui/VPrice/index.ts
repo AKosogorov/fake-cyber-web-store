@@ -1,2 +1,2 @@
-import VPrice from './VPrice.vue'
-export default VPrice
+export { default as VPrice } from './VPrice.vue'
+export * from './const'
