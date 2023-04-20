@@ -1,18 +1,18 @@
 <template>
   <div class="container">
     <ButtonSubmit
-      :is-submitting="store.isLoading"
-      @click="store.loadAllByUser(session.user.id)"
+      :is-submitting="orderStore.isLoading"
+      @click="orderStore.loadAllByUser(session.user.id)"
     />
 
-    <h3 v-if="!orders.length">No orders</h3>
+    <h3 v-if="!orderStore.ordersFiltered.delivery.length">No orders</h3>
 
     <div
       v-else
       class="column gap-m"
     >
       <OrderCard
-        v-for="order of orders"
+        v-for="order of orderStore.ordersFiltered.delivery"
         :key="order.createdAt"
         :order="order"
       >
@@ -36,6 +36,19 @@
             v-if="order.isPrepaid && order.statusId === OrderModel.EOrderStatus.ready"
             :order-id="order.id"
           />
+
+          <VButton
+            txt="1"
+            @click="() => one(order.id)"
+          />
+          <VButton
+            txt="2"
+            @click="() => two(order.id)"
+          />
+          <VButton
+            txt="3"
+            @click="() => three(order.id)"
+          />
         </template>
       </OrderCard>
     </div>
@@ -43,22 +56,26 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { OrderModel, OrderCard, OrderProduct } from '@/entities/Order'
-import { GetOrder } from '@/features/Order/get-order'
+import { GetOrder, GetOrderModel } from '@/features/Order/get-order'
 import { PayOrder } from '@/features/Order/pay-order'
 import { ButtonSubmit, VButton } from '@/shared/ui/buttons'
 import { useSessionStore } from '@/entities/Session/model'
 
 const session = useSessionStore()
-const store = OrderModel.useOrderStore()
+const orderStore = OrderModel.useOrderStore()
 
-const orders = computed(() =>
-  Object.entries(store.orders).map(item => {
-    return {
-      id: item[0],
-      ...item[1]
-    }
-  })
-)
+const { getOrder } = GetOrderModel.useGetOrder()
+
+function one(id: string) {
+  getOrder(id, OrderModel.EOrderStatus.delivery)
+}
+
+function two(id: string) {
+  getOrder(id, OrderModel.EOrderStatus.ready)
+}
+
+function three(id: string) {
+  getOrder(id, OrderModel.EOrderStatus.purchased)
+}
 </script>
