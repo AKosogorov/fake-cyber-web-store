@@ -8,19 +8,18 @@
   &__text {
     z-index: 1;
     color: inherit;
-    transition: var(--transition-duration) color
-      var(--transition-timing-function);
+    transition: var(--transition-duration) color var(--transition-timing-function);
   }
 
   &__border-decorate {
-    color: var(--color__black);
+    //color: var(--color__black);
 
-    &--after {
+    &--before {
       top: 1px;
       right: 11px;
       bottom: 1px;
       left: 11px;
-      color: var(--color__blue);
+      //color: var(--color__blue);
     }
   }
 

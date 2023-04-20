@@ -4,7 +4,7 @@
       &__border-decorate {
         color: var(--color__red);
 
-        &--after {
+        &--before {
           color: var(--color__blue);
         }
       }
@@ -16,7 +16,7 @@
       &__border-decorate {
         color: var(--color__red--dark);
 
-        &--after {
+        &--before {
           color: var(--color__blue);
         }
       }

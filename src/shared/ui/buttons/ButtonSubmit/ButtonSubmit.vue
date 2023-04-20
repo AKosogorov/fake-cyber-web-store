@@ -6,6 +6,8 @@
     :txt="txt"
     :border-left-icon="borderLeftIcon"
     :border-right-icon="borderRightIcon"
+    :before-bg-color="beforeBgColor"
+    :after-bg-color="afterBgColor"
     :disabled="isDisabled || isSubmitting"
   >
     <SpinnerLoader
@@ -20,11 +22,14 @@
 import { VButton } from '../base'
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
 import { SpinnerLoader } from '@/shared/ui/loaders'
+import { EAppColor } from '@/shared/lib/types/app'
 
 interface IButtonSubmit {
   txt?: string
   borderLeftIcon?: EBorderDecorateIcons
   borderRightIcon?: EBorderDecorateIcons
+  beforeBgColor?: EAppColor
+  afterBgColor?: EAppColor
   isSubmitting: boolean
   isDisabled?: boolean
 }

@@ -32,9 +32,9 @@
             :sum="order.discountedTotal"
           />
 
-          <VButton
+          <GetOrder
             v-if="order.isPrepaid && order.statusId === OrderModel.EOrderStatus.ready"
-            txt="Get order"
+            :order-id="order.id"
           />
         </template>
       </OrderCard>
@@ -45,6 +45,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { OrderModel, OrderCard, OrderProduct } from '@/entities/Order'
+import { GetOrder } from '@/features/Order/get-order'
 import { PayOrder } from '@/features/Order/pay-order'
 import { ButtonSubmit, VButton } from '@/shared/ui/buttons'
 import { useSessionStore } from '@/entities/Session/model'

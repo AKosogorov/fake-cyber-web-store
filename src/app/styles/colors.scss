@@ -9,13 +9,22 @@
 .yellow {
   color: var(--color__yellow);
 }
+.yellow--dark {
+  color: var(--color__yellow--dark);
+}
 
 .green {
   color: var(--color__green);
 }
+.green--dark {
+  color: var(--color__green--dark);
+}
 
 .red {
   color: var(--color__red);
+}
+.red--dark {
+  color: var(--color__red--dark);
 }
 
 .grey {
@@ -25,6 +34,9 @@
 .blue {
   color: var(--color__blue);
 }
+.blue--dark {
+  color: var(--color__blue--dark);
+}
 
 .dark-blue {
   color: var(--color__dark-blue);
@@ -32,6 +44,10 @@
 
 .purple {
   color: var(--color__purple);
+}
+
+.gradient {
+  color: var(--gradient__prb);
 }
 
 .bg-white {
@@ -68,6 +84,9 @@
 
 .bg-purple {
   background-color: var(--color__purple);
+}
+.bg-gradient {
+  background-color: var(--gradient__prb);
 }
 
 .shadow-black {
