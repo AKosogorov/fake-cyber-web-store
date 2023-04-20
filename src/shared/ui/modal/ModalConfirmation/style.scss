@@ -1,0 +1,25 @@
+.modal-confirmation {
+  &__button-confirm {
+    .button {
+      &__border-decorate {
+        color: var(--color__red);
+
+        &--after {
+          color: var(--color__blue);
+        }
+      }
+    }
+  }
+
+  &__button-reject {
+    .button {
+      &__border-decorate {
+        color: var(--color__red--dark);
+
+        &--after {
+          color: var(--color__blue);
+        }
+      }
+    }
+  }
+}
