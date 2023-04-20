@@ -1,5 +1,35 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <ButtonSubmit
+      :is-submitting="store.isLoading"
+      @click="store.loadAllByUser(session.user.id)"
+    />
+
+    <h3 v-if="!orders.length">No orders</h3>
+
+    <div v-else class="column gap-m">
+      <OrderCard v-for="order of orders" :key="order.createdAt" :order="order">
+        <template v-slot:products="slotProps">
+          <OrderProduct
+            v-for="product of order.products"
+            :key="product.id"
+            :product="product"
+            :color="slotProps.color"
+          />
+        </template>
+      </OrderCard>
+    </div>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from 'vue'
+import { OrderModel, OrderCard, OrderProduct } from '@/entities/Order'
+import { ButtonSubmit } from '@/shared/ui/buttons'
+import { useSessionStore } from '@/entities/Session/model'
+
+const session = useSessionStore()
+const store = OrderModel.useOrderStore()
+
+const orders = computed(() => Object.values(store.orders))
+</script>

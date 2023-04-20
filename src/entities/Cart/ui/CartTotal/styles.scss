@@ -15,16 +15,6 @@
       }
     }
   }
-
-  .cyber-card {
-    &::before {
-      background-color: var(--color__blue);
-    }
-
-    &::after {
-      background-color: var(--color__black);
-    }
-  }
 }
 
 @media (max-width: $breakpoint-s) {

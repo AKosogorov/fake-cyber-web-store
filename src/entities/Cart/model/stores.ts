@@ -43,7 +43,7 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     const { data } = await api.getById(cartId.value)
 
     setCart(data)
-    refresh(data.products)
+    refresh(data.products || [])
   }
 
   const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ICartTotal>(

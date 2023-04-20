@@ -5,6 +5,14 @@ import type { IStringIdx } from '@/shared/lib/types/object'
 import { setCreatedAtTo, setUpdatedAtTo } from '@/shared/lib/utils/date'
 
 type TResponse<T> = AxiosPromise<T & IBaseItem>
+type TResponseGetAll<T> = AxiosPromise<IStringIdx<T & IBaseItem>>
+
+export function getAll<T>(
+  url: string,
+  params?: IStringIdx
+): TResponseGetAll<T> {
+  return instance.get(`/${url}.json`, { params })
+}
 
 export function getById<T>(url: string, id: TId): TResponse<T> {
   return instance.get(`/${url}/${id}.json`)

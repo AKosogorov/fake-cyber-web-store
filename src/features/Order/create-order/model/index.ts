@@ -25,7 +25,7 @@ export function useCreateOrder() {
 
     const orderData = {
       userId: session.user.id,
-      dateShipment: Date.now() + MINUTE,
+      dateDelivery: Date.now() + MINUTE,
       statusId: OrderModel.EOrderStatus.delivery,
       isPrepaid: payload.isPrepaid,
       location: {

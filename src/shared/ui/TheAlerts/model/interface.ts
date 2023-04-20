@@ -13,7 +13,7 @@ export interface IAlert {
   message: string
 }
 
-type TShow = (message: string) => void
+type TShow = (message: string, timeout?: number) => void
 
 export interface IAlertsStore {
   alerts: IAlert[] | never

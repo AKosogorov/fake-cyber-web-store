@@ -33,7 +33,7 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
   function createAndSetDestroy(
     status: EAlertStatus,
     message: string,
-    timeout: number = 3000
+    timeout: number = 4000
   ): void {
     const id = counter.value
     increment()

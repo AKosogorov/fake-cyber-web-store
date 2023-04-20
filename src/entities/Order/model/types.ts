@@ -1,7 +1,13 @@
 import type { CartModel } from '@/entities/Cart'
+import type { FirebaseApi } from '@/shared/api'
+
+export interface IOrder extends IOrderFB {
+  id: FirebaseApi.TId
+}
 
 export interface IOrderFB extends CartModel.ICartFB {
-  dateShipment: number
+  dateDelivery: number
+  dateReceiving?: number
   statusId: EOrderStatus
   isPrepaid: boolean
   location: IOrderLocation

@@ -33,6 +33,8 @@
 
   &::before {
     clip-path: var(--cyber-card-clip-path);
+    color: inherit;
+    background-color: currentColor;
   }
 
   &::after {
@@ -47,6 +49,7 @@
       2px calc(100% - 2px),
       2px calc(var(--padding) + 1px)
     );
+    background-color: var(--color__black);
   }
 
   &__tag {

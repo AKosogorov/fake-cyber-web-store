@@ -28,16 +28,6 @@
     grid-area: end;
     align-items: flex-end;
   }
-
-  .cyber-card {
-    &::before {
-      background-color: var(--color__blue);
-    }
-
-    &::after {
-      background-color: var(--color__black);
-    }
-  }
 }
 
 @media (max-width: $breakpoint-m) {

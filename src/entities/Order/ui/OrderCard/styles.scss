@@ -1,0 +1,10 @@
+.order-card {
+  padding: var(--s);
+
+  &__products {
+    display: grid;
+    gap: var(--s);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+}

@@ -34,6 +34,7 @@ import { formatDateTime } from '@/shared/lib/utils/date/format'
 import { computed } from 'vue'
 import { formatUSD } from '@/shared/lib/utils/format/currency'
 import { CyberCard } from '@/shared/ui/cyber'
+import { EAppColor } from '@/shared/lib/types/app'
 
 interface IProps {
   item: IChangelogItem
@@ -57,7 +58,9 @@ const isPositive = computed(() => {
   }
 })
 
-const classColor = computed(() => (isPositive.value ? 'green' : 'red'))
+const classColor = computed(() =>
+  isPositive.value ? EAppColor.green : EAppColor.red
+)
 
 const sumFormatted = computed(() => formatUSD(props.item.sum))
 

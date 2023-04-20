@@ -7,10 +7,7 @@
     </div>
 
     <div class="cart-product-card__info">
-      <router-link
-        class="cart-product-card__link link"
-        :to="appRoutes.getProduct(cartProduct.id)"
-      >
+      <router-link class="link" :to="appRoutes.getProduct(cartProduct.id)">
         <h4>{{ cartProduct.title }}</h4>
       </router-link>
     </div>
