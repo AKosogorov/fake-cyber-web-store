@@ -18,5 +18,5 @@ import { computed } from 'vue'
 
 const store = useWalletStore()
 
-const changelog = computed(() => store.changelog!.toReversed())
+const changelog = computed(() => store.changelog.slice().reverse())
 </script>

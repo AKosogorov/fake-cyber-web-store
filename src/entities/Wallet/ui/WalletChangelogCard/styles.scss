@@ -39,7 +39,7 @@
     grid-area: balance;
   }
 
-  &__circle {
+  &__icon {
     position: relative;
     width: var(--s);
     height: var(--s);
@@ -74,7 +74,7 @@
       justify-content: initial;
     }
 
-    &__circle {
+    &__icon {
       display: none;
     }
   }

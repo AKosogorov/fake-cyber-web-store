@@ -9,7 +9,7 @@
     <div class="wallet-changelog-card__grid row between gap-m">
       <div class="wallet-changelog-card__operation row gap-s blue">
         <div
-          class="wallet-changelog-card__circle"
+          class="wallet-changelog-card__icon"
           :class="[classColor, isPositive ? 'pseudo-plus' : 'pseudo-minus']"
         />
 
