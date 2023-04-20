@@ -1,14 +1,42 @@
 <template>
   <div class="order-card column gap-xs border-radius shadow-black">
-    <OrderCardLocation :location="order.location" :color="color" />
+    <OrderCardLocation
+      :location="order.location"
+      :color="color"
+    />
 
     <div class="order-card__products">
-      <slot name="products" :color="color" />
+      <slot
+        name="products"
+        :color="color"
+      />
     </div>
 
-    <VInfo label="Order date" :txt="dateCreated" />
+    <VInfo
+      label="Order date"
+      :txt="dateCreated"
+    />
 
-    <VInfo class="yellow" label="Delivery date" :txt="dateDelivery" />
+    <VInfo
+      v-if="order.dateReceiving"
+      class="green"
+      label="Date of receiving"
+      :txt="formatDate(order.dateReceiving)"
+    />
+
+    <VInfo
+      v-else
+      class="yellow"
+      label="Delivery date"
+      :txt="dateDelivery"
+    />
+
+    <h5
+      v-if="!order.isPrepaid"
+      class="label red"
+    >
+      Waiting for payment
+    </h5>
 
     <h5 class="label">Total: {{ total }}</h5>
 

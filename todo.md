@@ -6,9 +6,8 @@
   - favorites
   - statistic
   - delivery
+    - cost delivery
   - purchased
-  - balance
-    - changelog
 - comments
 - scroll after router go
 - map

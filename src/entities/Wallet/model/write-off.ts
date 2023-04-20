@@ -5,7 +5,9 @@ import { EOperationTypes } from './types'
 export function useWriteOff() {
   const store = useWalletStore()
 
-  async function writeOff(sum: number) {
+  type TWriteOff = EOperationTypes.payment | EOperationTypes.withdrawal
+
+  async function writeOff(sum: number, operationTypeId: TWriteOff = EOperationTypes.payment) {
     if (sum > store.balance) {
       throw new Error('Insufficient funds, please replenish your account')
     }
@@ -16,7 +18,7 @@ export function useWriteOff() {
       balance: balanceUpdated,
       date: Date.now(),
       sum,
-      operationTypeId: EOperationTypes.payment
+      operationTypeId
     }
 
     await store.updateAndSync(balanceUpdated, changelogItem)
