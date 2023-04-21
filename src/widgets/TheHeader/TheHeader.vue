@@ -11,11 +11,12 @@
       </div>
 
       <div class="header__right row gap-m">
-        <router-link class="link" :to="appRoutes.getDelivery()">
-          <IconDelivery class="link__icon" />
-        </router-link>
+        <LinkToDelivery />
 
-        <router-link class="link" :to="toPersonalArea">
+        <router-link
+          class="link"
+          :to="toPersonalArea"
+        >
           <IconUser class="link__icon" />
         </router-link>
 
@@ -28,6 +29,7 @@
 <script setup lang="ts">
 import { CyberLogo } from '@/shared/ui/cyber'
 import { LinkToCart } from '@/entities/Cart'
+import { LinkToDelivery } from '@/entities/Order'
 import { ButtonBurger } from '@/shared/ui/buttons'
 import { IconUser, IconDelivery } from '@/shared/ui/icons'
 

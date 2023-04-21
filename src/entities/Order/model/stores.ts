@@ -41,6 +41,8 @@ export const useOrderStore = defineStore(namespace, () => {
     }
   })
 
+  const inDelivery = computed(() => ordersFiltered.value.delivery.length)
+
   const orderToReadyTimeouts: IStringIdx<number | undefined> = {}
 
   const { isLoading, startLoading, finishLoading } = useIsLoading()
@@ -108,5 +110,5 @@ export const useOrderStore = defineStore(namespace, () => {
     }
   }
 
-  return { orders, ordersFiltered, isLoading, loadAllByUser, addOrder }
+  return { orders, ordersFiltered, isLoading, loadAllByUser, addOrder, inDelivery }
 })
