@@ -87,6 +87,15 @@ export const useOrderStore = defineStore(namespace, () => {
     orderToReadyTimeouts[id] = setTimeout(() => patchReady(id), timeout)
   }
 
+  function reset() {
+    clearOrders()
+    clearTimeoutAll()
+  }
+  function clearOrders() {
+    for (const id in orders) {
+      delete orders[id]
+    }
+  }
   function clearTimeoutAll() {
     for (const id in orderToReadyTimeouts) {
       const timeoutId = orderToReadyTimeouts[id]
@@ -110,5 +119,5 @@ export const useOrderStore = defineStore(namespace, () => {
     }
   }
 
-  return { orders, ordersFiltered, isLoading, loadAllByUser, addOrder, inDelivery }
+  return { orders, ordersFiltered, isLoading, loadAllByUser, addOrder, inDelivery, reset }
 })

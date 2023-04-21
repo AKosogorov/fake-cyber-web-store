@@ -8,3 +8,21 @@
     grid-template-rows: auto;
   }
 }
+
+@media (max-width: $breakpoint-l) {
+  .order-card__products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-m) {
+  .order-card__products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-s) {
+  .order-card__products {
+    grid-template-columns: 1fr;
+  }
+}
