@@ -1,0 +1,71 @@
+.wallet-changelog-card {
+  position: relative;
+  padding: var(--s);
+
+  &__date {
+    position: relative;
+
+    &::before {
+      right: 0;
+      width: 120px;
+      height: 2px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'operation sum'
+      'operation balance';
+    column-gap: var(--s);
+    row-gap: var(--xxs);
+  }
+
+  &__operation {
+    grid-area: operation;
+  }
+
+  &__sum {
+    display: flex;
+    justify-content: flex-end;
+    grid-area: sum;
+  }
+
+  &__balance {
+    display: flex;
+    justify-content: flex-end;
+    grid-area: balance;
+  }
+
+  &__icon {
+    position: relative;
+    width: var(--s);
+    height: var(--s);
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .wallet-changelog-card {
+    &__date {
+      &::before {
+        width: 60px;
+      }
+    }
+
+    &__grid {
+      grid-template-areas:
+        'operation sum'
+        'balance balance';
+    }
+
+    &__balance {
+      justify-content: initial;
+    }
+
+    &__icon {
+      display: none;
+    }
+  }
+}

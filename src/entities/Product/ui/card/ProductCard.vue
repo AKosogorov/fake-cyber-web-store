@@ -17,11 +17,17 @@
     </div>
 
     <div class="column gap-xxs">
-      <VPrice :price="product.price" :discount="product.discountPercentage" />
+      <VPrice
+        :price="product.price"
+        :discount="product.discountPercentage"
+      />
 
       <h4>{{ product.title }} - {{ product.stock }}</h4>
 
-      <RatingStars :rating="product.rating" :size="EAppPixelSize.xs" />
+      <RatingStars
+        :rating="product.rating"
+        :size="EAppPixelSize.xs"
+      />
     </div>
 
     <div class="product-card__actions product-card__actions--bottom">
@@ -32,7 +38,7 @@
 
 <script setup lang="ts">
 import { ImagesSwiper } from '@/shared/ui/swipers'
-import VPrice from '@/shared/ui/VPrice'
+import { VPrice } from '@/shared/ui/VPrice'
 import RatingStars from '@/shared/ui/RatingStars'
 import type { IProduct } from '../../model'
 import { EAppPixelSize } from '@/shared/lib/types/app'

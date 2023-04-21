@@ -1,25 +1,25 @@
-@mixin buttonFocus ($bgColor) {
+@mixin buttonFocus($bgColor) {
   .button__border-decorate {
     color: $bgColor;
   }
 }
 
-@mixin buttonHover ($color) {
+@mixin buttonHover($color) {
   color: $color;
 
-  .button__border-decorate--after {
+  .button__border-decorate--before {
     transform: translate(5px, 5px);
   }
 }
 
-@mixin buttonActive ($color, $bgColor) {
+@mixin buttonActive($color, $bgColor) {
   color: $color;
 
   .button__border-decorate {
     color: $bgColor;
   }
 
-  .button__border-decorate--after {
+  .button__border-decorate--before {
     transform: translate(0, 0);
   }
 }

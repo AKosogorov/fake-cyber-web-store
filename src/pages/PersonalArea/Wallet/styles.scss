@@ -1,0 +1,33 @@
+.wallet-page {
+  &__grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 'aside changelog';
+    gap: var(--l);
+  }
+
+  &__changelog {
+    grid-area: changelog;
+  }
+
+  &__aside {
+    grid-area: aside;
+  }
+
+  .balance {
+    position: sticky;
+    top: 0;
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .wallet-page {
+    &__grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'aside'
+        'changelog';
+      grid-template-rows: auto auto;
+    }
+  }
+}

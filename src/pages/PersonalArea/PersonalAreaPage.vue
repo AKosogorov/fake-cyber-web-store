@@ -5,15 +5,32 @@
       :nav-list="personalAreaNavList"
     />
 
-    <h1 v-if="isMainPage" class="mb-s">Personal area</h1>
+    <h1
+      v-if="isMainPage"
+      class="mb-s"
+    >
+      Personal area
+    </h1>
 
-    <div v-if="isMainPage" class="column gap-s">
-      <CardLink class="column gap-xs" :to="appRoutes.getProfile()">
+    <div
+      v-if="isMainPage"
+      class="column gap-s"
+    >
+      <CardLink
+        class="column gap-xs"
+        :to="appRoutes.getProfile()"
+      >
         <UserBadge :user="session.user" />
 
-        <VInfo label="Email" :txt="session.user.email" />
+        <VInfo
+          label="Email"
+          :txt="session.user.email"
+        />
 
-        <VInfo label="Gender" :txt="session.user.gender" />
+        <VInfo
+          label="Gender"
+          :txt="session.user.gender"
+        />
 
         <LogoutButton class="personal-area-page__logout" />
       </CardLink>
@@ -25,7 +42,9 @@
       <div class="row gap-xxs">
         <CardLink :to="appRoutes.getArchive()">Purchases</CardLink>
 
-        <CardLink :to="appRoutes.getWallet()">Wallet</CardLink>
+        <CardLink :to="appRoutes.getWallet()">
+          <WalletBalance />
+        </CardLink>
       </div>
     </div>
   </div>
@@ -35,6 +54,7 @@
 <script setup lang="ts">
 import { LogoutButton } from '@/features/auth'
 import { UserBadge } from '@/entities/User'
+import { WalletBalance } from '@/entities/Wallet'
 import { VNavigation } from '@/shared/ui/navigation'
 import { CardLink } from '@/shared/ui/cards'
 import { VInfo } from '@/shared/ui/text'
@@ -44,13 +64,7 @@ import { useRoute } from 'vue-router'
 import { useAppPages, useAppRoutes } from '@/app/providers'
 import { useSessionStore } from '@/entities/Session/model'
 import type { INavItem } from '@/shared/ui/navigation'
-import {
-  IconHome,
-  IconHeart,
-  IconBag,
-  IconWallet,
-  IconUser
-} from '@/shared/ui/icons'
+import { IconHome, IconHeart, IconBag, IconWallet, IconUser } from '@/shared/ui/icons'
 
 const route = useRoute()
 const appRoutes = useAppRoutes()
@@ -58,9 +72,7 @@ const appPages = useAppPages()
 
 const isMainPage = computed(() => route.name === appPages.personalArea)
 
-const isOrdersPage = computed(
-  () => route.name === appPages.delivery || route.name === appPages.archive
-)
+const isOrdersPage = computed(() => route.name === appPages.delivery || route.name === appPages.archive)
 
 const personalAreaNavList = reactive<INavItem[]>([
   {

@@ -1,4 +1,4 @@
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@/shared/lib/browser'
 import { REFRESH_TOKEN_KEY, TOKEN_EXPIRES_IN, TOKEN_KEY } from '@/shared/config'
@@ -25,10 +25,7 @@ interface ISessionUser extends UserModel.IUser {
 export const useSessionStore = defineStore(namespaced, () => {
   const { showError } = useAlertsStore()
 
-  const { value: tokenValue, setLSValue: setLSToken } = useLocalStorage(
-    TOKEN_KEY,
-    ''
-  )
+  const { value: tokenValue, setLSValue: setLSToken } = useLocalStorage(TOKEN_KEY, '')
 
   const token = ref(tokenValue)
 
@@ -41,8 +38,7 @@ export const useSessionStore = defineStore(namespaced, () => {
     setToken('')
   }
 
-  const { value: refreshTokenValue, setLSValue: setLSRefreshToken } =
-    useLocalStorage(REFRESH_TOKEN_KEY, '')
+  const { value: refreshTokenValue, setLSValue: setLSRefreshToken } = useLocalStorage(REFRESH_TOKEN_KEY, '')
 
   const refreshToken = ref(refreshTokenValue)
 
@@ -55,10 +51,10 @@ export const useSessionStore = defineStore(namespaced, () => {
     setRefreshToken('')
   }
 
-  const {
-    setTimeoutId: setTimeoutGetToken,
-    clearTimeoutId: clearTimeoutGetToken
-  } = useTimeout(getToken, TOKEN_EXPIRES_IN)
+  const { setTimeoutId: setTimeoutGetToken, clearTimeoutId: clearTimeoutGetToken } = useTimeout(
+    getToken,
+    TOKEN_EXPIRES_IN
+  )
 
   async function getToken() {
     try {
@@ -85,6 +81,8 @@ export const useSessionStore = defineStore(namespaced, () => {
     email: ''
   })
 
+  const isAuth = computed(() => Boolean(user.id))
+
   function setUser(data: ISessionUser) {
     user.id = data.id
     user.username = data.username
@@ -93,6 +91,7 @@ export const useSessionStore = defineStore(namespaced, () => {
     user.cartId = data.cartId
     user.favoritesId = data.favoritesId
     user.walletId = data.walletId
+    user.orderIds = data.orderIds
   }
 
   function logout() {
@@ -114,6 +113,7 @@ export const useSessionStore = defineStore(namespaced, () => {
     refreshToken,
     user,
     setUser,
+    isAuth,
     logout
   }
 })

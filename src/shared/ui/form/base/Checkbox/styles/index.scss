@@ -89,6 +89,11 @@
       color: var(--color__grey);
     }
   }
+
+  &__error {
+    position: absolute;
+    top: 100%;
+  }
 }
 
 .checkbox {

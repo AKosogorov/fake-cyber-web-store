@@ -6,7 +6,11 @@
       class="images-swiper__slide"
       lazy="true"
     >
-      <img :src="item.src" :alt="item.alt" loading="lazy" />
+      <img
+        :src="item.src"
+        :alt="item.alt"
+        loading="lazy"
+      />
     </swiper-slide>
   </VSwiper>
 </template>

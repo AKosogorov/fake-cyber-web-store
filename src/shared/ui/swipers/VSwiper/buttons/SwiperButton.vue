@@ -1,5 +1,8 @@
 <template>
-  <button class="swiper-button reset" type="button">
+  <button
+    class="swiper-button reset"
+    type="button"
+  >
     <IconVector />
   </button>
 </template>

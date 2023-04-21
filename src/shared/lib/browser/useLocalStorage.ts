@@ -5,10 +5,7 @@ interface IUseLocalStorage<T> {
   setLSValue: (value: T) => void
 }
 
-export function useLocalStorage<T>(
-  key: string,
-  initialValue: T
-): IUseLocalStorage<T> {
+export function useLocalStorage<T>(key: string, initialValue: T): IUseLocalStorage<T> {
   const keyLS = `${APP_NAME}:${key}`
 
   const valueLS = window.localStorage.getItem(keyLS)

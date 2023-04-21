@@ -19,24 +19,14 @@
 </template>
 
 <script setup lang="ts">
-import {
-  VeeInputEmail,
-  VeeInputPassword,
-  VeeInputPasswordConfirm,
-  VForm
-} from '@/shared/ui/form'
+import { VeeInputEmail, VeeInputPassword, VeeInputPasswordConfirm, VForm } from '@/shared/ui/form'
 
 import { useRouter } from 'vue-router'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import { object, string, ref as refYup } from 'yup'
 import { useAppRoutes } from '@/app/providers'
-import {
-  UserModel,
-  UserApi,
-  VeeRadioGender,
-  VeeInputUsername
-} from '@/entities/User'
+import { UserModel, UserApi, VeeRadioGender, VeeInputUsername } from '@/entities/User'
 import { SessionApi, SessionModel } from '@/entities/Session'
 import type { IRadioItem } from '@/shared/ui/form'
 import type { FirebaseApi } from '@/shared/api'
@@ -55,9 +45,7 @@ const validationSchema = toTypedSchema(
   object({
     username: string().required().min(3).max(50),
     gender: object().required(),
-    email: string()
-      .required()
-      .matches(emailRegexp, 'this field must be a valid email'),
+    email: string().required().matches(emailRegexp, 'this field must be a valid email'),
     password: string().required('please enter your password').min(6),
     confirm: string()
       .required('please repeat your password')

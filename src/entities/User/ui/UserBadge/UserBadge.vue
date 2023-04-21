@@ -1,7 +1,11 @@
 <template>
   <div class="user-badge row gap-xs">
     <div class="avatar border-radius">
-      <img :src="avatarSrc" :alt="`${user.username} avatar`" loading="lazy" />
+      <img
+        :src="avatarSrc"
+        :alt="`${user.username} avatar`"
+        loading="lazy"
+      />
     </div>
 
     <span class="user-badge__name">{{ user.username }}</span>
@@ -11,6 +15,7 @@
 <script setup lang="ts">
 import type { IUser } from '../../model'
 import { computed } from 'vue'
+import { BASE_URL } from '@/shared/config'
 
 interface IProps {
   user: IUser
@@ -22,7 +27,7 @@ const avatarSrc = computed(() => {
     return props.user.avatar
   }
 
-  return `/image/${props.user.gender}.png`
+  return `${BASE_URL}/image/${props.user.gender}.png`
 })
 </script>
 

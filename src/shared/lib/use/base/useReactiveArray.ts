@@ -1,9 +1,5 @@
 import { reactive } from 'vue'
-import {
-  refreshArray,
-  spliceBy,
-  spliceSimpleBy
-} from '@/shared/lib/utils/array'
+import { refreshArray, spliceBy, spliceSimpleBy } from '@/shared/lib/utils/array'
 
 type TValue = number | string
 

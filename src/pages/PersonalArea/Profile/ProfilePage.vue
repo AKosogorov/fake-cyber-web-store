@@ -10,11 +10,17 @@
       </div>
 
       <div class="row gap-s">
-        <VInfo label="Email" :txt="session.user.email" />
+        <VInfo
+          label="Email"
+          :txt="session.user.email"
+        />
       </div>
 
       <div class="row gap-s">
-        <VInfo label="Gender" :txt="session.user.gender" />
+        <VInfo
+          label="Gender"
+          :txt="session.user.gender"
+        />
 
         <ButtonEdit @click="openModal(modals.gender)" />
       </div>

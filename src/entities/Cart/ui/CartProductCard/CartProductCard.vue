@@ -8,7 +8,7 @@
 
     <div class="cart-product-card__info">
       <router-link
-        class="cart-product-card__link link"
+        class="link"
         :to="appRoutes.getProduct(cartProduct.id)"
       >
         <h4>{{ cartProduct.title }}</h4>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import VPrice from '@/shared/ui/VPrice'
+import { VPrice } from '@/shared/ui/VPrice'
 import { CyberCard } from '@/shared/ui/cyber'
 import type { ICartProduct } from '../../model'
 import { IconDiscount } from '@/shared/ui/icons'

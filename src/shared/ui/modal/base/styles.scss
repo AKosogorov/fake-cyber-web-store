@@ -53,6 +53,15 @@
 
   &__title {
     margin-bottom: var(--s);
+    text-align: center;
+  }
+}
+
+@media (max-width: $breakpoint-s) {
+  .modal {
+    &__content {
+      max-width: calc(100% - (var(--xs) * 2));
+    }
   }
 }
 

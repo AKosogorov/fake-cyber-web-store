@@ -1,7 +1,11 @@
 <template>
   <nav class="navigation">
     <ul class="navigation__list flex">
-      <li v-for="(item, idx) of navList" :key="idx" class="navigation__item">
+      <li
+        v-for="(item, idx) of navList"
+        :key="idx"
+        class="navigation__item"
+      >
         <router-link
           class="navigation__link link row gap-xxs"
           :class="item.isActive && 'is-active'"

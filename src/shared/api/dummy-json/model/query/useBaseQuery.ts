@@ -10,9 +10,7 @@ interface IUseQuery {
 }
 
 export function useBaseQuery(initial?: IBaseQuery): IUseQuery {
-  const { value: limit, setValue: setLimit } = useRefNumber(
-    initial?.limit || 10
-  )
+  const { value: limit, setValue: setLimit } = useRefNumber(initial?.limit || 10)
 
   const { value: skip, setValue: setSkip } = useRefNumber(initial?.skip || 0)
 

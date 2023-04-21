@@ -9,11 +9,6 @@ export function getById<T>(url: string, id: number, params?: TRequestParams) {
   return instance.get<T>(`/${url}/${id}`, { params })
 }
 
-export function update<T>(
-  url: string,
-  id: number,
-  data: object,
-  params?: TRequestParams
-) {
+export function update<T>(url: string, id: number, data: object, params?: TRequestParams) {
   return instance.put<T>(`/${url}/${id}`, data, { params })
 }

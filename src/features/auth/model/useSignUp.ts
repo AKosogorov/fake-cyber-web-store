@@ -10,11 +10,7 @@ export function useSignUp() {
   const cartHandler = getCartHandler()
 
   async function createEntities(userId: FirebaseApi.TId) {
-    await Promise.all([
-      walletHandler(userId),
-      favoritesHandler(userId),
-      cartHandler(userId)
-    ])
+    await Promise.all([walletHandler(userId), favoritesHandler(userId), cartHandler(userId)])
   }
 
   return {

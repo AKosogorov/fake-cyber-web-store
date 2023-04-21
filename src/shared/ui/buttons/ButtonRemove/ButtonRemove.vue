@@ -1,7 +1,10 @@
 <template>
   <ButtonSm class="button-remove">
     <template v-slot:icon>
-      <IconTrash :width="iconSize" :height="iconSize" />
+      <IconTrash
+        :width="iconSize"
+        :height="iconSize"
+      />
     </template>
   </ButtonSm>
 </template>

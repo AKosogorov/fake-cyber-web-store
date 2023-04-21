@@ -1,5 +1,8 @@
 <template>
-  <ButtonLike :is-like="isLike" @click="onClick" />
+  <ButtonLike
+    :is-like="isLike"
+    @click="onClick"
+  />
 </template>
 
 <script setup lang="ts">

@@ -15,12 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  IconBorderBottom,
-  IconBorderInner,
-  IconBorderOuter,
-  IconBorderTop
-} from '@/shared/ui/icons/borders'
+import { IconBorderBottom, IconBorderInner, IconBorderOuter, IconBorderTop } from '@/shared/ui/icons/borders'
 import type { Component } from 'vue'
 import { computed } from 'vue'
 import type { EIconsName } from './types'

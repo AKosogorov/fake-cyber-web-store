@@ -1,13 +1,19 @@
 <template>
   <SpinnerLoader v-if="isLoading" />
 
-  <ProductDetails v-else-if="product" :product="product">
+  <ProductDetails
+    v-else-if="product"
+    :product="product"
+  >
     <template v-slot:button-like>
       <AddToFavorites :id="product.id" />
     </template>
 
     <template v-slot:to-cart>
-      <AddToCart :id="product.id" class="w-100" />
+      <AddToCart
+        :id="product.id"
+        class="w-100"
+      />
     </template>
   </ProductDetails>
 </template>

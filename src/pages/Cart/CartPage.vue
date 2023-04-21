@@ -13,7 +13,10 @@
           :cart-product="item"
         >
           <template v-slot:input-quantity>
-            <ChangeQuantity :id="item.id" :quantity="item.quantity" />
+            <ChangeQuantity
+              :id="item.id"
+              :quantity="item.quantity"
+            />
           </template>
 
           <template v-slot:button-like>
@@ -29,18 +32,38 @@
       <h3 v-else>Your basket is empty</h3>
 
       <aside class="cart-page__aside">
-        <CartTotal />
+        <CartTotal>
+          <template
+            v-if="store.cartProducts.length"
+            v-slot:order
+          >
+            <div class="relative">
+              <CreateOrderForm />
+
+              <router-link
+                v-if="!session.isAuth"
+                class="abs-full"
+                :to="appRoutes.getLogin()"
+              />
+            </div>
+          </template>
+        </CartTotal>
       </aside>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
-import { AddToFavorites } from '@/features/Product'
+import { useAppRoutes } from '@/app/providers'
 import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
+import { AddToFavorites } from '@/features/Product'
+import { CreateOrderForm } from '@/features/Order/create-order'
+import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
+import { SessionModel } from '@/entities/Session'
 
 const store = CartModel.useCartStore()
+const session = SessionModel.useSessionStore()
+const appRoutes = useAppRoutes()
 </script>
 
 <style lang="scss">

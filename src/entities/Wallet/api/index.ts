@@ -1,10 +1,5 @@
 import type { IWalletFB } from '../model/types'
-import {
-  createApiErrorGetById,
-  createApiErrorCreate,
-  createApiErrorUpdate,
-  FirebaseApi
-} from '@/shared/api'
+import { createApiErrorGetById, createApiErrorCreate, createApiErrorUpdate, FirebaseApi } from '@/shared/api'
 
 export const api = {
   getById,

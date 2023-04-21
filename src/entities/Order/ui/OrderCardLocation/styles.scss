@@ -1,0 +1,11 @@
+.order-card-location {
+  position: relative;
+  padding-left: var(--m);
+
+  &__icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -28,15 +28,19 @@
             </router-link>
           </InfoShort>
 
-          <InfoShort label="Brand" :text="product.brand" />
+          <InfoShort
+            label="Brand"
+            :text="product.brand"
+          />
         </div>
 
-        <InfoHeaded heading="Description" :text="product.description" />
+        <InfoHeaded
+          heading="Description"
+          :text="product.description"
+        />
       </div>
 
-      <div
-        class="product-details__offer column gap-l border-radius shadow-black"
-      >
+      <div class="product-details__offer column gap-l border-radius shadow-black">
         <div class="between">
           <VPrice
             v-if="product.price"
@@ -56,7 +60,7 @@
 <script setup lang="ts">
 import RatingStars from '@/shared/ui/RatingStars'
 import { ImagesSwiper } from '@/shared/ui/swipers'
-import VPrice from '@/shared/ui/VPrice'
+import { VPrice } from '@/shared/ui/VPrice'
 import { InfoShort } from '@/shared/ui/text'
 
 import type { ProductModel } from '@/entities/Product'

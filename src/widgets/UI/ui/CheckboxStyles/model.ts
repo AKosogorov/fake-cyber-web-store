@@ -1,8 +1,1 @@
-export const checkboxList: string[] = [
-  'hover',
-  'focus',
-  'checked',
-  'active',
-  'error',
-  'disabled'
-]
+export const checkboxList: string[] = ['hover', 'focus', 'checked', 'active', 'error', 'disabled']

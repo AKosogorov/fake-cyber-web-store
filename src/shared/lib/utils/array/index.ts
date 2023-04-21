@@ -18,17 +18,11 @@ function splice<T>(idx: number, array: T[]) {
   array.splice(idx, 1)
 }
 
-export function findBy<T extends IObject>(
-  id: TValue,
-  array: T[]
-): T | undefined {
+export function findBy<T extends IObject>(id: TValue, array: T[]): T | undefined {
   return array.find(item => item.id === id)
 }
 
-export function findSimpleBy(
-  value: TValue,
-  array: TValue[]
-): TValue | undefined {
+export function findSimpleBy(value: TValue, array: TValue[]): TValue | undefined {
   return array.find(item => item === value)
 }
 

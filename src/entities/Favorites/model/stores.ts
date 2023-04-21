@@ -57,7 +57,7 @@ export const useFavoritesStore = defineStore(namespace, (): IStore => {
   async function loadFavoritesById() {
     const { data } = await api.getById(favoritesId.value)
 
-    refreshProductIds(data.productIds)
+    refreshProductIds(data.productIds || [])
   }
 
   function syncLS() {

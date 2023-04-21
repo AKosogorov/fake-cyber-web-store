@@ -1,10 +1,9 @@
 import { CartApi, CartModel } from '@/entities/Cart'
-import { useCartUpdate } from '../../model'
 import { findBy } from '@/shared/lib/utils/array'
 
 export function useChangeProductQuantity() {
   const store = CartModel.useCartStore()
-  const { updateCart } = useCartUpdate()
+  const { updateCart } = CartModel.useCartUpdate()
 
   async function updateProductQuantity(id: number, quantity: number) {
     const product = store.findInCart(id)

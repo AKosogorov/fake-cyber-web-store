@@ -13,10 +13,7 @@ export function useGeneralModel(): IProductListModel {
     countPages,
     isLoading,
     changeLimit
-  } = DummyJsonModel.useQueryListModel<
-    ProductModel.IProduct,
-    ProductModel.IProductGetResponse
-  >({
+  } = DummyJsonModel.useQueryListModel<ProductModel.IProduct, ProductModel.IProductGetResponse>({
     apiHandler: ProductApi.getAll,
     mapper: ProductModel.getMapped,
     initQuery: DummyJsonModel.QUERY_DEFAULT

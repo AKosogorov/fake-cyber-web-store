@@ -3,7 +3,10 @@
     <h1 class="mb-m">Fake Cyber - the best web store</h1>
 
     <div class="column gap-l mb-l">
-      <ProductList :products="products" :is-loading="isLoading" />
+      <ProductList
+        :products="products"
+        :is-loading="isLoading"
+      />
 
       <VPagination
         :model-value="page"
@@ -21,14 +24,7 @@ import { VPagination } from '@/shared/ui/pagination'
 
 import { onBeforeMount } from 'vue'
 
-const {
-  products,
-  loadProductsWithQuery,
-  page,
-  countPages,
-  loadPage,
-  isLoading
-} = ProductListModel.useGeneralModel()
+const { products, loadProductsWithQuery, page, countPages, loadPage, isLoading } = ProductListModel.useGeneralModel()
 
 onBeforeMount(loadProductsWithQuery)
 </script>

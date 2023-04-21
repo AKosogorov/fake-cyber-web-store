@@ -1,5 +1,8 @@
 <template>
-  <BaseModal :title="title" @close="close">
+  <BaseModal
+    :title="title"
+    @close="close"
+  >
     <VForm :handler-submit="handlerSubmit">
       <slot />
 
@@ -7,7 +10,7 @@
         <CyberButtonSubmit
           :is-submitting="isSubmitting"
           class="w-100 z-idx-1"
-          txt="SAVE"
+          :txt="buttonSubmitTxt"
         />
       </template>
     </VForm>
@@ -29,7 +32,8 @@ interface IProps {
 }
 
 withDefaults(defineProps<IProps>(), {
-  isSubmitting: false
+  isSubmitting: false,
+  buttonSubmitTxt: 'SAVE'
 })
 
 function close() {

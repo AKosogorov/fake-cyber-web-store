@@ -8,10 +8,7 @@ interface IReadApi<A extends IBaseGetResponse, S> {
   getById: (id: number, params?: TRequestParams) => AxiosPromise<S>
 }
 
-export function useReadApi<A extends IBaseGetResponse, S>(
-  url: string,
-  errors: IBaseReadApiErrors
-): IReadApi<A, S> {
+export function useReadApi<A extends IBaseGetResponse, S>(url: string, errors: IBaseReadApiErrors): IReadApi<A, S> {
   return {
     getAll: async (params?: IBaseQuery) => {
       try {

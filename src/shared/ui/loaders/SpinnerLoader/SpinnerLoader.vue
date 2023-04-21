@@ -1,5 +1,8 @@
 <template>
-  <div class="spinner-loader" :class="size">
+  <div
+    class="spinner-loader"
+    :class="size"
+  >
     <div class="spinner-loader__circle" />
   </div>
 </template>

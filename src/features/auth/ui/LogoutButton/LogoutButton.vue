@@ -1,7 +1,10 @@
 <template>
   <ButtonSm @click="onLogout">
     <template v-slot:icon>
-      <IconLogout :width="iconSize" :height="iconSize" />
+      <IconLogout
+        :width="iconSize"
+        :height="iconSize"
+      />
     </template>
 
     Logout

@@ -1,7 +1,13 @@
 <template>
-  <router-link class="link-to-cart link" :to="appRoutes.getCart()">
+  <router-link
+    class="link relative"
+    :to="appRoutes.getCart()"
+  >
     <IconCart class="link__icon" />
-    <span v-if="store.inCart" class="link-to-cart__counter counter">
+    <span
+      v-if="store.inCart"
+      class="notification-counter"
+    >
       {{ store.inCart }}
     </span>
   </router-link>
@@ -15,7 +21,3 @@ const appRoutes = useAppRoutes()
 
 const store = useCartStore()
 </script>
-
-<style lang="scss">
-@import 'styles';
-</style>

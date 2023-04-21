@@ -1,7 +1,13 @@
 <template>
-  <router-link to="/" class="cyber-logo">
+  <router-link
+    to="/"
+    class="cyber-logo"
+  >
     {{ APP_NAME }}
-    <span class="cyber-logo__glitch abs-full" aria-hidden="true">
+    <span
+      class="cyber-logo__glitch abs-full"
+      aria-hidden="true"
+    >
       {{ APP_NAME }}
     </span>
   </router-link>

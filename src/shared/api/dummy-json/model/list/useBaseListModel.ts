@@ -5,11 +5,7 @@ import { useIsLoading } from '@/shared/lib/use/useIsLoading'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
 
-export function useBaseListModel<
-  T,
-  R extends IBaseGetResponse,
-  Q extends object = IBaseQuery
->(
+export function useBaseListModel<T, R extends IBaseGetResponse, Q extends object = IBaseQuery>(
   settings: IUseBaseListSettings<T, R, TExtraQuery<Q>>
 ): IUseBaseListModel<T, TExtraQuery<Q>> {
   const { showError } = useAlertsStore()

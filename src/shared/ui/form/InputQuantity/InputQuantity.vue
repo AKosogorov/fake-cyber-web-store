@@ -1,5 +1,8 @@
 <template>
-  <div class="input-quantity row gap-xxs" :class="classes">
+  <div
+    class="input-quantity row gap-xxs"
+    :class="classes"
+  >
     <button
       class="input-quantity__button pseudo-minus reset"
       type="button"
@@ -48,9 +51,7 @@ const classes = computed(() => ({
   labeled: !!props.label
 }))
 
-const isDisabledButtonMinus = computed(
-  () => props.modelValue === props.minValue
-)
+const isDisabledButtonMinus = computed(() => props.modelValue === props.minValue)
 
 const isDisabledButtonPlus = computed(() => props.modelValue === props.maxValue)
 

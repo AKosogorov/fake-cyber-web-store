@@ -6,16 +6,12 @@
   - favorites
   - statistic
   - delivery
+    - cost delivery
   - purchased
-  - balance
-    - changelog
 - comments
 - scroll after router go
 - map
-- favorites by user id
-- cart by user id
 - rating
 - 404 page
-- modal
 - header search
 - button scroll

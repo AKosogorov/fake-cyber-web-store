@@ -1,5 +1,8 @@
 <template>
-  <VeeInput label="Username" name="username" />
+  <VeeInput
+    label="Username"
+    name="username"
+  />
 </template>
 
 <script setup lang="ts">

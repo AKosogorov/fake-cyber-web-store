@@ -2,7 +2,10 @@
   <nav class="product-categories column gap-s">
     <h4>Categories</h4>
 
-    <ul v-if="store.categories.length" class="column gap-xs">
+    <ul
+      v-if="store.categories.length"
+      class="column gap-xs"
+    >
       <li
         v-for="category of store.categories"
         :key="category"
