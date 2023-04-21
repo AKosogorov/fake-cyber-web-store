@@ -11,6 +11,7 @@ import { WalletModel } from '@/entities/Wallet'
 export function useCreateOrder() {
   const session = SessionModel.useSessionStore()
   const cart = CartModel.useCartStore()
+  const { addOrder } = OrderModel.useOrderStore()
   const { updateCart } = CartModel.useCartUpdate()
   const { writeOff } = WalletModel.useWriteOff()
 
@@ -23,9 +24,11 @@ export function useCreateOrder() {
       await writeOff(cart.discountedTotal)
     }
 
+    const now = Date.now()
+
     const orderData = {
       userId: session.user.id,
-      dateDelivery: Date.now() + MINUTE,
+      dateDelivery: now + MINUTE,
       statusId: OrderModel.EOrderStatus.delivery,
       isPrepaid: payload.isPrepaid,
       location: {
@@ -41,8 +44,16 @@ export function useCreateOrder() {
     }
 
     const response = await OrderApi.create(orderData)
+    const id = response.data.name
 
-    await Promise.all([patchOrderIds(response.data.name), clearAndUpdateCart()])
+    addOrder(id, {
+      ...orderData,
+      products: orderData.products.slice(),
+      createdAt: now,
+      updatedAt: now
+    })
+
+    await Promise.all([patchOrderIds(id), clearAndUpdateCart()])
   }
 
   async function patchOrderIds(id: FirebaseApi.TId) {

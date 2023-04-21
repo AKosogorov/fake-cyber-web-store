@@ -1,10 +1,5 @@
 <template>
   <div class="container">
-    <ButtonSubmit
-      :is-submitting="orderStore.isLoading"
-      @click="orderStore.loadAllByUser(session.user.id)"
-    />
-
     <h3 v-if="!orderStore.ordersFiltered.delivery.length">No orders</h3>
 
     <div
@@ -36,19 +31,6 @@
             v-if="order.isPrepaid && order.statusId === OrderModel.EOrderStatus.ready"
             :order-id="order.id"
           />
-
-          <VButton
-            txt="1"
-            @click="() => one(order.id)"
-          />
-          <VButton
-            txt="2"
-            @click="() => two(order.id)"
-          />
-          <VButton
-            txt="3"
-            @click="() => three(order.id)"
-          />
         </template>
       </OrderCard>
     </div>
@@ -57,25 +39,8 @@
 
 <script setup lang="ts">
 import { OrderModel, OrderCard, OrderProduct } from '@/entities/Order'
-import { GetOrder, GetOrderModel } from '@/features/Order/get-order'
+import { GetOrder } from '@/features/Order/get-order'
 import { PayOrder } from '@/features/Order/pay-order'
-import { ButtonSubmit, VButton } from '@/shared/ui/buttons'
-import { useSessionStore } from '@/entities/Session/model'
 
-const session = useSessionStore()
 const orderStore = OrderModel.useOrderStore()
-
-const { getOrder } = GetOrderModel.useGetOrder()
-
-function one(id: string) {
-  getOrder(id, OrderModel.EOrderStatus.delivery)
-}
-
-function two(id: string) {
-  getOrder(id, OrderModel.EOrderStatus.ready)
-}
-
-function three(id: string) {
-  getOrder(id, OrderModel.EOrderStatus.purchased)
-}
 </script>
