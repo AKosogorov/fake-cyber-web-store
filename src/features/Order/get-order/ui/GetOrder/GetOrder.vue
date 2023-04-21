@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ButtonSubmit } from '@/shared/ui/buttons'
-import { FirebaseApi } from '@/shared/api'
+import type { FirebaseApi } from '@/shared/api'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { useGetOrder } from '../../model'
 import { usePromiseWrap } from '@/shared/lib/use/usePromiseWrap'

@@ -11,21 +11,18 @@ interface ITheBurgerMenuStore {
 
 const NAMESPACE = 'the-burger-menu'
 
-export const useTheBurgerMenuStore = defineStore(
-  NAMESPACE,
-  (): ITheBurgerMenuStore => {
-    const {
-      isBoolean: isActive,
-      setTrue: openBurgerMenu,
-      toggle: toggleBurgerMenu,
-      setFalse: closeBurgerMenu
-    } = useIsBoolean()
+export const useTheBurgerMenuStore = defineStore(NAMESPACE, (): ITheBurgerMenuStore => {
+  const {
+    isBoolean: isActive,
+    setTrue: openBurgerMenu,
+    toggle: toggleBurgerMenu,
+    setFalse: closeBurgerMenu
+  } = useIsBoolean()
 
-    return {
-      isActive,
-      openBurgerMenu,
-      toggleBurgerMenu,
-      closeBurgerMenu
-    }
+  return {
+    isActive,
+    openBurgerMenu,
+    toggleBurgerMenu,
+    closeBurgerMenu
   }
-)
+})

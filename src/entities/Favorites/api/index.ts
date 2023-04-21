@@ -1,10 +1,5 @@
 import type { IFavoritesFB } from '../model/types'
-import {
-  createApiErrorGetById,
-  createApiErrorCreate,
-  createApiErrorUpdate,
-  FirebaseApi
-} from '@/shared/api'
+import { createApiErrorGetById, createApiErrorCreate, createApiErrorUpdate, FirebaseApi } from '@/shared/api'
 
 export const api = {
   getById,
@@ -38,10 +33,7 @@ async function create(data: IFavoritesFB) {
   }
 }
 
-async function patchProducts(
-  id: FirebaseApi.TId,
-  data: { productIds: number[] | never[] }
-) {
+async function patchProducts(id: FirebaseApi.TId, data: { productIds: number[] | never[] }) {
   try {
     return await FirebaseApi.patch(FAVORITES_URL, id, data)
   } catch (e) {

@@ -1,7 +1,13 @@
 <template>
-  <ButtonSm class="button-remove" txt="Refill wallet">
+  <ButtonSm
+    class="button-remove"
+    txt="Refill wallet"
+  >
     <template v-slot:icon>
-      <IconCreditCardIncome :width="iconSize" :height="iconSize" />
+      <IconCreditCardIncome
+        :width="iconSize"
+        :height="iconSize"
+      />
     </template>
   </ButtonSm>
 </template>

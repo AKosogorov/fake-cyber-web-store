@@ -10,8 +10,14 @@
       <h4 class="fsz-20">{{ product.title }}</h4>
     </router-link>
 
-    <VInfo label="Quantity" :txt="product.quantity" />
-    <VInfo label="Price" :txt="price" />
+    <VInfo
+      label="Quantity"
+      :txt="product.quantity"
+    />
+    <VInfo
+      label="Price"
+      :txt="price"
+    />
   </div>
 </template>
 

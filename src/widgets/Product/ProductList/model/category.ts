@@ -18,11 +18,7 @@ export function useCategoryModel(): IProductListModel<IQuery> {
     countPages,
     isLoading,
     changeLimit
-  } = DummyJsonModel.useQueryListModel<
-    ProductModel.IProduct,
-    ProductModel.IProductGetResponse,
-    IQuery
-  >({
+  } = DummyJsonModel.useQueryListModel<ProductModel.IProduct, ProductModel.IProductGetResponse, IQuery>({
     apiHandler: fetchProducts,
     mapper: ProductModel.getMapped,
     initQuery: DummyJsonModel.QUERY_DEFAULT

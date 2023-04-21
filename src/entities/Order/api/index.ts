@@ -1,10 +1,5 @@
 import type { IOrderFB, EOrderStatus } from '../model'
-import {
-  createApiErrorCreate,
-  createApiErrorGetAll,
-  createApiErrorUpdate,
-  FirebaseApi
-} from '@/shared/api'
+import { createApiErrorCreate, createApiErrorGetAll, createApiErrorUpdate, FirebaseApi } from '@/shared/api'
 
 export const api = {
   getAllByUser,
@@ -43,10 +38,7 @@ async function getAllByUser(id: FirebaseApi.TId) {
   }
 }
 
-async function patchStatus(
-  id: FirebaseApi.TId,
-  data: { statusId: EOrderStatus }
-) {
+async function patchStatus(id: FirebaseApi.TId, data: { statusId: EOrderStatus }) {
   try {
     return await FirebaseApi.patch(ORDER_URL, id, data)
   } catch (e) {

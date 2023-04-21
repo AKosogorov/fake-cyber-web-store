@@ -1,6 +1,13 @@
 <template>
-  <div class="input column gap-xxs" :class="classes">
-    <label v-if="label" class="input__label label" :for="name">
+  <div
+    class="input column gap-xxs"
+    :class="classes"
+  >
+    <label
+      v-if="label"
+      class="input__label label"
+      :for="name"
+    >
       {{ label }}
     </label>
 
@@ -20,7 +27,11 @@
       />
     </div>
 
-    <small v-if="error" class="input__error red">{{ error }}</small>
+    <small
+      v-if="error"
+      class="input__error red"
+      >{{ error }}</small
+    >
   </div>
 </template>
 

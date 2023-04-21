@@ -3,7 +3,10 @@
     <h1 class="capitalize mb-m">{{ currentCategory }}</h1>
 
     <div class="column gap-l mb-l">
-      <ProductList :products="products" :is-loading="isLoading" />
+      <ProductList
+        :products="products"
+        :is-loading="isLoading"
+      />
 
       <VPagination
         :model-value="page"
@@ -25,14 +28,7 @@ const route = useRoute()
 
 const currentCategory = computed(() => route.params.category as string)
 
-const {
-  products,
-  loadProductsWithQuery,
-  isLoading,
-  page,
-  countPages,
-  setPage
-} = ProductListModel.useCategoryModel()
+const { products, loadProductsWithQuery, isLoading, page, countPages, setPage } = ProductListModel.useCategoryModel()
 
 onBeforeMount(loadProductsOfCategory)
 

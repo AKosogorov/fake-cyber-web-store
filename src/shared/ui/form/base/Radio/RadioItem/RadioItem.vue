@@ -1,5 +1,8 @@
 <template>
-  <label class="radio-item" :class="classes">
+  <label
+    class="radio-item"
+    :class="classes"
+  >
     <input
       class="radio-item__input"
       type="radio"

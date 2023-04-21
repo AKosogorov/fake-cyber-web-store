@@ -1,5 +1,8 @@
 <template>
-  <div v-if="count > 0" class="pagination column gap-xs">
+  <div
+    v-if="count > 0"
+    class="pagination column gap-xs"
+  >
     <div class="pagination__info">Page {{ modelValue }} of {{ count }}</div>
 
     <div class="pagination__pages row gap-xxs">
@@ -85,15 +88,11 @@ const visibleDots = computed(() => {
 })
 
 const pageForVisibleDotsLeft = computed(() => (isMobile.value ? 3 : 4))
-const visibleDotsLeft = computed(
-  () => visibleDots.value && props.modelValue > pageForVisibleDotsLeft.value
-)
+const visibleDotsLeft = computed(() => visibleDots.value && props.modelValue > pageForVisibleDotsLeft.value)
 
 const pageForVisibleDotsRight = computed(() => (isMobile.value ? 2 : 3))
 const visibleDotsRight = computed(
-  () =>
-    visibleDots.value &&
-    props.modelValue < props.count - pageForVisibleDotsRight.value
+  () => visibleDots.value && props.modelValue < props.count - pageForVisibleDotsRight.value
 )
 
 const pageForStartPages = computed(() => (isMobile.value ? 4 : 5))
@@ -129,13 +128,7 @@ function getMiddlePages() {
     return [props.modelValue - 1, props.modelValue, props.modelValue + 1]
   }
 
-  return [
-    props.modelValue - 2,
-    props.modelValue - 1,
-    props.modelValue,
-    props.modelValue + 1,
-    props.modelValue + 2
-  ]
+  return [props.modelValue - 2, props.modelValue - 1, props.modelValue, props.modelValue + 1, props.modelValue + 2]
 }
 
 function getEndPages() {

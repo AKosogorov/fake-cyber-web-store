@@ -1,10 +1,15 @@
 <template>
-  <button class="cyber-button reset" type="button">
-    <span class="cyber-button__text label">
-      {{ txt }}<span aria-hidden="true">_</span>
-    </span>
+  <button
+    class="cyber-button reset"
+    type="button"
+  >
+    <span class="cyber-button__text label"> {{ txt }}<span aria-hidden="true">_</span> </span>
 
-    <span class="cyber-button__glitch" aria-hidden="true">{{ txt }}_</span>
+    <span
+      class="cyber-button__glitch"
+      aria-hidden="true"
+      >{{ txt }}_</span
+    >
 
     <slot />
 

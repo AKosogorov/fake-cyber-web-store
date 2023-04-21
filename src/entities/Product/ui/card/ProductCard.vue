@@ -17,11 +17,17 @@
     </div>
 
     <div class="column gap-xxs">
-      <VPrice :price="product.price" :discount="product.discountPercentage" />
+      <VPrice
+        :price="product.price"
+        :discount="product.discountPercentage"
+      />
 
       <h4>{{ product.title }} - {{ product.stock }}</h4>
 
-      <RatingStars :rating="product.rating" :size="EAppPixelSize.xs" />
+      <RatingStars
+        :rating="product.rating"
+        :size="EAppPixelSize.xs"
+      />
     </div>
 
     <div class="product-card__actions product-card__actions--bottom">

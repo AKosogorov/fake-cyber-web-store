@@ -7,7 +7,10 @@
 
       <div class="cart-total__price row gap-s">
         Total
-        <VPrice :price="store.total" :price-discount="store.discountedTotal" />
+        <VPrice
+          :price="store.total"
+          :price-discount="store.discountedTotal"
+        />
       </div>
     </div>
 

@@ -1,7 +1,10 @@
 <template>
   <div class="card-link shadow-black border-radius">
     <slot />
-    <router-link class="card-link__link abs-full" :to="to" />
+    <router-link
+      class="card-link__link abs-full"
+      :to="to"
+    />
   </div>
 </template>
 

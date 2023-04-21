@@ -22,7 +22,7 @@
 import { VButton } from '../base'
 import { EBorderDecorateIcons } from '@/shared/ui/BorderDecorate'
 import { SpinnerLoader } from '@/shared/ui/loaders'
-import { EAppColor } from '@/shared/lib/types/app'
+import type { EAppColor } from '@/shared/lib/types/app'
 
 interface IButtonSubmit {
   txt?: string

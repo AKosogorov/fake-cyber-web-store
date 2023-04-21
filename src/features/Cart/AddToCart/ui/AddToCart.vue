@@ -1,6 +1,12 @@
 <template>
-  <router-link v-if="isInCart" :to="appRoutes.getCart()">
-    <CyberButton class="w-100" txt="Go to basket" />
+  <router-link
+    v-if="isInCart"
+    :to="appRoutes.getCart()"
+  >
+    <CyberButton
+      class="w-100"
+      txt="Go to basket"
+    />
   </router-link>
 
   <CyberButton

@@ -1,5 +1,8 @@
 <template>
-  <BaseModal :title="title" @close="close">
+  <BaseModal
+    :title="title"
+    @close="close"
+  >
     <VForm :handler-submit="handlerSubmit">
       <slot />
 

@@ -24,11 +24,7 @@ export const useWalletStore = defineStore(namespace, (): IWalletStore => {
 
   const { value: balance, setValue: setBalance } = useRefNumber(0)
 
-  const {
-    array: changelog,
-    add,
-    refresh: refreshChangelog
-  } = useReactiveArray<IChangelogItem>()
+  const { array: changelog, add, refresh: refreshChangelog } = useReactiveArray<IChangelogItem>()
 
   async function updateAndSync(balance: number, item: IChangelogItem) {
     await api.update(walletId.value, {

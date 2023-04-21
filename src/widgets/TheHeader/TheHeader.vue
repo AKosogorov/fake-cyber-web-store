@@ -31,7 +31,7 @@ import { CyberLogo } from '@/shared/ui/cyber'
 import { LinkToCart } from '@/entities/Cart'
 import { LinkToDelivery } from '@/entities/Order'
 import { ButtonBurger } from '@/shared/ui/buttons'
-import { IconUser, IconDelivery } from '@/shared/ui/icons'
+import { IconUser } from '@/shared/ui/icons'
 
 import { computed } from 'vue'
 import { useAppRoutes } from '@/app/providers'

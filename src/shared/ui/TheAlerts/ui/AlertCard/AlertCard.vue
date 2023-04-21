@@ -1,5 +1,8 @@
 <template>
-  <div class="alert-card" :class="alert.status">
+  <div
+    class="alert-card"
+    :class="alert.status"
+  >
     <CyberCard />
     <h5 class="alert-card__status">{{ alert.status }}</h5>
     <p class="alert-card__body">{{ alert.message }}</p>

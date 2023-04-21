@@ -3,7 +3,10 @@
     <h2 class="mb-s">Checkbox</h2>
 
     <div class="column gap-s">
-      <VCheckbox label="Checkbox label" name="checkbox" />
+      <VCheckbox
+        label="Checkbox label"
+        name="checkbox"
+      />
 
       <VCheckbox
         v-for="(item, i) of checkboxList"

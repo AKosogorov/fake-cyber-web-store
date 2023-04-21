@@ -6,7 +6,12 @@
     :handler-submit="onSubmit"
     @close="close"
   >
-    <VeeInput label="Sum $" name="sum" input-type="number" placeholder="0" />
+    <VeeInput
+      label="Sum $"
+      name="sum"
+      input-type="number"
+      placeholder="0"
+    />
   </ModalForm>
 </template>
 
@@ -30,12 +35,7 @@ const { showError } = useAlertsStore()
 
 const validationSchema = toTypedSchema(
   object({
-    sum: number()
-      .required()
-      .positive()
-      .min(1)
-      .integer()
-      .typeError('sum is a required field')
+    sum: number().required().positive().min(1).integer().typeError('sum is a required field')
   })
 )
 

@@ -1,7 +1,10 @@
 <template>
   <ButtonSm class="button-edit">
     <template v-slot:icon>
-      <IconPencil :width="iconSize" :height="iconSize" />
+      <IconPencil
+        :width="iconSize"
+        :height="iconSize"
+      />
     </template>
   </ButtonSm>
 </template>

@@ -1,7 +1,10 @@
 <template>
   <ButtonRefillWallet @click="openModal" />
 
-  <RefillWalletModal v-if="isModal" @close="closeModal" />
+  <RefillWalletModal
+    v-if="isModal"
+    @close="closeModal"
+  />
 </template>
 
 <script setup lang="ts">

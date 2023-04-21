@@ -1,5 +1,8 @@
 <template>
-  <label class="checkbox row gap-xs" :class="classes">
+  <label
+    class="checkbox row gap-xs"
+    :class="classes"
+  >
     <input
       type="checkbox"
       class="checkbox__input"
@@ -18,7 +21,11 @@
       {{ label }}
     </span>
 
-    <small v-if="error" class="checkbox__error red">{{ error }}</small>
+    <small
+      v-if="error"
+      class="checkbox__error red"
+      >{{ error }}</small
+    >
   </label>
 </template>
 

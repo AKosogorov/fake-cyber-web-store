@@ -1,7 +1,11 @@
 <template>
   <div class="user-badge row gap-xs">
     <div class="avatar border-radius">
-      <img :src="avatarSrc" :alt="`${user.username} avatar`" loading="lazy" />
+      <img
+        :src="avatarSrc"
+        :alt="`${user.username} avatar`"
+        loading="lazy"
+      />
     </div>
 
     <span class="user-badge__name">{{ user.username }}</span>

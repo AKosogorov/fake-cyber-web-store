@@ -1,5 +1,9 @@
 <template>
-  <VeeInput label="Confirm the password" name="confirm" input-type="password" />
+  <VeeInput
+    label="Confirm the password"
+    name="confirm"
+    input-type="password"
+  />
 </template>
 
 <script setup lang="ts">

@@ -5,15 +5,32 @@
       :nav-list="personalAreaNavList"
     />
 
-    <h1 v-if="isMainPage" class="mb-s">Personal area</h1>
+    <h1
+      v-if="isMainPage"
+      class="mb-s"
+    >
+      Personal area
+    </h1>
 
-    <div v-if="isMainPage" class="column gap-s">
-      <CardLink class="column gap-xs" :to="appRoutes.getProfile()">
+    <div
+      v-if="isMainPage"
+      class="column gap-s"
+    >
+      <CardLink
+        class="column gap-xs"
+        :to="appRoutes.getProfile()"
+      >
         <UserBadge :user="session.user" />
 
-        <VInfo label="Email" :txt="session.user.email" />
+        <VInfo
+          label="Email"
+          :txt="session.user.email"
+        />
 
-        <VInfo label="Gender" :txt="session.user.gender" />
+        <VInfo
+          label="Gender"
+          :txt="session.user.gender"
+        />
 
         <LogoutButton class="personal-area-page__logout" />
       </CardLink>
@@ -47,13 +64,7 @@ import { useRoute } from 'vue-router'
 import { useAppPages, useAppRoutes } from '@/app/providers'
 import { useSessionStore } from '@/entities/Session/model'
 import type { INavItem } from '@/shared/ui/navigation'
-import {
-  IconHome,
-  IconHeart,
-  IconBag,
-  IconWallet,
-  IconUser
-} from '@/shared/ui/icons'
+import { IconHome, IconHeart, IconBag, IconWallet, IconUser } from '@/shared/ui/icons'
 
 const route = useRoute()
 const appRoutes = useAppRoutes()
@@ -61,9 +72,7 @@ const appPages = useAppPages()
 
 const isMainPage = computed(() => route.name === appPages.personalArea)
 
-const isOrdersPage = computed(
-  () => route.name === appPages.delivery || route.name === appPages.archive
-)
+const isOrdersPage = computed(() => route.name === appPages.delivery || route.name === appPages.archive)
 
 const personalAreaNavList = reactive<INavItem[]>([
   {

@@ -11,19 +11,16 @@ interface IProductCategoriesStore {
 
 const NAMESPACE = 'product-categories'
 
-export const useProductCategoriesStore = defineStore(
-  NAMESPACE,
-  (): IProductCategoriesStore => {
-    const categories = reactive<TProductCategory[]>([])
+export const useProductCategoriesStore = defineStore(NAMESPACE, (): IProductCategoriesStore => {
+  const categories = reactive<TProductCategory[]>([])
 
-    async function getCategories() {
-      const { data } = await Api.getCategories()
-      refreshArray(categories, data)
-    }
-
-    return {
-      categories,
-      getCategories
-    }
+  async function getCategories() {
+    const { data } = await Api.getCategories()
+    refreshArray(categories, data)
   }
-)
+
+  return {
+    categories,
+    getCategories
+  }
+})

@@ -1,5 +1,9 @@
 <template>
-  <VeeInput label="Password" name="password" input-type="password" />
+  <VeeInput
+    label="Password"
+    name="password"
+    input-type="password"
+  />
 </template>
 
 <script setup lang="ts">

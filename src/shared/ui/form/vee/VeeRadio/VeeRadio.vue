@@ -25,12 +25,7 @@ interface IVeeRadio {
 
 const props = defineProps<IVeeRadio>()
 
-const {
-  value: inputValue,
-  errorMessage,
-  handleChange,
-  meta
-} = useField<IRadioItem>(() => props.name)
+const { value: inputValue, errorMessage, handleChange, meta } = useField<IRadioItem>(() => props.name)
 
 const error = computed(() => {
   if (meta.touched) return errorMessage.value

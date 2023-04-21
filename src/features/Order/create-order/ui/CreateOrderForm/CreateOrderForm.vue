@@ -1,6 +1,12 @@
 <template>
-  <VForm class="gap-xs" :handler-submit="onSubmit">
-    <VeeCheckbox name="isPrepaid" label="Pay immediately" />
+  <VForm
+    class="gap-xs"
+    :handler-submit="onSubmit"
+  >
+    <VeeCheckbox
+      name="isPrepaid"
+      label="Pay immediately"
+    />
 
     <template v-slot:button-submit>
       <CyberButtonSubmit

@@ -1,6 +1,14 @@
 <template>
-  <div class="radio" :class="classes">
-    <div v-if="label" class="radio__label label mb-xxs">{{ label }}</div>
+  <div
+    class="radio"
+    :class="classes"
+  >
+    <div
+      v-if="label"
+      class="radio__label label mb-xxs"
+    >
+      {{ label }}
+    </div>
 
     <div class="radio__list column gap-xxs">
       <RadioItem
@@ -14,7 +22,11 @@
         @change="onChange"
       />
     </div>
-    <small v-if="error" class="radio__error red">{{ error }}</small>
+    <small
+      v-if="error"
+      class="radio__error red"
+      >{{ error }}</small
+    >
   </div>
 </template>
 

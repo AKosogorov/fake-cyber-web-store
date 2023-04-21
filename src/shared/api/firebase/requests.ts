@@ -7,10 +7,7 @@ import { setCreatedAtTo, setUpdatedAtTo } from '@/shared/lib/utils/date'
 type TResponse<T> = AxiosPromise<T & IBaseItem>
 type TResponseGetAll<T> = AxiosPromise<IStringIdx<T & IBaseItem>>
 
-export function getAll<T>(
-  url: string,
-  params?: IStringIdx
-): TResponseGetAll<T> {
+export function getAll<T>(url: string, params?: IStringIdx): TResponseGetAll<T> {
   return instance.get(`/${url}.json`, { params })
 }
 
@@ -31,20 +28,12 @@ export function create<T extends IStringIdx>(url: string, data: T) {
 
 interface IUpdateData extends IStringIdx, ICreatedAt {}
 
-export function update<T extends IUpdateData>(
-  url: string,
-  id: TId,
-  data: T
-): TResponse<T> {
+export function update<T extends IUpdateData>(url: string, id: TId, data: T): TResponse<T> {
   setUpdatedAtTo(data)
   return instance.put(`/${url}/${id}.json`, data)
 }
 
-export function patch<T extends IStringIdx>(
-  url: string,
-  id: TId,
-  data: T
-): AxiosPromise<T & IUpdatedAt> {
+export function patch<T extends IStringIdx>(url: string, id: TId, data: T): AxiosPromise<T & IUpdatedAt> {
   setUpdatedAtTo(data)
   return instance.patch(`/${url}/${id}.json`, data)
 }

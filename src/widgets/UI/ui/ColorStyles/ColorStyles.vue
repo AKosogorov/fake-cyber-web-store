@@ -18,16 +18,7 @@
 </template>
 
 <script setup lang="ts">
-const colors = [
-  'yellow',
-  'red',
-  'grey',
-  'blue',
-  'black',
-  'dark-blue',
-  'green',
-  'purple'
-].map(item => {
+const colors = ['yellow', 'red', 'grey', 'blue', 'black', 'dark-blue', 'green', 'purple'].map(item => {
   let textColor = 'black'
 
   const bgWithWhiteText = ['red', 'black', 'dark-blue']

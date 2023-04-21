@@ -104,9 +104,6 @@ export const useOrderStore = defineStore(namespace, () => {
       clearTimeout(timeoutId)
     }
   }
-  function clearTimeoutBy(id: FirebaseApi.TId) {
-    clearTimeout(orderToReadyTimeouts[id])
-  }
 
   async function patchReady(id: FirebaseApi.TId) {
     try {

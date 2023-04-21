@@ -1,7 +1,10 @@
 <template>
   <span v-if="!store.changelog.length">No records</span>
 
-  <div v-else class="column gap-s">
+  <div
+    v-else
+    class="column gap-s"
+  >
     <WalletChangelogCard
       v-for="item of changelog"
       :key="item.date"

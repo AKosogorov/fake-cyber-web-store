@@ -22,12 +22,7 @@ interface IVeeCheckbox {
 
 const props = defineProps<IVeeCheckbox>()
 
-const {
-  value: inputValue,
-  errorMessage,
-  handleChange,
-  meta
-} = useField<boolean>(() => props.name)
+const { value: inputValue, errorMessage, handleChange, meta } = useField<boolean>(() => props.name)
 
 const error = computed(() => {
   if (meta.touched) return errorMessage.value

@@ -1,8 +1,15 @@
 <template>
   <SpinnerLoader v-if="isLoading" />
 
-  <div v-else class="product-list">
-    <ProductCard v-for="item of products" :key="item.id" :product="item">
+  <div
+    v-else
+    class="product-list"
+  >
+    <ProductCard
+      v-for="item of products"
+      :key="item.id"
+      :product="item"
+    >
       <template v-slot:button-like>
         <AddToFavorites :id="item.id" />
       </template>

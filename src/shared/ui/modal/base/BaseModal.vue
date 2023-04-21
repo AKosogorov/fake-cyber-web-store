@@ -1,11 +1,25 @@
 <template>
   <teleport to="body">
-    <div class="modal" :class="className">
-      <div class="modal__wrap" @click.self="close">
+    <div
+      class="modal"
+      :class="className"
+    >
+      <div
+        class="modal__wrap"
+        @click.self="close"
+      >
         <div class="modal__content">
-          <ButtonCross class="modal__button-close" @click="close" />
+          <ButtonCross
+            class="modal__button-close"
+            @click="close"
+          />
 
-          <h3 v-if="title" class="modal__title center">{{ title }}</h3>
+          <h3
+            v-if="title"
+            class="modal__title center"
+          >
+            {{ title }}
+          </h3>
 
           <slot />
         </div>

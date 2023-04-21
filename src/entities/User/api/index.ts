@@ -1,9 +1,4 @@
-import {
-  createApiErrorGetById,
-  createApiErrorCreate,
-  createApiErrorUpdate,
-  FirebaseApi
-} from '@/shared/api'
+import { createApiErrorGetById, createApiErrorCreate, createApiErrorUpdate, FirebaseApi } from '@/shared/api'
 import type { IUserFB, EGender } from '../model/types'
 import { setCreatedAtTo } from '@/shared/lib/utils/date'
 
@@ -69,10 +64,7 @@ async function patchGender(id: FirebaseApi.TId, data: { gender: EGender }) {
   }
 }
 
-async function patchCartId(
-  id: FirebaseApi.TId,
-  data: { cartId: FirebaseApi.TId }
-) {
+async function patchCartId(id: FirebaseApi.TId, data: { cartId: FirebaseApi.TId }) {
   try {
     return await FirebaseApi.patch(USER_URL, id, data)
   } catch (e) {
@@ -80,10 +72,7 @@ async function patchCartId(
   }
 }
 
-async function patchWalletId(
-  id: FirebaseApi.TId,
-  data: { walletId: FirebaseApi.TId }
-) {
+async function patchWalletId(id: FirebaseApi.TId, data: { walletId: FirebaseApi.TId }) {
   try {
     return await FirebaseApi.patch(USER_URL, id, data)
   } catch (e) {
@@ -91,10 +80,7 @@ async function patchWalletId(
   }
 }
 
-async function patchFavoritesId(
-  id: FirebaseApi.TId,
-  data: { favoritesId: FirebaseApi.TId }
-) {
+async function patchFavoritesId(id: FirebaseApi.TId, data: { favoritesId: FirebaseApi.TId }) {
   try {
     return await FirebaseApi.patch(USER_URL, id, data)
   } catch (e) {
@@ -102,10 +88,7 @@ async function patchFavoritesId(
   }
 }
 
-async function patchOrderIds(
-  id: FirebaseApi.TId,
-  data: { orderIds: FirebaseApi.TId[] }
-) {
+async function patchOrderIds(id: FirebaseApi.TId, data: { orderIds: FirebaseApi.TId[] }) {
   try {
     return await FirebaseApi.patch(USER_URL, id, data)
   } catch (e) {

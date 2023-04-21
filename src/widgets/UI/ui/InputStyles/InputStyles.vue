@@ -11,7 +11,11 @@
     />
 
     <div class="column gap-s max-w-field">
-      <VInput label="LABEL" name="input" placeholder="placeholder" />
+      <VInput
+        label="LABEL"
+        name="input"
+        placeholder="placeholder"
+      />
 
       <VInput
         v-for="(item, i) of inputList"

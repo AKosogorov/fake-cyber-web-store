@@ -1,9 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
-import type {
-  IAlert,
-  IAlertsStore
-} from '@/shared/ui/TheAlerts/model/interface'
+import type { IAlert, IAlertsStore } from '@/shared/ui/TheAlerts/model/interface'
 import { EAlertStatus } from '@/shared/ui/TheAlerts/model/interface'
 import { spliceBy } from '@/shared/lib/utils/array'
 import useTimeout from '@/shared/lib/use/useTimeout'
@@ -30,11 +27,7 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
     createAndSetDestroy(EAlertStatus.info, message, timeout)
   }
 
-  function createAndSetDestroy(
-    status: EAlertStatus,
-    message: string,
-    timeout: number = 4000
-  ): void {
+  function createAndSetDestroy(status: EAlertStatus, message: string, timeout: number = 4000): void {
     const id = counter.value
     increment()
 

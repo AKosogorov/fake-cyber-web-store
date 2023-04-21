@@ -17,7 +17,7 @@
 import { VButton } from '@/shared/ui/buttons'
 import { useSingleModal } from '@/shared/lib/use/modal/useSingleModal'
 import { ModalConfirmation } from '@/shared/ui/modal'
-import { FirebaseApi } from '@/shared/api'
+import type { FirebaseApi } from '@/shared/api'
 import { computed } from 'vue'
 import { useAlertsStore } from '@/shared/ui/TheAlerts'
 import { formatUSD } from '@/shared/lib/utils/format/currency'

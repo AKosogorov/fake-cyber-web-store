@@ -1,8 +1,4 @@
-import type {
-  ICartFB,
-  ICartProductBase,
-  ICartDummyJsonResponse
-} from '../model'
+import type { ICartFB, ICartProductBase, ICartDummyJsonResponse } from '../model'
 import {
   createApiErrorGetById,
   createApiErrorCreate,

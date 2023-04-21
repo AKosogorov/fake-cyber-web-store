@@ -28,9 +28,7 @@ export const secureTokenInstance = axios.create({
 secureTokenInstance.interceptors.request.use(addAPIKey, reject)
 
 function addToken(config: InternalAxiosRequestConfig) {
-  config.headers.authorization = localStorage.getItem(
-    `${APP_NAME}:${TOKEN_KEY}`
-  )
+  config.headers.authorization = localStorage.getItem(`${APP_NAME}:${TOKEN_KEY}`)
 
   return config
 }

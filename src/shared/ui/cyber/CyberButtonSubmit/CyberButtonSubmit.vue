@@ -6,7 +6,10 @@
     :txt="txt"
     :disabled="isDisabled || isSubmitting"
   >
-    <BarsLoader v-if="isSubmitting" class="cyber-button-submit__loader" />
+    <BarsLoader
+      v-if="isSubmitting"
+      class="cyber-button-submit__loader"
+    />
   </CyberButton>
 </template>
 

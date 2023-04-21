@@ -6,7 +6,10 @@
       :options="PRICE_COUNT_UP_OPTIONS"
     />
 
-    <del v-if="hasDiscount" class="price__old">
+    <del
+      v-if="hasDiscount"
+      class="price__old"
+    >
       <CountUp
         :end-val="price"
         :duration="COUNT_UP_DURATION"
@@ -20,10 +23,7 @@
 import CountUp from 'vue-countup-v3'
 import { computed } from 'vue'
 
-import {
-  COUNT_UP_DURATION,
-  PRICE_COUNT_UP_OPTIONS
-} from '@/shared/ui/VPrice/const'
+import { COUNT_UP_DURATION, PRICE_COUNT_UP_OPTIONS } from '@/shared/ui/VPrice/const'
 
 const props = defineProps<{
   price: number

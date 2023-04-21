@@ -1,10 +1,17 @@
 <template>
-  <form class="form column gap-m" novalidate @submit="handlerSubmit">
+  <form
+    class="form column gap-m"
+    novalidate
+    @submit="handlerSubmit"
+  >
     <slot />
 
     <div class="form__buttons row">
       <slot name="button-submit">
-        <ButtonSubmit :txt="buttonSubmitTxt" :is-submitting="isSubmitting" />
+        <ButtonSubmit
+          :txt="buttonSubmitTxt"
+          :is-submitting="isSubmitting"
+        />
       </slot>
       <slot name="additional-buttons" />
     </div>

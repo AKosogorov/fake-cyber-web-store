@@ -28,13 +28,7 @@ interface IVeeInput {
 
 const props = defineProps<IVeeInput>()
 
-const {
-  value: inputValue,
-  errorMessage,
-  handleBlur,
-  handleChange,
-  meta
-} = useField<string | number>(() => props.name)
+const { value: inputValue, errorMessage, handleBlur, handleChange, meta } = useField<string | number>(() => props.name)
 
 const error = computed(() => {
   if (meta.touched) return errorMessage.value

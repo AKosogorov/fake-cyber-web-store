@@ -1,5 +1,8 @@
 <template>
-  <span class="cyber-card" :class="color">
+  <span
+    class="cyber-card"
+    :class="color"
+  >
     <CyberTag class="cyber-card__tag" />
   </span>
 </template>

@@ -16,13 +16,14 @@
         {{ operation }}
       </div>
 
-      <div class="wallet-changelog-card__sum" :class="classColor">
+      <div
+        class="wallet-changelog-card__sum"
+        :class="classColor"
+      >
         {{ sum }}
       </div>
 
-      <div class="wallet-changelog-card__balance blue">
-        Balance: {{ balance }}
-      </div>
+      <div class="wallet-changelog-card__balance blue">Balance: {{ balance }}</div>
     </div>
   </div>
 </template>
@@ -44,9 +45,7 @@ const props = defineProps<IProps>()
 
 const date = computed(() => formatDateTime(props.item.date))
 
-const operation = computed(
-  () => WALLET_OPERATION_TYPES[props.item.operationTypeId - 1].name
-)
+const operation = computed(() => WALLET_OPERATION_TYPES[props.item.operationTypeId - 1].name)
 
 const isPositive = computed(() => {
   switch (props.item.operationTypeId) {
@@ -58,9 +57,7 @@ const isPositive = computed(() => {
   }
 })
 
-const classColor = computed(() =>
-  isPositive.value ? EAppColor.green : EAppColor.red
-)
+const classColor = computed(() => (isPositive.value ? EAppColor.green : EAppColor.red))
 
 const sumFormatted = computed(() => formatUSD(props.item.sum))
 

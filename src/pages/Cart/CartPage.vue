@@ -13,7 +13,10 @@
           :cart-product="item"
         >
           <template v-slot:input-quantity>
-            <ChangeQuantity :id="item.id" :quantity="item.quantity" />
+            <ChangeQuantity
+              :id="item.id"
+              :quantity="item.quantity"
+            />
           </template>
 
           <template v-slot:button-like>
@@ -30,7 +33,10 @@
 
       <aside class="cart-page__aside">
         <CartTotal>
-          <template v-if="store.cartProducts.length" v-slot:order>
+          <template
+            v-if="store.cartProducts.length"
+            v-slot:order
+          >
             <div class="relative">
               <CreateOrderForm />
 

@@ -9,16 +9,12 @@ interface IQueryInit extends IBaseQuery {
   page?: number
 }
 
-interface IUseQueryListSettings<
-  T,
-  R extends IBaseGetResponse,
-  Q extends IBaseQuery
-> extends IUseBaseListSettings<T, R, Q> {
+interface IUseQueryListSettings<T, R extends IBaseGetResponse, Q extends IBaseQuery>
+  extends IUseBaseListSettings<T, R, Q> {
   initQuery?: IQueryInit
 }
 
-interface IUseQueryListModel<T, Q extends IBaseQuery>
-  extends IUseBaseListModel<T, Q> {
+interface IUseQueryListModel<T, Q extends IBaseQuery> extends IUseBaseListModel<T, Q> {
   loadListWithQuery: (params?: Q) => Promise<void>
   loadPage: (num: number) => Promise<void>
   page: Ref<number>
@@ -27,13 +23,10 @@ interface IUseQueryListModel<T, Q extends IBaseQuery>
   changeLimit: (num: number) => void
 }
 
-export function useQueryListModel<
-  T,
-  R extends IBaseGetResponse,
-  Q extends object = IBaseQuery
->(settings: IUseQueryListSettings<T, R, Q>): IUseQueryListModel<T, Q> {
-  const { list, loadList, isLoading, refresh, total, setTotal } =
-    useBaseListModel(settings)
+export function useQueryListModel<T, R extends IBaseGetResponse, Q extends object = IBaseQuery>(
+  settings: IUseQueryListSettings<T, R, Q>
+): IUseQueryListModel<T, Q> {
+  const { list, loadList, isLoading, refresh, total, setTotal } = useBaseListModel(settings)
 
   const { limit, setLimit, skip, setSkip } = useBaseQuery(settings.initQuery)
 

@@ -6,9 +6,7 @@ export const DJ_API_URL = getEnvVar('VITE_APP_DJ_API_URL')
 export const FB_API_KEY = getEnvVar('VITE_APP_FB_API_KEY')
 export const FB_API_URL = getEnvVar('VITE_APP_FB_API_URL')
 export const FB_ACCOUNTS_API_URL = getEnvVar('VITE_APP_FB_ACCOUNTS_API_URL')
-export const FB_SECURE_TOKEN_API_URL = getEnvVar(
-  'VITE_APP_FB_SECURE_TOKEN_API_URL'
-)
+export const FB_SECURE_TOKEN_API_URL = getEnvVar('VITE_APP_FB_SECURE_TOKEN_API_URL')
 
 export const TOKEN_KEY = 'jwt-token'
 export const TOKEN_EXPIRES_IN = 3600 * 1000

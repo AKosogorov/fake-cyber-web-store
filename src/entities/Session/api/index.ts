@@ -25,10 +25,7 @@ interface IAuthResponse {
 
 async function singUp(data: IAuthData): AxiosPromise<IAuthResponse> {
   try {
-    return await FirebaseApi.accountInstance.post(
-      ':signUp',
-      withReturnToken(data)
-    )
+    return await FirebaseApi.accountInstance.post(':signUp', withReturnToken(data))
   } catch (e: any) {
     throw new Error(getErrorMessageBy(e.response.data.error.message))
   }
@@ -36,10 +33,7 @@ async function singUp(data: IAuthData): AxiosPromise<IAuthResponse> {
 
 async function singIn(data: IAuthData): AxiosPromise<IAuthResponse> {
   try {
-    return await FirebaseApi.accountInstance.post(
-      ':signInWithPassword',
-      withReturnToken(data)
-    )
+    return await FirebaseApi.accountInstance.post(':signInWithPassword', withReturnToken(data))
   } catch (e: any) {
     throw new Error(getErrorMessageBy(e.response.data.error.message))
   }

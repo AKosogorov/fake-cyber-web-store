@@ -46,30 +46,24 @@ export const useCartStore = defineStore(NAMESPACE, (): ICartStore => {
     refresh(data.products || [])
   }
 
-  const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ICartTotal>(
-    NAMESPACE,
-    {
-      total: 0,
-      totalQuantity: 0,
-      totalProducts: 0,
-      discountedTotal: 0
-    }
-  )
+  const { value: LSCart, setLSValue: setLSCart } = useLocalStorage<ICartTotal>(NAMESPACE, {
+    total: 0,
+    totalQuantity: 0,
+    totalProducts: 0,
+    discountedTotal: 0
+  })
 
   const total = ref(LSCart.total)
   const totalQuantity = ref(LSCart.totalQuantity)
   const totalProducts = ref(LSCart.totalProducts)
   const discountedTotal = ref(LSCart.discountedTotal)
 
-  const { value: LSCartProducts, setLSValue: setLSCartProducts } =
-    useLocalStorage<ICartProduct[]>(`${NAMESPACE}-products`, [])
+  const { value: LSCartProducts, setLSValue: setLSCartProducts } = useLocalStorage<ICartProduct[]>(
+    `${NAMESPACE}-products`,
+    []
+  )
 
-  const {
-    array: cartProducts,
-    add,
-    remove,
-    refresh
-  } = useReactiveArray(LSCartProducts)
+  const { array: cartProducts, add, remove, refresh } = useReactiveArray(LSCartProducts)
 
   const inCart = computed(() => cartProducts.length)
 

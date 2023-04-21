@@ -8,11 +8,7 @@ interface IUseIsLoading {
 }
 
 export function useIsLoading(): IUseIsLoading {
-  const {
-    isBoolean: isLoading,
-    setTrue: startLoading,
-    setFalse: finishLoading
-  } = useIsBoolean()
+  const { isBoolean: isLoading, setTrue: startLoading, setFalse: finishLoading } = useIsBoolean()
 
   return {
     isLoading,

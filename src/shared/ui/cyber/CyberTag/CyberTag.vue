@@ -1,5 +1,9 @@
 <template>
-  <span class="cyber-tag" aria-hidden="true">{{ letter }}{{ number }}</span>
+  <span
+    class="cyber-tag"
+    aria-hidden="true"
+    >{{ letter }}{{ number }}</span
+  >
 </template>
 
 <script setup lang="ts">

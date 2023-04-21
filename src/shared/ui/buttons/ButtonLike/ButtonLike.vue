@@ -1,7 +1,13 @@
 <template>
-  <ButtonSm class="button-like" :class="isLike && 'liked'">
+  <ButtonSm
+    class="button-like"
+    :class="isLike && 'liked'"
+  >
     <template v-slot:icon>
-      <IconHeart :width="iconSize" :height="iconSize" />
+      <IconHeart
+        :width="iconSize"
+        :height="iconSize"
+      />
     </template>
   </ButtonSm>
 </template>
