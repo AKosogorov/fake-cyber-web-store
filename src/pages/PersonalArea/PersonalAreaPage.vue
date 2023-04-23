@@ -45,10 +45,12 @@
       </CardLink>
 
       <CardLink
-        class="personal-area-page__favorites"
+        class="personal-area-page__favorites column gap-xs"
         :to="appRoutes.getFavorites()"
       >
         <h3>Favorites</h3>
+
+        <p v-if="favoritesStore.productsCount">{{ favoritesStore.productsCount }} goods</p>
       </CardLink>
 
       <CardLink
@@ -78,14 +80,15 @@ import { WalletBalance } from '@/entities/Wallet'
 import { VNavigation } from '@/shared/ui/navigation'
 import { CardLink } from '@/shared/ui/cards'
 import { VInfo } from '@/shared/ui/text'
+import { IconHome, IconHeart, IconBag, IconWallet, IconUser } from '@/shared/ui/icons'
 
 import { computed, reactive, markRaw } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppPages, useAppRoutes } from '@/app/providers'
 import { useSessionStore } from '@/entities/Session/model'
 import type { INavItem } from '@/shared/ui/navigation'
-import { IconHome, IconHeart, IconBag, IconWallet, IconUser } from '@/shared/ui/icons'
 import { OrderModel } from '@/entities/Order'
+import { FavoritesModel } from '@/entities/Favorites'
 
 const route = useRoute()
 const appRoutes = useAppRoutes()
@@ -126,6 +129,7 @@ const personalAreaNavList = reactive<INavItem[]>([
 
 const session = useSessionStore()
 const orderStore = OrderModel.useOrderStore()
+const favoritesStore = FavoritesModel.useFavoritesStore()
 </script>
 
 <style lang="scss">
