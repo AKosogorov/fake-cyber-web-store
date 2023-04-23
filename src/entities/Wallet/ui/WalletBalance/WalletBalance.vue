@@ -1,7 +1,7 @@
 <template>
   <div class="balance column gap-s">
     <div class="column gap-xxs">
-      <h4>Balance:</h4>
+      <h3>Balance:</h3>
 
       <div class="balance__sum row">
         <CountUp

@@ -14,10 +14,10 @@
 
     <div
       v-if="isMainPage"
-      class="column gap-s"
+      class="personal-area-page__grid"
     >
       <CardLink
-        class="column gap-xs"
+        class="personal-area-page__profile column gap-xs"
         :to="appRoutes.getProfile()"
       >
         <UserBadge :user="session.user" />
@@ -35,17 +35,37 @@
         <LogoutButton class="personal-area-page__logout" />
       </CardLink>
 
-      <CardLink :to="appRoutes.getDelivery()">Delivery</CardLink>
+      <CardLink
+        class="personal-area-page__delivery column gap-xs"
+        :to="appRoutes.getDelivery()"
+      >
+        <h3>Delivery</h3>
 
-      <CardLink :to="appRoutes.getFavorites()">Favorites</CardLink>
+        <p v-if="orderStore.inDelivery">{{ orderStore.inDelivery }} orders awaiting delivery</p>
+      </CardLink>
 
-      <div class="row gap-xxs">
-        <CardLink :to="appRoutes.getArchive()">Purchases</CardLink>
+      <CardLink
+        class="personal-area-page__favorites"
+        :to="appRoutes.getFavorites()"
+      >
+        <h3>Favorites</h3>
+      </CardLink>
 
-        <CardLink :to="appRoutes.getWallet()">
-          <WalletBalance />
-        </CardLink>
-      </div>
+      <CardLink
+        class="personal-area-page__archive column gap-xs"
+        :to="appRoutes.getArchive()"
+      >
+        <h3>Purchases</h3>
+
+        <p v-if="orderStore.inPurchased">{{ orderStore.inPurchased }} orders received</p>
+      </CardLink>
+
+      <CardLink
+        class="personal-area-page__balance"
+        :to="appRoutes.getWallet()"
+      >
+        <WalletBalance />
+      </CardLink>
     </div>
   </div>
   <router-view />
@@ -65,6 +85,7 @@ import { useAppPages, useAppRoutes } from '@/app/providers'
 import { useSessionStore } from '@/entities/Session/model'
 import type { INavItem } from '@/shared/ui/navigation'
 import { IconHome, IconHeart, IconBag, IconWallet, IconUser } from '@/shared/ui/icons'
+import { OrderModel } from '@/entities/Order'
 
 const route = useRoute()
 const appRoutes = useAppRoutes()
@@ -104,6 +125,7 @@ const personalAreaNavList = reactive<INavItem[]>([
 ])
 
 const session = useSessionStore()
+const orderStore = OrderModel.useOrderStore()
 </script>
 
 <style lang="scss">
