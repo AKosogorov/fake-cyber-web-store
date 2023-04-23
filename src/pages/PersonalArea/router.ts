@@ -3,6 +3,7 @@ import { route as favoritesRoute } from './Favorites'
 import { route as ordersRoute } from './Orders'
 import { route as profileRoute } from './Profile'
 import { route as walletRoute } from './Wallet'
+import { SessionModel } from '@/entities/Session'
 
 export const routeName: string = 'PersonalAreaPage'
 
@@ -10,5 +11,14 @@ export const route: RouteRecordRaw = {
   name: routeName,
   path: '/personal-area',
   component: () => import('./PersonalAreaPage.vue'),
-  children: [favoritesRoute, ordersRoute, profileRoute, walletRoute]
+  children: [favoritesRoute, ordersRoute, profileRoute, walletRoute],
+  beforeEnter: (to, from, next) => {
+    const session = SessionModel.useSessionStore()
+
+    if (session.isAuth) {
+      next()
+    } else {
+      next('/')
+    }
+  }
 }

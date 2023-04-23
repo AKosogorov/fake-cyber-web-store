@@ -11,7 +11,7 @@
       </div>
 
       <div class="header__right row gap-m">
-        <LinkToDelivery />
+        <LinkToDelivery v-if="session.isAuth" />
 
         <router-link
           class="link"
