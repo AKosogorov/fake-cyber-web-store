@@ -1,16 +1,23 @@
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
-import type { IAlert, IAlertsStore } from '@/shared/ui/TheAlerts/model/interface'
-import { EAlertStatus } from '@/shared/ui/TheAlerts/model/interface'
+import type { IAlert, IAlertsStore } from './types'
+import { EAlertStatus } from './types'
 import { spliceBy } from '@/shared/lib/utils/array'
 import useTimeout from '@/shared/lib/use/useTimeout'
+import { useIsBoolean } from '@/shared/lib/use/base/useIsBoolean'
+import { useRefNumber } from '@/shared/lib/use/base/useRefNumber'
 
 const NAMESPACE = 'alerts'
 
 export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
-  const alerts = reactive<IAlert[] | never>([])
-  const isVisible = ref(false)
-  const counter = ref(1)
+  const alerts = reactive<IAlert[]>([])
+  const {
+    isBoolean: isVisible,
+    setTrue: visible,
+    setFalse: hidden
+  } = useIsBoolean(true)
+
+  const { value: counter, increment } = useRefNumber(1)
 
   const count = computed(() => alerts.length)
 
@@ -44,10 +51,6 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
     spliceBy(id, alerts)
   }
 
-  function increment(): void {
-    counter.value++
-  }
-
   const { setTimeoutId, clearTimeoutId } = useTimeout(hidden, 50)
 
   watch(count, length => {
@@ -61,13 +64,6 @@ export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
       visible()
     }
   })
-
-  function hidden() {
-    isVisible.value = false
-  }
-  function visible() {
-    isVisible.value = true
-  }
 
   return {
     alerts,
