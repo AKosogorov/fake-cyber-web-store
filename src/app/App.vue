@@ -16,6 +16,8 @@
     </TheBurgerMenu>
   </MainLayout>
 
+  <ButtonScrollTop />
+
   <TheAlerts />
 </template>
 
@@ -27,6 +29,7 @@ import { TheFooter } from '@/widgets/TheFooter'
 import { MainLayout, EmptyLayout } from '@/shared/ui/layouts'
 import { TheBurgerMenu } from '@/shared/ui/TheBurgerMenu'
 import { TheAlerts, useAlertsStore } from '@/shared/ui/TheAlerts'
+import { ButtonScrollTop } from '@/shared/ui/buttons'
 
 import { computed, onBeforeMount, provide } from 'vue'
 import { useRoute } from 'vue-router'

@@ -1,5 +1,6 @@
 body {
   position: relative;
+  height: 100vh;
   font-family: Bai Jamjuree, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,7 +20,7 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .app-bg {

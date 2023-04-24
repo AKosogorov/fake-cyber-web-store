@@ -3,6 +3,6 @@
   <main>
     <router-view />
   </main>
-  <slot />
   <slot name="footer" />
+  <slot />
 </template>

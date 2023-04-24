@@ -28,12 +28,7 @@
   --color__purple: #77308c;
   --color__purple--transparent: rgba(119, 48, 140, 0.35);
 
-  --gradient__prb: linear-gradient(
-    120deg,
-    var(--color__purple) 0%,
-    var(--color__red) 50%,
-    var(--color__blue) 100%
-  );
+  --gradient__prb: linear-gradient(120deg, var(--color__purple) 0%, var(--color__red) 50%, var(--color__blue) 100%);
 
   --bg-color-body: #1e1e1e;
   --bg-color__dark: #0f0f0f;
@@ -41,6 +36,7 @@
   --bg-color__dark--light: rgba(15, 15, 15, 0.7);
   --bg-color__error: #2d0008;
 
+  --z-idx__overlay-actions: 80;
   --z-idx__modals: 90;
   --z-idx__alerts: 100;
 

@@ -7,7 +7,7 @@
 
     <div class="pagination__pages row gap-xxs">
       <button
-        class="pagination__button pagination__button--arrow pagination__button--arrow-prev reset"
+        class="pagination__button pagination__button--arrow-prev pseudo-double-arrow reset"
         type="button"
         :disabled="isDisabled || isFirstPage"
         @click="updateModelValue(modelValue - 1)"
@@ -48,7 +48,7 @@
       />
 
       <button
-        class="pagination__button pagination__button--arrow reset"
+        class="pagination__button pseudo-double-arrow reset"
         type="button"
         :disabled="isDisabled || isLastPage"
         @click="updateModelValue(modelValue + 1)"

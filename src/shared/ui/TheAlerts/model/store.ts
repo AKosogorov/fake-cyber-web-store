@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import type { IAlert, IAlertsStore } from './types'
 import { EAlertStatus } from './types'
 import { spliceBy } from '@/shared/lib/utils/array'
@@ -11,11 +11,7 @@ const NAMESPACE = 'alerts'
 
 export const useAlertsStore = defineStore(NAMESPACE, (): IAlertsStore => {
   const alerts = reactive<IAlert[]>([])
-  const {
-    isBoolean: isVisible,
-    setTrue: visible,
-    setFalse: hidden
-  } = useIsBoolean(true)
+  const { isBoolean: isVisible, setTrue: visible, setFalse: hidden } = useIsBoolean(true)
 
   const { value: counter, increment } = useRefNumber(1)
 
