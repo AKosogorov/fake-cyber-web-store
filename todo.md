@@ -14,4 +14,3 @@
 - rating
 - 404 page
 - header search
-- button scroll
