@@ -28,4 +28,8 @@ import {
   PaginationStyles,
   RadioStyles
 } from '@/widgets/UI'
+import { scrollTop } from '@/shared/lib/dom'
+import { onBeforeMount } from 'vue'
+
+onBeforeMount(scrollTop)
 </script>

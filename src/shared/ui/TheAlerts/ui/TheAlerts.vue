@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import AlertCard from '@/shared/ui/TheAlerts/ui/AlertCard'
-import { useAlertsStore } from '@/shared/ui/TheAlerts/model/store'
+import AlertCard from './AlertCard'
+import { useAlertsStore } from '../model'
 
 const store = useAlertsStore()
 </script>

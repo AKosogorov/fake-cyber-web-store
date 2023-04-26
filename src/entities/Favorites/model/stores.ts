@@ -1,15 +1,17 @@
+import type { ComputedRef, Ref } from 'vue'
 import type { FirebaseApi } from '@/shared/api'
+import { computed } from 'vue'
 import { defineStore } from 'pinia'
 import { api } from '../api'
 import { useReactiveArray } from '@/shared/lib/use/base/useReactiveArray'
 import { useRefString } from '@/shared/lib/use/base/useRefString'
 import { findSimpleBy } from '@/shared/lib/utils/array'
 import { useLocalStorage } from '@/shared/lib/browser'
-import type { Ref } from 'vue'
 
 interface IStore {
   favoritesId: Ref<FirebaseApi.TId>
   productIds: number[]
+  productsCount: ComputedRef<number>
   refreshProductIds: (data: number[]) => void
   add: (id: number) => void
   remove: (id: number) => void
@@ -33,6 +35,8 @@ export const useFavoritesStore = defineStore(namespace, (): IStore => {
     remove: removeId,
     refresh: refreshProductIds
   } = useReactiveArray<number>(value)
+
+  const productsCount = computed(() => productIds.length)
 
   function add(id: number) {
     addId(id)
@@ -77,6 +81,7 @@ export const useFavoritesStore = defineStore(namespace, (): IStore => {
     favoritesId,
     setFavoritesId,
     productIds,
+    productsCount,
     add,
     remove,
     refreshProductIds,

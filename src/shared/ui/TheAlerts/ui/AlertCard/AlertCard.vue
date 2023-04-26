@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IAlert } from '@/shared/ui/TheAlerts/model/interface'
+import type { IAlert } from '../../model/types'
 import { CyberCard } from '@/shared/ui/cyber'
 defineProps<{
   alert: IAlert

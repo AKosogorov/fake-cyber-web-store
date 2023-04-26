@@ -6,7 +6,7 @@ This project was created to study the architecture [Feature-Sliced Design (FSD)]
 - **UI**: [`Vue3`](https://vuejs.org/)
 - **Data model**: [`pinia`](https://pinia.vuejs.org/)
 - **Lang**: [`typescript`](https://www.typescriptlang.org/)
-- **Data fetching**: [`dummyJSON`](https://dummyjson.com/)
+- **Data fetching**: [`dummyJSON`](https://dummyjson.com/), [`firebase`](https://firebase.google.com/)
 - **Routing**: [`vue-router`](https://router.vuejs.org/)
 - **Lint**: [`eslint`](https://eslint.org/), [`prettier`](https://prettier.io/)
 - **Architecture**: [`feature-sliced`](https://feature-sliced.design/)

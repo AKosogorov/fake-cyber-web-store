@@ -18,3 +18,18 @@
   opacity: 0;
   transform: translateX(30px);
 }
+
+@media (max-width: $breakpoint-m) {
+  .alerts {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: $breakpoint-s) {
+  .alerts {
+    right: var(--xs);
+    left: var(--xs);
+    width: initial;
+    max-width: initial;
+  }
+}
