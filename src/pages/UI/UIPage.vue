@@ -27,7 +27,7 @@ import {
   LoaderStyles,
   PaginationStyles,
   RadioStyles
-} from '@/widgets/UI'
+} from '@/shared/ui/ui-kit'
 import { scrollTop } from '@/shared/lib/dom'
 import { onBeforeMount } from 'vue'
 
