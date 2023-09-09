@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ProductList, ProductListModel } from '@/widgets/Product'
+import { ProductList, ProductListModel } from '@/widgets/Product/ProductList'
 import { VPagination } from '@/shared/ui/pagination'
 
 import { onBeforeMount } from 'vue'

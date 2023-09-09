@@ -22,7 +22,7 @@
 import { VPagination } from '@/shared/ui/pagination'
 import { useRoute } from 'vue-router'
 import { computed, onBeforeMount, watch } from 'vue'
-import { ProductList, ProductListModel } from '@/widgets/Product'
+import { ProductList, ProductListModel } from '@/widgets/Product/ProductList'
 
 const route = useRoute()
 
