@@ -1,21 +1,34 @@
 <template>
   <nav class="nav">
     <ul class="nav__list row gap-s">
-      <li>
+      <li
+        v-for="item of navList"
+        :key="item.label"
+      >
         <router-link
           class="link"
-          to="/ui"
-          >UI</router-link
+          :to="item.to"
         >
-      </li>
-      <li>
-        <router-link
-          class="link"
-          :to="{ name: 'NotFoundPage' }"
-        >
-          Empty
+          {{ item.label }}
         </router-link>
       </li>
     </ul>
   </nav>
 </template>
+
+<script lang="ts" setup>
+import { useAppRoutes } from '@/app/providers'
+
+const appRoutes = useAppRoutes()
+
+const navList = [
+  {
+    to: appRoutes.getUIKit(),
+    label: 'UI kit'
+  },
+  {
+    to: appRoutes.getNotFound(),
+    label: 'Empty'
+  }
+]
+</script>
