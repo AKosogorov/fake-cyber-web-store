@@ -55,8 +55,9 @@
 
 <script setup lang="ts">
 import { useAppRoutes } from '@/app/providers'
-import { ChangeQuantity, RemoveFromCart } from '@/features/Cart'
-import { AddToFavorites } from '@/features/Product'
+import { ChangeQuantity } from '@/features/Cart/ChangeQuantity'
+import { RemoveFromCart } from '@/features/Cart/RemoveFromCart'
+import { AddToFavorites } from '@/features/Product/AddToFavorites'
 import { CreateOrderForm } from '@/features/Order/create-order'
 import { CartTotal, CartProductCard, CartModel } from '@/entities/Cart'
 import { SessionModel } from '@/entities/Session'

@@ -44,8 +44,8 @@
 import { UserBadge } from '@/entities/User'
 import { VInfo } from '@/shared/ui/text'
 import { ButtonEdit } from '@/shared/ui/buttons'
-import { ChangeUsername } from '@/features/User'
-import { ChangeGender } from '@/features/User'
+import { ChangeUsername } from '@/features/User/ChangeUsername'
+import { ChangeGender } from '@/features/User/ChangeGender'
 
 import { SessionModel } from '@/entities/Session'
 import { useMultipleModal } from '@/shared/lib/use/modal/useMultipleModal'

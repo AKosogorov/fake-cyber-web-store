@@ -24,8 +24,8 @@
 <script setup lang="ts">
 import SpinnerLoader from '@/shared/ui/loaders/SpinnerLoader'
 import { ProductCard } from '@/entities/Product'
-import { AddToFavorites } from '@/features/Product'
-import { AddToCart } from '@/features/Cart'
+import { AddToFavorites } from '@/features/Product/AddToFavorites'
+import { AddToCart } from '@/features/Cart/AddToCart'
 
 import type { ProductModel } from '@/entities/Product'
 
