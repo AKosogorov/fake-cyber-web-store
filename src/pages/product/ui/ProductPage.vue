@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import { ProductInfo } from '@/widgets/Product'
+import { ProductInfo } from '@/widgets/Product/ProductInfo'
 </script>
