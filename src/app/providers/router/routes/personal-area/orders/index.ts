@@ -9,6 +9,6 @@ export const route: RouteRecordRaw = {
   name: routeName,
   path: 'orders',
   redirect: deliveryRoute,
-  component: () => import('@/pages/personal-area-orders-archive'),
+  component: () => import('@/pages/personal-area-orders'),
   children: [deliveryRoute, archiveRoute]
 }
