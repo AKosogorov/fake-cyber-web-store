@@ -23,5 +23,5 @@
 
 <script setup lang="ts">
 import { VCheckbox } from '@/shared/ui/form'
-import { checkboxList } from './model'
+const checkboxList = ['hover', 'focus', 'checked', 'active', 'error', 'disabled'] as const
 </script>

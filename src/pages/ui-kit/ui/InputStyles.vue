@@ -33,8 +33,8 @@
 
 <script setup lang="ts">
 import { InputQuantity, VInput } from '@/shared/ui/form'
-import { inputList } from './model'
 import { ref } from 'vue'
 
 const quantity = ref(1)
+const inputList = ['hover', 'focus', 'error', 'disabled']
 </script>
