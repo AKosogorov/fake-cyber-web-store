@@ -1,4 +1,4 @@
-import { AppPages } from '@/pages'
+import { AppPages } from '../router'
 
 interface IRoute<T extends object = {}> {
   name: string
@@ -9,11 +9,11 @@ export class AppRoutes {
   private constructor() {}
 
   static getCatalogCategory(category: string) {
-    return getRoute(AppPages.catalog.category, { category })
+    return getRoute(AppPages.category, { category })
   }
 
   static getProduct(id: number) {
-    return getRoute(AppPages.catalog.product, { id })
+    return getRoute(AppPages.product, { id })
   }
 
   static getCart() {
@@ -49,6 +49,18 @@ export class AppRoutes {
   }
   static getWallet() {
     return getRoute(AppPages.wallet, {})
+  }
+
+  static getUIKit() {
+    return getRoute(AppPages.UIKit, {})
+  }
+
+  static getMain() {
+    return getRoute(AppPages.main, {})
+  }
+
+  static getNotFound() {
+    return getRoute(AppPages.notFound, {})
   }
 }
 

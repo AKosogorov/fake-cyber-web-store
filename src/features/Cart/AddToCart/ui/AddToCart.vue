@@ -23,7 +23,7 @@ import { CartModel } from '@/entities/Cart'
 import useLoadingWrap from '@/shared/lib/use/useLoadingWrap'
 import { useAppRoutes } from '@/app/providers'
 import { computed } from 'vue'
-import { useAddToCart } from '@/features/Cart/AddToCart/model'
+import { useAddToCart } from '../model'
 
 const props = defineProps<{
   id: number

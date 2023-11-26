@@ -17,6 +17,7 @@
     console.log('Successfully deployed')
   } catch (e) {
     console.log(e.message)
+    // eslint-disable-next-line no-undef
     process.exit(1)
   }
 })()
