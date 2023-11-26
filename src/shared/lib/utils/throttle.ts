@@ -5,11 +5,13 @@ export function throttle(func: Function, ms: number) {
 
   function throttleWrapper(this: any) {
     if (isThrottled) {
+      // eslint-disable-next-line prefer-rest-params
       savedArgs = arguments
       savedThis = this
       return
     }
 
+    // eslint-disable-next-line prefer-rest-params
     func.apply(this, arguments)
 
     isThrottled = true

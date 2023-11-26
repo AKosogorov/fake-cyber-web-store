@@ -13,6 +13,7 @@ import { VNavigation } from '@/shared/ui/navigation'
 
 import type { INavItem } from '@/shared/ui/navigation'
 import { useAppRoutes } from '@/app/providers'
+const appRoutes = useAppRoutes()
 
 const ordersNavList: INavItem[] = [
   {

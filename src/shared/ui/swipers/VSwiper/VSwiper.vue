@@ -16,6 +16,7 @@
   >
     <slot />
 
+    <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <div slot="container-end">
       <div
         v-if="hasPagination"
