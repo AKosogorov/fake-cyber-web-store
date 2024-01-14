@@ -1,0 +1,1 @@
+import{af as c}from"./index-ee83e50c.js";import{E as f}from"./types-e76a6185.js";function p(){const e=c();async function t(a,o=f.payment){if(a>e.balance)throw new Error("Insufficient funds, please replenish your account");const n=e.balance-a,r={balance:n,date:Date.now(),sum:a,operationTypeId:o};await e.updateAndSync(n,r)}return{writeOff:t}}export{p as u};

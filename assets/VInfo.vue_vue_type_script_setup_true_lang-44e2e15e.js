@@ -1,0 +1,1 @@
+import{d as o,o as l,c as n,a as s,t,r as c,g as r}from"./index-ee83e50c.js";const _={class:"info flex gap-xxs"},i={class:"info__label label"},d={class:"info__text"},x=o({__name:"VInfo",props:{label:null,txt:null},setup(e){return(a,f)=>(l(),n("div",_,[s("span",i,t(e.label)+":",1),s("span",d,[c(a.$slots,"default",{},()=>[r(t(e.txt),1)])])]))}});export{x as _};

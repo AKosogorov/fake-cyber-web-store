@@ -1,0 +1,1 @@
+import{_ as t,i as n,o as s,c as a,a as e,b as c,w as r,g as _}from"./index-ee83e50c.js";const l={},i={class:"container"},d=e("h1",null,"Not Found Page",-1);function u(f,m){const o=n("router-link");return s(),a("section",null,[e("div",i,[c(o,{class:"link",to:"/"},{default:r(()=>[_(" Go to Main ")]),_:1}),d])])}const h=t(l,[["render",u]]);export{h as default};

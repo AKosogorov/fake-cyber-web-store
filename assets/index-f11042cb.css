@@ -1,0 +1,1 @@
+.cart-page__grid{display:grid;grid-template-columns:1fr 350px;grid-template-areas:"products aside";gap:var(--l)}.cart-page__products{grid-area:products}.cart-page__aside{grid-area:aside}.cart-page .cart-total{position:sticky;top:0}@media (max-width: 1200px){.cart-page__grid{grid-template-columns:1fr;grid-template-areas:"products" "aside";grid-template-rows:auto auto}}

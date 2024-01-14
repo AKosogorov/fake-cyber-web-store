@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as o,a as t}from"./index-ee83e50c.js";const c={},a={class:"container"},n=t("h1",{class:"mb-s"},"Favorites",-1),r=[n];function _(i,d){return s(),o("div",a,r)}const l=e(c,[["render",_]]);export{l as default};

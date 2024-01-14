@@ -1,0 +1,1 @@
+const t=new Intl.DateTimeFormat("en-GB"),n=new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"numeric",year:"numeric",hour:"numeric",minute:"numeric"});function r(e){return t.format(new Date(e))}function a(e){return n.format(new Date(e))}export{a,r as f};
